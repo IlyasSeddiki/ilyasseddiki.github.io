@@ -3,698 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio Professionnel de TEJO - Expert SISR">
-    <title>TEJO | Infrastructure & Security Engineer</title>
+    <title>Tejo | Infrastructure & Cloud Engineer</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* =========================================
-           1. RESET & VARIABLES GLOBALES (CORPORATE THEME)
+           1. CORE DESIGN SYSTEM
            ========================================= */
         :root {
-            /* Palette Cisco / Enterprise */
-            --col-primary: #00264d; /* Bleu Nuit Profond */
-            --col-accent: #00bceb; /* Cyan Cisco */
-            --col-success: #26b050; /* Vert Validation */
-            --col-warning: #ffae00; /* Jaune Alert */
-            --col-danger: #e2231a; /* Rouge Erreur */
+            /* Palette Dark Premium */
+            --bg-dark: #0f172a; /* Slate 900 */
+            --bg-card: rgba(30, 41, 59, 0.7); /* Transparence */
+            --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* Bleu vers Violet */
+            --accent-glow: #6366f1;
             
-            /* Backgrounds */
-            --bg-body: #f4f5f9;
-            --bg-sidebar: #1b252e;
-            --bg-card: #ffffff;
-            --bg-terminal: #0d1117;
-
-            /* Typography */
-            --text-main: #333333;
-            --text-muted: #6c757d;
-            --text-light: #ffffff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
             
-            /* Spacing & Borders */
-            --radius: 6px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --border: 1px solid #e1e4e8;
+            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --blur: blur(12px);
             
-            --sidebar-width: 260px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-        
-        html { scroll-behavior: smooth; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
             color: var(--text-main);
-            line-height: 1.6;
             overflow-x: hidden;
-            height: 100vh;
-            display: flex;
+            line-height: 1.6;
         }
 
+        /* --- BACKGROUND ANIMATION (AURORA) --- */
+        .background-blobs {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            overflow: hidden; pointer-events: none;
+        }
+        .blob {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #3b82f6; }
+        .blob-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: #8b5cf6; animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 40%; width: 300px; height: 300px; background: #06b6d4; animation-duration: 25s; }
+
+        @keyframes move { from { transform: translate(0, 0); } to { transform: translate(50px, 50px); } }
+
         /* =========================================
-           2. SIDEBAR NAVIGATION (DASHBOARD STYLE)
+           2. NAVIGATION (FLOATING GLASS)
            ========================================= */
-        #sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--bg-sidebar);
-            color: var(--text-light);
-            height: 100vh;
-            position: fixed;
-            left: 0; top: 0;
-            display: flex; flex-direction: column;
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1000px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: var(--blur);
+            border: var(--glass-border);
+            border-radius: 50px;
+            padding: 15px 30px;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            transition: transform 0.3s ease;
+            box-shadow: var(--glass-shadow);
         }
 
-        .brand-box {
-            padding: 25px;
-            background: rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+        .logo span { background: var(--primary-gradient); -webkit-background-clip: text; color: transparent; }
 
-        .brand-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--col-accent);
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem;
+            transition: var(--transition);
         }
-        
-        .brand-role {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 5px;
-        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
 
-        .nav-links {
-            flex: 1;
-            padding: 20px 0;
-            overflow-y: auto;
+        .btn-nav {
+            background: var(--primary-gradient); color: #fff;
+            padding: 10px 24px; border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem; transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
-
-        .nav-item {
-            display: flex; align-items: center;
-            padding: 15px 25px;
-            color: #aeb9c0;
-            text-decoration: none;
-            transition: 0.2s;
-            border-left: 3px solid transparent;
-            font-size: 0.95rem;
-        }
-
-        .nav-item i { width: 30px; font-size: 1.1rem; }
-
-        .nav-item:hover, .nav-item.active {
-            background: rgba(0, 188, 235, 0.1);
-            color: var(--text-light);
-            border-left-color: var(--col-accent);
-        }
-
-        .server-status {
-            padding: 20px;
-            background: rgba(0,0,0,0.2);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-        }
-
-        .status-row {
-            display: flex; justify-content: space-between;
-            margin-bottom: 8px;
-            color: #8b949e;
-        }
-        .status-val { color: var(--col-success); }
+        .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6); }
 
         /* =========================================
-           3. MAIN CONTENT AREA
+           3. HERO SECTION
            ========================================= */
-        #main-content {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 0;
-            position: relative;
-            overflow-y: auto;
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 20px; margin-top: -50px;
         }
 
-        /* --- HEADER --- */
-        header {
-            background: var(--bg-card);
-            height: 70px;
-            border-bottom: var(--border);
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 40px;
-            position: sticky; top: 0; z-index: 900;
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.05); border: var(--glass-border);
+            padding: 8px 16px; border-radius: 50px;
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+        }
+        .hero-badge i { color: #3b82f6; margin-right: 8px; }
+
+        h1 {
+            font-size: 4.5rem; line-height: 1.1; font-weight: 800; margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+        h1 .gradient-text {
+            background: var(--primary-gradient); -webkit-background-clip: text; color: transparent;
         }
 
-        .breadcrumb { font-size: 0.9rem; color: var(--text-muted); }
-        .breadcrumb span { color: var(--col-primary); font-weight: 600; }
-
-        .header-tools { display: flex; gap: 20px; }
-        .tool-btn {
-            background: none; border: 1px solid #e1e4e8;
-            padding: 8px 12px; border-radius: 4px; cursor: pointer;
-            color: var(--text-muted); transition: 0.2s;
-        }
-        .tool-btn:hover { border-color: var(--col-accent); color: var(--col-accent); }
-
-        /* --- HERO SECTION (NETWORK CANVAS) --- */
-        .hero-section {
-            position: relative;
-            height: 400px;
-            background: var(--col-primary);
-            color: white;
-            display: flex; align-items: center;
-            padding: 0 40px;
-            overflow: hidden;
+        .hero-desc {
+            font-size: 1.25rem; color: var(--text-muted); max-width: 700px;
+            margin-bottom: 40px;
         }
 
-        #network-canvas {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.3;
+        .hero-cta-group { display: flex; gap: 20px; }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05); color: #fff; border: var(--glass-border);
+            padding: 14px 30px; border-radius: 50px; text-decoration: none;
+            font-weight: 600; transition: var(--transition);
         }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
 
-        .hero-text { position: relative; z-index: 2; max-width: 800px; }
+        /* =========================================
+           4. SECTIONS & CARDS
+           ========================================= */
+        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
         
-        .badge {
-            display: inline-block; padding: 4px 10px;
-            border-radius: 50px; font-size: 0.75rem; font-weight: 600;
-            background: rgba(0, 188, 235, 0.2); color: var(--col-accent);
-            border: 1px solid var(--col-accent); margin-bottom: 15px;
+        .section-header { margin-bottom: 60px; max-width: 600px; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+        .section-subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* GRID */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        /* CARD STYLE */
+        .glass-card {
+            background: var(--bg-card); border: var(--glass-border);
+            border-radius: var(--radius-lg); padding: 35px;
+            backdrop-filter: var(--blur);
+            transition: var(--transition);
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; line-height: 1.1; }
-        .hero-desc { font-size: 1.1rem; color: #aeb9c0; max-width: 600px; margin-bottom: 30px; }
-
-        .btn {
-            padding: 12px 24px; border-radius: 4px; font-weight: 600; text-decoration: none;
-            display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; cursor: pointer; border: none;
-        }
-        .btn-primary { background: var(--col-accent); color: white; }
-        .btn-primary:hover { background: #009ec3; box-shadow: 0 0 15px rgba(0, 188, 235, 0.4); }
-        .btn-outline { border: 1px solid rgba(255,255,255,0.3); color: white; margin-left: 15px; }
-        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
-
-        /* --- CONTENT WRAPPER --- */
-        .content-wrapper { padding: 40px; }
-
-        .section-title {
-            font-size: 1.5rem; color: var(--col-primary);
-            margin-bottom: 25px; display: flex; align-items: center; gap: 10px;
-        }
-        .section-title::before { content: ''; display: block; width: 5px; height: 25px; background: var(--col-accent); border-radius: 2px; }
-
-        /* --- CARDS GRID (STATS & SKILLS) --- */
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        
-        .stat-card {
-            background: var(--bg-card); padding: 25px; border-radius: var(--radius);
-            box-shadow: var(--shadow); border: var(--border);
-            display: flex; flex-direction: column; justify-content: space-between;
-            transition: transform 0.2s;
-        }
-        .stat-card:hover { transform: translateY(-5px); border-color: var(--col-accent); }
-
-        .stat-icon { font-size: 2rem; color: var(--col-accent); margin-bottom: 15px; }
-        .stat-val { font-size: 1.8rem; font-weight: 700; color: var(--col-primary); }
-        .stat-label { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* --- EXPERIENCE (TIMELINE) --- */
-        .timeline-container {
-            background: var(--bg-card); padding: 30px; border-radius: var(--radius);
-            box-shadow: var(--shadow); border: var(--border); margin-bottom: 40px;
+        .card-icon {
+            width: 50px; height: 50px; border-radius: 12px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.5rem; color: #fff; margin-bottom: 25px;
         }
 
+        .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; }
+        .card-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tag {
+            font-size: 0.75rem; padding: 6px 12px; border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* =========================================
+           5. EXPERIENCE (MINIMAL TIMELINE)
+           ========================================= */
         .timeline-item {
-            display: flex; gap: 20px; padding-bottom: 30px; border-left: 2px solid #e1e4e8;
-            padding-left: 30px; position: relative;
+            display: flex; gap: 30px; margin-bottom: 40px;
+            position: relative; opacity: 0; transform: translateY(20px); transition: var(--transition);
         }
-        .timeline-item:last-child { border-left-color: transparent; }
+        .timeline-item.visible { opacity: 1; transform: translateY(0); }
         
-        .timeline-dot {
-            position: absolute; left: -6px; top: 0; width: 10px; height: 10px;
-            background: var(--col-accent); border-radius: 50%; border: 2px solid white;
+        .timeline-line {
+            width: 2px; background: rgba(255,255,255,0.1); position: absolute;
+            left: 24px; top: 0; bottom: 0; z-index: -1;
         }
-
-        .exp-date { font-family: 'JetBrains Mono'; font-size: 0.85rem; color: var(--text-muted); min-width: 120px; }
-        .exp-content h3 { font-size: 1.1rem; color: var(--col-primary); margin-bottom: 5px; }
-        .exp-company { font-weight: 600; color: var(--col-accent); margin-bottom: 10px; display: block; }
-        .exp-desc ul { list-style-position: inside; color: #555; font-size: 0.95rem; }
-
-        /* --- PROJECTS (DETAILS TABLE STYLE) --- */
-        .projects-table-container {
-            background: var(--bg-card); border-radius: var(--radius);
-            box-shadow: var(--shadow); overflow: hidden; border: var(--border);
-        }
-
-        table { width: 100%; border-collapse: collapse; }
-        th { background: #f8f9fa; text-align: left; padding: 15px 20px; font-weight: 600; color: var(--text-muted); font-size: 0.85rem; border-bottom: var(--border); }
-        td { padding: 15px 20px; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: var(--text-main); }
-        tr:last-child td { border-bottom: none; }
-        tr:hover { background-color: #fcfcfc; }
-
-        .status-badge {
-            padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;
-        }
-        .st-prod { background: rgba(38, 176, 80, 0.1); color: var(--col-success); border: 1px solid var(--col-success); }
-        .st-dev { background: rgba(255, 174, 0, 0.1); color: var(--col-warning); border: 1px solid var(--col-warning); }
-
-        /* --- CONTACT SECTION --- */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         
-        .form-group { margin-bottom: 20px; }
-        .form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
+        .timeline-icon {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: #1e293b; border: 2px solid #3b82f6;
+            display: flex; justify-content: center; align-items: center;
+            flex-shrink: 0; z-index: 2;
+        }
+
+        .timeline-content {
+            background: rgba(255,255,255,0.03); border: var(--glass-border);
+            padding: 25px; border-radius: var(--radius-md); flex-grow: 1;
+        }
+        .role { font-size: 1.2rem; font-weight: 700; color: #fff; }
+        .company { color: #3b82f6; font-weight: 600; margin-bottom: 10px; display: block; }
+        .period { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; display: block; }
+
+        /* =========================================
+           6. CONTACT (MODERN FORM)
+           ========================================= */
+        .contact-section { text-align: center; }
+        
+        .contact-form {
+            max-width: 600px; margin: 0 auto;
+            background: var(--bg-card); border: var(--glass-border);
+            padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--blur);
+        }
+
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; }
         .form-input {
-            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;
-            font-family: 'Inter'; font-size: 0.95rem; transition: 0.3s;
+            width: 100%; padding: 14px; background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+            color: #fff; font-family: inherit; transition: var(--transition);
         }
-        .form-input:focus { border-color: var(--col-accent); box-shadow: 0 0 0 3px rgba(0, 188, 235, 0.1); }
+        .form-input:focus { border-color: #3b82f6; outline: none; background: rgba(0,0,0,0.4); }
+        textarea.form-input { resize: vertical; min-height: 120px; }
 
-        /* --- TERMINAL OVERLAY --- */
-        #terminal-overlay {
-            position: fixed; bottom: -400px; left: var(--sidebar-width); right: 0;
-            height: 350px; background: var(--bg-terminal); border-top: 3px solid var(--col-accent);
-            z-index: 2000; transition: bottom 0.3s ease;
-            display: flex; flex-direction: column;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        .btn-submit {
+            width: 100%; padding: 16px; border: none; border-radius: 12px;
+            background: var(--primary-gradient); color: #fff; font-weight: 700;
+            font-size: 1rem; cursor: pointer; transition: var(--transition);
         }
-        #terminal-overlay.open { bottom: 0; }
+        .btn-submit:hover { opacity: 0.9; transform: scale(0.98); }
 
-        .term-header {
-            background: #1f1f1f; padding: 5px 15px; color: #ccc; font-size: 0.8rem;
-            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+        /* FOOTER */
+        footer {
+            text-align: center; padding: 50px 0; color: var(--text-muted); font-size: 0.9rem;
+            border-top: var(--glass-border); margin-top: 50px;
         }
-        .term-body {
-            flex: 1; padding: 15px; font-family: 'JetBrains Mono', monospace;
-            color: #ccc; font-size: 0.9rem; overflow-y: auto;
-        }
-        
-        .prompt-line { display: flex; margin-bottom: 5px; }
-        .prompt-user { color: var(--col-success); }
-        .prompt-host { color: var(--col-accent); }
-        .cmd-input { background: transparent; border: none; color: white; flex: 1; margin-left: 10px; font-family: inherit; }
+        .socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .socials a { color: #fff; font-size: 1.5rem; transition: 0.3s; }
+        .socials a:hover { color: #3b82f6; transform: translateY(-3px); }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            #sidebar { transform: translateX(-100%); width: 280px; }
-            #main-content { margin-left: 0; }
-            #sidebar.mobile-active { transform: translateX(0); }
-            .hero-section { flex-direction: column; text-align: center; height: auto; padding: 60px 20px; }
-            .contact-grid { grid-template-columns: 1fr; }
-            #terminal-overlay { left: 0; }
+        /* SCROLL ANIMATION */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            nav { width: 95%; padding: 15px 20px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <nav id="sidebar">
-        <div class="brand-box">
-            <div class="brand-name"><i class="fa-brands fa-linux"></i> TEJO</div>
-            <div class="brand-role">SISR INFRASTRUCTURE</div>
-        </div>
-
-        <div class="nav-links">
-            <a href="#overview" class="nav-item active"><i class="fa-solid fa-gauge-high"></i> Vue d'ensemble</a>
-            <a href="#experience" class="nav-item"><i class="fa-solid fa-briefcase"></i> Expérience Pro</a>
-            <a href="#skills" class="nav-item"><i class="fa-solid fa-server"></i> Stack Technique</a>
-            <a href="#projects" class="nav-item"><i class="fa-solid fa-network-wired"></i> Projets Réseau</a>
-            <a href="#contact" class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</a>
-        </div>
-
-        <div class="server-status">
-            <div class="status-row"><span>STATUS:</span> <span class="status-val">OPERATIONAL</span></div>
-            <div class="status-row"><span>UPTIME:</span> <span style="color:#fff;">14d 03h 22m</span></div>
-            <div class="status-row"><span>REGION:</span> <span style="color:#fff;">FR-PARIS-1</span></div>
-            <div class="status-row"><span>IP:</span> <span style="color:var(--col-accent);">192.168.10.55</span></div>
-        </div>
-    </nav>
-
-    <main id="main-content">
-        
-        <header>
-            <div class="breadcrumb">
-                <i class="fa-solid fa-home"></i> / Infrastructure / <span>Dashboard</span>
-            </div>
-            <div class="header-tools">
-                <button class="tool-btn" onclick="toggleTerminal()" title="Ouvrir Terminal (F12)"><i class="fa-solid fa-terminal"></i></button>
-                <button class="tool-btn" title="Télécharger CV"><i class="fa-solid fa-download"></i></button>
-                <button class="tool-btn"><i class="fa-solid fa-user-circle"></i></button>
-            </div>
-        </header>
-
-        <section class="hero-section" id="overview">
-            <canvas id="network-canvas"></canvas>
-            <div class="hero-text">
-                <span class="badge">DISPONIBLE POUR ALTERNANCE</span>
-                <h1>Administrateur Systèmes & Réseaux</h1>
-                <p class="hero-desc">
-                    Étudiant BTS SIO option SISR. Spécialiste en haute disponibilité, architecture Cisco et automatisation des infrastructures.
-                    Je conçois des environnements sécurisés et performants.
-                </p>
-                <div style="margin-top: 20px;">
-                    <a href="#contact" class="btn btn-primary">Initier un projet</a>
-                    <button onclick="toggleTerminal()" class="btn btn-outline"><i class="fa-solid fa-terminal"></i> Accès Console</button>
-                </div>
-            </div>
-        </section>
-
-        <div class="content-wrapper">
-
-            <div class="grid-4">
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <div class="stat-val">3</div>
-                    <div class="stat-label">Années d'Expérience (Inc. Stages)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fa-solid fa-check-double"></i></div>
-                    <div class="stat-val">15+</div>
-                    <div class="stat-label">Projets Déployés</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fa-brands fa-docker"></i></div>
-                    <div class="stat-val">99.9%</div>
-                    <div class="stat-label">Uptime Moyen</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fa-solid fa-certificate"></i></div>
-                    <div class="stat-val">CCNA</div>
-                    <div class="stat-label">Certification en cours</div>
-                </div>
-            </div>
-
-            <h2 class="section-title" id="skills">Expertise Technique</h2>
-            <div class="grid-4">
-                <div class="stat-card" style="border-top: 4px solid var(--col-accent);">
-                    <h3><i class="fa-solid fa-network-wired"></i> Réseau</h3>
-                    <ul style="list-style:none; margin-top:15px; line-height:2; font-size:0.9rem;">
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Cisco IOS (L2/L3)</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> OSPF / BGP / STP</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> VPN IPsec & SSL</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Wireshark Analysis</li>
-                    </ul>
-                </div>
-
-                <div class="stat-card" style="border-top: 4px solid #0056b3;">
-                    <h3><i class="fa-brands fa-windows"></i> Système</h3>
-                    <ul style="list-style:none; margin-top:15px; line-height:2; font-size:0.9rem;">
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Windows Server 2019/22</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Active Directory / GPO</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Linux (Debian/RHEL)</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> PowerShell / Bash</li>
-                    </ul>
-                </div>
-
-                <div class="stat-card" style="border-top: 4px solid #e67e22;">
-                    <h3><i class="fa-solid fa-server"></i> Infra</h3>
-                    <ul style="list-style:none; margin-top:15px; line-height:2; font-size:0.9rem;">
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> VMWare ESXi / vCenter</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Proxmox HA Cluster</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Docker & Kubernetes</li>
-                        <li><i class="fa-solid fa-check" style="color:var(--col-success);"></i> Veeam Backup</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2 class="section-title" id="projects">Topologie & Projets</h2>
-            <div class="projects-table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>PROJET</th>
-                            <th>TECHNOLOGIES</th>
-                            <th>RÔLE</th>
-                            <th>STATUT</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <strong>Refonte Infrastructure LAN</strong><br>
-                                <span style="font-size:0.8rem; color:#888;">Siège social Multi-VLAN</span>
-                            </td>
-                            <td><span style="color:var(--col-accent);">Cisco, DHCP, ACL</span></td>
-                            <td>Architecte Réseau</td>
-                            <td><span class="status-badge st-prod">PRODUCTION</span></td>
-                            <td><button class="tool-btn"><i class="fa-solid fa-eye"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Cluster Haute Dispo Web</strong><br>
-                                <span style="font-size:0.8rem; color:#888;">Load Balancing Nginx</span>
-                            </td>
-                            <td><span style="color:var(--col-accent);">Linux, Nginx, Docker</span></td>
-                            <td>Admin Sys</td>
-                            <td><span class="status-badge st-prod">PRODUCTION</span></td>
-                            <td><button class="tool-btn"><i class="fa-solid fa-eye"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Migration Active Directory</strong><br>
-                                <span style="font-size:0.8rem; color:#888;">Upgrade 2012R2 -> 2022</span>
-                            </td>
-                            <td><span style="color:var(--col-accent);">Windows Server, AD DS</span></td>
-                            <td>Consultant Junior</td>
-                            <td><span class="status-badge st-dev">LAB TEST</span></td>
-                            <td><button class="tool-btn"><i class="fa-solid fa-eye"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <br><br>
-
-            <h2 class="section-title" id="experience">Parcours Professionnel</h2>
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-date">Sept 2024 - Présent</div>
-                    <div class="exp-content">
-                        <h3>Technicien Supérieur Système et Réseaux</h3>
-                        <span class="exp-company"><i class="fa-solid fa-building"></i> TEJO CORP SOLUTIONS (Alternance)</span>
-                        <div class="exp-desc">
-                            <ul>
-                                <li>Gestion de parc informatique (250 postes) via GLPI.</li>
-                                <li>MCO des serveurs Linux (Debian) et Windows.</li>
-                                <li>Déploiement d'une solution de supervision Zabbix.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="exp-date">Mai 2023 - Juil 2023</div>
-                    <div class="exp-content">
-                        <h3>Stage Technicien Support N2</h3>
-                        <span class="exp-company"><i class="fa-solid fa-building"></i> SERVICE INFO LOCAL</span>
-                        <div class="exp-desc">
-                            <ul>
-                                <li>Migration de postes Windows 10 vers 11.</li>
-                                <li>Brassage de baies et installation de switchs Cisco.</li>
-                                <li>Configuration de téléphones IP (VoIP).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-title" id="contact">Contact Professionnel</h2>
-            <div class="stat-card">
-                <form id="contactForm">
-                    <div class="contact-grid">
-                        <div class="form-group">
-                            <label class="form-label">Nom Complet</label>
-                            <input type="text" class="form-input" placeholder="Ex: Directeur Technique">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Email Professionnel</label>
-                            <input type="email" class="form-input" placeholder="contact@entreprise.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Sujet (Projet / Recrutement)</label>
-                        <select class="form-input">
-                            <option>Proposition d'Alternance</option>
-                            <option>Audit Infrastructure</option>
-                            <option>Autre</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Message</label>
-                        <textarea class="form-input" rows="5" placeholder="Détails de votre demande..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer la demande</button>
-                </form>
-            </div>
-            
-            <br><br>
-            <footer style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding-bottom: 20px;">
-                &copy; 2025 TEJO INFRASTRUCTURE. Tous droits réservés. <br>
-                Designed with strict security protocols.
-            </footer>
-
-        </div>
-    </main>
-
-    <div id="terminal-overlay">
-        <div class="term-header" onclick="toggleTerminal()">
-            <span><i class="fa-solid fa-terminal"></i> root@tejo-srv: ~ (zsh)</span>
-            <span><i class="fa-solid fa-chevron-down"></i></span>
-        </div>
-        <div class="term-body" id="term-output">
-            <div style="color:#666; margin-bottom:10px;"># Bienvenue sur la console d'administration de TEJO.</div>
-            <div style="color:#666; margin-bottom:10px;"># Tapez 'help' pour la liste des commandes.</div>
-            
-            <div class="prompt-line">
-                <span class="prompt-user">root</span><span style="color:#666">@</span><span class="prompt-host">tejo-srv</span> <span style="color:var(--col-accent)">~</span> # 
-                <input type="text" class="cmd-input" id="cmdInput" autofocus>
-            </div>
-        </div>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
-    <script>
-        // 1. GESTION DU TERMINAL
-        const termOverlay = document.getElementById('terminal-overlay');
-        const cmdInput = document.getElementById('cmdInput');
-        const termOutput = document.getElementById('term-output');
+    <nav>
+        <div class="logo">Tejo<span>.io</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#stack">Expertise</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#experience">Parcours</a></li>
+        </ul>
+        <a href="#contact" class="btn-nav">Me contacter</a>
+    </nav>
 
-        function toggleTerminal() {
-            termOverlay.classList.toggle('open');
-            if(termOverlay.classList.contains('open')) {
-                cmdInput.focus();
-            }
-        }
+    <header class="hero">
+        <div class="hero-badge reveal">
+            <i class="fa-solid fa-circle-check"></i> Disponible pour Alternance / Stage
+        </div>
+        <h1 class="reveal">
+            Architecte de vos <br>
+            <span class="gradient-text">Infrastructures Digitales</span>
+        </h1>
+        <p class="hero-desc reveal">
+            J'aide les entreprises à construire des réseaux robustes, sécurisés et évolutifs.
+            Étudiant en BTS SIO SISR passionné par le Cloud, la Virtualisation et la Cybersécurité.
+        </p>
+        <div class="hero-cta-group reveal">
+            <a href="#projects" class="btn-nav">Voir mes travaux</a>
+            <a href="https://linkedin.com" target="_blank" class="btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </header>
 
-        cmdInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                const cmd = this.value.trim().toLowerCase();
-                const newLine = document.createElement('div');
-                
-                // Echo de la commande
-                newLine.innerHTML = `<span style="color:#26b050">root@tejo</span> # ${this.value}`;
-                termOutput.insertBefore(newLine, this.parentElement);
-
-                // Réponse
-                const response = document.createElement('div');
-                response.style.marginBottom = '10px';
-                response.style.color = '#ccc';
-
-                switch(cmd) {
-                    case 'help':
-                        response.innerHTML = "Commandes : <br>- <b>whoami</b> : Affiche le profil<br>- <b>contact</b> : Affiche email<br>- <b>clear</b> : Nettoie l'écran<br>- <b>ping</b> : Test connectivité";
-                        break;
-                    case 'whoami':
-                        response.innerHTML = "Tejo - Étudiant SISR passionné par l'infrastructure.";
-                        break;
-                    case 'contact':
-                        response.innerHTML = "Email: tejo@sisr.network";
-                        break;
-                    case 'ping':
-                        response.innerHTML = "Pinging 8.8.8.8 with 32 bytes of data:<br>Reply from 8.8.8.8: bytes=32 time=14ms TTL=116<br>Reply from 8.8.8.8: bytes=32 time=14ms TTL=116";
-                        break;
-                    case 'clear':
-                        termOutput.innerHTML = '';
-                        termOutput.appendChild(this.parentElement);
-                        this.value = '';
-                        return; // Stop here
-                    default:
-                        response.innerHTML = `Commande '${cmd}' inconnue.`;
-                }
-
-                termOutput.insertBefore(response, this.parentElement);
-                this.value = '';
-                termOutput.scrollTop = termOutput.scrollHeight;
-            }
-        });
-
-        // 2. NETWORK BACKGROUND ANIMATION (CANVAS)
-        const canvas = document.getElementById('network-canvas');
-        const ctx = canvas.getContext('2d');
+    <section id="stack">
+        <div class="section-header reveal">
+            <h2 class="section-title">Domaines d'Expertise</h2>
+            <p class="section-subtitle">Une approche technique complète, du câble physique jusqu'au Cloud.</p>
+        </div>
         
-        let width, height;
-        let particles = [];
+        <div class="grid-3">
+            <div class="glass-card reveal">
+                <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+                <h3 class="card-title">Systèmes & Virtualisation</h3>
+                <p class="card-desc">Administration de serveurs Windows & Linux. Déploiement de clusters haute disponibilité (Proxmox, ESXi) et conteneurisation.</p>
+                <div class="tags">
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">Linux RHEL</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">VMWare</span>
+                </div>
+            </div>
 
-        function resize() {
-            width = canvas.width = canvas.parentElement.offsetWidth;
-            height = canvas.height = canvas.parentElement.offsetHeight;
-        }
+            <div class="glass-card reveal">
+                <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h3 class="card-title">Réseaux & Architecture</h3>
+                <p class="card-desc">Conception d'architectures LAN/WAN complexes. Maîtrise des protocoles de routage et de la commutation avancée (Cisco).</p>
+                <div class="tags">
+                    <span class="tag">Cisco CCNA</span>
+                    <span class="tag">OSPF / BGP</span>
+                    <span class="tag">VLAN / STP</span>
+                    <span class="tag">Wireshark</span>
+                </div>
+            </div>
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if(this.x < 0 || this.x > width) this.vx *= -1;
-                if(this.y < 0 || this.y > height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255,255,255,0.5)';
-                ctx.fill();
-            }
-        }
+            <div class="glass-card reveal">
+                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="card-title">Cybersécurité & SecOps</h3>
+                <p class="card-desc">Sécurisation des infrastructures. Mise en place de pare-feux, gestion des identités (AD) et stratégies de sauvegarde.</p>
+                <div class="tags">
+                    <span class="tag">Firewalling</span>
+                    <span class="tag">VPN IPsec</span>
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">Backup</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function initParticles() {
-            particles = [];
-            for(let i=0; i<40; i++) particles.push(new Particle());
-        }
+    <section id="projects">
+        <div class="section-header reveal">
+            <h2 class="section-title">Projets Récents</h2>
+            <p class="section-subtitle">Solutions concrètes déployées en environnement lab et production.</p>
+        </div>
 
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
+        <div class="grid-3">
+            <div class="glass-card reveal">
+                <div style="height: 150px; background: rgba(255,255,255,0.05); border-radius: 12px; margin-bottom: 20px; display:flex; align-items:center; justify-content:center; color:#3b82f6; font-size:3rem;">
+                    <i class="fa-brands fa-aws"></i>
+                </div>
+                <h3 class="card-title">Architecture Cloud Hybride</h3>
+                <p class="card-desc">Interconnexion d'un réseau local entreprise avec un VPC Cloud via tunnel VPN sécurisé. Automatisation via Terraform.</p>
+                <div class="tags"><span class="tag">Cloud</span><span class="tag">VPN</span><span class="tag">Terraform</span></div>
+            </div>
+
+            <div class="glass-card reveal">
+                <div style="height: 150px; background: rgba(255,255,255,0.05); border-radius: 12px; margin-bottom: 20px; display:flex; align-items:center; justify-content:center; color:#8b5cf6; font-size:3rem;">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <h3 class="card-title">Refonte Active Directory</h3>
+                <p class="card-desc">Migration d'infrastructure AD. Implémentation de GPO de sécurité strictes et redondance des contrôleurs de domaine.</p>
+                <div class="tags"><span class="tag">Microsoft</span><span class="tag">GPO</span><span class="tag">Sécurité</span></div>
+            </div>
             
-            // Draw connections
-            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
-            for(let i=0; i<particles.length; i++) {
-                for(let j=i; j<particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    if(dist < 100) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
+            <div class="glass-card reveal">
+                <div style="height: 150px; background: rgba(255,255,255,0.05); border-radius: 12px; margin-bottom: 20px; display:flex; align-items:center; justify-content:center; color:#06b6d4; font-size:3rem;">
+                    <i class="fa-solid fa-chart-area"></i>
+                </div>
+                <h3 class="card-title">Supervision Zabbix</h3>
+                <p class="card-desc">Mise en place d'une solution de monitoring complète pour un parc de 50 serveurs. Alerting par mail et Telegram.</p>
+                <div class="tags"><span class="tag">Monitoring</span><span class="tag">Linux</span><span class="tag">SNMP</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-header reveal">
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <p class="section-subtitle">Mon parcours académique et professionnel.</p>
+        </div>
+
+        <div style="position: relative;">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item reveal">
+                <div class="timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="timeline-content glass-card">
+                    <h3 class="role">Technicien Support & Réseau (Alternance)</h3>
+                    <span class="company">TEJO CORP SOLUTIONS</span>
+                    <span class="period">Septembre 2024 - Aujourd'hui</span>
+                    <p class="card-desc">
+                        Gestion du parc informatique, administration des serveurs Linux/Windows, support utilisateur N2. Participation à la migration vers Office 365.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="timeline-content glass-card">
+                    <h3 class="role">BTS SIO option SISR</h3>
+                    <span class="company">Lycée Technologique</span>
+                    <span class="period">2023 - 2025</span>
+                    <p class="card-desc">
+                        Solutions d'Infrastructures, Systèmes et Réseaux. Apprentissage approfondi de l'architecture réseau, de la cybersécurité et des services systèmes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="section-header reveal" style="margin: 0 auto 40px auto; text-align: center;">
+            <h2 class="section-title">Prêt à collaborer ?</h2>
+            <p class="section-subtitle">Discutons de vos besoins en infrastructure ou d'opportunités de carrière.</p>
+        </div>
+
+        <form class="contact-form reveal">
+            <div class="form-group">
+                <label class="form-label">Nom complet</label>
+                <input type="text" class="form-input" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Adresse Email</label>
+                <input type="email" class="form-input" placeholder="votre@email.com">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" placeholder="Détails du projet..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Envoyer le message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2025 TEJO. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // ANIMATION AU SCROLL
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
                 }
-                particles[i].update();
-                particles[i].draw();
             }
-            requestAnimationFrame(animate);
         }
-
-        window.addEventListener('resize', resize);
-        resize();
-        initParticles();
-        animate();
-
-        // 3. CONTACT FORM SIMULATION
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = "Transmission sécurisée en cours...";
-            btn.style.background = "#26b050";
-            
-            setTimeout(() => {
-                alert("Message transmis au serveur de TEJO. Merci !");
-                btn.innerText = originalText;
-                btn.style.background = "";
-                this.reset();
-            }, 1500);
-        });
+        window.addEventListener("scroll", reveal);
+        // Déclencher une fois au chargement
+        reveal();
     </script>
 </body>
 </html>
