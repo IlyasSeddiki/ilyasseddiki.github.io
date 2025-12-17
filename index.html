@@ -24,10 +24,10 @@
             --accent: #2563eb; /* Bleu Roi */
             --secondary: #64748b; /* Gris texte */
             
-            /* Couleurs pour la Timeline */
+            /* Couleurs Timeline */
             --timeline-line: #e2e8f0;
-            --timeline-dot-school: #7c3aed; /* Violet pour l'école */
-            --timeline-dot-work: #2563eb;   /* Bleu pour le travail */
+            --timeline-dot-school: #7c3aed; /* Violet */
+            --timeline-dot-work: #2563eb;   /* Bleu */
 
             /* Tags Projets */
             --tag-physique-bg: #fff1f2; --tag-physique-text: #be123c;
@@ -87,7 +87,7 @@
         .btn-nav {
             background: var(--primary); color: #fff; padding: 10px 24px;
             border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            transition: var(--transition);
+            transition: var(--transition); display: flex; align-items: center; gap: 8px;
         }
         .btn-nav:hover { background: var(--accent); transform: translateY(-2px); }
 
@@ -112,12 +112,27 @@
         }
         .highlight { background: linear-gradient(135deg, var(--accent), #7c3aed); -webkit-background-clip: text; color: transparent; }
 
+        /* Curseurs pour l'effet typewriter */
+        .cursor {
+            display: inline-block; background-color: transparent; color: var(--accent);
+            animation: blink 1s infinite; font-weight: 300; margin-left: 5px;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
         .hero-desc {
             font-size: 1.15rem; max-width: 700px; margin-bottom: 40px; color: var(--secondary);
         }
 
+        .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn-outline {
+            background: transparent; border: 2px solid var(--primary); color: var(--primary);
+            padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: 700;
+            font-size: 0.9rem; transition: var(--transition); display: flex; align-items: center; gap: 8px;
+        }
+        .btn-outline:hover { background: var(--primary); color: #fff; }
+
         /* =========================================
-           4. SECTIONS GENERIQUES
+           4. STRUCTURE GÉNÉRALE
            ========================================= */
         section { padding: 80px 5%; max-width: 1000px; margin: 0 auto; }
         
@@ -125,7 +140,6 @@
         .section-title { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
         .section-subtitle { font-size: 1.1rem; color: var(--secondary); }
         
-        /* Sous-titre de séparation (Pro vs Ecole) */
         .timeline-header {
             text-align: center; font-size: 1.5rem; font-weight: 700; color: var(--primary);
             margin: 60px 0 40px 0; position: relative; display: inline-block;
@@ -140,7 +154,7 @@
         }
 
         /* =========================================
-           5. FRISE CHRONOLOGIQUE (TIMELINE)
+           5. TIMELINE
            ========================================= */
         .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         
@@ -174,20 +188,17 @@
         }
         .timeline-content:hover { transform: translateY(-3px); border-color: var(--accent); }
 
-        /* HEADER CARTE STAGE */
         .stage-header {
             display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;
             border-bottom: 1px solid var(--timeline-line); padding-bottom: 20px;
         }
         .company-name { font-size: 1.3rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 10px; }
         .company-loc { font-size: 0.85rem; background: #f1f5f9; padding: 4px 10px; border-radius: 6px; color: var(--secondary); }
-        .date-badge {
-            font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px;
-        }
+        .date-badge { font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
         .type-work .date-badge { background: #eff6ff; color: var(--accent); }
         .type-school .date-badge { background: #f5f3ff; color: var(--timeline-dot-school); }
 
-        /* CEJM & RESSOURCES */
+        /* Bloc CEJM */
         .business-context {
             background: var(--cejm-bg); border: 1px solid var(--cejm-border);
             border-radius: 12px; padding: 15px; margin-bottom: 20px;
@@ -197,6 +208,7 @@
         .biz-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--cejm-text); opacity: 0.7; }
         .biz-val { font-size: 0.85rem; font-weight: 700; color: var(--cejm-text); }
 
+        /* Ressources */
         .resources-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px;
         }
@@ -209,7 +221,6 @@
         .res-icon { font-size: 1.2rem; margin-bottom: 5px; }
         .res-text { font-size: 0.75rem; font-weight: 600; }
 
-        /* Responsive Timeline */
         @media (max-width: 768px) {
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; margin-left: 0; }
@@ -219,37 +230,29 @@
         }
 
         /* =========================================
-           6. COMPÉTENCES (SKILLS GRID)
+           6. SKILLS GRID
            ========================================= */
-        .skills-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-        }
-
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .skill-card {
             background: var(--bg-card); border: var(--border); border-radius: var(--radius);
-            padding: 30px; transition: var(--transition);
-            display: flex; flex-direction: column;
+            padding: 30px; transition: var(--transition); display: flex; flex-direction: column;
         }
         .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
-
         .skill-icon {
             width: 50px; height: 50px; border-radius: 12px; margin-bottom: 20px;
             display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
         }
-        
         .icon-sys { background: #eff6ff; color: #2563eb; }
         .icon-net { background: #f0fdf4; color: #16a34a; }
         .icon-sec { background: #fff1f2; color: #e11d48; }
-
+        .icon-cld { background: #fef3c7; color: #d97706; }
         .skill-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
-        
         .skill-list { list-style: none; }
         .skill-list li {
             margin-bottom: 12px; font-size: 0.95rem; color: var(--secondary);
             display: flex; align-items: center; gap: 10px;
         }
         .skill-list li i { font-size: 0.8rem; color: var(--accent); }
-
         .tech-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tag {
             font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
@@ -257,7 +260,7 @@
         }
 
         /* =========================================
-           7. PROJETS (TABS GRID)
+           7. PROJETS (TABS)
            ========================================= */
         .tabs {
             display: flex; justify-content: center; gap: 10px; margin-bottom: 40px;
@@ -279,18 +282,15 @@
 
         .project-card {
             background: var(--bg-card); border: var(--border); border-radius: var(--radius);
-            padding: 25px; transition: var(--transition); height: 100%;
-            display: flex; flex-direction: column;
+            padding: 25px; transition: var(--transition); height: 100%; display: flex; flex-direction: column;
         }
         .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
-
         .project-badge {
             font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
             padding: 4px 10px; border-radius: 6px; margin-bottom: 15px; width: fit-content;
         }
         .badge-physique { background: var(--tag-physique-bg); color: var(--tag-physique-text); }
         .badge-virtuel { background: var(--tag-virtuel-bg); color: var(--tag-virtuel-text); }
-
         .project-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
         .project-tech { margin-top: auto; padding-top: 20px; font-size: 0.8rem; font-weight: 600; color: var(--secondary); }
 
@@ -301,18 +301,15 @@
             background: #fff; padding: 40px; border-radius: 24px;
             box-shadow: var(--shadow); border: var(--border); max-width: 600px; margin: 0 auto;
         }
-        
         input, textarea {
             width: 100%; padding: 15px; margin-bottom: 15px;
             background: #f8f9fa; border: 1px solid #e2e8f0; border-radius: 8px;
             font-family: inherit; font-size: 0.95rem;
         }
         input:focus, textarea:focus { outline: none; border-color: var(--accent); background: #fff; }
-        
         .btn-submit {
             width: 100%; padding: 15px; background: var(--accent); color: white;
-            border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
-            transition: var(--transition);
+            border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: var(--transition);
         }
         .btn-submit:hover { background: var(--primary); }
 
@@ -340,9 +337,12 @@
         <ul class="nav-links">
             <li><a href="#parcours">Parcours</a></li>
             <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Projets & Labs</a></li>
+            <li><a href="#projets">Projets</a></li>
         </ul>
-        <a href="#contact" class="btn-nav">Contact</a>
+        <div style="display:flex; gap:10px;">
+            <a href="cv.pdf" class="btn-nav" download><i class="fa-solid fa-download"></i> Mon CV</a>
+            <a href="#contact" class="btn-nav" style="background:white; color:var(--primary); border:1px solid var(--border);">Contact</a>
+        </div>
     </nav>
 
     <header>
@@ -351,14 +351,15 @@
         </div>
         <h1 class="reveal">
             Ilyas Seddiki <br>
-            <span class="highlight">Expertise Infrastructure</span>
+            <span class="highlight" id="typewriter"></span><span class="cursor">|</span>
         </h1>
         <p class="hero-desc reveal">
             Passionné par l'administration système et réseau. <br>
             Découvrez mon parcours académique et mes expériences chez <strong>TD SYNNEX</strong>.
         </p>
-        <div class="reveal">
+        <div class="reveal hero-actions">
             <a href="#parcours" class="btn-nav" style="padding: 15px 35px; font-size: 1rem;">Voir mon parcours</a>
+            <a href="cv.pdf" class="btn-outline" download><i class="fa-solid fa-download"></i> Télécharger CV</a>
         </div>
     </header>
 
@@ -383,18 +384,9 @@
                     </div>
                     
                     <div class="business-context">
-                        <div class="biz-item">
-                            <span class="biz-label">Structure</span>
-                            <span class="biz-val">Siège Social / BSC</span>
-                        </div>
-                        <div class="biz-item">
-                            <span class="biz-label">Service</span>
-                            <span class="biz-val">Business Service Center</span>
-                        </div>
-                        <div class="biz-item">
-                            <span class="biz-label">Objectif</span>
-                            <span class="biz-val">Support N2/N3 & Projets</span>
-                        </div>
+                        <div class="biz-item"><span class="biz-label">Structure</span><span class="biz-val">Siège Social / BSC</span></div>
+                        <div class="biz-item"><span class="biz-label">Service</span><span class="biz-val">Business Service Center</span></div>
+                        <div class="biz-item"><span class="biz-label">Objectif</span><span class="biz-val">Support N2/N3 & Projets</span></div>
                     </div>
 
                     <p style="color:#64748b; font-size:0.95rem;">
@@ -403,14 +395,8 @@
                     </p>
                     
                     <div class="resources-grid" style="opacity: 0.6; pointer-events: none;">
-                        <div class="resource-btn">
-                            <i class="fa-solid fa-file-contract res-icon"></i>
-                            <span class="res-text">Convention</span>
-                        </div>
-                        <div class="resource-btn">
-                            <i class="fa-solid fa-clock res-icon"></i>
-                            <span class="res-text">À venir</span>
-                        </div>
+                        <div class="resource-btn"><i class="fa-solid fa-file-contract res-icon"></i><span class="res-text">Convention</span></div>
+                        <div class="resource-btn"><i class="fa-solid fa-clock res-icon"></i><span class="res-text">À venir</span></div>
                     </div>
                 </div>
             </div>
@@ -425,18 +411,9 @@
                     </div>
 
                     <div class="business-context">
-                        <div class="biz-item">
-                            <span class="biz-label">Forme Juridique</span>
-                            <span class="biz-val">SAS (Société par Actions Simplifiée)</span>
-                        </div>
-                        <div class="biz-item">
-                            <span class="biz-label">Activité</span>
-                            <span class="biz-val">Grossiste Informatique Mondial</span>
-                        </div>
-                        <div class="biz-item">
-                            <span class="biz-label">Cible</span>
-                            <span class="biz-val">B2B (Revendeurs)</span>
-                        </div>
+                        <div class="biz-item"><span class="biz-label">Forme Juridique</span><span class="biz-val">SAS</span></div>
+                        <div class="biz-item"><span class="biz-label">Activité</span><span class="biz-val">Grossiste Informatique</span></div>
+                        <div class="biz-item"><span class="biz-label">Cible</span><span class="biz-val">B2B (Revendeurs)</span></div>
                     </div>
 
                     <div style="margin-bottom:20px;">
@@ -449,22 +426,10 @@
                     </div>
 
                     <div class="resources-grid">
-                        <a href="#" class="resource-btn" onclick="alert('Ouverture du PDF Rapport...')">
-                            <i class="fa-solid fa-file-pdf res-icon" style="color:#ef4444;"></i>
-                            <span class="res-text">Rapport</span>
-                        </a>
-                        <a href="#" class="resource-btn" onclick="alert('Ouverture de la galerie...')">
-                            <i class="fa-solid fa-images res-icon" style="color:#3b82f6;"></i>
-                            <span class="res-text">Photos</span>
-                        </a>
-                        <a href="#" class="resource-btn" onclick="alert('Ouverture du planning...')">
-                            <i class="fa-solid fa-calendar-days res-icon" style="color:#10b981;"></i>
-                            <span class="res-text">Planning</span>
-                        </a>
-                        <a href="#" class="resource-btn" onclick="alert('Voir les compétences validées')">
-                            <i class="fa-solid fa-check-circle res-icon" style="color:#f59e0b;"></i>
-                            <span class="res-text">Compétences</span>
-                        </a>
+                        <a href="#" class="resource-btn" onclick="alert('Ouverture du PDF Rapport...')"><i class="fa-solid fa-file-pdf res-icon" style="color:#ef4444;"></i><span class="res-text">Rapport</span></a>
+                        <a href="#" class="resource-btn" onclick="alert('Ouverture de la galerie...')"><i class="fa-solid fa-images res-icon" style="color:#3b82f6;"></i><span class="res-text">Photos</span></a>
+                        <a href="#" class="resource-btn" onclick="alert('Ouverture du planning...')"><i class="fa-solid fa-calendar-days res-icon" style="color:#10b981;"></i><span class="res-text">Planning</span></a>
+                        <a href="#" class="resource-btn" onclick="alert('Voir les compétences validées')"><i class="fa-solid fa-check-circle res-icon" style="color:#f59e0b;"></i><span class="res-text">Compétences</span></a>
                     </div>
                 </div>
             </div>
@@ -527,6 +492,7 @@
                     <span class="tech-tag">Hyper-V</span>
                     <span class="tech-tag">Bash</span>
                     <span class="tech-tag">GPO</span>
+                    <span class="tech-tag">PowerShell</span>
                 </div>
             </div>
 
@@ -543,6 +509,7 @@
                     <span class="tech-tag">CCNA</span>
                     <span class="tech-tag">TCP/IP</span>
                     <span class="tech-tag">ACL</span>
+                    <span class="tech-tag">Radius/802.1x</span>
                 </div>
             </div>
 
@@ -557,8 +524,24 @@
                 </ul>
                 <div class="tech-tags">
                     <span class="tech-tag">SecOps</span>
-                    <span class="tech-tag">PowerShell</span>
                     <span class="tech-tag">ITIL</span>
+                    <span class="tech-tag">RGPD</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon icon-cld"><i class="fa-solid fa-cloud"></i></div>
+                <h3 class="skill-title">Cloud & DevOps</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-check"></i> Notions Cloud (Azure, AWS)</li>
+                    <li><i class="fa-solid fa-check"></i> Conteneurisation (Docker)</li>
+                    <li><i class="fa-solid fa-check"></i> Versioning (Git, GitHub)</li>
+                    <li><i class="fa-solid fa-check"></i> CI/CD Basics</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">SaaS</span>
+                    <span class="tech-tag">IaaS</span>
+                    <span class="tech-tag">GitLab</span>
                 </div>
             </div>
 
@@ -648,6 +631,38 @@
     </footer>
 
     <script>
+        // LOGIQUE TYPEWRITER (Machine à écrire)
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["Expertise Infrastructure", "Administration Système", "Cybersécurité", "Réseaux Cisco & Cloud"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeEffect, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
         // LOGIQUE DES ONGLETS
         function filterLabs(type) {
             const btns = document.querySelectorAll('.tab-btn');
