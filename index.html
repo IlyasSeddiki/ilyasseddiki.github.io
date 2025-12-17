@@ -125,7 +125,6 @@
            ========================================= */
         .timeline { position: relative; max-width: 800px; margin: 0 auto; }
         
-        /* Ligne verticale */
         .timeline::before {
             content: ''; position: absolute; left: 50%; width: 2px; height: 100%;
             background: var(--timeline-line); transform: translateX(-50%);
@@ -136,23 +135,19 @@
             position: relative; margin-bottom: 50px; width: 50%;
         }
         
-        /* Alternance Gauche / Droite */
         .timeline-item:nth-child(even) {
             align-self: flex-end; justify-content: flex-start; padding-left: 50px; padding-right: 0; margin-left: 50%;
         }
 
-        /* Points sur la ligne */
         .timeline-dot {
             position: absolute; right: -8px; top: 0; width: 16px; height: 16px;
             border-radius: 50%; background: #fff; border: 3px solid var(--accent); z-index: 2;
         }
         .timeline-item:nth-child(even) .timeline-dot { left: -8px; right: auto; }
         
-        /* Couleurs spécifiques School vs Work */
         .type-school .timeline-dot { border-color: var(--timeline-dot-school); }
         .type-work .timeline-dot { border-color: var(--timeline-dot-work); }
 
-        /* Carte Contenu */
         .timeline-content {
             background: var(--bg-card); padding: 25px; border-radius: 16px;
             border: var(--border); box-shadow: var(--shadow); position: relative;
@@ -169,7 +164,6 @@
 
         .timeline-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
         .timeline-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 15px; display: block; }
-        
         .timeline-desc { font-size: 0.9rem; color: #64748b; }
         .timeline-btn {
             margin-top: 15px; font-size: 0.8rem; font-weight: 600; color: var(--accent);
@@ -177,7 +171,6 @@
         }
         .timeline-btn:hover { text-decoration: underline; }
 
-        /* Responsive Timeline */
         @media (max-width: 768px) {
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; margin-left: 0; }
@@ -187,7 +180,45 @@
         }
 
         /* =========================================
-           6. PROJETS (TABS GRID)
+           6. COMPÉTENCES (SKILLS GRID)
+           ========================================= */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--bg-card); border: var(--border); border-radius: var(--radius);
+            padding: 30px; transition: var(--transition);
+            display: flex; flex-direction: column;
+        }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
+
+        .skill-icon {
+            width: 50px; height: 50px; border-radius: 12px; margin-bottom: 20px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+        }
+        
+        .icon-sys { background: #eff6ff; color: #2563eb; }
+        .icon-net { background: #f0fdf4; color: #16a34a; }
+        .icon-sec { background: #fff1f2; color: #e11d48; }
+
+        .skill-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
+        
+        .skill-list { list-style: none; }
+        .skill-list li {
+            margin-bottom: 12px; font-size: 0.95rem; color: var(--secondary);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .skill-list li i { font-size: 0.8rem; color: var(--accent); }
+
+        .tech-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-tag {
+            font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
+            background: #f1f5f9; color: #475569;
+        }
+
+        /* =========================================
+           7. PROJETS (TABS GRID)
            ========================================= */
         .tabs {
             display: flex; justify-content: center; gap: 10px; margin-bottom: 40px;
@@ -225,7 +256,7 @@
         .project-tech { margin-top: auto; padding-top: 20px; font-size: 0.8rem; font-weight: 600; color: var(--secondary); }
 
         /* =========================================
-           7. CONTACT & FOOTER
+           8. CONTACT & FOOTER
            ========================================= */
         .contact-box {
             background: #fff; padding: 40px; border-radius: 24px;
@@ -269,8 +300,8 @@
         <div class="logo">Ilyas <span>Seddiki</span></div>
         <ul class="nav-links">
             <li><a href="#parcours">Parcours</a></li>
-            <li><a href="#projets">Projets</a></li>
             <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
         </ul>
         <a href="#contact" class="btn-nav">Contact</a>
     </nav>
@@ -299,16 +330,13 @@
         </div>
 
         <div class="timeline">
-            
             <div class="timeline-item type-work reveal">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <span class="date-badge">2025 (Prévu)</span>
                     <h3 class="timeline-title">Stage de Deuxième Année</h3>
                     <span class="timeline-subtitle">TD SYNNEX (Service BSC) - Courbevoie</span>
-                    <p class="timeline-desc">
-                        Intégration prévue au Business Service Center. Missions axées sur l'administration avancée et le support infrastructure.
-                    </p>
+                    <p class="timeline-desc">Intégration prévue au Business Service Center. Missions axées sur l'administration avancée et le support infrastructure.</p>
                     <button class="timeline-btn" onclick="alert('Disponible prochainement')"><i class="fa-solid fa-clock"></i> En attente</button>
                 </div>
             </div>
@@ -319,9 +347,7 @@
                     <span class="date-badge">2023 - 2025</span>
                     <h3 class="timeline-title">BTS SIO Option SISR</h3>
                     <span class="timeline-subtitle">Lycée Technologique</span>
-                    <p class="timeline-desc">
-                        Solutions d'Infrastructures, Systèmes et Réseaux. Acquisition des compétences en Cybersécurité, Cisco (CCNA), Windows Server et Linux.
-                    </p>
+                    <p class="timeline-desc">Solutions d'Infrastructures, Systèmes et Réseaux. Acquisition des compétences en Cybersécurité, Cisco (CCNA), Windows Server et Linux.</p>
                 </div>
             </div>
 
@@ -331,9 +357,7 @@
                     <span class="date-badge">2024</span>
                     <h3 class="timeline-title">Stage de Première Année</h3>
                     <span class="timeline-subtitle">TD SYNNEX (Service CEO) - Bussy-Saint-Georges</span>
-                    <p class="timeline-desc">
-                        Immersion au service informatique. Gestion de parc, maintenance préventive et support utilisateur. Découverte des processus IT d'un grand groupe.
-                    </p>
+                    <p class="timeline-desc">Immersion au service informatique. Gestion de parc, maintenance préventive et support utilisateur. Découverte des processus IT d'un grand groupe.</p>
                     <div style="display:flex; gap:10px;">
                         <button class="timeline-btn" onclick="alert('Le rapport arrive !')"><i class="fa-solid fa-file-pdf"></i> Rapport</button>
                         <button class="timeline-btn" onclick="alert('Photos bientôt disponibles')"><i class="fa-solid fa-image"></i> Photos</button>
@@ -347,9 +371,65 @@
                     <span class="date-badge">2023</span>
                     <h3 class="timeline-title">Baccalauréat Général</h3>
                     <span class="timeline-subtitle">Lycée</span>
-                    <p class="timeline-desc">
-                        Spécialité Numérique et Sciences Informatiques (NSI). Premiers pas dans le développement et l'architecture des ordinateurs.
-                    </p>
+                    <p class="timeline-desc">Spécialité Numérique et Sciences Informatiques (NSI). Premiers pas dans le développement et l'architecture des ordinateurs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences">
+        <div class="section-header reveal">
+            <h2 class="section-title">Compétences Techniques</h2>
+            <p class="section-subtitle">Maîtrise des environnements systèmes, réseaux et outils DevOps.</p>
+        </div>
+
+        <div class="skills-grid">
+            
+            <div class="skill-card reveal">
+                <div class="skill-icon icon-sys"><i class="fa-brands fa-windows"></i></div>
+                <h3 class="skill-title">Administration Système</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-check"></i> Windows Server 2019/2022</li>
+                    <li><i class="fa-solid fa-check"></i> Active Directory, DNS, DHCP</li>
+                    <li><i class="fa-solid fa-check"></i> Linux (Debian, Ubuntu, CLI)</li>
+                    <li><i class="fa-solid fa-check"></i> Virtualisation (Proxmox, ESXi)</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Hyper-V</span>
+                    <span class="tech-tag">Bash</span>
+                    <span class="tech-tag">GPO</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon icon-net"><i class="fa-solid fa-network-wired"></i></div>
+                <h3 class="skill-title">Infrastructure Réseau</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-check"></i> Cisco IOS (Switching & Routing)</li>
+                    <li><i class="fa-solid fa-check"></i> VLANs, Trunking, STP</li>
+                    <li><i class="fa-solid fa-check"></i> Routage OSPF, RIP</li>
+                    <li><i class="fa-solid fa-check"></i> Wireshark & Packet Tracer</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">CCNA</span>
+                    <span class="tech-tag">TCP/IP</span>
+                    <span class="tech-tag">ACL</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon icon-sec"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="skill-title">Cyber & Outils</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-check"></i> Pare-feu (PfSense, Stormshield)</li>
+                    <li><i class="fa-solid fa-check"></i> Supervision (Zabbix, GLPI)</li>
+                    <li><i class="fa-solid fa-check"></i> Sauvegarde (Veeam Backup)</li>
+                    <li><i class="fa-solid fa-check"></i> VPN IPsec / SSL</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">SecOps</span>
+                    <span class="tech-tag">PowerShell</span>
+                    <span class="tech-tag">ITIL</span>
                 </div>
             </div>
 
@@ -371,25 +451,19 @@
             <div class="project-card reveal">
                 <span class="project-badge badge-virtuel">Virtuel</span>
                 <h3 class="project-title">Architecture VLAN & OSPF</h3>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Simulation Cisco Packet Tracer. Création de VLANs par service, routage inter-VLAN et protocole OSPF pour la redondance.
-                </p>
+                <p style="font-size:0.9rem; color:#64748b;">Simulation Cisco Packet Tracer. Création de VLANs par service, routage inter-VLAN et protocole OSPF pour la redondance.</p>
                 <div class="project-tech">#Cisco #Routage #Reseau</div>
             </div>
             <div class="project-card reveal">
                 <span class="project-badge badge-virtuel">Virtuel</span>
                 <h3 class="project-title">Domaine Active Directory</h3>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Installation Windows Server 2022. Gestion des utilisateurs, GPO de sécurité et services DNS/DHCP.
-                </p>
+                <p style="font-size:0.9rem; color:#64748b;">Installation Windows Server 2022. Gestion des utilisateurs, GPO de sécurité et services DNS/DHCP.</p>
                 <div class="project-tech">#Microsoft #AD #Systeme</div>
             </div>
             <div class="project-card reveal">
                 <span class="project-badge badge-virtuel">Virtuel</span>
                 <h3 class="project-title">Pare-feu PfSense</h3>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Mise en place d'un pare-feu virtuel pour filtrer le trafic entrant/sortant et sécuriser l'accès web.
-                </p>
+                <p style="font-size:0.9rem; color:#64748b;">Mise en place d'un pare-feu virtuel pour filtrer le trafic entrant/sortant et sécuriser l'accès web.</p>
                 <div class="project-tech">#Securite #Firewall #Linux</div>
             </div>
         </div>
@@ -398,25 +472,19 @@
             <div class="project-card">
                 <span class="project-badge badge-physique">Physique</span>
                 <h3 class="project-title">Brassage de Baie</h3>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Organisation du câblage RJ45 dans une baie informatique. Connexion propre switchs/panneaux de brassage.
-                </p>
+                <p style="font-size:0.9rem; color:#64748b;">Organisation du câblage RJ45 dans une baie informatique. Connexion propre switchs/panneaux de brassage.</p>
                 <div class="project-tech">#Cablage #Hardware</div>
             </div>
             <div class="project-card">
                 <span class="project-badge badge-physique">Physique</span>
                 <h3 class="project-title">Maintenance Poste Client</h3>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Diagnostic de pannes, changement de composants (RAM, Disque Dur) et déploiement d'images système.
-                </p>
+                <p style="font-size:0.9rem; color:#64748b;">Diagnostic de pannes, changement de composants (RAM, Disque Dur) et déploiement d'images système.</p>
                 <div class="project-tech">#Support #Maintenance</div>
             </div>
             <div class="project-card">
                 <span class="project-badge badge-physique">Physique</span>
                 <h3 class="project-title">Installation Switch Cisco</h3>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Montage en rack d'un commutateur, branchement console et configuration initiale (Hostname, IP, SSH).
-                </p>
+                <p style="font-size:0.9rem; color:#64748b;">Montage en rack d'un commutateur, branchement console et configuration initiale (Hostname, IP, SSH).</p>
                 <div class="project-tech">#Reseau #Installation</div>
             </div>
         </div>
@@ -445,7 +513,7 @@
         <div style="font-weight:800; font-size:1.5rem; color:var(--primary); margin-bottom:10px;">ILYAS<span>.</span></div>
         <p>&copy; 2025 Ilyas Seddiki. Portfolio BTS SIO SISR.</p>
         <div style="margin-top:20px; font-size:1.5rem; display:flex; justify-content:center; gap:20px;">
-            <a href="#" style="color:var(--secondary)"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://linkedin.com" target="_blank" style="color:var(--secondary)"><i class="fa-brands fa-linkedin"></i></a>
             <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--secondary)"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
