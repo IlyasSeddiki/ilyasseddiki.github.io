@@ -17,19 +17,23 @@
            ========================================= */
         :root {
             --bg-body: #f8f9fa;
-            --bg-glass: rgba(255, 255, 255, 0.85);
+            --bg-glass: rgba(255, 255, 255, 0.9);
             --bg-card: #ffffff;
             
-            --primary: #0f172a; /* Bleu Nuit très sombre (TD SYNNEX Vibe) */
-            --accent: #2563eb; /* Bleu électrique */
-            --secondary: #64748b;
+            --primary: #0f172a; /* Bleu Nuit sombre */
+            --accent: #2563eb; /* Bleu Roi */
+            --secondary: #64748b; /* Gris texte */
             
-            /* Tags Spécifiques */
-            --tag-physique-bg: #fff1f2; --tag-physique-text: #be123c; /* Rouge pour le Physique */
-            --tag-virtuel-bg: #eff6ff; --tag-virtuel-text: #1d4ed8; /* Bleu pour le Virtuel */
-            --tag-pro-bg: #ecfccb; --tag-pro-text: #3f6212; /* Vert pour le Pro */
+            /* Couleurs pour la Timeline */
+            --timeline-line: #e2e8f0;
+            --timeline-dot-school: #7c3aed; /* Violet pour l'école */
+            --timeline-dot-work: #2563eb;   /* Bleu pour le travail */
 
-            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            /* Tags Projets */
+            --tag-physique-bg: #fff1f2; --tag-physique-text: #be123c;
+            --tag-virtuel-bg: #eff6ff; --tag-virtuel-text: #1d4ed8;
+
+            --shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
             --border: 1px solid #e2e8f0;
             --radius: 16px;
             --transition: all 0.3s ease;
@@ -42,13 +46,14 @@
             background-color: var(--bg-body);
             color: var(--secondary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Arrière-plan subtil */
+        /* Fond ambiance */
         .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.05), transparent 40%),
-                        radial-gradient(circle at 90% 90%, rgba(15, 23, 42, 0.05), transparent 40%);
+            background: radial-gradient(circle at 5% 5%, rgba(37, 99, 235, 0.03), transparent 40%),
+                        radial-gradient(circle at 95% 95%, rgba(124, 58, 237, 0.03), transparent 40%);
         }
 
         /* =========================================
@@ -57,7 +62,7 @@
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 1100px;
-            background: var(--bg-glass); backdrop-filter: blur(12px);
+            background: var(--bg-glass); backdrop-filter: blur(16px);
             border: var(--border); border-radius: 50px;
             padding: 12px 30px;
             display: flex; justify-content: space-between; align-items: center;
@@ -85,78 +90,108 @@
            3. HERO SECTION
            ========================================= */
         header {
-            min-height: 90vh; display: flex; flex-direction: column;
+            min-height: 85vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px 60px;
+        }
+
+        .status-badge {
+            background: #fff; padding: 6px 16px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 700; color: var(--accent);
+            border: var(--border); margin-bottom: 25px; box-shadow: var(--shadow);
         }
 
         h1 {
-            font-size: 4rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px;
+            font-size: 3.5rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px;
             color: var(--primary); letter-spacing: -1px;
         }
-        .highlight { color: var(--accent); }
+        .highlight { background: linear-gradient(135deg, var(--accent), #7c3aed); -webkit-background-clip: text; color: transparent; }
 
         .hero-desc {
-            font-size: 1.2rem; max-width: 700px; margin-bottom: 40px;
+            font-size: 1.15rem; max-width: 700px; margin-bottom: 40px; color: var(--secondary);
         }
 
         /* =========================================
-           4. STRUCTURE SECTIONS
+           4. SECTIONS GENERIQUES
            ========================================= */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        section { padding: 80px 5%; max-width: 1000px; margin: 0 auto; }
         
-        .section-title { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
-        .section-subtitle { margin-bottom: 50px; color: var(--secondary); }
-
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-
-        .card {
-            background: var(--bg-card); border: var(--border); border-radius: var(--radius);
-            padding: 30px; transition: var(--transition); height: 100%;
-            display: flex; flex-direction: column; position: relative; overflow: hidden;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+        .section-subtitle { font-size: 1.1rem; color: var(--secondary); }
 
         /* =========================================
-           5. STAGES (TD SYNNEX)
+           5. FRISE CHRONOLOGIQUE (TIMELINE)
            ========================================= */
-        .stage-card {
-            border-left: 5px solid var(--primary);
-            margin-bottom: 40px;
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        
+        /* Ligne verticale */
+        .timeline::before {
+            content: ''; position: absolute; left: 50%; width: 2px; height: 100%;
+            background: var(--timeline-line); transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex; justify-content: flex-end; padding-right: 50px;
+            position: relative; margin-bottom: 50px; width: 50%;
         }
         
-        .stage-header {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+        /* Alternance Gauche / Droite */
+        .timeline-item:nth-child(even) {
+            align-self: flex-end; justify-content: flex-start; padding-left: 50px; padding-right: 0; margin-left: 50%;
         }
-        
-        .company-logo {
-            font-size: 1.5rem; font-weight: 800; color: var(--primary);
-            display: flex; align-items: center; gap: 10px;
+
+        /* Points sur la ligne */
+        .timeline-dot {
+            position: absolute; right: -8px; top: 0; width: 16px; height: 16px;
+            border-radius: 50%; background: #fff; border: 3px solid var(--accent); z-index: 2;
         }
+        .timeline-item:nth-child(even) .timeline-dot { left: -8px; right: auto; }
         
-        .stage-location { font-size: 0.9rem; color: var(--secondary); background: #f1f5f9; padding: 5px 10px; border-radius: 6px; }
-        
-        .stage-role { font-size: 1.2rem; font-weight: 700; color: var(--accent); margin-bottom: 5px; }
-        
-        .stage-actions {
-            margin-top: 20px; display: flex; gap: 15px;
+        /* Couleurs spécifiques School vs Work */
+        .type-school .timeline-dot { border-color: var(--timeline-dot-school); }
+        .type-work .timeline-dot { border-color: var(--timeline-dot-work); }
+
+        /* Carte Contenu */
+        .timeline-content {
+            background: var(--bg-card); padding: 25px; border-radius: 16px;
+            border: var(--border); box-shadow: var(--shadow); position: relative;
+            width: 100%; transition: var(--transition);
         }
-        
-        .btn-action {
-            padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
-            background: #fff; color: var(--primary); text-decoration: none;
-            font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;
-            transition: var(--transition); cursor: pointer;
+        .timeline-content:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+        .date-badge {
+            display: inline-block; padding: 4px 10px; border-radius: 6px;
+            font-size: 0.75rem; font-weight: 700; margin-bottom: 10px;
         }
-        .btn-action:hover { background: var(--bg-body); border-color: var(--primary); }
+        .type-work .date-badge { background: #eff6ff; color: var(--accent); }
+        .type-school .date-badge { background: #f5f3ff; color: var(--timeline-dot-school); }
+
+        .timeline-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .timeline-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 15px; display: block; }
+        
+        .timeline-desc { font-size: 0.9rem; color: #64748b; }
+        .timeline-btn {
+            margin-top: 15px; font-size: 0.8rem; font-weight: 600; color: var(--accent);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 5px;
+        }
+        .timeline-btn:hover { text-decoration: underline; }
+
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; margin-left: 0; }
+            .timeline-item:nth-child(even) { margin-left: 0; }
+            .timeline-dot { left: 12px; right: auto; }
+            .timeline-item:nth-child(even) .timeline-dot { left: 12px; }
+        }
 
         /* =========================================
-           6. LABS & PROJETS (PHYSIQUE vs VIRTUEL)
+           6. PROJETS (TABS GRID)
            ========================================= */
         .tabs {
             display: flex; justify-content: center; gap: 10px; margin-bottom: 40px;
-            background: #fff; padding: 5px; border-radius: 12px; border: var(--border);
+            background: #fff; padding: 6px; border-radius: 12px; border: var(--border);
             width: fit-content; margin-left: auto; margin-right: auto;
         }
         .tab-btn {
@@ -166,20 +201,31 @@
         }
         .tab-btn.active { background: var(--primary); color: #fff; }
 
-        .projects-container { display: none; animation: fadeIn 0.5s ease; }
-        .projects-container.active { display: grid; }
+        .projects-grid {
+            display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+        .projects-grid.active { display: grid; }
+
+        .project-card {
+            background: var(--bg-card); border: var(--border); border-radius: var(--radius);
+            padding: 25px; transition: var(--transition); height: 100%;
+            display: flex; flex-direction: column;
+        }
+        .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
 
         .project-badge {
-            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
             padding: 4px 10px; border-radius: 6px; margin-bottom: 15px; width: fit-content;
         }
-        /* Badges spécifiques */
         .badge-physique { background: var(--tag-physique-bg); color: var(--tag-physique-text); }
         .badge-virtuel { background: var(--tag-virtuel-bg); color: var(--tag-virtuel-text); }
-        .badge-pro { background: var(--tag-pro-bg); color: var(--tag-pro-text); }
+
+        .project-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .project-tech { margin-top: auto; padding-top: 20px; font-size: 0.8rem; font-weight: 600; color: var(--secondary); }
 
         /* =========================================
-           7. CONTACT (FORMSPREE)
+           7. CONTACT & FOOTER
            ========================================= */
         .contact-box {
             background: #fff; padding: 40px; border-radius: 24px;
@@ -188,9 +234,10 @@
         
         input, textarea {
             width: 100%; padding: 15px; margin-bottom: 15px;
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
-            font-family: inherit;
+            background: #f8f9fa; border: 1px solid #e2e8f0; border-radius: 8px;
+            font-family: inherit; font-size: 0.95rem;
         }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); background: #fff; }
         
         .btn-submit {
             width: 100%; padding: 15px; background: var(--accent); color: white;
@@ -199,18 +246,17 @@
         }
         .btn-submit:hover { background: var(--primary); }
 
-        /* Footer */
         footer {
-            text-align: center; padding: 40px; border-top: var(--border); margin-top: 60px;
+            text-align: center; padding: 40px; border-top: var(--border); margin-top: 80px;
+            color: var(--secondary); font-size: 0.9rem;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
+            h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
         }
     </style>
@@ -222,192 +268,190 @@
     <nav>
         <div class="logo">Ilyas <span>Seddiki</span></div>
         <ul class="nav-links">
-            <li><a href="#parcours">Parcours TD SYNNEX</a></li>
-            <li><a href="#projets">Labs & Projets</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#projets">Projets</a></li>
             <li><a href="#competences">Compétences</a></li>
         </ul>
-        <a href="#contact" class="btn-nav">Me contacter</a>
+        <a href="#contact" class="btn-nav">Contact</a>
     </nav>
 
     <header>
-        <div style="margin-bottom: 20px; padding: 5px 15px; background: #eff6ff; color: var(--accent); border-radius: 50px; font-weight: 700; font-size: 0.9rem;">
-            🎓 Étudiant BTS SIO SISR
+        <div class="status-badge reveal">
+            <i class="fa-solid fa-graduation-cap"></i> Étudiant BTS SIO SISR
         </div>
         <h1 class="reveal">
-            Expertise Infrastructure <br>
-            <span class="highlight">Physique & Virtuelle</span>
+            Ilyas Seddiki <br>
+            <span class="highlight">Expertise Infrastructure</span>
         </h1>
         <p class="hero-desc reveal">
-            Bienvenue sur mon portfolio professionnel. <br>
-            Découvrez mes expériences chez <strong>TD SYNNEX</strong> et mes travaux de laboratoire.
+            Passionné par l'administration système et réseau. <br>
+            Découvrez mon parcours académique et mes expériences chez <strong>TD SYNNEX</strong>.
         </p>
         <div class="reveal">
-            <a href="#parcours" class="btn-nav" style="padding: 15px 30px;">Découvrir mon expérience</a>
+            <a href="#parcours" class="btn-nav" style="padding: 15px 35px; font-size: 1rem;">Voir mon parcours</a>
         </div>
     </header>
 
     <section id="parcours">
-        <h2 class="section-title reveal">Expérience Professionnelle</h2>
-        <p class="section-subtitle reveal">Immersion en entreprise au sein du groupe TD SYNNEX.</p>
-
-        <div class="card stage-card reveal">
-            <div class="stage-header">
-                <div class="company-logo"><i class="fa-solid fa-building"></i> TD SYNNEX</div>
-                <div class="stage-location"><i class="fa-solid fa-map-pin"></i> Service CEO - Bussy-Saint-Georges</div>
-            </div>
-            <h3 class="stage-role">Stage de Première Année</h3>
-            <p style="color:var(--secondary); margin-bottom: 15px;">
-                Intégration au sein du service CEO. Participation active aux opérations de maintenance et de gestion du parc informatique.
-            </p>
-            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                <h4 style="font-size:0.9rem; margin-bottom:5px; color:var(--primary);">Missions réalisées :</h4>
-                <p style="font-size:0.9rem;">
-                    • [À COMPLÉTER : Exemple : Installation de postes de travail]<br>
-                    • [À COMPLÉTER : Exemple : Brassage de baies réseaux]<br>
-                    • [À COMPLÉTER : Exemple : Support utilisateur niveau 1]
-                </p>
-            </div>
-            <div class="stage-actions">
-                <button class="btn-action" onclick="alert('Le rapport sera disponible prochainement.')"><i class="fa-solid fa-file-pdf"></i> Lire le Rapport</button>
-                <button class="btn-action" onclick="alert('Galerie photo en cours de développement.')"><i class="fa-solid fa-images"></i> Voir les photos</button>
-            </div>
+        <div class="section-header reveal">
+            <h2 class="section-title">Mon Parcours</h2>
+            <p class="section-subtitle">Une progression constante entre formation théorique et expérience terrain.</p>
         </div>
 
-        <div class="card stage-card reveal" style="border-left-color: var(--secondary); opacity: 0.9;">
-            <div class="stage-header">
-                <div class="company-logo" style="color:var(--secondary)"><i class="fa-solid fa-building"></i> TD SYNNEX</div>
-                <div class="stage-location"><i class="fa-solid fa-map-pin"></i> Service BSC - Courbevoie</div>
+        <div class="timeline">
+            
+            <div class="timeline-item type-work reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date-badge">2025 (Prévu)</span>
+                    <h3 class="timeline-title">Stage de Deuxième Année</h3>
+                    <span class="timeline-subtitle">TD SYNNEX (Service BSC) - Courbevoie</span>
+                    <p class="timeline-desc">
+                        Intégration prévue au Business Service Center. Missions axées sur l'administration avancée et le support infrastructure.
+                    </p>
+                    <button class="timeline-btn" onclick="alert('Disponible prochainement')"><i class="fa-solid fa-clock"></i> En attente</button>
+                </div>
             </div>
-            <h3 class="stage-role" style="color:var(--primary)">Stage de Deuxième Année (Confirmé)</h3>
-            <p style="color:var(--secondary);">
-                Stage à venir. Intégration prévue au service BSC (Business Service Center).
-            </p>
-            <div style="margin-top: 15px; font-size: 0.9rem; font-style: italic; color: #94a3b8;">
-                <i class="fa-solid fa-clock"></i> Contenu, photos et rapport seront ajoutés à l'issue de la période de stage.
+
+            <div class="timeline-item type-school reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date-badge">2023 - 2025</span>
+                    <h3 class="timeline-title">BTS SIO Option SISR</h3>
+                    <span class="timeline-subtitle">Lycée Technologique</span>
+                    <p class="timeline-desc">
+                        Solutions d'Infrastructures, Systèmes et Réseaux. Acquisition des compétences en Cybersécurité, Cisco (CCNA), Windows Server et Linux.
+                    </p>
+                </div>
             </div>
+
+            <div class="timeline-item type-work reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date-badge">2024</span>
+                    <h3 class="timeline-title">Stage de Première Année</h3>
+                    <span class="timeline-subtitle">TD SYNNEX (Service CEO) - Bussy-Saint-Georges</span>
+                    <p class="timeline-desc">
+                        Immersion au service informatique. Gestion de parc, maintenance préventive et support utilisateur. Découverte des processus IT d'un grand groupe.
+                    </p>
+                    <div style="display:flex; gap:10px;">
+                        <button class="timeline-btn" onclick="alert('Le rapport arrive !')"><i class="fa-solid fa-file-pdf"></i> Rapport</button>
+                        <button class="timeline-btn" onclick="alert('Photos bientôt disponibles')"><i class="fa-solid fa-image"></i> Photos</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item type-school reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="date-badge">2023</span>
+                    <h3 class="timeline-title">Baccalauréat Général</h3>
+                    <span class="timeline-subtitle">Lycée</span>
+                    <p class="timeline-desc">
+                        Spécialité Numérique et Sciences Informatiques (NSI). Premiers pas dans le développement et l'architecture des ordinateurs.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="projets">
-        <h2 class="section-title reveal">Laboratoire & Projets</h2>
-        <p class="section-subtitle reveal">Différenciation entre interventions matérielles et configurations logicielles.</p>
-
-        <div class="tabs reveal">
-            <button class="tab-btn active" onclick="filterLabs('virtuel')">Infra Virtuelle & Reseau</button>
-            <button class="tab-btn" onclick="filterLabs('physique')">Infra Physique (Matériel)</button>
+        <div class="section-header reveal">
+            <h2 class="section-title">Labs & Projets</h2>
+            <p class="section-subtitle">Travaux pratiques réalisés en environnements simulés et réels.</p>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="filterLabs('virtuel')">Infra Virtuelle & Réseau</button>
+                <button class="tab-btn" onclick="filterLabs('physique')">Infra Physique (Matériel)</button>
+            </div>
         </div>
 
-        <div id="list-virtuel" class="grid-3 projects-container active">
-            
-            <div class="card">
-                <span class="project-badge badge-virtuel">TP Virtuel</span>
-                <h3 style="margin-bottom: 10px;">Interconnexion VLANs & Routage</h3>
-                <p style="font-size:0.9rem; margin-bottom: 15px;">
-                    Simulation sous <strong>Cisco Packet Tracer</strong>. Configuration du routage inter-VLAN (Router-on-a-stick) et protocole OSPF multi-zones.
+        <div id="list-virtuel" class="projects-grid active">
+            <div class="project-card reveal">
+                <span class="project-badge badge-virtuel">Virtuel</span>
+                <h3 class="project-title">Architecture VLAN & OSPF</h3>
+                <p style="font-size:0.9rem; color:#64748b;">
+                    Simulation Cisco Packet Tracer. Création de VLANs par service, routage inter-VLAN et protocole OSPF pour la redondance.
                 </p>
-                <div style="margin-top:auto;">
-                    <span style="font-size:0.8rem; font-weight:600; color:var(--accent);">#CiscoIOS #OSPF #VLAN</span>
-                </div>
+                <div class="project-tech">#Cisco #Routage #Reseau</div>
             </div>
-
-            <div class="card">
-                <span class="project-badge badge-virtuel">TP Virtuel</span>
-                <h3 style="margin-bottom: 10px;">Serveur Active Directory</h3>
-                <p style="font-size:0.9rem; margin-bottom: 15px;">
-                    Installation d'un contrôleur de domaine sous <strong>Windows Server 2022</strong> (VM). Création d'utilisateurs, groupes et GPO de sécurité.
+            <div class="project-card reveal">
+                <span class="project-badge badge-virtuel">Virtuel</span>
+                <h3 class="project-title">Domaine Active Directory</h3>
+                <p style="font-size:0.9rem; color:#64748b;">
+                    Installation Windows Server 2022. Gestion des utilisateurs, GPO de sécurité et services DNS/DHCP.
                 </p>
-                <div style="margin-top:auto;">
-                    <span style="font-size:0.8rem; font-weight:600; color:var(--accent);">#WindowsServer #AD #DNS</span>
-                </div>
+                <div class="project-tech">#Microsoft #AD #Systeme</div>
             </div>
-
-            <div class="card">
-                <span class="project-badge badge-virtuel">TP Virtuel</span>
-                <h3 style="margin-bottom: 10px;">Sécurisation Pare-Feu</h3>
-                <p style="font-size:0.9rem; margin-bottom: 15px;">
-                    Mise en place d'un pare-feu <strong>PfSense</strong> virtuel. Configuration des règles de filtrage, NAT et port forwarding pour un serveur web.
+            <div class="project-card reveal">
+                <span class="project-badge badge-virtuel">Virtuel</span>
+                <h3 class="project-title">Pare-feu PfSense</h3>
+                <p style="font-size:0.9rem; color:#64748b;">
+                    Mise en place d'un pare-feu virtuel pour filtrer le trafic entrant/sortant et sécuriser l'accès web.
                 </p>
-                <div style="margin-top:auto;">
-                    <span style="font-size:0.8rem; font-weight:600; color:var(--accent);">#PfSense #Security #Firewall</span>
-                </div>
+                <div class="project-tech">#Securite #Firewall #Linux</div>
             </div>
-
         </div>
 
-        <div id="list-physique" class="grid-3 projects-container">
-            
-            <div class="card">
-                <span class="project-badge badge-physique">TP Physique</span>
-                <h3 style="margin-bottom: 10px;">Brassage de Baie</h3>
-                <p style="font-size:0.9rem; margin-bottom: 15px;">
-                    Câblage structuré d'une baie de brassage. Connexion des panneaux de brassage aux switchs, organisation des câbles et étiquetage.
+        <div id="list-physique" class="projects-grid">
+            <div class="project-card">
+                <span class="project-badge badge-physique">Physique</span>
+                <h3 class="project-title">Brassage de Baie</h3>
+                <p style="font-size:0.9rem; color:#64748b;">
+                    Organisation du câblage RJ45 dans une baie informatique. Connexion propre switchs/panneaux de brassage.
                 </p>
-                <div style="margin-top:auto;">
-                    <span style="font-size:0.8rem; font-weight:600; color:#be123c;">#Cabling #Hardware #RJ45</span>
-                </div>
+                <div class="project-tech">#Cablage #Hardware</div>
             </div>
-
-            <div class="card">
-                <span class="project-badge badge-physique">TP Physique</span>
-                <h3 style="margin-bottom: 10px;">Montage Serveur Rack</h3>
-                <p style="font-size:0.9rem; margin-bottom: 15px;">
-                    Installation physique de serveurs Dell PowerEdge dans un rack 42U. Gestion de l'alimentation (PDU/Onduleur) et refroidissement.
+            <div class="project-card">
+                <span class="project-badge badge-physique">Physique</span>
+                <h3 class="project-title">Maintenance Poste Client</h3>
+                <p style="font-size:0.9rem; color:#64748b;">
+                    Diagnostic de pannes, changement de composants (RAM, Disque Dur) et déploiement d'images système.
                 </p>
-                <div style="margin-top:auto;">
-                    <span style="font-size:0.8rem; font-weight:600; color:#be123c;">#Rack #Server #Power</span>
-                </div>
+                <div class="project-tech">#Support #Maintenance</div>
             </div>
-
-            <div class="card">
-                <span class="project-badge badge-physique">TP Physique</span>
-                <h3 style="margin-bottom: 10px;">Dépannage Poste Client</h3>
-                <p style="font-size:0.9rem; margin-bottom: 15px;">
-                    Diagnostic matériel : Changement de disque dur, ajout de RAM, test d'alimentation et déploiement d'image OS via le réseau.
+            <div class="project-card">
+                <span class="project-badge badge-physique">Physique</span>
+                <h3 class="project-title">Installation Switch Cisco</h3>
+                <p style="font-size:0.9rem; color:#64748b;">
+                    Montage en rack d'un commutateur, branchement console et configuration initiale (Hostname, IP, SSH).
                 </p>
-                <div style="margin-top:auto;">
-                    <span style="font-size:0.8rem; font-weight:600; color:#be123c;">#Maintenance #Hardware</span>
-                </div>
+                <div class="project-tech">#Reseau #Installation</div>
             </div>
-
         </div>
     </section>
 
     <section id="contact">
-        <div class="reveal" style="text-align:center; margin-bottom: 40px;">
+        <div class="section-header reveal">
             <h2 class="section-title">Me Contacter</h2>
-            <p class="section-subtitle">Envoyez-moi un message directement via ce formulaire.</p>
+            <p class="section-subtitle">Un projet ou une opportunité ? Écrivez-moi.</p>
         </div>
 
         <div class="contact-box reveal">
-            <form action="https://formspree.io/f/xnndybov" method="POST">
-                <label style="font-weight:600; font-size:0.9rem;">Votre Nom</label>
-                <input type="text" name="name" required placeholder="Ex: Recruteur">
-                
-                <label style="font-weight:600; font-size:0.9rem;">Votre Email</label>
-                <input type="email" name="email" required placeholder="contact@entreprise.com">
-                
-                <label style="font-weight:600; font-size:0.9rem;">Message</label>
-                <textarea name="message" rows="5" required placeholder="Bonjour Ilyas..."></textarea>
-                
-                <button type="submit" class="btn-submit">Envoyer le message <i class="fa-solid fa-paper-plane"></i></button>
+            <form action="https://formspree.io/f/mpwzyygd" method="POST">
+                <input type="text" name="name" placeholder="Votre Nom" required>
+                <input type="email" name="email" placeholder="Votre Email" required>
+                <textarea name="message" rows="5" placeholder="Votre Message..." required></textarea>
+                <button type="submit" class="btn-submit">Envoyer <i class="fa-solid fa-paper-plane"></i></button>
             </form>
-            <p style="margin-top: 15px; font-size: 0.8rem; color: #94a3b8; text-align: center;">
-                Ou directement par email : <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--accent);">ilyasseddiki014@gmail.com</a>
+            <p style="text-align:center; margin-top:15px; font-size:0.9rem;">
+                Email direct : <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--accent); font-weight:700;">ilyasseddiki014@gmail.com</a>
             </p>
         </div>
     </section>
 
     <footer>
-        <div style="font-weight: 800; font-size: 1.5rem; margin-bottom: 10px;">ILYAS<span>.</span></div>
-        <p>&copy; 2025 Ilyas Seddiki. BTS SIO SISR.</p>
-        <div style="margin-top: 20px; font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
-            <a href="https://linkedin.com" target="_blank" style="color:var(--secondary)"><i class="fa-brands fa-linkedin"></i></a>
+        <div style="font-weight:800; font-size:1.5rem; color:var(--primary); margin-bottom:10px;">ILYAS<span>.</span></div>
+        <p>&copy; 2025 Ilyas Seddiki. Portfolio BTS SIO SISR.</p>
+        <div style="margin-top:20px; font-size:1.5rem; display:flex; justify-content:center; gap:20px;">
+            <a href="#" style="color:var(--secondary)"><i class="fa-brands fa-linkedin"></i></a>
             <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--secondary)"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
 
     <script>
-        // LOGIQUE DES ONGLETS (PHYSIQUE VS VIRTUEL)
+        // LOGIQUE DES ONGLETS
         function filterLabs(type) {
             const btns = document.querySelectorAll('.tab-btn');
             const listVirtuel = document.getElementById('list-virtuel');
