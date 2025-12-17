@@ -3,518 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejo | Network Rack Portfolio</title>
+    <title>Tejo | SOC Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2300ff00%22><path d=%22M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z%22/></svg>">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2300bceb%22><path d=%22M2 9h20v6h-20v-6zm2 2v2h16v-2h-16z%22/></svg>">
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --cisco-teal: #00bceb; /* Bleu Cisco Catalyst moderne */
-            --cisco-dark: #1d1d1d; /* Couleur châssis */
-            --rack-gray: #2b2b2b;
-            --led-green: #00ff00;
-            --led-amber: #ffae00;
-            --led-off: #333;
-            --poe-yellow: #f1c40f;
-            --metal-gradient: linear-gradient(180deg, #3a3a3a 0%, #222 100%);
+            --bg-dark: #050a10;
+            --panel-bg: #0f1520;
+            --border-color: #1f2a3d;
+            --cisco-blue: #00bceb;
+            --fw-red: #ff3333;
+            --success-green: #00ff9d;
+            --text-main: #e0e6ed;
+            --text-dim: #6c7a89;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
         body {
-            background-color: #111;
-            font-family: 'Roboto', sans-serif;
-            color: #eee;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             overflow: hidden;
+            display: grid;
+            grid-template-columns: 250px 1fr 300px; /* Sidebar | Main | Logs */
+            grid-template-rows: 60px 1fr 150px; /* Header | Content | CLI */
         }
 
-        /* --- LE RACK (Container Principal) --- */
-        .rack-cabinet {
-            width: 95%;
-            max-width: 1200px;
-            height: 95vh;
-            background: #000;
-            border: 10px solid #333;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-            position: relative;
+        /* --- HEADER --- */
+        header {
+            grid-column: 1 / -1;
+            background: var(--panel-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 0 15px rgba(0, 188, 235, 0.1);
+        }
+        .brand { font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; }
+        .brand span { color: var(--cisco-blue); }
+        .uptime-badge { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--success-green); border: 1px solid var(--success-green); padding: 2px 8px; border-radius: 4px; }
+
+        /* --- SIDEBAR (CONTROLS) --- */
+        aside.controls {
+            grid-row: 2 / 3;
+            background: var(--panel-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex; flex-direction: column; gap: 20px;
         }
 
-        /* Vis de rack sur les côtés */
-        .rack-cabinet::before, .rack-cabinet::after {
-            content: ''; position: absolute; top: 0; bottom: 0; width: 30px;
-            background: url('data:image/svg+xml;utf8,<svg width="30" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="20" r="5" fill="%23555"/></svg>');
-            z-index: 10;
-        }
-        .rack-cabinet::before { left: 0; border-right: 1px solid #444; }
-        .rack-cabinet::after { right: 0; border-left: 1px solid #444; }
-
-        /* --- UNITÉ 1 : LE SWITCH (Navigation) --- */
-        .switch-unit {
-            height: 140px;
-            background: var(--cisco-dark);
-            margin: 20px 35px 0 35px; /* Espace pour les montants du rack */
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-            box-shadow: inset 0 0 20px #000;
-            border-bottom: 2px solid #444;
-            position: relative;
-        }
-
-        /* Branding Switch */
-        .switch-brand {
-            display: flex; flex-direction: column; width: 150px;
-        }
-        .cisco-logo {
-            font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 1.5rem; color: #fff;
-            letter-spacing: 1px;
-        }
-        .cisco-bars {
-            display: flex; gap: 3px; margin-bottom: 5px; justify-content: flex-start;
-        }
-        .bar { width: 4px; background: var(--cisco-teal); border-radius: 2px; }
-        .switch-model { font-size: 0.7rem; color: #aaa; font-family: monospace; }
-
-        /* Les Ports (Navigation) */
-        .ports-group {
-            display: flex; gap: 15px;
-        }
-
-        .port-container {
-            display: flex; flex-direction: column; align-items: center; cursor: pointer;
-            position: relative;
-            transition: 0.2s;
-        }
-        .port-container:hover .port-face { border-color: #666; }
-        
-        /* LED Status */
-        .led-status {
-            width: 8px; height: 4px; background: var(--led-off); margin-bottom: 5px;
-            box-shadow: 0 0 0 rgba(0,0,0,0); transition: 0.3s;
-        }
-        .led-status.active {
-            background: var(--led-green);
-            box-shadow: 0 0 8px var(--led-green);
-        }
-
-        /* Le Port Physique (RJ45) */
-        .port-face {
-            width: 36px; height: 32px;
-            background: #111;
-            border: 2px solid #333;
-            border-radius: 3px;
-            position: relative;
-            box-shadow: inset 2px 2px 5px #000;
-            display: flex; justify-content: center;
-        }
-        /* Les pins dorés */
-        .port-face::after {
-            content: ''; width: 20px; height: 4px; background: #b8860b;
-            position: absolute; top: 0; opacity: 0.3;
-        }
-        /* Ligne Jaune PoE */
-        .poe-line {
-            width: 100%; height: 2px; background: var(--poe-yellow);
-            position: absolute; top: -8px;
-        }
-
-        /* Label du port */
-        .port-label {
-            margin-top: 5px; font-size: 0.65rem; color: #fff; font-weight: bold; font-family: monospace;
-            text-transform: uppercase;
-        }
-
-        /* Câble connecté (visuel CSS) */
-        .cable-plugged {
-            position: absolute; top: 20px;
-            width: 12px; height: 60px;
-            background: linear-gradient(90deg, #3498db, #2980b9);
-            z-index: 100;
-            border-radius: 2px;
-            box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
-            transform: translateY(-100%); /* Caché par défaut */
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .port-container.active .cable-plugged {
-            transform: translateY(0);
-        }
-
-
-        /* --- UNITÉ 2 : LE CABLE MANAGEMENT (Espace visuel) --- */
-        .cable-manager {
-            height: 40px; margin: 0 35px;
-            background: repeating-linear-gradient(
-                90deg,
-                #222,
-                #222 10px,
-                #111 10px,
-                #111 20px
-            );
-            border-left: 2px solid #444; border-right: 2px solid #444;
-            display: flex; justify-content: center; overflow: hidden;
-            position: relative;
-        }
-        /* Les câbles qui pendent */
-        .dangling-cable {
-            position: absolute; top: -20px; width: 12px; height: 200px;
-            background: linear-gradient(90deg, #3498db, #2980b9);
-            border-radius: 0 0 10px 10px;
-            opacity: 0; transition: opacity 0.3s;
-        }
-        .dangling-cable.show { opacity: 1; }
-
-        /* --- UNITÉ 3 : LE MONITEUR (Contenu) --- */
-        .monitor-frame {
-            flex-grow: 1;
-            margin: 20px 35px 20px 35px;
-            background: #111;
-            border: 4px solid #444;
-            border-radius: 5px;
-            padding: 5px;
-            box-shadow: inset 0 0 20px #000;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        /* Ecran allumé */
-        .monitor-screen {
-            width: 100%; height: 100%;
-            background: #1e1e1e;
-            color: #dcdcdc;
-            font-family: 'Roboto', sans-serif;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        /* Scanlines effet écran */
-        .monitor-screen::before {
-            content: " "; display: block; position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-            background-size: 100% 4px; z-index: 50; pointer-events: none;
-        }
-
-        /* --- CONTENU DES PAGES --- */
-        .content-section {
-            display: none; padding: 40px; max-width: 1000px; margin: 0 auto;
-            animation: bootUp 0.5s ease-out;
-        }
-        .content-section.active { display: block; }
-
-        @keyframes bootUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
-        h2 { border-bottom: 2px solid var(--cisco-teal); padding-bottom: 10px; margin-bottom: 20px; margin-top: 30px; color: var(--cisco-teal); }
-        p { margin-bottom: 15px; line-height: 1.6; }
-
-        /* CLI Box Style pour les compétences */
-        .cli-box {
-            background: #000; color: #0f0; font-family: 'VT323', monospace; font-size: 1.2rem;
-            padding: 20px; border: 1px solid #333; border-radius: 5px; margin-bottom: 20px;
-        }
-        .cli-prompt { color: var(--cisco-teal); }
-
-        /* Grid pour Projets */
-        .grid-cards {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
-        }
-        .card {
-            background: #2a2a2a; padding: 20px; border-left: 4px solid var(--cisco-teal);
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 15px;
+            cursor: pointer;
+            text-align: left;
             transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
-        .card:hover { background: #333; transform: translateX(5px); }
+        .nav-btn::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            background: var(--text-dim); transition: 0.3s;
+        }
+        .nav-btn:hover { background: rgba(0, 188, 235, 0.1); border-color: var(--cisco-blue); }
+        .nav-btn:hover::before, .nav-btn.active::before { background: var(--cisco-blue); }
+        .nav-btn.active { border-color: var(--cisco-blue); box-shadow: 0 0 10px rgba(0, 188, 235, 0.2); }
+        
+        .btn-label { font-weight: 700; display: block; }
+        .btn-sub { font-size: 0.7rem; color: var(--text-dim); font-family: 'Fira Code', monospace; }
 
-        /* Table de routage (Expérience) */
-        .route-table { width: 100%; border-collapse: collapse; font-family: monospace; }
-        .route-table th { text-align: left; border-bottom: 1px solid #555; padding: 10px; color: var(--cisco-teal); }
-        .route-table td { padding: 10px; border-bottom: 1px solid #333; }
-
-        /* Contact Form Terminal */
-        .term-input {
-            background: transparent; border: none; color: #fff; 
-            font-family: 'VT323', monospace; font-size: 1.2rem; width: 80%; outline: none;
+        /* --- MAIN VIEW (TOPOLOGY & CONTENT) --- */
+        main {
+            grid-row: 2 / 3;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #0a101a 0%, #050a10 100%);
         }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .switch-unit { padding: 0 10px; overflow-x: auto; }
-            .ports-group { gap: 10px; }
-            .content-section { padding: 20px; }
-            h1 { font-size: 2rem; }
+        /* Topology SVG Layer (Background) */
+        .topology-layer {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0.2; transition: 0.5s;
+        }
+        
+        /* Content Layer (Foreground) */
+        .content-layer {
+            position: relative; z-index: 10;
+            padding: 40px;
+            height: 100%;
+            overflow-y: auto;
         }
 
+        .section {
+            display: none;
+            animation: slideIn 0.4s ease-out;
+            max-width: 900px; margin: 0 auto;
+        }
+        .section.active { display: block; }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--cisco-blue); text-transform: uppercase; }
+        h2 { font-size: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; color: var(--text-main); }
+        
+        /* Cards & Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        .card {
+            background: rgba(15, 21, 32, 0.9);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+        }
+        .card:hover { border-color: var(--cisco-blue); }
+        
+        .tech-tag {
+            display: inline-block; background: rgba(0, 188, 235, 0.1); color: var(--cisco-blue);
+            padding: 2px 8px; font-size: 0.8rem; margin-right: 5px; border-radius: 2px; border: 1px solid var(--cisco-blue);
+        }
+
+        /* --- RIGHT PANEL (FIREWALL LOGS) --- */
+        aside.logs {
+            grid-row: 2 / 3;
+            background: #080c12;
+            border-left: 1px solid var(--border-color);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            display: flex; flex-direction: column;
+        }
+        .log-header {
+            padding: 10px; background: #151b26; border-bottom: 1px solid #333;
+            font-weight: 700; color: var(--fw-red); display: flex; align-items: center; gap: 10px;
+        }
+        .log-container {
+            flex-grow: 1; overflow-y: auto; padding: 10px; color: #aaa;
+            display: flex; flex-direction: column-reverse; /* Nouveaux logs en haut */
+        }
+        .log-entry { margin-bottom: 5px; border-bottom: 1px dashed #222; padding-bottom: 2px; }
+        .log-time { color: #555; }
+        .log-allow { color: var(--success-green); }
+        .log-deny { color: var(--fw-red); }
+        .log-info { color: var(--cisco-blue); }
+
+        /* --- BOTTOM PANEL (CLI TERMINAL) --- */
+        footer.cli {
+            grid-column: 1 / -1;
+            background: #000;
+            border-top: 2px solid var(--cisco-blue);
+            padding: 15px;
+            font-family: 'Fira Code', monospace;
+            color: #ccc;
+            overflow-y: auto;
+        }
+        .cli-output { white-space: pre-wrap; }
+        .prompt { color: var(--success-green); }
+        .cursor { animation: blink 1s infinite; display: inline-block; width: 8px; height: 15px; background: var(--success-green); vertical-align: middle; }
+
+        /* ANIMATIONS */
+        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Topology SVG Styling */
+        .svg-node { fill: var(--panel-bg); stroke: var(--cisco-blue); stroke-width: 2; }
+        .svg-line { stroke: var(--border-color); stroke-width: 2; }
+        .svg-packet { fill: var(--success-green); }
+        
+        .active-path { stroke: var(--success-green); stroke-dasharray: 5; animation: dash 1s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: -10; } }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            body { grid-template-columns: 1fr; grid-template-rows: 60px auto 1fr 100px; height: auto; overflow-y: auto; }
+            aside.controls { grid-row: 2; border-right: none; border-bottom: 1px solid var(--border-color); display: grid; grid-template-columns: 1fr 1fr; }
+            main { grid-row: 3; min-height: 500px; }
+            aside.logs { display: none; } /* Hide logs on mobile */
+            footer.cli { grid-row: 4; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="rack-cabinet">
-        
-        <div class="switch-unit">
-            
-            <div class="switch-brand">
-                <div class="cisco-logo">
-                    <div class="cisco-bars">
-                        <div class="bar" style="height:5px;"></div>
-                        <div class="bar" style="height:10px;"></div>
-                        <div class="bar" style="height:16px;"></div>
-                        <div class="bar" style="height:10px;"></div>
-                        <div class="bar" style="height:5px;"></div>
-                    </div>
-                    CISCO
-                </div>
-                <div class="switch-model">Catalyst 9300 Series</div>
-                <div class="switch-model">PoE+ 48 Port</div>
-            </div>
+    <header>
+        <div class="brand"><i class="fa-solid fa-shield-halved"></i> TEJO <span>// SOC</span></div>
+        <div style="display:flex; gap:20px; align-items:center;">
+            <div style="font-size:0.8rem; color:var(--text-dim);">THREAT LEVEL: <span style="color:var(--success-green)">LOW</span></div>
+            <div class="uptime-badge">UPTIME: 99.99%</div>
+        </div>
+    </header>
 
-            <div class="ports-group">
+    <aside class="controls">
+        <div class="nav-btn active" onclick="routeTraffic('home')">
+            <span class="btn-label">DASHBOARD</span>
+            <span class="btn-sub">VLAN 10 - MGMT</span>
+        </div>
+        <div class="nav-btn" onclick="routeTraffic('experience')">
+            <span class="btn-label">TRAFFIC LOGS</span>
+            <span class="btn-sub">VLAN 20 - EXP</span>
+        </div>
+        <div class="nav-btn" onclick="routeTraffic('skills')">
+            <span class="btn-label">CONFIGURATIONS</span>
+            <span class="btn-sub">VLAN 30 - SKILLS</span>
+        </div>
+        <div class="nav-btn" onclick="routeTraffic('projects')">
+            <span class="btn-label">DMZ SERVICES</span>
+            <span class="btn-sub">VLAN 40 - PROJ</span>
+        </div>
+        <div class="nav-btn" onclick="routeTraffic('contact')">
+            <span class="btn-label">OPEN SOCKET</span>
+            <span class="btn-sub">PORT 22 - SSH</span>
+        </div>
+    </aside>
+
+    <main>
+        <div class="topology-layer">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <line x1="300" y1="50" x2="300" y2="150" class="svg-line" id="link-fw" />
+                <line x1="300" y1="150" x2="150" y2="250" class="svg-line" id="link-vlan20" />
+                <line x1="300" y1="150" x2="300" y2="250" class="svg-line" id="link-vlan30" />
+                <line x1="300" y1="150" x2="450" y2="250" class="svg-line" id="link-vlan40" />
                 
-                <div class="port-container active" onclick="switchVlan(1)">
-                    <div class="led-status active" id="led-1"></div>
-                    <div class="poe-line"></div>
-                    <div class="port-face">
-                        <div class="cable-plugged"></div>
-                    </div>
-                    <div class="port-label">Gi1/0/1</div>
-                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">HOME</div>
-                </div>
+                <path d="M250,50 Q250,20 280,20 T330,20 T350,50 T330,80 T270,80 Z" fill="none" stroke="#666" stroke-width="2" />
+                <text x="285" y="55" fill="#666" font-family="monospace" font-size="12">WAN</text>
 
-                <div class="port-container" onclick="switchVlan(2)">
-                    <div class="led-status" id="led-2"></div>
-                    <div class="poe-line"></div>
-                    <div class="port-face">
-                        <div class="cable-plugged"></div>
-                    </div>
-                    <div class="port-label">Gi1/0/2</div>
-                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">EXP</div>
-                </div>
+                <rect x="270" y="120" width="60" height="40" rx="5" class="svg-node" id="node-fw" />
+                <text x="285" y="145" fill="#00bceb" font-family="monospace" font-size="10">ASA-FW</text>
 
-                <div class="port-container" onclick="switchVlan(3)">
-                    <div class="led-status" id="led-3"></div>
-                    <div class="poe-line"></div>
-                    <div class="port-face">
-                        <div class="cable-plugged"></div>
-                    </div>
-                    <div class="port-label">Gi1/0/3</div>
-                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">SKILLS</div>
-                </div>
+                <circle cx="300" cy="200" r="10" fill="#333" stroke="#fff" />
 
-                <div class="port-container" onclick="switchVlan(4)">
-                    <div class="led-status" id="led-4"></div>
-                    <div class="poe-line"></div>
-                    <div class="port-face">
-                        <div class="cable-plugged"></div>
-                    </div>
-                    <div class="port-label">Gi1/0/4</div>
-                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">PROJ</div>
-                </div>
-            </div>
+                <rect x="120" y="250" width="60" height="40" rx="2" class="svg-node" id="node-exp" />
+                <text x="130" y="275" fill="#aaa" font-family="monospace" font-size="10">SRV-EXP</text>
 
-            <div class="port-container" onclick="switchVlan(5)" style="margin-left: 30px;">
-                <div class="led-status" id="led-5" style="background:var(--cisco-teal); box-shadow:none;"></div>
-                <div class="port-face" style="border-radius: 10px; border-color:#555;">
-                    <div class="cable-plugged" style="background:#555;"></div>
-                </div>
-                <div class="port-label">CONSOLE</div>
-                <div class="port-label" style="color:#aaa; font-size:0.5rem;">CONTACT</div>
-            </div>
+                <rect x="270" y="250" width="60" height="40" rx="2" class="svg-node" id="node-skills" />
+                <text x="280" y="275" fill="#aaa" font-family="monospace" font-size="10">SRV-CFG</text>
+
+                <rect x="420" y="250" width="60" height="40" rx="2" class="svg-node" id="node-proj" />
+                <text x="430" y="275" fill="#aaa" font-family="monospace" font-size="10">SRV-DMZ</text>
+            </svg>
+        </div>
+
+        <div class="content-layer">
             
-        </div>
+            <section id="home" class="section active">
+                <h1>Network Status: <span style="color:var(--success-green)">OPERATIONAL</span></h1>
+                <div class="grid-2">
+                    <div class="card">
+                        <h2><i class="fa-solid fa-user-shield"></i> Identity</h2>
+                        <p><strong>Agent:</strong> TEJO</p>
+                        <p><strong>Role:</strong> SISR Administrator</p>
+                        <p><strong>Cert Level:</strong> CCNA Candidate</p>
+                        <br>
+                        <p style="color:var(--text-dim);">Spécialiste en déploiement d'infrastructures sécurisées, analyse de paquets et durcissement système.</p>
+                    </div>
+                    <div class="card">
+                        <h2><i class="fa-solid fa-chart-line"></i> Metrics</h2>
+                        <p><strong>Packets Processed:</strong> 1.2M</p>
+                        <p><strong>Threats Blocked:</strong> 420</p>
+                        <p><strong>VLANs Active:</strong> 12</p>
+                    </div>
+                </div>
+            </section>
 
-        <div class="cable-manager">
-            <div class="dangling-cable show" id="cable-1" style="left: 22%;"></div>
-            <div class="dangling-cable" id="cable-2" style="left: 36%;"></div>
-            <div class="dangling-cable" id="cable-3" style="left: 50%;"></div>
-            <div class="dangling-cable" id="cable-4" style="left: 64%;"></div>
-            <div class="dangling-cable" id="cable-5" style="left: 82%; background:#555;"></div>
-        </div>
-
-        <div class="monitor-frame">
-            <div class="monitor-screen">
+            <section id="experience" class="section">
+                <h1>Traffic Logs <span style="font-size:1rem; color:var(--text-dim);">(Expérience)</span></h1>
                 
-                <div id="content-1" class="content-section active">
-                    <div style="text-align: center; margin-top: 50px;">
-                        <span style="color:var(--cisco-teal); font-weight:bold; letter-spacing:2px;">// SYSTEM ONLINE</span>
-                        <h1 style="font-size: 4rem;">TEJO<span style="color:var(--cisco-teal)">.SISR</span></h1>
-                        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; color:#aaa;">
-                            Étudiant Administrateur Système & Réseau.<br>
-                            Spécialisé en Architecture Cisco, Sécurité & Virtualisation.
-                        </p>
-                        <br>
-                        <div class="cli-box" style="display:inline-block; text-align:left;">
-                            <span class="cli-prompt">Router#</span> show version<br>
-                            Cisco IOS Software, C9300 Software (X86_64_LINUX_IOSD-UNIVERSALK9-M)<br>
-                            System image file is "flash:tejo-sisr-v2025.bin"<br>
-                            Uptime is 2 years, 3 weeks, 4 days<br>
-                            <span class="cli-prompt">Router#</span> _
+                <div class="card" style="margin-bottom:20px; border-left: 4px solid var(--cisco-blue);">
+                    <div style="display:flex; justify-content:space-between;">
+                        <h3>STAGE - ALPHA SOLUTIONS</h3>
+                        <span class="tech-tag">2024</span>
+                    </div>
+                    <p style="color:var(--success-green); font-family:'Fira Code'; font-size:0.9rem;">> STATUS: COMPLETED</p>
+                    <ul style="margin-left:20px; margin-top:10px;">
+                        <li>Déploiement Cluster Proxmox (HA).</li>
+                        <li>Configuration Firewall PfSense (NAT, Rules).</li>
+                        <li>Support N2 et Maintenance préventive.</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--fw-red);">
+                    <div style="display:flex; justify-content:space-between;">
+                        <h3>PROJET MIGRATION</h3>
+                        <span class="tech-tag">2024</span>
+                    </div>
+                    <p style="color:var(--success-green); font-family:'Fira Code'; font-size:0.9rem;">> STATUS: COMPLETED</p>
+                    <p>Migration critique contrôleur de domaine Windows. Gestion des GPO et DNS.</p>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h1>Running Configuration</h1>
+                <div class="grid-2">
+                    <div class="card">
+                        <h2>Cisco / Network</h2>
+                        <div style="font-family:'Fira Code'; font-size:0.85rem; color:#ccc;">
+                            interface GigabitEthernet0/1<br>
+                            &nbsp; description <span style="color:var(--cisco-blue)">WAN_Uplink</span><br>
+                            &nbsp; switchport mode trunk<br>
+                            !<br>
+                            router ospf 1<br>
+                            &nbsp; network 192.168.10.0 0.0.0.255 area 0<br>
+                            !<br>
+                            ip access-list extended SECURE_IN
                         </div>
                     </div>
-                </div>
-
-                <div id="content-2" class="content-section">
-                    <h2>Table de Routage (Expérience)</h2>
-                    <table class="route-table">
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Destination (Entreprise)</th>
-                                <th>Next Hop (Rôle)</th>
-                                <th>Metric (Durée)</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span style="color:orange;">S*</span></td>
-                                <td>ALPHA SOLUTIONS</td>
-                                <td>Technicien N2</td>
-                                <td>[2 Mois]</td>
-                                <td style="color:#0f0;">Up/Up</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" style="color:#888; padding-left:20px;">> Config VLANs, Proxmox Cluster, Support Utilisateur.</td>
-                            </tr>
-                            <tr>
-                                <td><span style="color:cyan;">C</span></td>
-                                <td>BTS SIO SISR</td>
-                                <td>Étudiant</td>
-                                <td>[En cours]</td>
-                                <td style="color:#0f0;">Up/Up</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div id="content-3" class="content-section">
-                    <h2>Running-Config (Compétences)</h2>
-                    
-                    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-                        <div style="flex:1; min-width:300px;">
-                            <div class="cli-box">
-                                <span class="cli-prompt">Switch(config)#</span> interface range Gi1/0/1-48<br>
-                                <span class="cli-prompt">Switch(config-if)#</span> switchport mode access<br>
-                                <span class="cli-prompt">Switch(config-if)#</span> switchport port-security<br>
-                                <span style="color:#aaa;">! Compétences Réseau :</span><br>
-                                > Cisco CCNA (VLAN, OSPF, STP)<br>
-                                > Pare-feu (Pfsense, Fortinet)<br>
-                                > Wireshark / Packet Tracer
-                            </div>
-                        </div>
-                        <div style="flex:1; min-width:300px;">
-                            <div class="cli-box">
-                                <span class="cli-prompt">root@linux:~#</span> systemctl status active-directory<br>
-                                ● active-directory.service - Windows Server AD DS<br>
-                                   Active: <span style="color:#0f0">active (running)</span><br>
-                                <span style="color:#aaa;">! Compétences Système :</span><br>
-                                > Windows Server (AD, DNS, GPO)<br>
-                                > Linux (Debian, Ubuntu, Bash)<br>
-                                > Virtualisation (ESXi, Proxmox)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="content-4" class="content-section">
-                    <h2>Topology Map (Projets)</h2>
-                    <div class="grid-cards">
-                        <div class="card">
-                            <h3 style="color:var(--cisco-teal);"><i class="fas fa-network-wired"></i> Campus OSPF</h3>
-                            <p>Architecture réseau complète multi-bâtiments. Routage dynamique OSPF, ACLs de sécurité.</p>
-                            <small style="color:#888;">Stack: Cisco Packet Tracer</small>
-                        </div>
-                        <div class="card">
-                            <h3 style="color:var(--cisco-teal);"><i class="fas fa-shield-halved"></i> VPN Site-to-Site</h3>
-                            <p>Interconnexion sécurisée entre deux sites distants via tunnel IPsec/OpenVPN.</p>
-                            <small style="color:#888;">Stack: Linux, OpenVPN</small>
-                        </div>
-                        <div class="card">
-                            <h3 style="color:var(--cisco-teal);"><i class="fab fa-windows"></i> Migration AD</h3>
-                            <p>Migration d'un contrôleur de domaine Windows 2012 vers 2022 sans interruption.</p>
-                            <small style="color:#888;">Stack: Windows Server, Powershell</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="content-5" class="content-section">
-                    <h2>Console Connection (Contact)</h2>
-                    <div class="cli-box" style="height: 400px;">
-                        Connecting to CONSOLE port...<br>
-                        Connection established.<br>
-                        <br>
-                        User Access Verification<br>
-                        <br>
-                        <form id="console-form">
-                            Password: <span style="color:var(--cisco-teal);">*******</span><br>
+                    <div class="card">
+                        <h2>System / Cyber</h2>
+                        <div style="font-family:'Fira Code'; font-size:0.85rem; color:#ccc;">
+                            root@srv:~# <span style="color:var(--success-green)">iptables -L</span><br>
+                            Chain INPUT (policy DROP)<br>
+                            ACCEPT tcp -- 0.0.0.0/0 22<br>
+                            ACCEPT tcp -- 0.0.0.0/0 443<br>
                             <br>
-                            <span class="cli-prompt">Tejo></span> enable<br>
-                            Password: <span style="color:var(--cisco-teal);">*******</span><br>
-                            <span class="cli-prompt">Tejo#</span> send-message<br>
-                            <br>
-                            Enter Source (Your Email): <input type="email" class="term-input" placeholder="recruteur@company.com" required><br>
-                            Enter Payload (Message): <input type="text" class="term-input" placeholder="Bonjour, votre profil m'intéresse..." required><br>
-                            <br>
-                            <button type="submit" style="background:var(--cisco-teal); color:#000; border:none; padding:5px 10px; font-weight:bold; cursor:pointer;">[ENTER] TRANSMIT</button>
-                        </form>
-                        <div id="msg-sent" style="display:none; color:#0f0; margin-top:20px;">
-                            > Packet sent successfully.<br>
-                            > Acknowledgment received.
+                            root@srv:~# <span style="color:var(--success-green)">systemctl status ad-ds</span><br>
+                            Active: active (running)
                         </div>
                     </div>
                 </div>
+            </section>
 
-            </div>
+            <section id="projects" class="section">
+                <h1>DMZ Services <span style="font-size:1rem; color:var(--text-dim);">(Projets)</span></h1>
+                
+                <div class="card" style="margin-bottom:20px;">
+                    <h3><i class="fa-solid fa-server"></i> VPN IPsec Site-to-Site</h3>
+                    <p>Interconnexion de deux sites distants.</p>
+                    <div style="margin-top:10px;">
+                        <span class="tech-tag">Linux</span>
+                        <span class="tech-tag">OpenVPN</span>
+                        <span class="tech-tag">Crypto</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-network-wired"></i> Architecture Campus</h3>
+                    <p>Design réseau complet Packet Tracer avec OSPF et Sécurité Portuaire.</p>
+                    <div style="margin-top:10px;">
+                        <span class="tech-tag">Cisco</span>
+                        <span class="tech-tag">VLAN</span>
+                        <span class="tech-tag">ACL</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h1>Open Socket <span style="font-size:1rem; color:var(--text-dim);">(Contact)</span></h1>
+                <div class="card" style="max-width:500px;">
+                    <form id="ssh-form">
+                        <div style="margin-bottom:15px;">
+                            <label style="font-family:'Fira Code'; color:var(--cisco-blue);">source_ip (email):</label><br>
+                            <input type="email" required style="width:100%; background:#050a10; border:1px solid var(--border-color); color:#fff; padding:8px;">
+                        </div>
+                        <div style="margin-bottom:15px;">
+                            <label style="font-family:'Fira Code'; color:var(--cisco-blue);">payload (message):</label><br>
+                            <textarea rows="4" required style="width:100%; background:#050a10; border:1px solid var(--border-color); color:#fff; padding:8px;"></textarea>
+                        </div>
+                        <button type="submit" style="background:var(--cisco-blue); border:none; padding:10px 20px; font-weight:bold; cursor:pointer;">ESTABLISH CONNECTION</button>
+                    </form>
+                </div>
+            </section>
+
         </div>
-    </div>
+    </main>
+
+    <aside class="logs">
+        <div class="log-header"><i class="fa-solid fa-fire-burner"></i> FIREWALL MONITOR</div>
+        <div class="log-container" id="firewall-logs">
+            <div class="log-entry"><span class="log-time">10:00:01</span> <span class="log-info">[SYS]</span> Monitoring started...</div>
+        </div>
+    </aside>
+
+    <footer class="cli">
+        <div class="cli-output" id="cli-display">Tejo_Core_Switch> enable</div>
+        <div><span class="prompt">Tejo_Core_Switch#</span> <span class="cursor"></span></div>
+    </footer>
 
     <script>
-        function switchVlan(portId) {
-            // 1. Reset tous les ports (Câbles et LEDs)
-            document.querySelectorAll('.port-container').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.led-status').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.dangling-cable').forEach(el => el.classList.remove('show'));
+        // --- LOGIC DU SOC ---
 
-            // 2. Activer le port cliqué
-            // Le 5ème est la console, on le gère un peu différemment
-            const ports = document.querySelectorAll('.port-container');
-            const port = ports[portId - 1];
-            port.classList.add('active');
+        function addLog(action, detail, type) {
+            const container = document.getElementById('firewall-logs');
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
             
-            // LED verte
-            const led = document.getElementById(`led-${portId}`);
-            if(led) led.classList.add('active');
-
-            // Afficher le câble correspondant dans le cable manager
-            const cable = document.getElementById(`cable-${portId}`);
-            if(cable) cable.classList.add('show');
-
-            // 3. Changer le contenu de l'écran
-            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
-            document.getElementById(`content-${portId}`).classList.add('active');
+            const time = new Date().toLocaleTimeString('fr-FR');
+            let colorClass = type === 'allow' ? 'log-allow' : (type === 'deny' ? 'log-deny' : 'log-info');
+            
+            entry.innerHTML = `<span class="log-time">${time}</span> <span class="${colorClass}">[${action}]</span> ${detail}`;
+            container.appendChild(entry);
+            container.scrollTop = container.scrollHeight;
         }
 
-        // Simulation formulaire
-        document.getElementById('console-form').addEventListener('submit', function(e) {
+        function typeWriter(text) {
+            const display = document.getElementById('cli-display');
+            display.innerText = ""; 
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    display.innerText += text.charAt(i);
+                    i++;
+                    setTimeout(type, 10); // Vitesse de frappe
+                }
+            }
+            type();
+        }
+
+        function routeTraffic(sectionId) {
+            // 1. Navigation
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // 2. Animation Topologie SVG
+            // Reset lines
+            document.querySelectorAll('.svg-line').forEach(el => el.classList.remove('active-path'));
+            
+            // Activate path based on ID
+            document.getElementById('link-fw').classList.add('active-path'); // Always active
+            
+            if(sectionId === 'experience') {
+                document.getElementById('link-vlan20').classList.add('active-path');
+                addLog('ALLOW', 'SRC:192.168.1.50 DST:VLAN20 PORT:443', 'allow');
+                typeWriter('Tejo_Core_Switch# show logging | include Experience');
+            } 
+            else if(sectionId === 'skills') {
+                document.getElementById('link-vlan30').classList.add('active-path');
+                addLog('ALLOW', 'SRC:192.168.1.50 DST:VLAN30 PORT:SSH', 'allow');
+                typeWriter('Tejo_Core_Switch# show running-config');
+            } 
+            else if(sectionId === 'projects') {
+                document.getElementById('link-vlan40').classList.add('active-path');
+                addLog('ALLOW', 'SRC:192.168.1.50 DST:DMZ PORT:80', 'allow');
+                typeWriter('Tejo_Core_Switch# show ip route vrf DMZ');
+            }
+            else if(sectionId === 'contact') {
+                addLog('INIT', 'Handshake SYN sent to server...', 'info');
+                typeWriter('Tejo_Core_Switch# ssh -l admin 10.0.0.1');
+            }
+            else {
+                addLog('INFO', 'Dashboard refresh', 'info');
+                typeWriter('Tejo_Core_Switch# show environment all');
+            }
+        }
+
+        // Random background logs for realism
+        setInterval(() => {
+            const randomIP = Math.floor(Math.random() * 255) + "." + Math.floor(Math.random() * 255);
+            addLog('DENY', `Blocked IP ${randomIP}.x.x on port 23`, 'deny');
+        }, 5000);
+
+        // Form simulation
+        document.getElementById('ssh-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            document.getElementById('msg-sent').style.display = 'block';
-            setTimeout(() => {
-                this.reset();
-                document.getElementById('msg-sent').style.display = 'none';
-            }, 3000);
+            addLog('UPLOAD', 'Payload delivered successfully', 'allow');
+            typeWriter('Connection closed by foreign host.');
+            e.target.reset();
         });
+
     </script>
 </body>
 </html>
