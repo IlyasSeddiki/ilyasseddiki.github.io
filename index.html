@@ -1,967 +1,520 @@
 <!DOCTYPE html>
-<html lang="fr"> <!-- La classe light-mode ou dark-mode sera ajoutée ici par JS -->
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ilyas1Seddiki (BTS SIO SISR)</title>
-    <meta name="description" content="Portfolio d'Ilyas Seddiki, étudiant en BTS SIO option SISR. Découvrez mes compétences en réseaux, cybersécurité et administration système, ainsi que mes projets et expériences professionnelles.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+    <title>Tejo | Network Rack Portfolio</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2300bceb%22><path d=%22M2 9h20v6h-20v-6zm2 2v2h16v-2h-16z%22/></svg>">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
         :root {
-            --primary-bg: #f8f8f8;
-            --secondary-bg: #ffffff;
-            --text-primary: #333333;
-            --text-secondary: #555555;
-            --text-muted: #777777;
-            --border-color: #e2e8f0;
-            --section-title-gradient-start: #3a7bd5;
-            --section-title-gradient-end: #1e3c72;
-            --skill-bar-bg: #e9ecef;
-            --hero-text: #ffffff;
-            --card-shadow: rgba(0,0,0,0.1);
-            --card-hover-shadow: rgba(0,0,0,0.2);
-            
-            --nav-text-initial: #ffffff;
-            --nav-border-initial: #ffffff;
-            --nav-hover-initial: #facc15; /* text-yellow-400 */
-            
-            --nav-text-sticky: #333333;
-            --nav-border-sticky: #333333;
-            --nav-bg-sticky: rgba(255, 255, 255, 0.9);
-            --nav-hover-sticky: #3a7bd5;
-
-
-            --footer-bg: #1f2937; /* bg-gray-800/900 */
-            --footer-text: #ffffff;
-            --footer-text-muted: #9ca3af; /* text-gray-400 */
-            
-            --form-input-bg: #ffffff;
-            --form-input-border: #e2e8f0;
-            --form-input-focus-border: #3a7bd5;
-            --form-input-focus-shadow: rgba(58, 123, 213, 0.2);
-            
-            --mobile-menu-bg: #111827; /* bg-gray-900 */
-            --mobile-menu-text: #ffffff;
-            --mobile-menu-hover: #facc15; /* text-yellow-400 */
-            --mobile-menu-border: #4b5563; /* border-gray-700 */
-
-            --tab-button-border: #e5e7eb; /* border-gray-200 */
-            --tab-button-text: #333333;
-            --tab-button-bg: #ffffff; /* Fond pour les boutons non actifs */
-            --tab-button-active-text: #ffffff; /* Sur gradient */
-            
-            --link-blue: #3a7bd5;
-            --link-blue-hover: #1e3c72;
-
-            --theme-switcher-icon-color: var(--nav-text-initial);
-            --theme-switcher-icon-color-sticky: var(--nav-text-sticky);
+            --cisco-teal: #00bceb; /* Bleu Cisco Catalyst moderne */
+            --cisco-dark: #1d1d1d; /* Couleur châssis */
+            --rack-gray: #2b2b2b;
+            --led-green: #00ff00;
+            --led-amber: #ffae00;
+            --led-off: #333;
+            --poe-yellow: #f1c40f;
+            --metal-gradient: linear-gradient(180deg, #3a3a3a 0%, #222 100%);
         }
 
-        html.dark-mode { /* Classe appliquée par JS */
-            --primary-bg: #121212;
-            --secondary-bg: #1e1e1e;
-            --text-primary: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --text-muted: #888888;
-            --border-color: #333333;
-            --skill-bar-bg: #333333;
-            --card-shadow: rgba(255,255,255,0.05);
-            --card-hover-shadow: rgba(255,255,255,0.1);
-
-            --nav-text-initial: #e0e0e0;
-            --nav-border-initial: #e0e0e0;
-            --nav-hover-initial: #facc15; /* text-yellow-400 */
-
-            --nav-text-sticky: #e0e0e0;
-            --nav-border-sticky: #e0e0e0;
-            --nav-bg-sticky: rgba(30, 30, 30, 0.9);
-            --nav-hover-sticky: #4A90E2; /* Bleu plus clair pour dark mode */
-            
-            --footer-bg: #111827;
-            --footer-text: #e0e0e0;
-            --footer-text-muted: #777777;
-
-            --form-input-bg: #2a2a2a;
-            --form-input-border: #444444;
-            --form-input-focus-border: #4A90E2;
-            --form-input-focus-shadow: rgba(74, 144, 226, 0.2);
-            
-            --mobile-menu-bg: #1e1e1e;
-            --mobile-menu-text: #e0e0e0;
-            --mobile-menu-hover: #facc15;
-            --mobile-menu-border: #555555;
-
-            --tab-button-border: #444444;
-            --tab-button-text: #b0b0b0;
-            --tab-button-bg: #1e1e1e;
-            
-            --link-blue: #4A90E2;
-            --link-blue-hover: #63B3ED;
-
-            --theme-switcher-icon-color: var(--nav-text-initial);
-            --theme-switcher-icon-color-sticky: var(--nav-text-sticky);
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-primary);
-            background-color: var(--primary-bg);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        .hero-section {
+            background-color: #111;
+            font-family: 'Roboto', sans-serif;
+            color: #eee;
             height: 100vh;
-            background: linear-gradient(135deg, #3a7bd5 0%, #1e3c72 100%);
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.jsdelivr.net/gh/networktocode/ntc-templates@master/lib/ntc_templates/sample_data/linux_network_diagram.png') no-repeat center center;
-            opacity: 0.1;
-            background-size: cover;
-            z-index: 1;
-        }
-        
-        .hero-content { position: relative; z-index: 2; color: var(--hero-text); }
-        
-        .section { padding: 5rem 0; }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            text-align: center;
-            color: var(--text-primary);
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--section-title-gradient-start), var(--section-title-gradient-end));
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background-color: var(--skill-bar-bg);
+
+        /* --- LE RACK (Container Principal) --- */
+        .rack-cabinet {
+            width: 95%;
+            max-width: 1200px;
+            height: 95vh;
+            background: #000;
+            border: 10px solid #333;
             border-radius: 5px;
-            margin-bottom: 1rem;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            position: relative;
         }
+
+        /* Vis de rack sur les côtés */
+        .rack-cabinet::before, .rack-cabinet::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 30px;
+            background: url('data:image/svg+xml;utf8,<svg width="30" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="20" r="5" fill="%23555"/></svg>');
+            z-index: 10;
+        }
+        .rack-cabinet::before { left: 0; border-right: 1px solid #444; }
+        .rack-cabinet::after { right: 0; border-left: 1px solid #444; }
+
+        /* --- UNITÉ 1 : LE SWITCH (Navigation) --- */
+        .switch-unit {
+            height: 140px;
+            background: var(--cisco-dark);
+            margin: 20px 35px 0 35px; /* Espace pour les montants du rack */
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: inset 0 0 20px #000;
+            border-bottom: 2px solid #444;
+            position: relative;
+        }
+
+        /* Branding Switch */
+        .switch-brand {
+            display: flex; flex-direction: column; width: 150px;
+        }
+        .cisco-logo {
+            font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 1.5rem; color: #fff;
+            letter-spacing: 1px;
+        }
+        .cisco-bars {
+            display: flex; gap: 3px; margin-bottom: 5px; justify-content: flex-start;
+        }
+        .bar { width: 4px; background: var(--cisco-teal); border-radius: 2px; }
+        .switch-model { font-size: 0.7rem; color: #aaa; font-family: monospace; }
+
+        /* Les Ports (Navigation) */
+        .ports-group {
+            display: flex; gap: 15px;
+        }
+
+        .port-container {
+            display: flex; flex-direction: column; align-items: center; cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+        }
+        .port-container:hover .port-face { border-color: #666; }
         
-        .skill-progress { /* Gradient for progress can stay the same, background changes */
-            height: 100%;
-            background: linear-gradient(90deg, #3a7bd5, #1e3c72);
+        /* LED Status */
+        .led-status {
+            width: 8px; height: 4px; background: var(--led-off); margin-bottom: 5px;
+            box-shadow: 0 0 0 rgba(0,0,0,0); transition: 0.3s;
+        }
+        .led-status.active {
+            background: var(--led-green);
+            box-shadow: 0 0 8px var(--led-green);
+        }
+
+        /* Le Port Physique (RJ45) */
+        .port-face {
+            width: 36px; height: 32px;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 3px;
+            position: relative;
+            box-shadow: inset 2px 2px 5px #000;
+            display: flex; justify-content: center;
+        }
+        /* Les pins dorés */
+        .port-face::after {
+            content: ''; width: 20px; height: 4px; background: #b8860b;
+            position: absolute; top: 0; opacity: 0.3;
+        }
+        /* Ligne Jaune PoE */
+        .poe-line {
+            width: 100%; height: 2px; background: var(--poe-yellow);
+            position: absolute; top: -8px;
+        }
+
+        /* Label du port */
+        .port-label {
+            margin-top: 5px; font-size: 0.65rem; color: #fff; font-weight: bold; font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        /* Câble connecté (visuel CSS) */
+        .cable-plugged {
+            position: absolute; top: 20px;
+            width: 12px; height: 60px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            z-index: 100;
+            border-radius: 2px;
+            box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+            transform: translateY(-100%); /* Caché par défaut */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .port-container.active .cable-plugged {
+            transform: translateY(0);
+        }
+
+
+        /* --- UNITÉ 2 : LE CABLE MANAGEMENT (Espace visuel) --- */
+        .cable-manager {
+            height: 40px; margin: 0 35px;
+            background: repeating-linear-gradient(
+                90deg,
+                #222,
+                #222 10px,
+                #111 10px,
+                #111 20px
+            );
+            border-left: 2px solid #444; border-right: 2px solid #444;
+            display: flex; justify-content: center; overflow: hidden;
+            position: relative;
+        }
+        /* Les câbles qui pendent */
+        .dangling-cable {
+            position: absolute; top: -20px; width: 12px; height: 200px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 0 0 10px 10px;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .dangling-cable.show { opacity: 1; }
+
+        /* --- UNITÉ 3 : LE MONITEUR (Contenu) --- */
+        .monitor-frame {
+            flex-grow: 1;
+            margin: 20px 35px 20px 35px;
+            background: #111;
+            border: 4px solid #444;
             border-radius: 5px;
-            transition: width 1.5s ease-in-out;
-            width: 0;
-        }
-        
-        .project-card {
-            background-color: var(--secondary-bg);
-            color: var(--text-primary);
-            border-radius: 8px;
+            padding: 5px;
+            box-shadow: inset 0 0 20px #000;
             overflow: hidden;
-            box-shadow: 0 5px 15px var(--card-shadow);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        .project-card p { color: var(--text-secondary); } /* Default paragraph color in card */
-        .project-card .text-blue-600 { color: var(--link-blue); }
-        .project-card .text-blue-600:hover { color: var(--link-blue-hover); }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px var(--card-hover-shadow);
+            position: relative;
         }
         
-        .back-to-top {
-            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-            border-radius: 50%; background: #1e3c72; color: white;
-            display: flex; justify-content: center; align-items: center;
-            cursor: pointer; opacity: 0; visibility: hidden;
-            transition: all 0.3s; z-index: 100;
+        /* Ecran allumé */
+        .monitor-screen {
+            width: 100%; height: 100%;
+            background: #1e1e1e;
+            color: #dcdcdc;
+            font-family: 'Roboto', sans-serif;
+            overflow-y: auto;
+            position: relative;
         }
-        .back-to-top.show { opacity: 1; visibility: visible; }
         
-        .nav-item { position: relative; transition: all 0.3s; }
-        .nav-item:after {
-            content: ''; position: absolute; bottom: -4px; left: 50%;
-            transform: translateX(-50%); width: 0; height: 2px;
-            background: var(--link-blue); transition: all 0.3s;
+        /* Scanlines effet écran */
+        .monitor-screen::before {
+            content: " "; display: block; position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px; z-index: 50; pointer-events: none;
         }
-        .nav-item:hover:after { width: 100%; }
-        
-        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-        
-        .html-css { width: 85%; } .javascript { width: 70%; } .python { width: 65%; }
-        .reseaux { width: 90%; } .cybersec { width: 80%; } .linux { width: 85%; } .windows { width: 75%; }
-        
-        #a-propos, #projets, #contact { background-color: var(--secondary-bg); }
-        #cv, #stages { background-color: var(--primary-bg); }
 
-        .cv-container {
-            background-color: var(--secondary-bg);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px var(--card-shadow);
+        /* --- CONTENU DES PAGES --- */
+        .content-section {
+            display: none; padding: 40px; max-width: 1000px; margin: 0 auto;
+            animation: bootUp 0.5s ease-out;
         }
-        .cv-container p, .cv-container h4 { color: var(--text-primary); }
-        .cv-container .text-gray-600 { color: var(--text-muted); }
-        .cv-container .text-blue-600 { color: var(--link-blue); }
-        
-        .form-input {
-            border: 1px solid var(--form-input-border);
-            background-color: var(--form-input-bg);
-            color: var(--text-primary);
-            transition: all 0.3s;
-        }
-        .form-input::placeholder { color: var(--text-muted); }
-        .form-input:focus {
-            border-color: var(--form-input-focus-border);
-            box-shadow: 0 0 0 3px var(--form-input-focus-shadow);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(90deg, #3a7bd5, #1e3c72); /* Gradient can stay */
-            transition: all 0.3s; color: white; /* Ensure text is white */
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
-        }
-        
-        .mobile-menu {
-            transition: transform 0.3s ease; transform: translateX(100%);
-            background-color: var(--mobile-menu-bg);
-        }
-        .mobile-menu.active { transform: translateX(0); }
-        .mobile-menu a, .mobile-menu button, .mobile-menu #close-menu {
-            color: var(--mobile-menu-text);
-        }
-        .mobile-menu a:hover, .mobile-menu button:hover {
-            color: var(--mobile-menu-hover);
-        }
-        .mobile-menu .border-b { border-color: var(--mobile-menu-border) !important; }
-        
-        header nav { transition: background-color 0.3s ease, box-shadow 0.3s ease; }
-        
-        /* Initial Nav Styles */
-        header nav:not(.navbar-sticky) .nav-item,
-        header nav:not(.navbar-sticky) #lang-switcher,
-        header nav:not(.navbar-sticky) #lang-switcher-mobile-icon span,
-        header nav:not(.navbar-sticky) h1,
-        header nav:not(.navbar-sticky) h1 span:not(.text-yellow-400) {
-            color: var(--nav-text-initial);
-        }
-        header nav:not(.navbar-sticky) #lang-switcher {
-            border-color: var(--nav-border-initial);
-        }
-         header nav:not(.navbar-sticky) #theme-switcher i,
-         header nav:not(.navbar-sticky) #theme-switcher-mobile i {
-            color: var(--theme-switcher-icon-color);
-         }
+        .content-section.active { display: block; }
 
-        header nav:not(.navbar-sticky) .nav-item:hover,
-        header nav:not(.navbar-sticky) #lang-switcher:hover,
-        header nav:not(.navbar-sticky) #lang-switcher-mobile-icon:hover span,
-        header nav:not(.navbar-sticky) #theme-switcher:hover i,
-        header nav:not(.navbar-sticky) #theme-switcher-mobile:hover i {
-            color: var(--nav-hover-initial);
+        @keyframes bootUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-         header nav:not(.navbar-sticky) #lang-switcher:hover {
-            border-color: var(--nav-hover-initial);
-         }
 
+        h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
+        h2 { border-bottom: 2px solid var(--cisco-teal); padding-bottom: 10px; margin-bottom: 20px; margin-top: 30px; color: var(--cisco-teal); }
+        p { margin-bottom: 15px; line-height: 1.6; }
 
-        .navbar-sticky {
-            backdrop-filter: blur(10px);
-            background-color: var(--nav-bg-sticky) !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        /* CLI Box Style pour les compétences */
+        .cli-box {
+            background: #000; color: #0f0; font-family: 'VT323', monospace; font-size: 1.2rem;
+            padding: 20px; border: 1px solid #333; border-radius: 5px; margin-bottom: 20px;
         }
-        .navbar-sticky .nav-item,
-        .navbar-sticky #lang-switcher,
-        .navbar-sticky #lang-switcher-mobile-icon span,
-        .navbar-sticky h1,
-        .navbar-sticky h1 span:not(.text-yellow-400) {
-            color: var(--nav-text-sticky) !important;
-        }
-         .navbar-sticky #theme-switcher i,
-         .navbar-sticky #theme-switcher-mobile i {
-            color: var(--theme-switcher-icon-color-sticky) !important;
-         }
+        .cli-prompt { color: var(--cisco-teal); }
 
-        .navbar-sticky #lang-switcher {
-            border-color: var(--nav-border-sticky) !important;
+        /* Grid pour Projets */
+        .grid-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
         }
-        .navbar-sticky .nav-item:hover,
-        .navbar-sticky #lang-switcher:hover,
-        .navbar-sticky #lang-switcher-mobile-icon:hover span,
-        .navbar-sticky #theme-switcher:hover i,
-        .navbar-sticky #theme-switcher-mobile:hover i {
-            color: var(--nav-hover-sticky) !important;
+        .card {
+            background: #2a2a2a; padding: 20px; border-left: 4px solid var(--cisco-teal);
+            transition: 0.3s;
         }
-         .navbar-sticky #lang-switcher:hover {
-            border-color: var(--nav-hover-sticky) !important;
-         }
-        
-        .tab-button {
-            transition: all 0.3s;
-            border-color: var(--tab-button-border);
-            color: var(--tab-button-text);
-            background-color: var(--tab-button-bg);
-        }
-        .tab-button.active {
-            background: linear-gradient(90deg, #3a7bd5, #1e3c72);
-            color: var(--tab-button-active-text);
-            box-shadow: 0 4px 6px -1px rgba(58, 123, 213, 0.4);
-        }
-        
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .project-tab-content { display: none; }
-        .project-tab-content.active { display: grid; animation: fadeInUp 0.5s ease-out forwards; }
-        
-        .social-link { transition: all 0.3s; }
-        .social-link:hover { transform: translateY(-3px); }
-        
-        .pdf-container { border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+        .card:hover { background: #333; transform: translateX(5px); }
 
-        footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-        }
-        footer .text-gray-400 { color: var(--footer-text-muted); } /* Tailwind specific */
-        footer a:hover { color: var(--link-blue); }
+        /* Table de routage (Expérience) */
+        .route-table { width: 100%; border-collapse: collapse; font-family: monospace; }
+        .route-table th { text-align: left; border-bottom: 1px solid #555; padding: 10px; color: var(--cisco-teal); }
+        .route-table td { padding: 10px; border-bottom: 1px solid #333; }
 
-        /* Adapting Tailwind specific classes if not fully covered by variables */
-        .text-gray-700 { color: var(--text-secondary); }
-        .text-gray-600 { color: var(--text-muted); }
-        .bg-blue-100 { background-color: rgba(58, 123, 213, 0.1); } /* Light theme blue bg */
-        .text-blue-800 { color: var(--link-blue); } /* Adjusted */
-        
-        html.dark-mode .bg-blue-100 { background-color: rgba(74, 144, 226, 0.15); } /* Dark theme blue bg */
+        /* Contact Form Terminal */
+        .term-input {
+            background: transparent; border: none; color: #fff; 
+            font-family: 'VT323', monospace; font-size: 1.2rem; width: 80%; outline: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .switch-unit { padding: 0 10px; overflow-x: auto; }
+            .ports-group { gap: 10px; }
+            .content-section { padding: 20px; }
+            h1 { font-size: 2rem; }
+        }
 
     </style>
 </head>
-<body> <!-- La classe light-mode ou dark-mode sera ajoutée ici par JS -->
-    <div id="version-banner" class="fixed top-0 left-0 w-full bg-yellow-400 text-black text-center py-1 text-sm font-semibold z-50">
-    Version 1.1.0 — Dernier commit du 17/10/2025
-    </div>
-    <style>
-body {
-    padding-top: 30px; /* ajuste si besoin */
-}
-</style>
-    <!-- Navigation -->
-    <header class="fixed w-full z-50">
-        <nav class="px-4 py-3 flex justify-between items-center lg:px-8">
-            <div class="text-2xl font-bold transition-all duration-300">
-                 <h1>
-                    <span data-fr="Portfolio" data-en="Portfolio">Portfolio</span>
-                    <span class="text-yellow-400" data-fr="BTS SIO" data-en="IT Degree">BTS SIO</span>
-                </h1>
-            </div>
+<body>
 
-            <!-- Desktop Switchers -->
-            <div class="hidden lg:flex items-center lg:order-3 ml-4 space-x-3">
-                <button id="theme-switcher" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="lang-switcher" class="font-medium px-3 py-1 border rounded text-sm transition-all duration-300">
-                    EN
-                </button>
-            </div>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex space-x-8 lg:order-2">
-                <a href="#accueil" class="nav-item font-medium" data-fr="Accueil" data-en="Home">Accueil</a>
-                <a href="#a-propos" class="nav-item font-medium" data-fr="À propos" data-en="About">À propos</a>
-                <a href="#cv" class="nav-item font-medium" data-fr="CV" data-en="Resume">CV</a>
-                <a href="#projets" class="nav-item font-medium" data-fr="Projets" data-en="Projects">Projets</a>
-                <a href="#stages" class="nav-item font-medium" data-fr="Stages" data-en="Internships">Stages</a>
-                <a href="#contact" class="nav-item font-medium" data-fr="Contact" data-en="Contact">Contact</a>
-            </div>
-            
-            <!-- Mobile Triggers -->
-            <div class="lg:hidden flex items-center">
-                <button id="theme-switcher-mobile" class="focus:outline-none mr-3 p-2 rounded-full transition-colors duration-300">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="lang-switcher-mobile-icon" class="focus:outline-none mr-4">
-                    <span class="font-medium text-sm">EN</span>
-                </button>
-                <button id="mobile-menu-button" class="focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
+    <div class="rack-cabinet">
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 z-40 p-5 shadow-lg">
-            <div class="flex justify-end">
-                <button id="close-menu" class="focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+        <div class="switch-unit">
+            
+            <div class="switch-brand">
+                <div class="cisco-logo">
+                    <div class="cisco-bars">
+                        <div class="bar" style="height:5px;"></div>
+                        <div class="bar" style="height:10px;"></div>
+                        <div class="bar" style="height:16px;"></div>
+                        <div class="bar" style="height:10px;"></div>
+                        <div class="bar" style="height:5px;"></div>
+                    </div>
+                    CISCO
+                </div>
+                <div class="switch-model">Catalyst 9300 Series</div>
+                <div class="switch-model">PoE+ 48 Port</div>
             </div>
-            <div class="mt-4 mb-4 space-y-2">
-                <button id="mobile-theme-switcher-menu" class="w-full text-left font-medium py-2 border-b flex items-center">
-                    <i class="fas fa-moon mr-2"></i> <span data-fr="Passer en mode Sombre" data-en="Switch to Dark Mode">Passer en mode Sombre</span>
-                </button>
-                <button id="mobile-lang-switcher" class="w-full text-left font-medium py-2 border-b">
-                    <span data-fr="Passer en Anglais" data-en="Switch to French">Passer en Anglais</span>
-                </button>
-            </div>
-            <div class="flex flex-col space-y-4 mt-8">
-                <a href="#accueil" class="font-medium py-2" data-fr="Accueil" data-en="Home">Accueil</a>
-                <a href="#a-propos" class="font-medium py-2" data-fr="À propos" data-en="About">À propos</a>
-                <a href="#cv" class="font-medium py-2" data-fr="CV" data-en="Resume">CV</a>
-                <a href="#projets" class="font-medium py-2" data-fr="Projets" data-en="Projects">Projets</a>
-                <a href="#stages" class="font-medium py-2" data-fr="Stages" data-en="Internships">Stages</a>
-                <a href="#contact" class="font-medium py-2" data-fr="Contact" data-en="Contact">Contact</a>
-            </div> 
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="hero-section flex items-center justify-center">
-        <div class="hero-content container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in" data-fr="Ilyas Seddiki" data-en="Ilyas Seddiki">
-                Ilyas Seddiki
-            </h1>
-            <h2 class="text-xl md:text-3xl font-light mb-8 animate-fade-in" data-fr="Étudiant en BTS SIO – Passionné de réseaux, cybersécurité et systèmes" data-en="Student in BTS SIO – Passionate about networking, cybersecurity, and systems">
-                Étudiant en BTS SIO – Passionné par les réseaux, la cybersécurité et les systèmes
-            </h2>
-            <div class="flex justify-center space-x-4 mb-8 animate-fade-in">
-                <a href="https://www.linkedin.com/in/seddiki-ilyas/" target="_blank" class="social-link bg-blue-600 hover:bg-blue-700 text-white rounded-full w-12 h-12 flex items-center justify-center" title="LinkedIn" data-fr-title="LinkedIn" data-en-title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/IlyasSeddiki" target="_blank" class="social-link bg-gray-800 hover:bg-gray-900 text-white rounded-full w-12 h-12 flex items-center justify-center" title="GitHub" data-fr-title="GitHub" data-en-title="GitHub"> 
-                    <i class="fab fa-github" ></i>
-                </a>
-                <a href="#contact" class="social-link bg-green-600 hover:bg-green-700 text-white rounded-full w-12 h-12 flex items-center justify-center" title="Contact" data-fr-title="Contact" data-en-title="Contact">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <a href="#a-propos" class="inline-block animate-bounce mt-12 text-white"> <!-- text-white explicit pour la flèche -->
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </a>
-        </div>
-    </section>
+            <div class="ports-group">
+                
+                <div class="port-container active" onclick="switchVlan(1)">
+                    <div class="led-status active" id="led-1"></div>
+                    <div class="poe-line"></div>
+                    <div class="port-face">
+                        <div class="cable-plugged"></div>
+                    </div>
+                    <div class="port-label">Gi1/0/1</div>
+                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">HOME</div>
+                </div>
 
-    <!-- À propos Section -->
-    <section id="a-propos" class="section">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold" data-fr="À propos de moi" data-en="About Me">À propos de moi</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div class="fade-in-section">
-                    <h3 class="text-2xl font-semibold mb-4" data-fr="Qui suis-je ?" data-en="Who am I?">Qui suis-je ?</h3>
-                    <p class="mb-6" data-fr="Je m'appelle Ilyas, étudiant en BTS SIO option SISR (Solutions d’Infrastructure, Systèmes et Réseaux) au lycée René Descartes à Champs-sur-Marne. Je suis passionné par l’informatique, les réseaux et la cybersécurité." data-en="My name is Ilyas, a student in BTS SIO option SISR (Infrastructure, Systems and Networks Solutions) at Lycée René Descartes in Champs-sur-Marne. I am passionate about IT, networks, and cybersecurity.">
-                        Je m'appelle Ilyas, étudiant en BTS SIO option SISR (Solutions d’Infrastructure, Systèmes et Réseaux) au lycée René Descartes à Champs-sur-Marne.
-                        Je suis passionné par l’informatique, les réseaux et la cybersécurité.
-                    </p>
-                    <p class="mb-6" data-fr="J’ai conçu ce portfolio pour présenter mes compétences, mes projets réalisés et mes expériences en entreprise. Bienvenue sur mon espace professionnel !" data-en="I designed this portfolio to present my skills, completed projects, and professional experiences. Welcome to my professional space!">
-                        J’ai conçu ce portfolio pour présenter mes compétences, mes projets réalisés et mes expériences en entreprise.
-                        Bienvenue sur mon espace professionnel !
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-fr="Réseaux" data-en="Networking">Réseaux</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-fr="Administration système" data-en="System Administration">Administration système</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-fr="Windows Server" data-en="Windows Server">Windows Server</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-fr="Linux" data-en="Linux">Linux</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-fr="Virtualisation" data-en="Virtualization">Virtualisation</span>
+                <div class="port-container" onclick="switchVlan(2)">
+                    <div class="led-status" id="led-2"></div>
+                    <div class="poe-line"></div>
+                    <div class="port-face">
+                        <div class="cable-plugged"></div>
                     </div>
+                    <div class="port-label">Gi1/0/2</div>
+                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">EXP</div>
                 </div>
-                <div class="fade-in-section">
-                    <h3 class="text-2xl font-semibold mb-4" data-fr="Mes compétences" data-en="My Skills">Mes compétences</h3>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span>HTML/CSS</span><span>85%</span></div>
-                        <div class="skill-bar"><div class="skill-progress html-css" data-width="85%"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span>JavaScript</span><span>70%</span></div>
-                        <div class="skill-bar"><div class="skill-progress javascript" data-width="70%"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span>Python</span><span>65%</span></div>
-                        <div class="skill-bar"><div class="skill-progress python" data-width="65%"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span data-fr="Réseaux" data-en="Networking">Réseaux</span><span>90%</span></div>
-                        <div class="skill-bar"><div class="skill-progress reseaux" data-width="90%"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span><span>80%</span></div>
-                        <div class="skill-bar"><div class="skill-progress cybersec" data-width="80%"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span>Linux</span><span>85%</span></div>
-                        <div class="skill-bar"><div class="skill-progress linux" data-width="85%"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1"><span data-fr="Windows Server" data-en="Windows Server">Windows Server</span><span>75%</span></div>
-                        <div class="skill-bar"><div class="skill-progress windows" data-width="75%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CV Section -->
-    <section id="cv" class="section">
-      <div class="container mx-auto px-4">
-        <h2 class="section-title text-3xl font-bold mb-8" data-fr="Mon CV" data-en="My Resume">Mon CV</h2>
-        <div class="fade-in-section">
-          <div class="cv-container p-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div>
-                <h3 class="text-2xl font-semibold mb-4" data-fr="Formation" data-en="Education">Formation</h3>
-                <div class="mb-6">
-                  <div class="flex justify-between">
-                    <h4 class="font-medium" data-fr="BTS SIO – option SISR" data-en="IT Degree – SISR option">BTS SIO – option SISR</h4>
-                    <span class="text-blue-600">2024 - 2026</span>
-                  </div>
-                  <p class="text-gray-600">Lycée René Descartes</p>
-                  <p class="mt-2" data-fr="Spécialité Solutions d’Infrastructure, Systèmes et Réseaux" data-en="Specializing in Infrastructure, Systems, and Network Solutions">
-                    Spécialité Solutions d’Infrastructure, Systèmes et Réseaux
-                  </p>
+                <div class="port-container" onclick="switchVlan(3)">
+                    <div class="led-status" id="led-3"></div>
+                    <div class="poe-line"></div>
+                    <div class="port-face">
+                        <div class="cable-plugged"></div>
+                    </div>
+                    <div class="port-label">Gi1/0/3</div>
+                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">SKILLS</div>
                 </div>
-                <div class="mb-6">
-                  <div class="flex justify-between">
-                    <h4 class="font-medium" data-fr="Licence Mathématique et Informatique" data-en="Bachelor's Degree in Mathematics and Computer Science">Licence Mathématique et Informatique</h4>
-                    <span class="text-blue-600">2023 - 2024</span>
-                  </div>
-                  <p class="text-gray-600">Université Gustave Eiffel</p>
-                  <p class="mt-2" data-fr="Licence 1 - Math-Info" data-en="Year 1 - Math-CS">
-                    Licence 1 - Math-Info
-                  </p>
-                </div>
-                <div class="mb-6">
-                  <div class="flex justify-between">
-                    <h4 class="font-medium" data-fr="Baccalauréat général" data-en="General Baccalaureate">Baccalauréat général</h4>
-                    <span class="text-blue-600">2017 - 2020</span>
-                  </div>
-                  <p class="text-gray-600">Lycée André Bouloche</p>
-                  <p class="mt-2" data-fr="Spécialités : Mathématiques et SES" data-en="Specialties: Mathematics and Economics & Social Sciences">
-                    Spécialités : Mathématiques et SES
-                  </p>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-2xl font-semibold mb-4" data-fr="Expérience professionnelle" data-en="Work Experience">Expérience professionnelle</h3>
-                <div class="mb-6">
-                  <div class="flex justify-between">
-                    <h4 class="font-medium" data-fr="Stage de première année – TD Synnex" data-en="First-year Internship – TD Synnex">Stage de première année – TD Synnex</h4>
-                    <span class="text-blue-600" data-fr="02/06/2024 au 04/07/2024" data-en="06/02/2024 to 07/04/2024">02/06/2024 au 04/07/2024</span>
-                  </div>
-                  <p class="mt-2" data-fr="ajt description stage" data-en="[Add internship description here]">
-                    Participation à l’installation de systèmes, configuration de postes et assistance aux utilisateurs. <a href="https://exemple.com" target="_blank">👉 Appuyez ici pour accéder à la page</a>
-                  </p>
-                </div>
-                <div class="mb-6">
-                  <div class="flex justify-between">
-                    <h4 class="font-medium" data-fr="Job étudiant - TD Synnex" data-en="Student Job - TD Synnex">Job étudiant - TD Synnex</h4>
-                    <span class="text-blue-600" data-fr="01/06/2024 au 30/07/2024" data-en="06/01/2024 to 07/30/2024">01/06/2024 au 30/07/2024</span>
-                  </div>
-                  <p class="text-gray-600">Bussy-Saint-Georges</p>
-                  <p class="mt-2" data-fr="Assemblage et intégration de composants informatiques (carte mère, processeur, RAM, disque dur, etc.) dans des unités centrales." data-en="Assembly and integration of computer components (motherboard, processor, RAM, hard drive, etc.) into desktop units.">
-                      Assemblage et intégration de composants informatiques (carte mère, processeur, RAM, disque dur, etc.) dans des unités centrales.
-                  </p>
-                </div>
-                <div class="mb-6">
-                  <div class="flex justify-between">
-                    <h4 class="font-medium" data-fr="Job étudiant – Xerox" data-en="Student Job – Xerox">Job étudiant – Xerox</h4>
-                    <span class="text-blue-600" data-fr="01/06/2023 au 30/07/2023" data-en="06/01/2023 to 07/30/2023">01/06/2023 au 30/07/2023</span>
-                  </div>
-                  <p class="text-gray-600">Villepinte</p>
-                  <p class="mt-2" data-fr="Numérisation de documents à partir de la suite Office. Préparation et traitement des courriers." data-en="Document scanning using the Office suite. Mail preparation and processing.">
-                      Numérisation de documents à partir de la suite Office.
-                      Préparation et traitement des courriers.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="flex justify-center mt-10">
-              <a href="../documents/cv.pdf" target="_blank"
-                class="btn-primary inline-flex items-center px-6 py-3 font-medium rounded-lg hover:-translate-y-1">
-                <span data-fr="Voir mon CV complet" data-en="View Full Resume">Voir mon CV complet</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Projets Section -->
-    <section id="projets" class="section">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold" data-fr="Mes projets" data-en="My Projects">Mes projets</h2>
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" class="tab-button active px-5 py-3 text-sm font-medium rounded-l-lg" data-tab="all" data-fr="Tous" data-en="All"> Tous </button>
-                    <button type="button" class="tab-button px-5 py-3 text-sm font-medium" data-tab="tp" data-fr="TP" data-en="Labs"> TP </button>
-                    <button type="button" class="tab-button px-5 py-3 text-sm font-medium" data-tab="projets-annee" data-fr="Projets annuels" data-en="Yearly Projects"> Projets annuels </button>
-                    <button type="button" class="tab-button px-5 py-3 text-sm font-medium rounded-r-lg" data-tab="perso" data-fr="Projets personnels" data-en="Personal Projects"> Projets personnels </button>
+                <div class="port-container" onclick="switchVlan(4)">
+                    <div class="led-status" id="led-4"></div>
+                    <div class="poe-line"></div>
+                    <div class="port-face">
+                        <div class="cable-plugged"></div>
+                    </div>
+                    <div class="port-label">Gi1/0/4</div>
+                    <div class="port-label" style="color:#aaa; font-size:0.5rem;">PROJ</div>
                 </div>
+            </div>
+
+            <div class="port-container" onclick="switchVlan(5)" style="margin-left: 30px;">
+                <div class="led-status" id="led-5" style="background:var(--cisco-teal); box-shadow:none;"></div>
+                <div class="port-face" style="border-radius: 10px; border-color:#555;">
+                    <div class="cable-plugged" style="background:#555;"></div>
+                </div>
+                <div class="port-label">CONSOLE</div>
+                <div class="port-label" style="color:#aaa; font-size:0.5rem;">CONTACT</div>
             </div>
             
-            <div class="project-tab-content active" id="all-content">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="project-card">
-                        <div class="h-48 overflow-hidden bg-gray-200"> <img src="../images/Docker-Logo.png" alt="Illustration Docker" class="w-full h-full object-contain mb-4 rounded-lg shadow-md p-2" /> </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2" data-fr="Déploiement de conteneurs Docker" data-en="Docker Container Deployment">Déploiement de conteneurs Docker</h3>
-                            <p class="mb-4" data-fr="Mise en place et gestion de conteneurs avec Docker. Création d'images, gestion des volumes et des réseaux, déploiement d'applications isolées." data-en="Setup and management of containers with Docker. Image creation, volume and network management, deployment of isolated applications.">Mise en place et gestion de conteneurs avec Docker...</p>
-                            <div class="flex justify-between items-center"><span class="text-sm text-blue-600 font-medium" data-fr="TP" data-en="Lab">TP</span><a href="../documents/docker.pdf" target="_blank"class="text-blue-600 hover:text-blue-800"><i class="fas fa-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="h-48 overflow-hidden bg-gray-200 flex items-center justify-center"><i class="fas fa-network-wired text-4xl text-gray-400"></i></div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2" data-fr="Sécurisation d'un réseau local" data-en="Local Network Security">Sécurisation d'un réseau local</h3>
-                            <p class="mb-4" data-fr="Mise en place d'un pare-feu et configuration de VLANs pour sécuriser un réseau d'entreprise." data-en="Implementation of a firewall and VLAN configuration to secure a corporate network.">Mise en place d'un pare-feu et configuration de VLANs...</p>
-                            <div class="flex justify-between items-center"><span class="text-sm text-blue-600 font-medium" data-fr="Projet annuel" data-en="Yearly Project">Projet annuel</span><a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                     <div class="project-card">
-                        <div class="h-48 overflow-hidden bg-gray-200 flex items-center justify-center"><i class="fab fa-python text-4xl text-gray-400"></i></div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2" data-fr="Automatisation avec Python" data-en="Automation with Python">Automatisation avec Python</h3>
-                            <p class="mb-4" data-fr="Développement de scripts pour automatiser des tâches d'administration système." data-en="Development of scripts to automate system administration tasks.">Développement de scripts pour automatiser...</p>
-                            <div class="flex justify-between items-center"><span class="text-sm text-blue-600 font-medium" data-fr="Projet personnel" data-en="Personal Project">Projet personnel</span><a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                    <!-- Ajouter d'autres cartes ici -->
-                </div>
-            </div>
-            <div class="project-tab-content" id="tp-content"> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <!-- Projets TP ici --> </div></div>
-            <div class="project-tab-content" id="projets-annee-content"> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <!-- Projets annuels ici --> </div></div>
-            <div class="project-tab-content" id="perso-content"> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <!-- Projets personnels ici --> </div></div>
         </div>
-    </section>
 
-    <!-- Stages Section -->
-    <section id="stages" class="section">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold" data-fr="Mes stages" data-en="My Internships">Mes stages</h2>
-            <div class="fade-in-section">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="project-card p-6"> <!-- Utilisation de project-card pour style consistant -->
-                        <h3 class="text-xl font-bold mb-4" data-fr="Stage de première année" data-en="First-Year Internship">Stage de première année</h3>
-                        <div class="mb-4 flex items-center"><i class="fas fa-building mr-2"></i><span>TD Synnex</span></div>
-                        <div class="mb-4 flex items-center"><i class="fas fa-calendar-alt mr-2"></i><span data-fr="02/06 jusqu'au 04/07" data-en="06/02 to 07/04">02/06 jusqu'au 04/07</span></div>
-                        <p class="mb-6" data-fr="Installation de systèmes d’exploitation (Windows, Linux…).
-Déploiement d’images Master et/ou configuration Autopilot (White Gloves)." data-en="Operating system installation (Windows, Linux, etc.). Component integration in PCs and servers. Master image deployment and/or Autopilot (White Gloves)."> Installation de systèmes d'exploitations...</p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="btn-primary px-4 py-2 rounded-lg text-sm"><i class="fas fa-file-pdf mr-2"></i><span data-fr="Rapport de stage" data-en="Internship Report">Rapport</span></a>
-                            <a href="#" class="btn-primary px-4 py-2 rounded-lg text-sm" style="background: var(--text-muted);"><i class="fas fa-image mr-2"></i><span data-fr="Galerie" data-en="Gallery">Galerie</span></a>
+        <div class="cable-manager">
+            <div class="dangling-cable show" id="cable-1" style="left: 22%;"></div>
+            <div class="dangling-cable" id="cable-2" style="left: 36%;"></div>
+            <div class="dangling-cable" id="cable-3" style="left: 50%;"></div>
+            <div class="dangling-cable" id="cable-4" style="left: 64%;"></div>
+            <div class="dangling-cable" id="cable-5" style="left: 82%; background:#555;"></div>
+        </div>
+
+        <div class="monitor-frame">
+            <div class="monitor-screen">
+                
+                <div id="content-1" class="content-section active">
+                    <div style="text-align: center; margin-top: 50px;">
+                        <span style="color:var(--cisco-teal); font-weight:bold; letter-spacing:2px;">// SYSTEM ONLINE</span>
+                        <h1 style="font-size: 4rem;">TEJO<span style="color:var(--cisco-teal)">.SISR</span></h1>
+                        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; color:#aaa;">
+                            Étudiant Administrateur Système & Réseau.<br>
+                            Spécialisé en Architecture Cisco, Sécurité & Virtualisation.
+                        </p>
+                        <br>
+                        <div class="cli-box" style="display:inline-block; text-align:left;">
+                            <span class="cli-prompt">Router#</span> show version<br>
+                            Cisco IOS Software, C9300 Software (X86_64_LINUX_IOSD-UNIVERSALK9-M)<br>
+                            System image file is "flash:tejo-sisr-v2025.bin"<br>
+                            Uptime is 2 years, 3 weeks, 4 days<br>
+                            <span class="cli-prompt">Router#</span> _
                         </div>
-                    </div>
-                    <div class="project-card p-6">
-                        <h3 class="text-xl font-bold mb-4" data-fr="Stage de deuxième année" data-en="Second-Year Internship">Stage de deuxième année</h3>
-                        <div class="mb-4 flex items-center"><i class="fas fa-building mr-2"></i><span data-fr="[Nom de l'entreprise ici]" data-en="[Company Name Here]">[Nom...]</span></div>
-                        <div class="mb-4 flex items-center"><i class="fas fa-calendar-alt mr-2"></i><span data-fr="[Période du stage ici]" data-en="[Internship Period Here]">[Période...]</span></div>
-                        <p class="mb-6" data-fr="Stage à venir - Cette section sera mise à jour prochainement." data-en="Upcoming internship - This section will be updated soon."> Stage à venir...</p>
-                        <div class="flex space-x-3"><a href="#" class="btn-primary px-4 py-2 rounded-lg text-sm cursor-not-allowed" style="background: var(--text-muted); opacity:0.7;"><i class="fas fa-file-pdf mr-2"></i><span data-fr="Rapport à venir" data-en="Report to come">Rapport à venir</span></a></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold" data-fr="Me contacter" data-en="Contact Me">Me contacter</h2>
-            <div class="fade-in-section">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-6" data-fr="Restons en contact" data-en="Let's Keep in Touch">Restons en contact</h3>
-                        <p class="mb-8" data-fr="Vous avez une question ? N'hésitez pas à me contacter via ce formulaire ou directement par e-mail." data-en="Have a question? Feel free to contact me using this form or directly by email."> Vous avez une question ? ...</p>
-                        <div class="mb-6 flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4"><i class="fas fa-envelope"></i></div>
-                            <div><h4 class="font-medium" data-fr="Email" data-en="Email">Email</h4><p class="text-gray-600">ilyasseddiki014@gmail.com</p></div>
+                <div id="content-2" class="content-section">
+                    <h2>Table de Routage (Expérience)</h2>
+                    <table class="route-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Destination (Entreprise)</th>
+                                <th>Next Hop (Rôle)</th>
+                                <th>Metric (Durée)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span style="color:orange;">S*</span></td>
+                                <td>ALPHA SOLUTIONS</td>
+                                <td>Technicien N2</td>
+                                <td>[2 Mois]</td>
+                                <td style="color:#0f0;">Up/Up</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="color:#888; padding-left:20px;">> Config VLANs, Proxmox Cluster, Support Utilisateur.</td>
+                            </tr>
+                            <tr>
+                                <td><span style="color:cyan;">C</span></td>
+                                <td>BTS SIO SISR</td>
+                                <td>Étudiant</td>
+                                <td>[En cours]</td>
+                                <td style="color:#0f0;">Up/Up</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="content-3" class="content-section">
+                    <h2>Running-Config (Compétences)</h2>
+                    
+                    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+                        <div style="flex:1; min-width:300px;">
+                            <div class="cli-box">
+                                <span class="cli-prompt">Switch(config)#</span> interface range Gi1/0/1-48<br>
+                                <span class="cli-prompt">Switch(config-if)#</span> switchport mode access<br>
+                                <span class="cli-prompt">Switch(config-if)#</span> switchport port-security<br>
+                                <span style="color:#aaa;">! Compétences Réseau :</span><br>
+                                > Cisco CCNA (VLAN, OSPF, STP)<br>
+                                > Pare-feu (Pfsense, Fortinet)<br>
+                                > Wireshark / Packet Tracer
+                            </div>
                         </div>
-                        <div class="mb-6 flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4"><i class="fas fa-map-marker-alt"></i></div>
-                            <div><h4 class="font-medium" data-fr="Localisation" data-en="Location">Localisation</h4><p class="text-gray-600">Livry-Gargan</p></div>
-                        </div>
-                        <div class="flex space-x-4 mt-8">
-                            <a href="https://www.linkedin.com/in/seddiki-ilyas/" target="_blank" class="social-link bg-blue-600 hover:bg-blue-700 text-white rounded-full w-12 h-12 flex items-center justify-center" title="LinkedIn" data-fr-title="LinkedIn" data-en-title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/IlyasSeddiki" target="_blank" class="social-link bg-gray-800 hover:bg-gray-900 text-white rounded-full w-12 h-12 flex items-center justify-center" title="GitHub" data-fr-title="GitHub" data-en-title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://x.com/vaanitas7" target="_blank" class="social-link bg-blue-400 hover:bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center" title="Twitter" data-fr-title="Twitter" data-en-title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <div style="flex:1; min-width:300px;">
+                            <div class="cli-box">
+                                <span class="cli-prompt">root@linux:~#</span> systemctl status active-directory<br>
+                                ● active-directory.service - Windows Server AD DS<br>
+                                   Active: <span style="color:#0f0">active (running)</span><br>
+                                <span style="color:#aaa;">! Compétences Système :</span><br>
+                                > Windows Server (AD, DNS, GPO)<br>
+                                > Linux (Debian, Ubuntu, Bash)<br>
+                                > Virtualisation (ESXi, Proxmox)
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <form action="https://formspree.io/f/xnndybov" method="POST" class="project-card p-8"> <!-- Utilisation de project-card pour style -->
-                            <div class="mb-6">
-                                <label for="name" class="block mb-2 text-sm font-medium" data-fr="Nom" data-en="Name">Nom</label>
-                                <input type="text" id="name" name="name" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Votre nom" required data-fr-placeholder="Votre nom" data-en-placeholder="Your name">
-                            </div>
-                            <div class="mb-6">
-                                <label for="email" class="block mb-2 text-sm font-medium" data-fr="Email" data-en="Email">Email</label>
-                                <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Votre email" required data-fr-placeholder="Votre email" data-en-placeholder="Your email">
-                            </div>
-                            <div class="mb-6">
-                                <label for="subject" class="block mb-2 text-sm font-medium" data-fr="Sujet" data-en="Subject">Sujet</label>
-                                <input type="text" id="subject" name="subject" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Sujet du message" required data-fr-placeholder="Sujet du message" data-en-placeholder="Message subject">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 text-sm font-medium" data-fr="Message" data-en="Message">Message</label>
-                                <textarea id="message" name="message" rows="5" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none resize-none" placeholder="Votre message" required data-fr-placeholder="Votre message" data-en-placeholder="Your message"></textarea>
-                            </div>
-                            <div><button type="submit" class="btn-primary w-full font-medium rounded-lg text-sm px-5 py-3 text-center"><span data-fr="Envoyer le message" data-en="Send Message">Envoyer le message</span></button></div>
+                </div>
+
+                <div id="content-4" class="content-section">
+                    <h2>Topology Map (Projets)</h2>
+                    <div class="grid-cards">
+                        <div class="card">
+                            <h3 style="color:var(--cisco-teal);"><i class="fas fa-network-wired"></i> Campus OSPF</h3>
+                            <p>Architecture réseau complète multi-bâtiments. Routage dynamique OSPF, ACLs de sécurité.</p>
+                            <small style="color:#888;">Stack: Cisco Packet Tracer</small>
+                        </div>
+                        <div class="card">
+                            <h3 style="color:var(--cisco-teal);"><i class="fas fa-shield-halved"></i> VPN Site-to-Site</h3>
+                            <p>Interconnexion sécurisée entre deux sites distants via tunnel IPsec/OpenVPN.</p>
+                            <small style="color:#888;">Stack: Linux, OpenVPN</small>
+                        </div>
+                        <div class="card">
+                            <h3 style="color:var(--cisco-teal);"><i class="fab fa-windows"></i> Migration AD</h3>
+                            <p>Migration d'un contrôleur de domaine Windows 2012 vers 2022 sans interruption.</p>
+                            <small style="color:#888;">Stack: Windows Server, Powershell</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-5" class="content-section">
+                    <h2>Console Connection (Contact)</h2>
+                    <div class="cli-box" style="height: 400px;">
+                        Connecting to CONSOLE port...<br>
+                        Connection established.<br>
+                        <br>
+                        User Access Verification<br>
+                        <br>
+                        <form id="console-form">
+                            Password: <span style="color:var(--cisco-teal);">*******</span><br>
+                            <br>
+                            <span class="cli-prompt">Tejo></span> enable<br>
+                            Password: <span style="color:var(--cisco-teal);">*******</span><br>
+                            <span class="cli-prompt">Tejo#</span> send-message<br>
+                            <br>
+                            Enter Source (Your Email): <input type="email" class="term-input" placeholder="recruteur@company.com" required><br>
+                            Enter Payload (Message): <input type="text" class="term-input" placeholder="Bonjour, votre profil m'intéresse..." required><br>
+                            <br>
+                            <button type="submit" style="background:var(--cisco-teal); color:#000; border:none; padding:5px 10px; font-weight:bold; cursor:pointer;">[ENTER] TRANSMIT</button>
                         </form>
+                        <div id="msg-sent" style="display:none; color:#0f0; margin-top:20px;">
+                            > Packet sent successfully.<br>
+                            > Acknowledgment received.
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold"><span data-fr="Portfolio" data-en="Portfolio">Portfolio</span> <span data-fr="BTS SIO" data-en="IT Degree">BTS SIO</span></h2>
-                    <p class="text-gray-400 mt-2"></p> <!-- Peut être retiré si vide -->
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/seddiki-ilyas/" target="_blank" class="transition duration-300" title="LinkedIn" data-fr-title="LinkedIn" data-en-title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/IlyasSeddiki" target="_blank" class="transition duration-300" title="GitHub" data-fr-title="GitHub" data-en-title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/vaanitas7" target="_blank" class="transition duration-300" title="Twitter" data-fr-title="Twitter" data-en-title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="mailto:ilyasseddiki014@gmail.com" class="transition duration-300" title="Email" data-fr-title="Email" data-en-title="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to top button -->
-    <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></div>
+    </div>
 
     <script>
-        // Global state variables
-        let currentLang = 'fr';
-        let currentTheme = localStorage.getItem('theme') || 'light';
+        function switchVlan(portId) {
+            // 1. Reset tous les ports (Câbles et LEDs)
+            document.querySelectorAll('.port-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.led-status').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.dangling-cable').forEach(el => el.classList.remove('show'));
 
-        // DOM Elements
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.querySelector('header');
-        const nav = header.querySelector('nav');
-        const backToTopButton = document.getElementById('back-to-top');
-        const fadeElements = document.querySelectorAll('.fade-in-section');
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.project-tab-content');
-        const htmlEl = document.documentElement; // Changed from bodyTag for theme class
-
-        // Language Switcher Elements
-        const desktopLangSwitcher = document.getElementById('lang-switcher');
-        const mobileIconLangSwitcher = document.getElementById('lang-switcher-mobile-icon');
-        const mobileMenuLangSwitcher = document.getElementById('mobile-lang-switcher').querySelector('span'); // Target the span for text
-
-        // Theme Switcher Elements
-        const desktopThemeSwitcher = document.getElementById('theme-switcher');
-        const mobileIconThemeSwitcher = document.getElementById('theme-switcher-mobile');
-        const mobileMenuThemeSwitcher = document.getElementById('mobile-theme-switcher-menu');
-
-
-        // --- Mobile Menu Logic ---
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.add('active'));
-        closeMenuButton.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        mobileMenu.querySelectorAll('a, button').forEach(el => {
-            // Close menu on link/button click inside, except for the theme/lang switcher text span
-             if (el.id !== 'mobile-theme-switcher-menu' && el.id !== 'mobile-lang-switcher' && !el.closest('#mobile-theme-switcher-menu') && !el.closest('#mobile-lang-switcher')) {
-                el.addEventListener('click', () => mobileMenu.classList.remove('active'));
-            }
-        });
-         // Special handling for the full-width buttons in mobile menu for theme/lang
-        document.getElementById('mobile-theme-switcher-menu').addEventListener('click', () => {
-            toggleTheme();
-            // mobileMenu.classList.remove('active'); // Optionally close
-        });
-        document.getElementById('mobile-lang-switcher').addEventListener('click', () => { // The button wrapper
-            toggleLanguage();
-            mobileMenu.classList.remove('active');
-        });
-
-
-        // --- Sticky Navbar Logic ---
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) nav.classList.add('navbar-sticky');
-            else nav.classList.remove('navbar-sticky');
-        });
-
-        // --- Back to Top Button ---
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) backToTopButton.classList.add('show');
-            else backToTopButton.classList.remove('show');
-        });
-        backToTopButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // --- Scroll Animations ---
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                if (element.getBoundingClientRect().top < window.innerHeight - 100) {
-                    element.classList.add('is-visible');
-                }
-            });
-        };
-        window.addEventListener('scroll', fadeInOnScroll);
-        window.addEventListener('load', fadeInOnScroll); // Also on load for elements already in view
-
-        // --- Skill Bar Animation ---
-        const animateSkills = () => {
-            document.querySelectorAll('.skill-progress').forEach(bar => {
-                bar.style.width = bar.getAttribute('data-width');
-            });
-        };
-        window.addEventListener('load', animateSkills);
-
-        // --- Project Tabs ---
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                tabContents.forEach(content => content.classList.remove('active'));
-                document.getElementById(`${tabId}-content`).classList.add('active');
-            });
-        });
-
-        // --- Language Switcher Logic ---
-        const langSwitcherTexts = {
-            desktopButton: { fr: "EN", en: "FR" },
-            mobileIconButton: { fr: "EN", en: "FR" },
-            mobileMenuButton: { // Texts for the span inside the button
-                fr: "Passer en Anglais",
-                en: "Switch to French"
-            }
-        };
-
-        function updateLanguageDisplay() {
-            htmlEl.lang = currentLang;
-            if (desktopLangSwitcher) desktopLangSwitcher.textContent = (currentLang === 'fr') ? langSwitcherTexts.desktopButton.fr : langSwitcherTexts.desktopButton.en;
-            if (mobileIconLangSwitcher) mobileIconLangSwitcher.querySelector('span').textContent = (currentLang === 'fr') ? langSwitcherTexts.mobileIconButton.fr : langSwitcherTexts.mobileIconButton.en;
-            if (mobileMenuLangSwitcher) { // This is the span
-                 mobileMenuLangSwitcher.textContent = (currentLang === 'fr') ? langSwitcherTexts.mobileMenuButton.fr : langSwitcherTexts.mobileMenuButton.en;
-                 // Update data attributes on the span for future translations by theme switcher
-                 mobileMenuLangSwitcher.dataset.fr = langSwitcherTexts.mobileMenuButton.fr;
-                 mobileMenuLangSwitcher.dataset.en = langSwitcherTexts.mobileMenuButton.en;
-            }
-
-
-            document.querySelectorAll('[data-fr], [data-en], [data-fr-placeholder], [data-en-placeholder], [data-fr-title], [data-en-title]').forEach(el => {
-                // Skip the mobile menu language switcher span itself as we just set it
-                if (el === mobileMenuLangSwitcher) return;
-
-                const valKey = `data-${currentLang}`;
-                const placeholderKey = `data-${currentLang}-placeholder`;
-                const titleKey = `data-${currentLang}-title`;
-
-                if (el.hasAttribute(valKey)) el.textContent = el.getAttribute(valKey);
-                if (el.hasAttribute(placeholderKey)) el.placeholder = el.getAttribute(placeholderKey);
-                if (el.hasAttribute(titleKey)) el.title = el.getAttribute(titleKey);
-            });
+            // 2. Activer le port cliqué
+            // Le 5ème est la console, on le gère un peu différemment
+            const ports = document.querySelectorAll('.port-container');
+            const port = ports[portId - 1];
+            port.classList.add('active');
             
-            // After language change, re-evaluate theme switcher text in mobile menu
-            updateThemeSwitcherMobileMenuText();
+            // LED verte
+            const led = document.getElementById(`led-${portId}`);
+            if(led) led.classList.add('active');
+
+            // Afficher le câble correspondant dans le cable manager
+            const cable = document.getElementById(`cable-${portId}`);
+            if(cable) cable.classList.add('show');
+
+            // 3. Changer le contenu de l'écran
+            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(`content-${portId}`).classList.add('active');
         }
 
-        function toggleLanguage() {
-            currentLang = (currentLang === 'fr') ? 'en' : 'fr';
-            updateLanguageDisplay();
-        }
-
-        if (desktopLangSwitcher) desktopLangSwitcher.addEventListener('click', toggleLanguage);
-        if (mobileIconLangSwitcher) mobileIconLangSwitcher.addEventListener('click', toggleLanguage);
-        // The event listener for mobileMenuLangSwitcher's parent button is set up in Mobile Menu Logic
-
-
-        // --- Theme (Dark/Light Mode) Switcher Logic ---
-        const themeSwitcherDisplay = {
-            icons: { light: 'fa-moon', dark: 'fa-sun' },
-            mobileMenuText: { // Text for the span inside the button
-                switchToDark: { fr: "Passer en mode Sombre", en: "Switch to Dark Mode" },
-                switchToLight: { fr: "Passer en mode Clair", en: "Switch to Light Mode" }
-            }
-        };
-        
-        function updateThemeSwitcherMobileMenuText() {
-            if (mobileMenuThemeSwitcher) {
-                const textSpan = mobileMenuThemeSwitcher.querySelector('span');
-                const targetTexts = (currentTheme === 'light') ? themeSwitcherDisplay.mobileMenuText.switchToDark : themeSwitcherDisplay.mobileMenuText.switchToLight;
-                
-                textSpan.textContent = (currentLang === 'fr') ? targetTexts.fr : targetTexts.en;
-                // Update data attributes on the span for future translations by language switcher
-                textSpan.dataset.fr = targetTexts.fr;
-                textSpan.dataset.en = targetTexts.en;
-            }
-        }
-
-
-        function applyTheme() {
-            htmlEl.classList.remove('light-mode', 'dark-mode');
-            htmlEl.classList.add(currentTheme + '-mode');
-            localStorage.setItem('theme', currentTheme);
-
-            const iconToShow = (currentTheme === 'light') ? themeSwitcherDisplay.icons.light : themeSwitcherDisplay.icons.dark;
-            const iconToRemove = (currentTheme === 'light') ? themeSwitcherDisplay.icons.dark : themeSwitcherDisplay.icons.light;
-
-            [desktopThemeSwitcher, mobileIconThemeSwitcher, mobileMenuThemeSwitcher].forEach(switcher => {
-                if (switcher) {
-                    const iconEl = switcher.querySelector('i');
-                    if (iconEl) {
-                        iconEl.classList.remove(iconToRemove);
-                        iconEl.classList.add(iconToShow);
-                    }
-                }
-            });
-            updateThemeSwitcherMobileMenuText(); // Update text in mobile menu
-        }
-
-        function toggleTheme() {
-            currentTheme = (currentTheme === 'light') ? 'dark' : 'light';
-            applyTheme();
-        }
-
-        if (desktopThemeSwitcher) desktopThemeSwitcher.addEventListener('click', toggleTheme);
-        if (mobileIconThemeSwitcher) mobileIconThemeSwitcher.addEventListener('click', toggleTheme);
-        // The event listener for mobileMenuThemeSwitcher is set up in Mobile Menu Logic
-
-        // --- Initial Page Load Setup ---
-        function initializePage() {
-            applyTheme(); // Apply theme first
-            updateLanguageDisplay(); // Then update language (which also updates theme switcher text)
-            fadeInOnScroll(); // For elements in view on load
-            animateSkills(); // For skills visible on load
-        }
-
-        window.addEventListener('load', initializePage);
-
+        // Simulation formulaire
+        document.getElementById('console-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('msg-sent').style.display = 'block';
+            setTimeout(() => {
+                this.reset();
+                document.getElementById('msg-sent').style.display = 'none';
+            }, 3000);
+        });
     </script>
 </body>
 </html>
