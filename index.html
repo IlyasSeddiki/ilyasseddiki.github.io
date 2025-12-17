@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejo | Portfolio SISR</title>
+    <title>Ilyas Seddiki | Portfolio BTS SIO SISR</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,33 +13,25 @@
 
     <style>
         /* =========================================
-           1. DESIGN SYSTEM (LIGHT MODE PREMIUM)
+           1. DESIGN SYSTEM (PREMIUM LIGHT)
            ========================================= */
         :root {
-            /* Fonds */
-            --bg-body: #f3f5f9; /* Gris très pâle bleuté (Premium) */
-            --bg-glass: rgba(255, 255, 255, 0.75); /* Verre blanc */
+            --bg-body: #f8f9fa;
+            --bg-glass: rgba(255, 255, 255, 0.85);
             --bg-card: #ffffff;
             
-            /* Couleurs */
-            --primary: #2563eb; /* Bleu Roi moderne */
-            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-            --secondary: #64748b; /* Gris texte */
-            --text-dark: #0f172a; /* Quasi noir pour titres */
+            --primary: #0f172a; /* Bleu Nuit très sombre (TD SYNNEX Vibe) */
+            --accent: #2563eb; /* Bleu électrique */
+            --secondary: #64748b;
             
-            /* Accents Projets */
-            --tag-pro: #dbeafe; /* Fond bleu très clair */
-            --text-pro: #1e40af; /* Texte bleu foncé */
-            --tag-school: #f3e8ff; /* Fond violet très clair */
-            --text-school: #6b21a8; /* Texte violet foncé */
+            /* Tags Spécifiques */
+            --tag-physique-bg: #fff1f2; --tag-physique-text: #be123c; /* Rouge pour le Physique */
+            --tag-virtuel-bg: #eff6ff; --tag-virtuel-text: #1d4ed8; /* Bleu pour le Virtuel */
+            --tag-pro-bg: #ecfccb; --tag-pro-text: #3f6212; /* Vert pour le Pro */
 
-            /* Effets */
-            --blur: blur(16px);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --border: 1px solid rgba(0, 0, 0, 0.06);
+            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            --border: 1px solid #e2e8f0;
             --radius: 16px;
-            
             --transition: all 0.3s ease;
         }
 
@@ -50,17 +42,13 @@
             background-color: var(--bg-body);
             color: var(--secondary);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* --- BACKGROUND MESH (LUMINEUX) --- */
-        .ambient-light {
+        /* Arrière-plan subtil */
+        .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: 
-                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(79, 70, 229, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
-            filter: blur(40px);
+            background: radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.05), transparent 40%),
+                        radial-gradient(circle at 90% 90%, rgba(15, 23, 42, 0.05), transparent 40%);
         }
 
         /* =========================================
@@ -69,172 +57,154 @@
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 1100px;
-            background: var(--bg-glass);
-            backdrop-filter: var(--blur);
-            border: var(--border);
-            border-radius: 50px;
+            background: var(--bg-glass); backdrop-filter: blur(12px);
+            border: var(--border); border-radius: 50px;
             padding: 12px 30px;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
+            z-index: 1000; box-shadow: var(--shadow);
         }
 
-        .logo { font-weight: 800; font-size: 1.3rem; color: var(--text-dark); }
-        .logo span { color: var(--primary); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-transform: uppercase; }
+        .logo span { color: var(--accent); }
 
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a {
             color: var(--secondary); text-decoration: none; font-weight: 600; font-size: 0.9rem;
             transition: var(--transition);
         }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
 
-        .btn-primary {
-            background: var(--primary-gradient); color: #fff;
-            padding: 10px 24px; border-radius: 50px; text-decoration: none;
-            font-weight: 600; font-size: 0.9rem; transition: var(--transition);
-            border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        .btn-nav {
+            background: var(--primary); color: #fff; padding: 10px 24px;
+            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            transition: var(--transition);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 12px rgba(37, 99, 235, 0.3); }
+        .btn-nav:hover { background: var(--accent); transform: translateY(-2px); }
 
         /* =========================================
            3. HERO SECTION
            ========================================= */
-        .hero {
+        header {
             min-height: 90vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 120px 20px 60px;
+            padding: 100px 20px;
         }
-
-        .status-badge {
-            background: #fff; border: var(--border); padding: 6px 16px;
-            border-radius: 50px; font-size: 0.8rem; font-weight: 700;
-            color: var(--primary); margin-bottom: 30px;
-            box-shadow: var(--shadow-sm);
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
 
         h1 {
-            font-size: 4rem; line-height: 1.1; font-weight: 800; margin-bottom: 25px;
-            color: var(--text-dark); letter-spacing: -1.5px;
+            font-size: 4rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px;
+            color: var(--primary); letter-spacing: -1px;
         }
-        .gradient-text {
-            background: var(--primary-gradient); -webkit-background-clip: text; color: transparent;
-        }
+        .highlight { color: var(--accent); }
 
         .hero-desc {
-            font-size: 1.2rem; color: var(--secondary); max-width: 700px;
-            margin-bottom: 40px; font-weight: 500;
+            font-size: 1.2rem; max-width: 700px; margin-bottom: 40px;
         }
 
         /* =========================================
-           4. STRUCTURE GÉNÉRALE
+           4. STRUCTURE SECTIONS
            ========================================= */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         
-        .section-title { font-size: 2.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
-        .section-subtitle { font-size: 1.1rem; margin-bottom: 50px; color: var(--secondary); }
+        .section-title { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .section-subtitle { margin-bottom: 50px; color: var(--secondary); }
 
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
         .card {
-            background: var(--bg-card); border: var(--border);
-            border-radius: var(--radius); padding: 30px;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-            height: 100%; display: flex; flex-direction: column;
+            background: var(--bg-card); border: var(--border); border-radius: var(--radius);
+            padding: 30px; transition: var(--transition); height: 100%;
+            display: flex; flex-direction: column; position: relative; overflow: hidden;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(37, 99, 235, 0.3); }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
 
         /* =========================================
-           5. SYSTEME D'ONGLETS (PROJETS) - CŒUR DE LA DEMANDE
+           5. STAGES (TD SYNNEX)
            ========================================= */
-        .tabs-container {
+        .stage-card {
+            border-left: 5px solid var(--primary);
+            margin-bottom: 40px;
+        }
+        
+        .stage-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+        }
+        
+        .company-logo {
+            font-size: 1.5rem; font-weight: 800; color: var(--primary);
+            display: flex; align-items: center; gap: 10px;
+        }
+        
+        .stage-location { font-size: 0.9rem; color: var(--secondary); background: #f1f5f9; padding: 5px 10px; border-radius: 6px; }
+        
+        .stage-role { font-size: 1.2rem; font-weight: 700; color: var(--accent); margin-bottom: 5px; }
+        
+        .stage-actions {
+            margin-top: 20px; display: flex; gap: 15px;
+        }
+        
+        .btn-action {
+            padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+            background: #fff; color: var(--primary); text-decoration: none;
+            font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;
+            transition: var(--transition); cursor: pointer;
+        }
+        .btn-action:hover { background: var(--bg-body); border-color: var(--primary); }
+
+        /* =========================================
+           6. LABS & PROJETS (PHYSIQUE vs VIRTUEL)
+           ========================================= */
+        .tabs {
             display: flex; justify-content: center; gap: 10px; margin-bottom: 40px;
-            background: #fff; padding: 6px; border-radius: 12px;
+            background: #fff; padding: 5px; border-radius: 12px; border: var(--border);
             width: fit-content; margin-left: auto; margin-right: auto;
-            border: var(--border); box-shadow: var(--shadow-sm);
         }
-
         .tab-btn {
-            padding: 10px 25px; border-radius: 8px; border: none;
-            background: transparent; color: var(--secondary); font-weight: 600;
-            font-family: inherit; cursor: pointer; transition: var(--transition);
-            font-size: 0.95rem;
+            padding: 10px 20px; border: none; background: transparent;
+            font-weight: 600; color: var(--secondary); cursor: pointer; border-radius: 8px;
+            transition: var(--transition);
         }
+        .tab-btn.active { background: var(--primary); color: #fff; }
 
-        .tab-btn.active {
-            background: var(--primary); color: #fff; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-        }
+        .projects-container { display: none; animation: fadeIn 0.5s ease; }
+        .projects-container.active { display: grid; }
 
-        .projects-wrapper { display: none; animation: fadeIn 0.5s ease; }
-        .projects-wrapper.active { display: grid; }
-
-        /* Style spécifique cartes projets */
-        .project-type {
+        .project-badge {
             font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
             padding: 4px 10px; border-radius: 6px; margin-bottom: 15px; width: fit-content;
         }
-        .type-pro { background: var(--tag-pro); color: var(--text-pro); }
-        .type-school { background: var(--tag-school); color: var(--text-school); }
-
-        .project-img {
-            height: 160px; background: #f1f5f9; border-radius: 8px; margin-bottom: 20px;
-            display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #cbd5e1;
-        }
-
-        .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 20px; }
-        .tag {
-            font-size: 0.8rem; padding: 4px 10px; border-radius: 6px;
-            background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; font-weight: 500;
-        }
+        /* Badges spécifiques */
+        .badge-physique { background: var(--tag-physique-bg); color: var(--tag-physique-text); }
+        .badge-virtuel { background: var(--tag-virtuel-bg); color: var(--tag-virtuel-text); }
+        .badge-pro { background: var(--tag-pro-bg); color: var(--tag-pro-text); }
 
         /* =========================================
-           6. COMPÉTENCES (MINIMALISTE)
+           7. CONTACT (FORMSPREE)
            ========================================= */
-        .skill-item {
-            display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;
-        }
-        .skill-icon {
-            width: 40px; height: 40px; background: #eff6ff; color: var(--primary);
-            border-radius: 8px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; flex-shrink: 0;
-        }
-        .skill-info h4 { color: var(--text-dark); margin-bottom: 4px; }
-        .skill-info p { font-size: 0.9rem; color: var(--secondary); }
-
-        /* =========================================
-           7. EXPÉRIENCE & CONTACT
-           ========================================= */
-        .exp-card {
-            border-left: 4px solid var(--primary); padding-left: 25px; margin-bottom: 40px;
-        }
-        .exp-title { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
-        .exp-meta { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; display: block;}
-
         .contact-box {
-            background: #fff; padding: 50px; border-radius: 24px;
-            text-align: center; box-shadow: var(--shadow-lg); border: var(--border);
-            max-width: 700px; margin: 0 auto;
+            background: #fff; padding: 40px; border-radius: 24px;
+            box-shadow: var(--shadow); border: var(--border); max-width: 600px; margin: 0 auto;
         }
         
         input, textarea {
             width: 100%; padding: 15px; margin-bottom: 15px;
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-            font-family: inherit; font-size: 1rem;
+            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+            font-family: inherit;
         }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; }
+        
+        .btn-submit {
+            width: 100%; padding: 15px; background: var(--accent); color: white;
+            border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-submit:hover { background: var(--primary); }
 
         /* Footer */
         footer {
-            text-align: center; padding: 40px; color: var(--secondary); font-size: 0.9rem;
-            border-top: 1px solid rgba(0,0,0,0.05); margin-top: 60px;
+            text-align: center; padding: 40px; border-top: var(--border); margin-top: 60px;
         }
 
-        /* Animations */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); } 70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
         
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -247,253 +217,229 @@
 </head>
 <body>
 
-    <div class="ambient-light"></div>
+    <div class="bg-mesh"></div>
 
     <nav>
-        <div class="logo">Tejo<span>.</span></div>
+        <div class="logo">Ilyas <span>Seddiki</span></div>
         <ul class="nav-links">
+            <li><a href="#parcours">Parcours TD SYNNEX</a></li>
+            <li><a href="#projets">Labs & Projets</a></li>
             <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Portfolio</a></li>
-            <li><a href="#parcours">Parcours</a></li>
         </ul>
-        <a href="#contact" class="btn-primary">Contact</a>
+        <a href="#contact" class="btn-nav">Me contacter</a>
     </nav>
 
-    <header class="hero">
-        <div class="status-badge reveal">
-            <div class="status-dot"></div> Étudiant BTS SIO SISR
+    <header>
+        <div style="margin-bottom: 20px; padding: 5px 15px; background: #eff6ff; color: var(--accent); border-radius: 50px; font-weight: 700; font-size: 0.9rem;">
+            🎓 Étudiant BTS SIO SISR
         </div>
         <h1 class="reveal">
-            Concepteur d'Infrastructures <br>
-            <span class="gradient-text">Sécurisées & Évolutives</span>
+            Expertise Infrastructure <br>
+            <span class="highlight">Physique & Virtuelle</span>
         </h1>
         <p class="hero-desc reveal">
-            Je transforme des besoins techniques en solutions réseaux robustes. 
-            Spécialisé en administration système, virtualisation et cybersécurité opérationnelle.
+            Bienvenue sur mon portfolio professionnel. <br>
+            Découvrez mes expériences chez <strong>TD SYNNEX</strong> et mes travaux de laboratoire.
         </p>
         <div class="reveal">
-            <a href="#projets" class="btn-primary" style="padding: 15px 35px; font-size: 1rem;">Voir mes réalisations</a>
+            <a href="#parcours" class="btn-nav" style="padding: 15px 30px;">Découvrir mon expérience</a>
         </div>
     </header>
 
-    <section id="competences">
-        <div class="reveal">
-            <h2 class="section-title">Expertise Technique</h2>
-            <p class="section-subtitle">Une stack technique moderne axée sur la performance.</p>
+    <section id="parcours">
+        <h2 class="section-title reveal">Expérience Professionnelle</h2>
+        <p class="section-subtitle reveal">Immersion en entreprise au sein du groupe TD SYNNEX.</p>
+
+        <div class="card stage-card reveal">
+            <div class="stage-header">
+                <div class="company-logo"><i class="fa-solid fa-building"></i> TD SYNNEX</div>
+                <div class="stage-location"><i class="fa-solid fa-map-pin"></i> Service CEO - Bussy-Saint-Georges</div>
+            </div>
+            <h3 class="stage-role">Stage de Première Année</h3>
+            <p style="color:var(--secondary); margin-bottom: 15px;">
+                Intégration au sein du service CEO. Participation active aux opérations de maintenance et de gestion du parc informatique.
+            </p>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                <h4 style="font-size:0.9rem; margin-bottom:5px; color:var(--primary);">Missions réalisées :</h4>
+                <p style="font-size:0.9rem;">
+                    • [À COMPLÉTER : Exemple : Installation de postes de travail]<br>
+                    • [À COMPLÉTER : Exemple : Brassage de baies réseaux]<br>
+                    • [À COMPLÉTER : Exemple : Support utilisateur niveau 1]
+                </p>
+            </div>
+            <div class="stage-actions">
+                <button class="btn-action" onclick="alert('Le rapport sera disponible prochainement.')"><i class="fa-solid fa-file-pdf"></i> Lire le Rapport</button>
+                <button class="btn-action" onclick="alert('Galerie photo en cours de développement.')"><i class="fa-solid fa-images"></i> Voir les photos</button>
+            </div>
         </div>
 
-        <div class="grid-3">
-            <div class="card reveal">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fa-solid fa-server"></i></div>
-                    <div class="skill-info">
-                        <h4>Systèmes & Virtualisation</h4>
-                        <p>Windows Server (AD, DNS, GPO), Linux (Debian/Ubuntu), Proxmox HA, VMware ESXi.</p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <span class="tag">Active Directory</span>
-                    <span class="tag">Hyper-V</span>
-                    <span class="tag">Bash</span>
-                </div>
+        <div class="card stage-card reveal" style="border-left-color: var(--secondary); opacity: 0.9;">
+            <div class="stage-header">
+                <div class="company-logo" style="color:var(--secondary)"><i class="fa-solid fa-building"></i> TD SYNNEX</div>
+                <div class="stage-location"><i class="fa-solid fa-map-pin"></i> Service BSC - Courbevoie</div>
             </div>
-
-            <div class="card reveal">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fa-solid fa-network-wired"></i></div>
-                    <div class="skill-info">
-                        <h4>Réseaux & Cisco</h4>
-                        <p>Architecture LAN/WAN, Commutation (VLAN, STP), Routage (OSPF), ACLs et Sécurité des ports.</p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <span class="tag">CCNA</span>
-                    <span class="tag">Packet Tracer</span>
-                    <span class="tag">Wireshark</span>
-                </div>
-            </div>
-
-            <div class="card reveal">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fa-solid fa-lock"></i></div>
-                    <div class="skill-info">
-                        <h4>Cybersécurité</h4>
-                        <p>Mise en place de Pare-feu (Pfsense), VPN IPsec/SSL, Gestion des sauvegardes (Veeam).</p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <span class="tag">Firewalling</span>
-                    <span class="tag">SecOps</span>
-                    <span class="tag">VPN</span>
-                </div>
+            <h3 class="stage-role" style="color:var(--primary)">Stage de Deuxième Année (Confirmé)</h3>
+            <p style="color:var(--secondary);">
+                Stage à venir. Intégration prévue au service BSC (Business Service Center).
+            </p>
+            <div style="margin-top: 15px; font-size: 0.9rem; font-style: italic; color: #94a3b8;">
+                <i class="fa-solid fa-clock"></i> Contenu, photos et rapport seront ajoutés à l'issue de la période de stage.
             </div>
         </div>
     </section>
 
     <section id="projets">
-        <div class="reveal" style="text-align: center;">
-            <h2 class="section-title">Portfolio de Projets</h2>
-            <p class="section-subtitle">Sélection de travaux réalisés en entreprise et en formation.</p>
-        
-            <div class="tabs-container">
-                <button class="tab-btn active" onclick="filterProjects('pro')">Projets Professionnels</button>
-                <button class="tab-btn" onclick="filterProjects('school')">Projets Scolaires (SISR)</button>
-            </div>
+        <h2 class="section-title reveal">Laboratoire & Projets</h2>
+        <p class="section-subtitle reveal">Différenciation entre interventions matérielles et configurations logicielles.</p>
+
+        <div class="tabs reveal">
+            <button class="tab-btn active" onclick="filterLabs('virtuel')">Infra Virtuelle & Reseau</button>
+            <button class="tab-btn" onclick="filterLabs('physique')">Infra Physique (Matériel)</button>
         </div>
 
-        <div id="pro-list" class="grid-3 projects-wrapper active">
-            
-            <div class="card reveal">
-                <span class="project-type type-pro">Entreprise</span>
-                <div class="project-img"><i class="fa-brands fa-windows"></i></div>
-                <h3>Migration Active Directory</h3>
-                <p style="font-size:0.9rem; color:#64748b; margin-bottom:15px;">
-                    Migration complète d'un parc de 150 utilisateurs de Windows Server 2012 vers 2022. Mise en place de la réplication et durcissement des GPO.
-                </p>
-                <div class="tags"><span class="tag">Windows Server</span><span class="tag">Migration</span><span class="tag">Production</span></div>
-            </div>
-
-            <div class="card reveal">
-                <span class="project-type type-pro">Entreprise</span>
-                <div class="project-img"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Supervision GLPI & Zabbix</h3>
-                <p style="font-size:0.9rem; color:#64748b; margin-bottom:15px;">
-                    Déploiement d'une solution de ticketing et d'inventaire automatique. Monitoring des switchs critiques avec alertes mails.
-                </p>
-                <div class="tags"><span class="tag">Monitoring</span><span class="tag">SNMP</span><span class="tag">ITIL</span></div>
-            </div>
-
-            <div class="card reveal">
-                <span class="project-type type-pro">Entreprise</span>
-                <div class="project-img"><i class="fa-solid fa-server"></i></div>
-                <h3>Cluster de Virtualisation</h3>
-                <p style="font-size:0.9rem; color:#64748b; margin-bottom:15px;">
-                    Installation d'un cluster Proxmox 3 nœuds avec Ceph pour le stockage distribué. Haute disponibilité activée pour les VM critiques.
-                </p>
-                <div class="tags"><span class="tag">Virtualisation</span><span class="tag">HA</span><span class="tag">Stockage</span></div>
-            </div>
-
-        </div>
-
-        <div id="school-list" class="grid-3 projects-wrapper">
+        <div id="list-virtuel" class="grid-3 projects-container active">
             
             <div class="card">
-                <span class="project-type type-school">École / Lab</span>
-                <div class="project-img"><i class="fa-solid fa-network-wired"></i></div>
-                <h3>Architecture Campus OSPF</h3>
-                <p style="font-size:0.9rem; color:#64748b; margin-bottom:15px;">
-                    Conception d'un réseau multi-bâtiments sous Packet Tracer. Routage dynamique OSPF, segmentation VLAN et ACLs de sécurité.
+                <span class="project-badge badge-virtuel">TP Virtuel</span>
+                <h3 style="margin-bottom: 10px;">Interconnexion VLANs & Routage</h3>
+                <p style="font-size:0.9rem; margin-bottom: 15px;">
+                    Simulation sous <strong>Cisco Packet Tracer</strong>. Configuration du routage inter-VLAN (Router-on-a-stick) et protocole OSPF multi-zones.
                 </p>
-                <div class="tags"><span class="tag">Cisco</span><span class="tag">Routage</span><span class="tag">Simulation</span></div>
+                <div style="margin-top:auto;">
+                    <span style="font-size:0.8rem; font-weight:600; color:var(--accent);">#CiscoIOS #OSPF #VLAN</span>
+                </div>
             </div>
 
             <div class="card">
-                <span class="project-type type-school">École / Lab</span>
-                <div class="project-img"><i class="fa-brands fa-linux"></i></div>
-                <h3>Serveur Web Sécurisé</h3>
-                <p style="font-size:0.9rem; color:#64748b; margin-bottom:15px;">
-                    Configuration d'un serveur LAMP sous Debian. Mise en place de HTTPS (Certbot), pare-feu UFW et Fail2Ban contre les brutes-force.
+                <span class="project-badge badge-virtuel">TP Virtuel</span>
+                <h3 style="margin-bottom: 10px;">Serveur Active Directory</h3>
+                <p style="font-size:0.9rem; margin-bottom: 15px;">
+                    Installation d'un contrôleur de domaine sous <strong>Windows Server 2022</strong> (VM). Création d'utilisateurs, groupes et GPO de sécurité.
                 </p>
-                <div class="tags"><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">Sécurité</span></div>
+                <div style="margin-top:auto;">
+                    <span style="font-size:0.8rem; font-weight:600; color:var(--accent);">#WindowsServer #AD #DNS</span>
+                </div>
             </div>
 
             <div class="card">
-                <span class="project-type type-school">École / Lab</span>
-                <div class="project-img"><i class="fa-solid fa-key"></i></div>
-                <h3>VPN Site-à-Site</h3>
-                <p style="font-size:0.9rem; color:#64748b; margin-bottom:15px;">
-                    Interconnexion de deux sites distants simulés via un tunnel IPsec. Configuration de la PKI et gestion des certificats.
+                <span class="project-badge badge-virtuel">TP Virtuel</span>
+                <h3 style="margin-bottom: 10px;">Sécurisation Pare-Feu</h3>
+                <p style="font-size:0.9rem; margin-bottom: 15px;">
+                    Mise en place d'un pare-feu <strong>PfSense</strong> virtuel. Configuration des règles de filtrage, NAT et port forwarding pour un serveur web.
                 </p>
-                <div class="tags"><span class="tag">VPN</span><span class="tag">Crypto</span><span class="tag">Réseau</span></div>
+                <div style="margin-top:auto;">
+                    <span style="font-size:0.8rem; font-weight:600; color:var(--accent);">#PfSense #Security #Firewall</span>
+                </div>
             </div>
 
         </div>
-    </section>
 
-    <section id="parcours">
-        <h2 class="section-title reveal">Parcours</h2>
-        <div class="grid-3">
-            <div class="exp-card reveal">
-                <div class="exp-title">Alternance - Technicien Infra</div>
-                <span class="exp-meta">2024 - Présent | Entreprise XYZ</span>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Administration quotidienne du parc, support utilisateur niveau 2, participation aux projets d'évolution de l'infrastructure réseau.
+        <div id="list-physique" class="grid-3 projects-container">
+            
+            <div class="card">
+                <span class="project-badge badge-physique">TP Physique</span>
+                <h3 style="margin-bottom: 10px;">Brassage de Baie</h3>
+                <p style="font-size:0.9rem; margin-bottom: 15px;">
+                    Câblage structuré d'une baie de brassage. Connexion des panneaux de brassage aux switchs, organisation des câbles et étiquetage.
                 </p>
+                <div style="margin-top:auto;">
+                    <span style="font-size:0.8rem; font-weight:600; color:#be123c;">#Cabling #Hardware #RJ45</span>
+                </div>
             </div>
-            <div class="exp-card reveal">
-                <div class="exp-title">BTS SIO option SISR</div>
-                <span class="exp-meta">2023 - 2025 | Lycée Tech</span>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Solutions d'Infrastructures, Systèmes et Réseaux. Acquisition des fondamentaux techniques et méthodologiques.
+
+            <div class="card">
+                <span class="project-badge badge-physique">TP Physique</span>
+                <h3 style="margin-bottom: 10px;">Montage Serveur Rack</h3>
+                <p style="font-size:0.9rem; margin-bottom: 15px;">
+                    Installation physique de serveurs Dell PowerEdge dans un rack 42U. Gestion de l'alimentation (PDU/Onduleur) et refroidissement.
                 </p>
+                <div style="margin-top:auto;">
+                    <span style="font-size:0.8rem; font-weight:600; color:#be123c;">#Rack #Server #Power</span>
+                </div>
             </div>
-            <div class="exp-card reveal">
-                <div class="exp-title">Baccalauréat Général (NSI)</div>
-                <span class="exp-meta">2023 | Lycée</span>
-                <p style="font-size:0.9rem; color:#64748b;">
-                    Spécialité Numérique et Sciences Informatiques. Mention Bien.
+
+            <div class="card">
+                <span class="project-badge badge-physique">TP Physique</span>
+                <h3 style="margin-bottom: 10px;">Dépannage Poste Client</h3>
+                <p style="font-size:0.9rem; margin-bottom: 15px;">
+                    Diagnostic matériel : Changement de disque dur, ajout de RAM, test d'alimentation et déploiement d'image OS via le réseau.
                 </p>
+                <div style="margin-top:auto;">
+                    <span style="font-size:0.8rem; font-weight:600; color:#be123c;">#Maintenance #Hardware</span>
+                </div>
             </div>
+
         </div>
     </section>
 
     <section id="contact">
+        <div class="reveal" style="text-align:center; margin-bottom: 40px;">
+            <h2 class="section-title">Me Contacter</h2>
+            <p class="section-subtitle">Envoyez-moi un message directement via ce formulaire.</p>
+        </div>
+
         <div class="contact-box reveal">
-            <h2 style="margin-bottom: 20px; color: var(--text-dark);">Me contacter</h2>
-            <p style="margin-bottom: 30px; color: var(--secondary);">À la recherche d'une opportunité ou d'une collaboration ?</p>
-            <form>
-                <input type="text" placeholder="Votre nom complet" required>
-                <input type="email" placeholder="Votre adresse email pro" required>
-                <textarea rows="5" placeholder="Votre message..."></textarea>
-                <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message</button>
+            <form action="https://formspree.io/f/mpwzyygd" method="POST">
+                <label style="font-weight:600; font-size:0.9rem;">Votre Nom</label>
+                <input type="text" name="name" required placeholder="Ex: Recruteur">
+                
+                <label style="font-weight:600; font-size:0.9rem;">Votre Email</label>
+                <input type="email" name="email" required placeholder="contact@entreprise.com">
+                
+                <label style="font-weight:600; font-size:0.9rem;">Message</label>
+                <textarea name="message" rows="5" required placeholder="Bonjour Ilyas..."></textarea>
+                
+                <button type="submit" class="btn-submit">Envoyer le message <i class="fa-solid fa-paper-plane"></i></button>
             </form>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #94a3b8; text-align: center;">
+                Ou directement par email : <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--accent);">ilyasseddiki014@gmail.com</a>
+            </p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 TEJO. Tous droits réservés. <br> Portfolio développé pour le BTS SIO SISR.</p>
+        <div style="font-weight: 800; font-size: 1.5rem; margin-bottom: 10px;">ILYAS<span>.</span></div>
+        <p>&copy; 2025 Ilyas Seddiki. BTS SIO SISR.</p>
         <div style="margin-top: 20px; font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
-            <a href="#" style="color:var(--secondary)"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#" style="color:var(--secondary)"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" style="color:var(--secondary)"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--secondary)"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
 
     <script>
-        // LOGIQUE DES ONGLETS PROJETS
-        function filterProjects(type) {
-            // Gestion des boutons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Gestion de l'affichage
-            const proList = document.getElementById('pro-list');
-            const schoolList = document.getElementById('school-list');
+        // LOGIQUE DES ONGLETS (PHYSIQUE VS VIRTUEL)
+        function filterLabs(type) {
+            const btns = document.querySelectorAll('.tab-btn');
+            const listVirtuel = document.getElementById('list-virtuel');
+            const listPhysique = document.getElementById('list-physique');
 
-            if (type === 'pro') {
-                buttons[0].classList.add('active');
-                proList.classList.add('active');
-                schoolList.classList.remove('active');
+            btns.forEach(b => b.classList.remove('active'));
+
+            if(type === 'virtuel') {
+                btns[0].classList.add('active');
+                listVirtuel.classList.add('active');
+                listPhysique.classList.remove('active');
             } else {
-                buttons[1].classList.add('active');
-                schoolList.classList.add('active');
-                proList.classList.remove('active');
+                btns[1].classList.add('active');
+                listPhysique.classList.add('active');
+                listVirtuel.classList.remove('active');
             }
         }
 
         // ANIMATION SCROLL
-        window.addEventListener('scroll', reveal);
         function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
+            var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
                 var elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
+                    reveals[i].classList.add("active");
                 }
             }
         }
-        reveal(); // Init
+        window.addEventListener("scroll", reveal);
+        reveal();
     </script>
 </body>
 </html>
