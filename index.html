@@ -12,32 +12,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* =========================================
-           1. DESIGN SYSTEM (PREMIUM LIGHT)
-           ========================================= */
         :root {
             --bg-body: #f8f9fa;
             --bg-glass: rgba(255, 255, 255, 0.9);
             --bg-card: #ffffff;
-            
-            --primary: #0f172a; /* Bleu Nuit sombre */
-            --accent: #2563eb; /* Bleu Roi */
-            --secondary: #64748b; /* Gris texte */
-            
-            /* Couleurs Timeline */
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --secondary: #64748b;
             --timeline-line: #e2e8f0;
-            --timeline-dot-school: #7c3aed; /* Violet */
-            --timeline-dot-work: #2563eb;   /* Bleu */
-
-            /* Tags Projets */
-            --tag-physique-bg: #fff1f2; --tag-physique-text: #be123c;
-            --tag-virtuel-bg: #eff6ff; --tag-virtuel-text: #1d4ed8;
-
-            /* Couleurs CEJM */
+            --timeline-dot-school: #7c3aed;
+            --timeline-dot-work: #2563eb;
             --cejm-bg: #f0f9ff;
             --cejm-border: #bae6fd;
             --cejm-text: #0369a1;
-
             --shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
             --border: 1px solid #e2e8f0;
             --radius: 16px;
@@ -54,16 +41,12 @@
             overflow-x: hidden;
         }
 
-        /* Fond ambiance */
         .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: radial-gradient(circle at 5% 5%, rgba(37, 99, 235, 0.03), transparent 40%),
                         radial-gradient(circle at 95% 95%, rgba(124, 58, 237, 0.03), transparent 40%);
         }
 
-        /* =========================================
-           2. NAVIGATION
-           ========================================= */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 1100px;
@@ -91,9 +74,6 @@
         }
         .btn-nav:hover { background: var(--accent); transform: translateY(-2px); }
 
-        /* =========================================
-           3. HERO SECTION
-           ========================================= */
         header {
             min-height: 85vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -110,9 +90,8 @@
             font-size: 3.5rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px;
             color: var(--primary); letter-spacing: -1px;
         }
-        .highlight { background: linear-gradient(135deg, var(--accent), #7c3aed); -webkit-background-clip: text; color: transparent; }
+        .highlight { background: linear-gradient(135deg, var(--accent), #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-        /* Curseurs pour l'effet typewriter */
         .cursor {
             display: inline-block; background-color: transparent; color: var(--accent);
             animation: blink 1s infinite; font-weight: 300; margin-left: 5px;
@@ -131,9 +110,6 @@
         }
         .btn-outline:hover { background: var(--primary); color: #fff; }
 
-        /* =========================================
-           4. STRUCTURE GÉNÉRALE
-           ========================================= */
         section { padding: 80px 5%; max-width: 1000px; margin: 0 auto; }
         
         .section-header { text-align: center; margin-bottom: 60px; }
@@ -153,9 +129,6 @@
             background: var(--border); z-index: 1;
         }
 
-        /* =========================================
-           5. TIMELINE
-           ========================================= */
         .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         
         .timeline::before {
@@ -198,7 +171,6 @@
         .type-work .date-badge { background: #eff6ff; color: var(--accent); }
         .type-school .date-badge { background: #f5f3ff; color: var(--timeline-dot-school); }
 
-        /* Bloc CEJM */
         .business-context {
             background: var(--cejm-bg); border: 1px solid var(--cejm-border);
             border-radius: 12px; padding: 15px; margin-bottom: 20px;
@@ -208,7 +180,6 @@
         .biz-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--cejm-text); opacity: 0.7; }
         .biz-val { font-size: 0.85rem; font-weight: 700; color: var(--cejm-text); }
 
-        /* Ressources */
         .resources-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px;
         }
@@ -221,17 +192,246 @@
         .res-icon { font-size: 1.2rem; margin-bottom: 5px; }
         .res-text { font-size: 0.75rem; font-weight: 600; }
 
-        @media (max-width: 768px) {
-            .timeline::before { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; margin-left: 0; }
-            .timeline-item:nth-child(even) { margin-left: 0; }
-            .timeline-dot { left: 12px; right: auto; }
-            .timeline-item:nth-child(even) .timeline-dot { left: 12px; }
+        .stage-projects-btn {
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            color: white; padding: 12px 20px; border-radius: 10px; border: none;
+            cursor: pointer; font-weight: 700; font-size: 0.85rem;
+            transition: var(--transition); display: flex; align-items: center; gap: 8px;
+            margin-top: 15px; width: 100%; justify-content: center;
+        }
+        .stage-projects-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.4);
         }
 
-        /* =========================================
-           6. SKILLS GRID
-           ========================================= */
+        .modal {
+            display: none; position: fixed; z-index: 9999;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex; align-items: center; justify-content: center; padding: 20px;
+        }
+
+        .modal-content {
+            background: white; border-radius: 24px;
+            max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto;
+            position: relative; animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 60px -10px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            color: white; padding: 30px; border-radius: 24px 24px 0 0; position: relative;
+        }
+
+        .modal-close {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(255,255,255,0.2); border: none; color: white;
+            font-size: 1.5rem; width: 40px; height: 40px; border-radius: 50%;
+            cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-title { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+        .modal-subtitle { font-size: 1rem; opacity: 0.9; }
+        .modal-body { padding: 40px; }
+
+        .project-item {
+            background: var(--bg-body); border: var(--border); border-radius: 16px;
+            padding: 25px; margin-bottom: 25px; transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow);
+        }
+
+        .project-item-header {
+            display: flex; justify-content: space-between; align-items: start;
+            margin-bottom: 15px; flex-wrap: wrap; gap: 10px;
+        }
+
+        .project-item-title {
+            font-size: 1.2rem; font-weight: 700; color: var(--primary);
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .project-status {
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 6px;
+        }
+
+        .status-in-progress { background: #fef3c7; color: #d97706; }
+        .status-upcoming { background: #f5f3ff; color: #7c3aed; }
+
+        .project-item-desc {
+            font-size: 0.95rem; color: var(--secondary); line-height: 1.6; margin-bottom: 15px;
+        }
+
+        /* PAGE DÉDIÉE MONITORING */
+        .detail-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: var(--border);
+        }
+
+        .detail-section h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--cejm-border);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .equipment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        .equipment-table thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        .equipment-table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .equipment-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .equipment-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-ok { color: #16a34a; font-weight: 700; }
+        .status-warning { color: #d97706; font-weight: 700; }
+        .status-error { color: #dc2626; font-weight: 700; }
+
+        .methodology-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .methodology-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: var(--bg-body);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        .methodology-list li strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .excel-btn {
+            background: #16a34a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .excel-btn:hover {
+            background: #15803d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(22, 163, 74, 0.4);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: var(--bg-body);
+            border-radius: 12px;
+            padding: 15px;
+            border: var(--border);
+            text-align: center;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .gallery-placeholder i {
+            font-size: 3rem;
+            color: #94a3b8;
+        }
+
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .skill-card {
             background: var(--bg-card); border: var(--border); border-radius: var(--radius);
@@ -259,44 +459,34 @@
             background: #f1f5f9; color: #475569;
         }
 
-        /* =========================================
-           7. PROJETS (TABS)
-           ========================================= */
-        .tabs {
-            display: flex; justify-content: center; gap: 10px; margin-bottom: 40px;
-            background: #fff; padding: 6px; border-radius: 12px; border: var(--border);
-            width: fit-content; margin-left: auto; margin-right: auto;
-        }
-        .tab-btn {
-            padding: 10px 20px; border: none; background: transparent;
-            font-weight: 600; color: var(--secondary); cursor: pointer; border-radius: 8px;
-            transition: var(--transition);
-        }
-        .tab-btn.active { background: var(--primary); color: #fff; }
-
-        .projects-grid {
-            display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-            animation: fadeIn 0.5s ease;
-        }
-        .projects-grid.active { display: grid; }
-
         .project-card {
             background: var(--bg-card); border: var(--border); border-radius: var(--radius);
             padding: 25px; transition: var(--transition); height: 100%; display: flex; flex-direction: column;
         }
         .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
-        .project-badge {
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-            padding: 4px 10px; border-radius: 6px; margin-bottom: 15px; width: fit-content;
-        }
-        .badge-physique { background: var(--tag-physique-bg); color: var(--tag-physique-text); }
-        .badge-virtuel { background: var(--tag-virtuel-bg); color: var(--tag-virtuel-text); }
         .project-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
-        .project-tech { margin-top: auto; padding-top: 20px; font-size: 0.8rem; font-weight: 600; color: var(--secondary); }
 
-        /* =========================================
-           8. CONTACT & FOOTER
-           ========================================= */
+        .tp-pdf-btn {
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+        .tp-pdf-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
         .contact-box {
             background: #fff; padding: 40px; border-radius: 24px;
             box-shadow: var(--shadow); border: var(--border); max-width: 600px; margin: 0 auto;
@@ -325,6 +515,14 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; margin-left: 0; }
+            .timeline-item:nth-child(even) { margin-left: 0; }
+            .timeline-dot { left: 12px; right: auto; }
+            .timeline-item:nth-child(even) .timeline-dot { left: 12px; }
+            .modal-body { padding: 25px; }
+            .modal-title { font-size: 1.5rem; }
+            .equipment-table { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -394,16 +592,10 @@
                         Objectif : Gestion avancée des infrastructures et support critique.
                     </p>
                     
-                    <div class="resources-grid" style="opacity: 0.7; margin-top: 20px;">
-                        <div class="resource-btn" style="cursor: default;">
-                            <i class="fa-solid fa-file-contract res-icon" style="color:#94a3b8;"></i>
-                            <span class="res-text" style="color:#94a3b8;">Convention</span>
-                        </div>
-                        <div class="resource-btn" style="cursor: default;">
-                            <i class="fa-solid fa-clock res-icon" style="color:#94a3b8;"></i>
-                            <span class="res-text" style="color:#94a3b8;">À venir</span>
-                        </div>
-                    </div>
+                    <button class="stage-projects-btn" onclick="openModal()">
+                        <i class="fa-solid fa-folder-open"></i>
+                        Voir mes projets de stage
+                    </button>
                 </div>
             </div>
 
@@ -476,6 +668,252 @@
             </div>
         </div>
     </section>
+
+    <!-- MODALE LISTE PROJETS -->
+    <div id="projectsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h2 class="modal-title">
+                    <i class="fa-solid fa-rocket"></i> Projets de Stage - TD SYNNEX Courbevoie
+                </h2>
+                <p class="modal-subtitle">Business Service Center | 2025</p>
+            </div>
+            
+            <div class="modal-body">
+                
+                <div class="project-item" onclick="openMonitoringDetail()">
+                    <div class="project-item-header">
+                        <h3 class="project-item-title">
+                            <i class="fa-solid fa-chart-line"></i>
+                            Gestion du Monitoring EcoStruxure APC
+                        </h3>
+                        <span class="project-status status-in-progress">En cours</span>
+                    </div>
+                    <p class="project-item-desc">
+                        Recensement et configuration de 45 équipements réseau (onduleurs UPS et PDU) sur 16 racks du datacenter. Cliquez pour voir les détails complets du projet.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-item-header">
+                        <h3 class="project-item-title">
+                            <i class="fa-solid fa-brain"></i>
+                            Déploiement Solution CISCO IA
+                        </h3>
+                        <span class="project-status status-upcoming">À venir</span>
+                    </div>
+                    <p class="project-item-desc">
+                        Participation au déploiement d'une solution CISCO basée sur l'intelligence artificielle. Le projet comprendra l'installation physique dans le Rack, le câblage réseau avec focus sur la qualité et la rigueur technique, le paramétrage réseau (Réseau ACI de chez CISCO), le démarrage de la solution et la participation au projet d'exploitation.
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #eff6ff, #f0f9ff); padding: 20px; border-radius: 12px; margin-top: 30px; border: 1px solid #bae6fd;">
+                    <p style="font-size: 0.9rem; color: #0369a1; margin: 0;">
+                        <i class="fa-solid fa-info-circle"></i>
+                        <strong>Note :</strong> Ces projets seront réalisés durant le stage de 2025 au sein du Business Service Center de TD SYNNEX à Courbevoie. Les détails et livrables seront mis à jour au fur et à mesure de l'avancement.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALE DÉTAIL MONITORING -->
+    <div id="monitoringDetailModal" class="modal">
+        <div class="modal-content" style="max-width: 1200px;">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeMonitoringDetail()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h2 class="modal-title">
+                    <i class="fa-solid fa-server"></i> Gestion du Monitoring EcoStruxure APC
+                </h2>
+                <p class="modal-subtitle">Recensement & Configuration des équipements réseau Datacenter</p>
+            </div>
+            
+            <div class="modal-body">
+
+                <!-- CONTEXTE & OBJECTIFS -->
+                <div class="detail-section">
+                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Objectifs</h3>
+                    <p style="color: var(--secondary); line-height: 1.8;">
+                        Mission critique au sein du Business Service Center : <strong>recenser et configurer l'ensemble des équipements de distribution électrique</strong> (onduleurs UPS et PDU) répartis sur 16 racks du datacenter TD SYNNEX. L'objectif était de créer une documentation exhaustive pour faciliter la supervision et la maintenance préventive des infrastructures critiques.
+                    </p>
+                </div>
+
+                <!-- STATISTIQUES -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Équipements recensés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">16</div>
+                        <div class="stat-label">Racks audités</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Marques (APC/EATON/VERTIV/HP)</div>
+                    </div>
+                </div>
+
+                <!-- MÉTHODOLOGIE -->
+                <div class="detail-section">
+                    <h3><i class="fa-solid fa-list-check"></i> Méthodologie</h3>
+                    <ul class="methodology-list">
+                        <li>
+                            <strong>Phase 1 : Audit physique</strong>
+                            Inspection visuelle des 16 racks du datacenter, identification des équipements installés et relevé des références constructeur pour chaque onduleur et PDU.
+                        </li>
+                        <li>
+                            <strong>Phase 2 : Recensement réseau</strong>
+                            Attribution et documentation des adresses IP dans le plan d'adressage 192.168.99.0/24, création d'une nomenclature cohérente par rack et type d'équipement.
+                        </li>
+                        <li>
+                            <strong>Phase 3 : Tests de connectivité</strong>
+                            Vérification de l'accessibilité réseau via ping, telnet et interface web pour chaque équipement, identification des problèmes de configuration et des équipements défaillants.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- INVENTAIRE COMPLET -->
+                <div class="detail-section">
+                    <h3><i class="fa-solid fa-database"></i> Inventaire complet des équipements</h3>
+                    <div style="overflow-x: auto;">
+                        <table class="equipment-table">
+                            <thead>
+                                <tr>
+                                    <th>Rack</th>
+                                    <th>Équipement</th>
+                                    <th>Adresse IP</th>
+                                    <th>Modèle</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>APC-Rack1-PDU-Gauche</td><td>192.168.99.10</td><td>-</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>1</td><td>APC-Rack1-PDU-Droite</td><td>192.168.99.11</td><td>-</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>1</td><td>Onduleur</td><td>192.168.99.12</td><td>-</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>2</td><td>APC-Rack2-PDU-Gauche</td><td>192.168.99.13</td><td>-</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>2</td><td>APC-Rack2-PDU-Droite</td><td>192.168.99.14</td><td>-</td><td class="status-error">⚠ À remplacer</td></tr>
+                                <tr><td>2</td><td>VERTIV-Rack2-UPS</td><td>192.168.99.15</td><td>GXT4-3000RT230</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>3</td><td>APC-Rack3-PDU-Gauche</td><td>192.168.99.16</td><td>AP7953</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>3</td><td>APC-Rack3-UPS</td><td>192.168.99.17</td><td>SMART-UPS SRT 5000</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>4</td><td>APC-Rack4-PDU-Gauche</td><td>192.168.99.18</td><td>AP8959</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>4</td><td>APC-Rack4-PDU-Droite</td><td>192.168.99.19</td><td>AP8959</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>4</td><td>APC-Rack4-UPS</td><td>192.168.99.20</td><td>AP9537SUM (telnet)</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>5</td><td>APC-Rack5-PDU-Gauche</td><td>192.168.99.21</td><td>AP8958</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>5</td><td>APC-Rack5-PDU-Droite</td><td>192.168.99.22</td><td>AP8958</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>5</td><td>Onduleur</td><td>192.168.99.23</td><td>SMART-UPS SRT 5000</td><td class="status-error">⚠ Reset effectué - ne s'allume plus</td></tr>
+                                <tr><td>6</td><td>Vertiv-Rack6-PDU-Gauche</td><td>192.168.99.24</td><td>MGU3EGB0-24PK33-2PS6B2A10-S</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>6</td><td>Vertiv-Rack6-PDU-Droite</td><td>192.168.99.25</td><td>MG03E4B1-36CF13-3PS6B2A10-S</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>6</td><td>VERTIV-Rack6-UPS</td><td>192.168.99.26</td><td>-</td><td class="status-warning">⚠ Pas de carte réseau</td></tr>
+                                <tr><td>7</td><td>Rack7-UPS</td><td>192.168.99.27</td><td>-</td><td class="status-warning">⚠ À reset</td></tr>
+                                <tr><td>8</td><td>APC-Rack8-PDU-Gauche</td><td>192.168.99.28</td><td>AP8958</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>8</td><td>APC-Rack8-PDU-Droite</td><td>192.168.99.29</td><td>AP8958</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>8</td><td>HP-Rack8-UPS</td><td>192.168.99.30</td><td>HP R5000</td><td class="status-warning">⚠ À reset - MDP non connu</td></tr>
+                                <tr><td>9</td><td>APC-Rack9-PDU-Droite</td><td>192.168.99.31</td><td>AP8958</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>9</td><td>APC-Rack9-UPS</td><td>192.168.99.32</td><td>AP9537SUM (telnet)</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>10</td><td>APC-Rack10-UPS</td><td>192.168.99.33</td><td>AP9537SUM (telnet)</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>11</td><td>EATON-Rack11-PDU-Droite</td><td>192.168.99.100</td><td>-</td><td class="status-warning">⚠ À reset - MDP non connu</td></tr>
+                                <tr><td>11</td><td>UPS</td><td>192.168.99.101</td><td>-</td><td class="status-warning">⚠ Pas de carte réseau</td></tr>
+                                <tr><td>12</td><td>EATON-Rack12-EPDU-Gauche</td><td>192.168.99.102</td><td>EATON EPDU SW 0U (309 32A 1P)20XC13:4XC19</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>12</td><td>EATON-Rack12-EPDU-Droite</td><td>192.168.99.103</td><td>EATON EPDU SW 0U (309 32A 1P)20XC13:4XC19</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>12</td><td>UPS</td><td>192.168.99.104</td><td>-</td><td class="status-error">⚠ Non alimenté</td></tr>
+                                <tr><td>13</td><td>EATON-Rack13-EPDU-Gauche</td><td>192.168.99.105</td><td>Eaton ePDU MA 1P IN:IEC309 32A OUT:20xC13, 4xC19</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>13</td><td>EATON-Rack13-EPDU-Droite</td><td>192.168.99.106</td><td>Eaton ePDU SW 1P IN:IEC309 32A OUT:20xC13, 4xC19</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>13</td><td>EATON-Rack13-UPS</td><td>192.168.99.107</td><td>Eaton 9SX 5000I</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>14</td><td>EATON-Rack14-EPDU-Gauche</td><td>192.168.99.108</td><td>Eaton ePDU SW 1P IN:IEC309 32A OUT:20xC13, 4xC19</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>14</td><td>EATON-Rack14-EPDU-Droite</td><td>192.168.99.109</td><td>Eaton ePDU MA 1P IN:IEC309 32A OUT:20xC13, 4xC19</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>14</td><td>UPS-rack14</td><td>192.168.99.110</td><td>-</td><td class="status-warning">⚠ Pas de carte réseau</td></tr>
+                                <tr><td>15</td><td>EPDU-rack15-gauche</td><td>192.168.99.111</td><td>-</td><td class="status-error">⚠ Non alimenté</td></tr>
+                                <tr><td>15</td><td>EPDU-rack15-droite</td><td>192.168.99.112</td><td>-</td><td class="status-error">⚠ Non alimenté</td></tr>
+                                <tr><td>15</td><td>UPS-rack15</td><td>192.168.99.113</td><td>-</td><td class="status-error">⚠ Non alimenté</td></tr>
+                                <tr><td>16</td><td>EATON-Rack16-PDU-Gauche</td><td>192.168.99.114</td><td>Eaton PDU G4 EVMAF132X</td><td class="status-ok">✓ OK</td></tr>
+                                <tr><td>16</td><td>rack16-pdu-droite</td><td>-</td><td>-</td><td class="status-error">⚠ Non identifié</td></tr>
+                                <tr><td>16</td><td>EATON-Rack16-UPS</td><td>192.168.99.116</td><td>Eaton 5PX 3000I RT2U G2</td><td class="status-ok">✓ OK</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <button class="excel-btn" onclick="alert('Téléchargement du fichier Excel...')">
+                        <i class="fa-solid fa-file-excel"></i>
+                        Voir le fichier Excel complet
+                    </button>
+                </div>
+
+                <!-- DIFFICULTÉS -->
+                <div class="detail-section">
+                    <h3><i class="fa-solid fa-triangle-exclamation"></i> Difficultés rencontrées</h3>
+                    <ul class="methodology-list">
+                        <li>
+                            <strong>Problème 1 : Mots de passe perdus et équipements en APIPA</strong>
+                            Solution : Reset factory via bouton physique en s'aidant de la documentation officielle des constructeurs (APC, EATON, VERTIV), puis reconfiguration complète avec nouvelles credentials.
+                        </li>
+                        <li>
+                            <strong>Problème 2 : Carte réseau absente</strong>
+                            Plusieurs onduleurs dépourvus de carte de gestion réseau, empêchant la supervision à distance et nécessitant une gestion locale uniquement.
+                        </li>
+                        <li>
+                            <strong>Problème 3 : Équipement non alimenté</strong>
+                            Certains équipements des racks 12, 15 et 16 non sous tension, impossibilité de vérifier leur fonctionnement et leur configuration réseau.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- GALERIE -->
+                <div class="detail-section">
+                    <h3><i class="fa-solid fa-images"></i> Captures d'écran du projet</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <div class="gallery-placeholder">
+                                <i class="fa-solid fa-image"></i>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--secondary);">Interface configuration PDU APC</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-placeholder">
+                                <i class="fa-solid fa-image"></i>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--secondary);">Fichier Excel - Inventaire</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-placeholder">
+                                <i class="fa-solid fa-image"></i>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--secondary);">Rack datacenter - Vue physique</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-placeholder">
+                                <i class="fa-solid fa-image"></i>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--secondary);">Console EATON UPS</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--secondary); text-align: center;">
+                        <i class="fa-solid fa-info-circle"></i> Les captures d'écran réelles seront ajoutées prochainement
+                    </p>
+                </div>
+
+                <!-- RÉSULTATS -->
+                <div class="detail-section" style="background: linear-gradient(135deg, #dcfce7, #f0fdf4); border: 1px solid #86efac;">
+                    <h3 style="color: #16a34a;"><i class="fa-solid fa-trophy"></i> Résultats & Impact</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px 0; color: #166534; font-weight: 600;">
+                            ✓ 45 équipements recensés et 30 configurés avec succès
+                        </li>
+                        <li style="padding: 10px 0; color: #166534; font-weight: 600;">
+                            ✓ Plan d'adressage IP structuré et cohérent créé pour l'ensemble du datacenter
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <section id="competences">
         <div class="section-header reveal">
@@ -556,54 +994,50 @@
 
     <section id="projets">
         <div class="section-header reveal">
-            <h2 class="section-title">Labs & Projets</h2>
-            <p class="section-subtitle">Travaux pratiques : Matériel vs Virtuel.</p>
-            
-            <div class="tabs">
-                <button class="tab-btn active" onclick="filterLabs('virtuel')">Infra Virtuelle & Réseau</button>
-                <button class="tab-btn" onclick="filterLabs('physique')">Infra Physique (Matériel)</button>
-            </div>
+            <h2 class="section-title">Travaux Pratiques</h2>
+            <p class="section-subtitle">Projets réalisés en cours de formation.</p>
         </div>
 
-        <div id="list-virtuel" class="projects-grid active">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
             <div class="project-card reveal">
-                <span class="project-badge badge-virtuel">Virtuel</span>
-                <h3 class="project-title">Architecture VLAN & OSPF</h3>
-                <p style="font-size:0.9rem; color:#64748b;">Simulation Cisco Packet Tracer. Création de VLANs par service, routage inter-VLAN et protocole OSPF pour la redondance.</p>
-                <div class="project-tech">#Cisco #Routage #Reseau</div>
-            </div>
-            <div class="project-card reveal">
-                <span class="project-badge badge-virtuel">Virtuel</span>
-                <h3 class="project-title">Domaine Active Directory</h3>
-                <p style="font-size:0.9rem; color:#64748b;">Installation Windows Server 2022. Gestion des utilisateurs, GPO de sécurité et services DNS/DHCP.</p>
-                <div class="project-tech">#Microsoft #AD #Systeme</div>
+                <h3 class="project-title">TP 1</h3>
+                <p style="font-size:0.9rem; color:#64748b;">À faire</p>
+                <a href="#" class="tp-pdf-btn" onclick="alert('Ouverture du document PDF TP 1...')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Voir le document PDF
+                </a>
             </div>
             <div class="project-card reveal">
-                <span class="project-badge badge-virtuel">Virtuel</span>
-                <h3 class="project-title">Pare-feu PfSense</h3>
-                <p style="font-size:0.9rem; color:#64748b;">Mise en place d'un pare-feu virtuel pour filtrer le trafic entrant/sortant et sécuriser l'accès web.</p>
-                <div class="project-tech">#Securite #Firewall #Linux</div>
+                <h3 class="project-title">TP 2</h3>
+                <p style="font-size:0.9rem; color:#64748b;">À faire</p>
+                <a href="#" class="tp-pdf-btn" onclick="alert('Ouverture du document PDF TP 2...')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Voir le document PDF
+                </a>
             </div>
-        </div>
-
-        <div id="list-physique" class="projects-grid">
-            <div class="project-card">
-                <span class="project-badge badge-physique">Physique</span>
-                <h3 class="project-title">Brassage de Baie</h3>
-                <p style="font-size:0.9rem; color:#64748b;">Organisation du câblage RJ45 dans une baie informatique. Connexion propre switchs/panneaux de brassage.</p>
-                <div class="project-tech">#Cablage #Hardware</div>
+            <div class="project-card reveal">
+                <h3 class="project-title">TP 3</h3>
+                <p style="font-size:0.9rem; color:#64748b;">À faire</p>
+                <a href="#" class="tp-pdf-btn" onclick="alert('Ouverture du document PDF TP 3...')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Voir le document PDF
+                </a>
             </div>
-            <div class="project-card">
-                <span class="project-badge badge-physique">Physique</span>
-                <h3 class="project-title">Maintenance Poste Client</h3>
-                <p style="font-size:0.9rem; color:#64748b;">Diagnostic de pannes, changement de composants (RAM, Disque Dur) et déploiement d'images système.</p>
-                <div class="project-tech">#Support #Maintenance</div>
+            <div class="project-card reveal">
+                <h3 class="project-title">TP 4</h3>
+                <p style="font-size:0.9rem; color:#64748b;">À faire</p>
+                <a href="#" class="tp-pdf-btn" onclick="alert('Ouverture du document PDF TP 4...')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Voir le document PDF
+                </a>
             </div>
-            <div class="project-card">
-                <span class="project-badge badge-physique">Physique</span>
-                <h3 class="project-title">Installation Switch Cisco</h3>
-                <p style="font-size:0.9rem; color:#64748b;">Montage en rack d'un commutateur, branchement console et configuration initiale (Hostname, IP, SSH).</p>
-                <div class="project-tech">#Reseau #Installation</div>
+            <div class="project-card reveal">
+                <h3 class="project-title">TP 5</h3>
+                <p style="font-size:0.9rem; color:#64748b;">À faire</p>
+                <a href="#" class="tp-pdf-btn" onclick="alert('Ouverture du document PDF TP 5...')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Voir le document PDF
+                </a>
             </div>
         </div>
     </section>
@@ -637,7 +1071,7 @@
     </footer>
 
     <script>
-        // LOGIQUE TYPEWRITER (Machine à écrire)
+        // TYPEWRITER
         const textElement = document.getElementById('typewriter');
         const phrases = ["Administration Systèmes & Réseaux", "Cybersécurité", "Réseaux Cisco & Cloud", "Technicien Infrastructure & Sécurité"];
         let phraseIndex = 0;
@@ -669,26 +1103,49 @@
         }
         document.addEventListener('DOMContentLoaded', typeEffect);
 
-        // LOGIQUE DES ONGLETS
-        function filterLabs(type) {
-            const btns = document.querySelectorAll('.tab-btn');
-            const listVirtuel = document.getElementById('list-virtuel');
-            const listPhysique = document.getElementById('list-physique');
+        // MODALES
+        function openModal() {
+            document.getElementById('projectsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            btns.forEach(b => b.classList.remove('active'));
+        function closeModal() {
+            document.getElementById('projectsModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
 
-            if(type === 'virtuel') {
-                btns[0].classList.add('active');
-                listVirtuel.classList.add('active');
-                listPhysique.classList.remove('active');
-            } else {
-                btns[1].classList.add('active');
-                listPhysique.classList.add('active');
-                listVirtuel.classList.remove('active');
+        function openMonitoringDetail() {
+            closeModal();
+            setTimeout(() => {
+                document.getElementById('monitoringDetailModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 300);
+        }
+
+        function closeMonitoringDetail() {
+            document.getElementById('monitoringDetailModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal1 = document.getElementById('projectsModal');
+            const modal2 = document.getElementById('monitoringDetailModal');
+            if (event.target === modal1) {
+                closeModal();
+            }
+            if (event.target === modal2) {
+                closeMonitoringDetail();
             }
         }
 
-        // ANIMATION SCROLL
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeMonitoringDetail();
+            }
+        });
+
+        // REVEAL ON SCROLL
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
