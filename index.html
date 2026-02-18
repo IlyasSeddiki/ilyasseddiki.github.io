@@ -571,7 +571,35 @@
         </div>
     </div>
 </div>
-
+<!-- ══ MODALE COMPTES RENDUS ══ -->
+<div id="crModal" class="modal">
+    <div class="mbox">
+        <div class="mhead">
+            <button class="mclose" onclick="closeCRModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mtitle">Comptes Rendus de Stage</div>
+            <div class="msub">Documents et rapports</div>
+        </div>
+        <div class="mbody">
+            <div class="dsec">
+                <h3>Compte Rendu Semaine 1</h3>
+                <p style="margin-bottom:12px;">Description du compte rendu de la première semaine.</p>
+                <a href="CR/semaine1.pdf" class="tp-btn" target="_blank" style="display:inline-flex;">Voir le PDF</a>
+            </div>
+            
+            <div class="dsec">
+                <h3>Compte Rendu Semaine 2</h3>
+                <p style="margin-bottom:12px;">Description du compte rendu de la deuxième semaine.</p>
+                <a href="CR/semaine2.pdf" class="tp-btn" target="_blank" style="display:inline-flex;">Voir le PDF</a>
+            </div>
+            
+            <div class="dsec">
+                <h3>Rapport Final de Stage</h3>
+                <p style="margin-bottom:12px;">Rapport complet du stage effectué chez TD SYNNEX.</p>
+                <a href="CR/rapport-final.pdf" class="tp-btn" target="_blank" style="display:inline-flex;">Voir le PDF</a>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- COMPÉTENCES -->
 <section id="competences">
     <div class="sec-head rv">
@@ -712,6 +740,8 @@ function openMonitModal() {
     setTimeout(function() { backParts(); show('monitModal'); }, 280);
 }
 function closeMonitModal() { hide('monitModal'); backParts(); }
+function openCRModal() { hide('projModal'); setTimeout(function() { show('crModal'); }, 280); }
+function closeCRModal() { hide('crModal'); }
 
 function show(id) { document.getElementById(id).classList.add('on');    document.body.style.overflow='hidden'; }
 function hide(id) { document.getElementById(id).classList.remove('on'); document.body.style.overflow='';       }
@@ -739,9 +769,10 @@ function backParts() {
 document.addEventListener('click', function(e) {
     if (e.target.id === 'projModal')  closeProjModal();
     if (e.target.id === 'monitModal') closeMonitModal();
+    if (e.target.id === 'crModal') closeCRModal();
 });
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { closeProjModal(); closeMonitModal(); }
+    if (e.key === 'Escape') { closeProjModal(); closeMonitModal(); closeCRModal(); }
 });
 
 // ── REVEAL AU SCROLL ──
