@@ -425,7 +425,7 @@
             <div id="p1" class="cpart">
                 <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Objectifs</h3>
+                    <h3>Contexte & Objectifs</h3>
                     <p>Mission au sein du Business Service Center : recenser et configurer l'ensemble des équipements de distribution électrique (onduleurs UPS et PDU) répartis sur 16 racks du datacenter TD SYNNEX.</p>
                 </div>
                 <div class="stats-row">
@@ -434,7 +434,7 @@
                     <div class="sbox"><div class="sn">4</div><div class="sl">Marques (APC/EATON/VERTIV/HPE)</div></div>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Méthodologie</h3>
+                    <h3>Méthodologie</h3>
                     <ul class="mlist">
                         <li><strong>Phase 1 : Audit physique</strong>Inspection visuelle des 16 racks, identification des équipements installés.</li>
                         <li><strong>Phase 2 : Recensement réseau</strong>Attribution et documentation des adresses IP, nomenclature cohérente par rack et type d'équipement.</li>
@@ -442,7 +442,7 @@
                     </ul>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-database"></i> Inventaire complet</h3>
+                    <h3>Inventaire complet</h3>
                     <div style="overflow-x:auto;">
                         <table class="eq-table">
                             <thead><tr><th>Rack</th><th>Équipement</th><th>IP</th><th>Modèle</th><th>Statut</th></tr></thead>
@@ -493,7 +493,7 @@
                     </div>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-triangle-exclamation"></i> Difficultés rencontrées</h3>
+                    <h3>Difficultés rencontrées</h3>
                     <ul class="mlist">
                         <li><strong>Problème 1 : Mots de passe perdus et équipements en APIPA</strong>Solution : Reset factory via bouton physique en s'aidant de la documentation officielle des constructeurs (APC, EATON, VERTIV), puis reconfiguration complète.</li>
                         <li><strong>Problème 2 : Carte réseau absente</strong>Plusieurs onduleurs dépourvus de carte de gestion réseau, impossibilité de supervision à distance.</li>
@@ -501,7 +501,7 @@
                     </ul>
                 </div>
                 <div class="res-box">
-                    <h3><i class="fa-solid fa-trophy"></i> Résultats</h3>
+                    <h3>Résultats</h3>
                     <ul>
                         <li>✓ 41 équipements recensés et 29 configurés avec succès</li>
                         <li>✓ Plan d'adressage IP structuré et cohérent créé</li>
@@ -517,7 +517,7 @@
                     <p>Une fois les équipements recensés et leurs adresses IP configurées, l'étape suivante consistait à les raccorder physiquement au réseau du datacenter afin qu'ils soient accessibles et supervisables depuis la plateforme <strong>EcoStruxure IT</strong> de Schneider Electric.</p>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Déroulement</h3>
+                    <h3>Déroulement</h3>
                     <ul class="mlist">
                         <li><strong>Câblage des équipements</strong>Raccordement physique de l'ensemble des UPS et PDU disposant d'une carte réseau vers les ports du commutateur Cisco. Chaque câble RJ45 acheminé dans les goulottes des racks pour un câblage propre et structuré.</li>
                         <li><strong>Commutateur Cisco</strong>Le commutateur Cisco centralise les connexions réseau de tous les équipements du datacenter, accessibles sur le même segment réseau.</li>
@@ -525,7 +525,7 @@
                     </ul>
                 </div>
                 <div class="res-box">
-                    <h3><i class="fa-solid fa-trophy"></i> Résultat</h3>
+                    <h3>Résultat</h3>
                     <ul>
                         <li>✓ Équipements câblés et reliés au commutateur Cisco du datacenter</li>
                         <li>✓ Tous les équipements joignables connectés à la gateway EcoStruxure IT</li>
@@ -538,11 +538,11 @@
             <div id="p3" class="cpart">
                 <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Objectifs</h3>
+                    <h3>Contexte & Objectifs</h3>
                     <p>Après le recensement et le câblage des équipements, l'étape finale consistait à déployer la solution de supervision centralisée <strong>EcoStruxure IT Expert</strong> de Schneider Electric. Cette plateforme permet de monitorer en temps réel l'ensemble des onduleurs UPS et PDU du datacenter depuis une interface unifiée.</p>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Déroulement du déploiement</h3>
+                    <h3>Déroulement du déploiement</h3>
                     <ul class="mlist">
                         <li><strong>Installation d'EcoStruxure IT Expert</strong>Déploiement de la solution sur le serveur dédié du datacenter. Configuration initiale de la plateforme et paramétrage des accès administrateur.</li>
                         <li><strong>Découverte automatique des équipements</strong>Lancement d'un scan réseau sur le sous-réseau 192.168.99.0/24 permettant à EcoStruxure IT Expert de détecter automatiquement l'ensemble des PDU et UPS préalablement configurés et câblés.</li>
@@ -551,7 +551,7 @@
                     </ul>
                 </div>
                 <div class="res-box">
-                    <h3><i class="fa-solid fa-trophy"></i> Résultat</h3>
+                    <h3>Résultat</h3>
                     <ul>
                         <li>✓ EcoStruxure IT Expert déployé et opérationnel sur le datacenter</li>
                         <li>✓ Équipements visibles et supervisés en temps réel depuis la plateforme</li>
