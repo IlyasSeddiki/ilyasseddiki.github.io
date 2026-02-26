@@ -25,12 +25,10 @@
         html { scroll-behavior: smooth; }
         body { font-family:'Plus Jakarta Sans',sans-serif; background:var(--bg); color:var(--muted); line-height:1.6; overflow-x:hidden; }
 
-        /* BG */
         .bg-mesh { position:fixed; inset:0; z-index:-1;
             background: radial-gradient(circle at 5% 5%, rgba(37,99,235,.04), transparent 40%),
                         radial-gradient(circle at 95% 95%, rgba(124,58,237,.04), transparent 40%); }
 
-        /* NAV */
         nav {
             position:fixed; top:18px; left:50%; transform:translateX(-50%);
             width:90%; max-width:1100px;
@@ -54,7 +52,6 @@
         .btn-outline { background:transparent; border:2px solid var(--primary); color:var(--primary); }
         .btn-outline:hover { background:var(--primary); color:#fff; }
 
-        /* HERO */
         header {
             min-height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
             text-align:center; padding:130px 24px 80px;
@@ -75,13 +72,11 @@
         .hero-desc { font-size:1.05rem; max-width:600px; color:var(--muted); margin-bottom:38px; line-height:1.8; }
         .hero-actions { display:flex; gap:13px; flex-wrap:wrap; justify-content:center; }
 
-        /* SECTIONS */
         section { padding:80px 5%; max-width:1020px; margin:0 auto; }
         .sec-head { text-align:center; margin-bottom:56px; }
         .sec-title { font-size:2rem; font-weight:800; color:var(--primary); margin-bottom:9px; }
         .sec-sub { font-size:1rem; color:var(--muted); }
 
-        /* TIMELINE */
         .tl-sep { text-align:center; position:relative; margin:40px 0 36px; }
         .tl-sep::before { content:''; position:absolute; left:0; top:50%; width:100%; height:2px; background:#e2e8f0; }
         .tl-label { position:relative; z-index:1; display:inline-block; background:var(--bg); padding:0 18px; font-size:1.15rem; font-weight:700; color:var(--primary); }
@@ -112,7 +107,6 @@
         .proj-btn { background:linear-gradient(135deg,var(--purple),var(--accent)); color:#fff; padding:11px 18px; border-radius:10px; border:none; cursor:pointer; font-weight:700; font-size:.83rem; transition:var(--tr); display:flex; align-items:center; justify-content:center; gap:8px; margin-top:15px; width:100%; }
         .proj-btn:hover { transform:translateY(-2px); box-shadow:0 10px 28px -10px rgba(124,58,237,.45); }
 
-        /* MODALES */
         .modal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(15,23,42,.83); backdrop-filter:blur(10px); }
         .modal.on { display:flex; align-items:center; justify-content:center; padding:20px; }
         .mbox { background:#fff; border-radius:22px; width:100%; max-width:900px; max-height:90vh; overflow-y:auto; animation:popIn .35s ease; box-shadow:0 25px 70px -10px rgba(0,0,0,.35); }
@@ -125,7 +119,154 @@
         .msub { font-size:.9rem; opacity:.88; }
         .mbody { padding:32px; }
 
-        /* PROJET ITEMS */
+        .def-bar {
+            background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+            border: 2px solid #bae6fd;
+            border-radius: 15px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+        .def-bar h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .def-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .def-item {
+            background: #fff;
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        .def-item strong {
+            color: var(--primary);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .def-item p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .sommaire {
+            background: var(--card);
+            border: var(--border);
+            border-radius: 15px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+        .sommaire h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sommaire-list {
+            list-style: none;
+            padding: 0;
+        }
+        .sommaire-list li {
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            background: var(--bg);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--tr);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sommaire-list li:hover {
+            background: #eff6ff;
+            transform: translateX(5px);
+            border-left: 4px solid var(--accent);
+        }
+        .sommaire-list li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+        .tool-card {
+            background: var(--card);
+            border: var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: var(--tr);
+        }
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+        .tool-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .photo-card {
+            background: var(--bg);
+            border: var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+        .photo-placeholder {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .photo-caption {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
         .pj-item { background:var(--bg); border:var(--border); border-radius:13px; padding:20px; margin-bottom:18px; cursor:pointer; transition:var(--tr); }
         .pj-item:hover { transform:translateY(-3px); border-color:var(--accent); box-shadow:var(--shadow); }
         .pj-item.nc { cursor:default; }
@@ -136,7 +277,6 @@
         .s-wip { background:#fef3c7; color:#d97706; }
         .s-soon { background:#f5f3ff; color:var(--purple); }
 
-        /* PARTIES */
         .parts-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
         .part-card { background:#fff; border:2px solid #e2e8f0; border-radius:15px; padding:30px 20px; cursor:pointer; transition:var(--tr); text-align:center; }
         .part-card:hover { transform:translateY(-5px); border-color:var(--accent); box-shadow:var(--shadow); }
@@ -151,7 +291,6 @@
         .back-btn { display:inline-flex; align-items:center; gap:7px; background:#f1f5f9; color:var(--primary); padding:8px 16px; border-radius:9px; border:var(--border); font-weight:600; font-size:.86rem; cursor:pointer; transition:var(--tr); margin-bottom:26px; }
         .back-btn:hover { background:var(--primary); color:#fff; }
 
-        /* DETAIL */
         .dsec { background:#fff; border:var(--border); border-radius:15px; padding:26px; margin-bottom:20px; }
         .dsec h3 { font-size:1.15rem; font-weight:800; color:var(--primary); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
         .dsec p { color:var(--muted); line-height:1.8; font-size:.93rem; }
@@ -175,7 +314,6 @@
         .res-box ul { list-style:none; padding:0; }
         .res-box li { padding:7px 0; color:#166534; font-weight:600; font-size:.92rem; }
 
-        /* COMPÉTENCES */
         .sk-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px; }
         .sk-card { background:var(--card); border:var(--border); border-radius:var(--radius); padding:26px; transition:var(--tr); }
         .sk-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); border-color:var(--accent); }
@@ -190,7 +328,6 @@
         .tags { margin-top:16px; display:flex; flex-wrap:wrap; gap:6px; }
         .tag { font-size:.72rem; font-weight:600; padding:3px 9px; border-radius:6px; background:#f1f5f9; color:#475569; }
 
-        /* TP */
         .tp-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:24px; }
         .tp-card { background:var(--card); border:var(--border); border-radius:var(--radius); padding:22px; transition:var(--tr); display:flex; flex-direction:column; }
         .tp-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); border-color:var(--accent); }
@@ -199,25 +336,21 @@
         .tp-btn { margin-top:14px; background:var(--accent); color:#fff; padding:8px 15px; border-radius:8px; text-decoration:none; font-weight:600; font-size:.82rem; display:inline-flex; align-items:center; gap:7px; transition:var(--tr); }
         .tp-btn:hover { background:var(--primary); transform:translateY(-2px); }
 
-        /* CONTACT */
         .cbox { max-width:560px; margin:0 auto; background:#fff; padding:38px; border-radius:22px; box-shadow:var(--shadow); border:var(--border); }
         input, textarea { width:100%; padding:13px; margin-bottom:13px; background:#f8f9fa; border:1px solid #e2e8f0; border-radius:8px; font-family:inherit; font-size:.92rem; }
         input:focus, textarea:focus { outline:none; border-color:var(--accent); background:#fff; }
         .submit-btn { width:100%; padding:13px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-weight:700; font-size:.95rem; cursor:pointer; transition:var(--tr); }
         .submit-btn:hover { background:var(--primary); }
 
-        /* FOOTER */
         footer { text-align:center; padding:38px 20px; border-top:var(--border); margin-top:80px; color:var(--muted); font-size:.88rem; }
         .f-logo { font-size:1.4rem; font-weight:800; color:var(--primary); margin-bottom:7px; }
         .f-socials { margin-top:16px; display:flex; justify-content:center; gap:18px; font-size:1.4rem; }
         .f-socials a { color:var(--muted); transition:var(--tr); }
         .f-socials a:hover { color:var(--accent); }
 
-        /* REVEAL */
         .rv { opacity:0; transform:translateY(26px); transition:opacity .55s ease, transform .55s ease; }
         .rv.show { opacity:1; transform:none; }
 
-        /* RESPONSIVE */
         @media (max-width:768px) {
             nav ul { display:none; }
             h1 { font-size:2rem; letter-spacing:-.5px; }
@@ -227,13 +360,14 @@
             .mbody { padding:18px; }
             .mtitle { font-size:1.25rem; }
             .eq-table { font-size:.72rem; }
+            .def-content { grid-template-columns: 1fr; }
+            .parts-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 <div class="bg-mesh"></div>
 
-<!-- NAV -->
 <nav>
     <div class="logo">Ilyas <span>Seddiki</span></div>
     <ul>
@@ -248,7 +382,6 @@
     </div>
 </nav>
 
-<!-- HERO -->
 <header>
     <div class="hero-badge rv">
         <span class="dot-green"></span>
@@ -272,7 +405,6 @@
     </div>
 </header>
 
-<!-- PARCOURS -->
 <section id="parcours">
     <div class="sec-head rv">
         <h2 class="sec-title">Mon Parcours</h2>
@@ -366,7 +498,7 @@
              <div class="tl-dot"></div>
              <div class="tl-card">
                  <div class="tl-top">
-                    <h3 style="font-weight:800; color:var(--primary); font-size:1.05rem;">Baccalauréat Général - Spécialité Mathématiques et Sciences Économiques et Sociales.</h3>
+                    <h3 style="font-weight:800; color:var(--primary); font-size:1.05rem;">Baccalauréat Général - Spécialité Mathématiques et SES</h3>
                     <span class="dbadge ds">2020-2023</span>
                 </div>
                 <p style="font-size:.85rem; color:var(--muted); margin-bottom:7px;">Lycée André Bouloche - Livry-Gargan</p>
@@ -376,7 +508,6 @@
     </div>
 </section>
 
-<!-- ══ MODALE PROJETS ══ -->
 <div id="projModal" class="modal">
     <div class="mbox">
         <div class="mhead">
@@ -400,28 +531,153 @@
                 <p style="font-size:.9rem; color:var(--muted);">Participation au déploiement d'une solution CISCO basée sur l'intelligence artificielle.</p>
             </div>
             <div class="pj-item" onclick="openCRModal()">
-    <div class="pj-head">
-        <div class="pj-title">Comptes Rendus de Stage</div>
-        <span class="pj-s s-wip">Documents</span>
-    </div>
-    <p style="font-size:.9rem; color:var(--muted);">Ensemble des comptes rendus et rapports de stage. Cliquez pour consulter les documents.</p>
-</div>
+                <div class="pj-head">
+                    <div class="pj-title">Comptes Rendus de Stage</div>
+                    <span class="pj-s s-wip">Documents</span>
+                </div>
+                <p style="font-size:.9rem; color:var(--muted);">Ensemble des comptes rendus et rapports de stage. Cliquez pour consulter les documents.</p>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- ══ MODALE MONITORING ══ -->
 <div id="monitModal" class="modal">
     <div class="mbox wide">
         <div class="mhead">
             <button class="mclose" onclick="closeMonitModal()"><i class="fa-solid fa-xmark"></i></button>
             <div class="mtitle">Gestion du Monitoring EcoStruxure APC</div>
-            <div class="msub" id="msub">Sélectionnez la partie à consulter</div>
+            <div class="msub" id="msub">Vue d'ensemble du projet</div>
         </div>
         <div class="mbody">
 
-            <!-- SÉLECTION -->
-            <div id="pgrid" class="parts-grid">
+            <div id="overview">
+                <div class="def-bar">
+                    <h3><i class="fa-solid fa-book"></i> Définitions des termes techniques</h3>
+                    <div class="def-content">
+                        <div class="def-item">
+                            <strong>UPS (Uninterruptible Power Supply)</strong>
+                            <p>Onduleur permettant d'assurer une alimentation électrique continue en cas de coupure secteur. Protège les équipements critiques.</p>
+                        </div>
+                        <div class="def-item">
+                            <strong>PDU (Power Distribution Unit)</strong>
+                            <p>Multiprise intelligente permettant de distribuer l'électricité et de superviser la consommation de chaque prise à distance.</p>
+                        </div>
+                        <div class="def-item">
+                            <strong>EcoStruxure IT</strong>
+                            <p>Plateforme cloud de Schneider Electric pour la supervision et la gestion centralisée des infrastructures datacenter.</p>
+                        </div>
+                        <div class="def-item">
+                            <strong>SNMP (Simple Network Management Protocol)</strong>
+                            <p>Protocole réseau permettant de superviser et configurer des équipements réseau à distance via des requêtes standardisées.</p>
+                        </div>
+                        <div class="def-item">
+                            <strong>Rack 19 pouces</strong>
+                            <p>Armoire standardisée pour l'installation d'équipements informatiques et réseau. Mesure 19 pouces de largeur (48,26 cm).</p>
+                        </div>
+                        <div class="def-item">
+                            <strong>Gateway</strong>
+                            <p>Passerelle faisant le lien entre les équipements physiques du datacenter et la plateforme cloud EcoStruxure IT.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Contexte et objectifs du projet</h3>
+                    <p><strong>Contexte :</strong> Le datacenter du Business Service Center de TD SYNNEX à Courbevoie dispose de 16 racks hébergeant des serveurs critiques. L'alimentation électrique de ces équipements est assurée par des onduleurs (UPS) et des PDU répartis sur chaque rack.</p>
+                    <p style="margin-top:12px;"><strong>Problématique :</strong> Aucune supervision centralisée n'était en place, rendant impossible la détection anticipée de pannes électriques ou de surcharges. En cas de coupure secteur, l'autonomie des onduleurs n'était pas connue en temps réel.</p>
+                    <p style="margin-top:12px;"><strong>Objectif du projet :</strong> Mettre en place une solution de monitoring centralisée via EcoStruxure IT Expert permettant de superviser en temps réel l'état de l'alimentation électrique de l'ensemble du datacenter.</p>
+                </div>
+
+                <div class="sommaire">
+                    <h3><i class="fa-solid fa-list"></i> Sommaire du projet</h3>
+                    <ul class="sommaire-list">
+                        <li onclick="showPart('p1')">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span>Partie 1 : Recensement et configuration des équipements</span>
+                        </li>
+                        <li onclick="showPart('p2')">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span>Partie 2 : Câblage réseau</span>
+                        </li>
+                        <li onclick="showPart('p3')">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span>Partie 3 : Déploiement EcoStruxure IT Expert</span>
+                        </li>
+                        <li onclick="showPart('p4')">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span>Partie 4 : Modélisation 3D du datacenter</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-wrench"></i> Outils et technologies utilisés</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fa-solid fa-server"></i></div>
+                            <div class="tool-name">EcoStruxure IT Expert</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fa-solid fa-cube"></i></div>
+                            <div class="tool-name">EcoStruxure IT Advisor</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <div class="tool-name">Cisco Switch</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fa-solid fa-terminal"></i></div>
+                            <div class="tool-name">SNMP v1/v2c</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fa-brands fa-windows"></i></div>
+                            <div class="tool-name">Hyper-V</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon"><i class="fa-brands fa-linux"></i></div>
+                            <div class="tool-name">Rocky Linux 8.10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-images"></i> Photos du projet</h3>
+                    <div class="photos-grid">
+                        <div class="photo-card">
+                            <div class="photo-placeholder"><i class="fa-solid fa-server"></i></div>
+                            <div class="photo-caption">Racks datacenter BSC</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-placeholder"><i class="fa-solid fa-plug"></i></div>
+                            <div class="photo-caption">PDU APC configuré</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-placeholder"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="photo-caption">Onduleur UPS</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-placeholder"><i class="fa-solid fa-ethernet"></i></div>
+                            <div class="photo-caption">Câblage réseau</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-placeholder"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="photo-caption">Interface EcoStruxure</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="photo-placeholder"><i class="fa-solid fa-desktop"></i></div>
+                            <div class="photo-caption">Supervision temps réel</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:30px;">
+                    <button class="proj-btn" onclick="showPartsGrid()" style="max-width:400px; margin:0 auto;">
+                        <i class="fa-solid fa-folder-open"></i> Accéder aux parties détaillées
+                    </button>
+                </div>
+            </div>
+
+            <div id="pgrid" class="parts-grid" style="display:none;">
                 <div class="part-card" onclick="showPart('p1')">
                     <div class="p-ico"><i class="fa-solid fa-server"></i></div>
                     <div class="p-num">Partie 1</div>
@@ -437,9 +693,13 @@
                     <div class="p-num">Partie 3</div>
                     <div class="p-desc">Déploiement de la supervision via EcoStruxure IT Expert</div>
                 </div>
+                <div class="part-card" onclick="showPart('p4')">
+                    <div class="p-ico"><i class="fa-solid fa-cube"></i></div>
+                    <div class="p-num">Partie 4</div>
+                    <div class="p-desc">Modélisation 3D du datacenter</div>
+                </div>
             </div>
 
-            <!-- PARTIE 1 -->
             <div id="p1" class="cpart">
                 <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
                 <div class="dsec">
@@ -459,65 +719,6 @@
                         <li><strong>Phase 3 : Tests de connectivité</strong>Vérification via ping, telnet et interface web. Identification des équipements défaillants.</li>
                     </ul>
                 </div>
-                <div class="dsec">
-                    <h3>Inventaire complet</h3>
-                    <div style="overflow-x:auto;">
-                        <table class="eq-table">
-                            <thead><tr><th>Rack</th><th>Équipement</th><th>IP</th><th>Modèle</th><th>Statut</th></tr></thead>
-                            <tbody>
-                                <tr><td>1</td><td>PDU-R1-G</td><td>IP-01</td><td>AP8959</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>1</td><td>PDU-R1-D</td><td>IP-02</td><td>AP8958</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>1</td><td>UPS-R1</td><td>IP-03</td><td>Smart-UPS SRT 6000</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>2</td><td>PDU-R2-G</td><td>IP-04</td><td>AP8959</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>2</td><td>PDU-R2-D</td><td>IP-05</td><td>AP8959</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>2</td><td>UPS-R2</td><td>IP-06</td><td>GXT4-3000RT230</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>3</td><td>PDU-R3-G</td><td>IP-07</td><td>AP7953</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>3</td><td>UPS-R3</td><td>IP-08</td><td>SMART-UPS SRT 5000</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>4</td><td>PDU-R4-G</td><td>IP-09</td><td>AP8959</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>4</td><td>PDU-R4-D</td><td>IP-10</td><td>AP8959</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>4</td><td>UPS-R4</td><td>IP-11</td><td>Smart-UPS SRT 5000</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>5</td><td>PDU-R5-G</td><td>IP-12</td><td>AP8958</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>5</td><td>PDU-R5-D</td><td>IP-13</td><td>AP8958</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>5</td><td>UPS-R5</td><td>IP-14</td><td>SMART-UPS SRT 5000</td><td class="err">⚠ Reset — ne s'allume plus</td></tr>
-                                <tr><td>6</td><td>PDU-R6-G</td><td>IP-15</td><td>MGU3EGB0-24PK33-2PS6B2A10-S</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>6</td><td>PDU-R6-D</td><td>IP-16</td><td>MG03E4B1-36CF13-3PS6B2A10-S</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>6</td><td>UPS-R6</td><td>IP-17</td><td>—</td><td class="warn">⚠ Pas de carte réseau</td></tr>
-                                <tr><td>7</td><td>UPS-R7</td><td>IP-18</td><td>SMART-UPS SRT 5000</td><td class="warn">⚠ À reset</td></tr>
-                                <tr><td>8</td><td>PDU-R8-G</td><td>IP-19</td><td>AP8958</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>8</td><td>PDU-R8-D</td><td>IP-20</td><td>AP8958</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>8</td><td>UPS-R8</td><td>IP-21</td><td>HP R5000</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>9</td><td>PDU-R9-D</td><td>IP-22</td><td>AP8958</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>9</td><td>UPS-R9</td><td>IP-23</td><td>Smart-UPS SRT 5000</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>10</td><td>UPS-R10</td><td>IP-24</td><td>Smart-UPS SRT 5000</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>11</td><td>PDU-R11-D</td><td>IP-25</td><td>—</td><td class="warn">⚠ À reset — MDP non connu</td></tr>
-                                <tr><td>11</td><td>UPS-R11</td><td>IP-26</td><td>—</td><td class="warn">⚠ Pas de carte réseau</td></tr>
-                                <tr><td>12</td><td>PDU-R12-G</td><td>IP-27</td><td>EATON EPDU SW 0U 20XC13:4XC19</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>12</td><td>PDU-R12-D</td><td>IP-28</td><td>EATON EPDU SW 0U 20XC13:4XC19</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>12</td><td>UPS-R12</td><td>IP-29</td><td>—</td><td class="err">⚠ Non alimenté</td></tr>
-                                <tr><td>13</td><td>PDU-R13-G</td><td>IP-30</td><td>Eaton ePDU MA 1P 20xC13 4xC19</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>13</td><td>PDU-R13-D</td><td>IP-31</td><td>Eaton ePDU SW 1P 20xC13 4xC19</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>13</td><td>UPS-R13</td><td>IP-32</td><td>Eaton 9SX 5000I</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>14</td><td>PDU-R14-G</td><td>IP-33</td><td>Eaton ePDU SW 1P 20xC13 4xC19</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>14</td><td>PDU-R14-D</td><td>IP-34</td><td>Eaton ePDU MA 1P 20xC13 4xC19</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>14</td><td>UPS-R14</td><td>IP-35</td><td>—</td><td class="warn">⚠ Pas de carte réseau</td></tr>
-                                <tr><td>15</td><td>PDU-R15-G</td><td>IP-36</td><td>—</td><td class="err">⚠ Non alimenté</td></tr>
-                                <tr><td>15</td><td>PDU-R15-D</td><td>IP-37</td><td>—</td><td class="err">⚠ Non alimenté</td></tr>
-                                <tr><td>15</td><td>UPS-R15</td><td>IP-38</td><td>—</td><td class="err">⚠ Non alimenté</td></tr>
-                                <tr><td>16</td><td>PDU-R16-G</td><td>IP-39</td><td>Eaton PDU G4 EVMAF132X</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>16</td><td>PDU-R16-D</td><td>IP-40</td><td>PDUMV20HVNET</td><td class="ok">✓ OK</td></tr>
-                                <tr><td>16</td><td>UPS-R16</td><td>IP-41</td><td>Eaton 5PX 3000I RT2U G2</td><td class="ok">✓ OK</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="dsec">
-                    <h3>Difficultés rencontrées</h3>
-                    <ul class="mlist">
-                        <li><strong>Problème 1 : Mots de passe perdus et équipements en APIPA</strong>Solution : Reset factory via bouton physique en s'aidant de la documentation officielle des constructeurs (APC, EATON, VERTIV), puis reconfiguration complète.</li>
-                        <li><strong>Problème 2 : Carte réseau absente</strong>Plusieurs onduleurs dépourvus de carte de gestion réseau, impossibilité de supervision à distance.</li>
-                        <li><strong>Problème 3 : Équipement non alimenté</strong>Certains équipements hors tension, impossible de vérifier leur configuration réseau.</li>
-                    </ul>
-                </div>
                 <div class="res-box">
                     <h3>Résultats</h3>
                     <ul>
@@ -527,7 +728,6 @@
                 </div>
             </div>
 
-            <!-- PARTIE 2 -->
             <div id="p2" class="cpart">
                 <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
                 <div class="dsec">
@@ -551,7 +751,6 @@
                 </div>
             </div>
 
-            <!-- PARTIE 3 -->
             <div id="p3" class="cpart">
                 <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
                 <div class="dsec">
@@ -575,10 +774,53 @@
                 </div>
             </div>
 
+            <div id="p4" class="cpart">
+                <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
+                <div class="dsec">
+                    <h3>Contexte & Objectifs</h3>
+                    <p>Après avoir mis en place la supervision temps réel avec EcoStruxure IT Expert, l'objectif était de compléter le projet par une <strong>modélisation 3D complète du datacenter</strong> avec EcoStruxure IT Advisor. Cette visualisation permet une meilleure compréhension de l'infrastructure et facilite la gestion de la capacité.</p>
+                </div>
+                <div class="dsec">
+                    <h3>Déploiement d'IT Advisor</h3>
+                    <ul class="mlist">
+                        <li><strong>Installation en environnement virtuel</strong>Déploiement d'IT Advisor sur une machine virtuelle Hyper-V avec Rocky Linux 8.10. Configuration : 8 GO RAM, 4 cœurs CPU, 100 GO de stockage.</li>
+                        <li><strong>Configuration réseau</strong>Attribution d'une adresse IP statique et connexion au réseau du datacenter. Accès à l'interface web via HTTPS.</li>
+                        <li><strong>Première connexion</strong>Connexion à l'interface web avec les identifiants par défaut (apc/apc) puis changement immédiat du mot de passe pour des raisons de sécurité.</li>
+                    </ul>
+                </div>
+                <div class="dsec">
+                    <h3>Modélisation 3D du datacenter</h3>
+                    <ul class="mlist">
+                        <li><strong>Création de la salle datacenter</strong>Définition des dimensions de la salle, placement des allées de circulation et organisation en allées chaudes/froides (hot aisle / cold aisle).</li>
+                        <li><strong>Placement des 16 racks</strong>Positionnement précis des 16 racks selon le plan physique réel du datacenter BSC. Numérotation et identification de chaque rack.</li>
+                        <li><strong>Intégration des 41 équipements</strong>Ajout des UPS et PDU dans leurs emplacements respectifs (positions U) au sein de chaque rack. Association de chaque équipement avec son adresse IP et ses données de monitoring.</li>
+                        <li><strong>Visualisation du câblage</strong>Modélisation des connexions réseau entre les équipements, le switch Cisco et la gateway EcoStruxure IT. Cartographie visuelle de l'architecture réseau complète.</li>
+                    </ul>
+                </div>
+                <div class="dsec">
+                    <h3>Fonctionnalités de la modélisation 3D</h3>
+                    <ul class="mlist">
+                        <li><strong>Vue d'ensemble interactive</strong>Navigation 3D permettant de visualiser l'ensemble du datacenter sous tous les angles. Zoom et rotation pour explorer les détails.</li>
+                        <li><strong>Analyse de capacité</strong>Visualisation de la répartition de charge électrique sur chaque rack. Identification des zones à forte densité et des espaces disponibles.</li>
+                        <li><strong>Planification des extensions</strong>Simulation de l'ajout de nouveaux équipements pour anticiper les besoins en espace et en refroidissement.</li>
+                        <li><strong>Documentation visuelle</strong>Support pour la formation des équipes techniques et facilitation de la communication avec les parties prenantes.</li>
+                    </ul>
+                </div>
+                <div class="res-box">
+                    <h3>Résultats</h3>
+                    <ul>
+                        <li>IT Advisor installé et opérationnel en environnement de test</li>
+                        <li>Modélisation 3D complète du datacenter BSC avec 16 racks et 41 équipements</li>
+                        <li>Documentation exhaustive de la procédure d'installation et d'intégration</li>
+                        <li>Procédure reproductible pour un déploiement en production</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-<!-- ══ MODALE COMPTES RENDUS ══ -->
+
 <div id="crModal" class="modal">
     <div class="mbox">
         <div class="mhead">
@@ -607,7 +849,7 @@
         </div>
     </div>
 </div>
-<!-- COMPÉTENCES -->
+
 <section id="competences">
     <div class="sec-head rv">
         <h2 class="sec-title">Compétences Techniques</h2>
@@ -648,7 +890,6 @@
     </div>
 </section>
 
-<!-- TRAVAUX PRATIQUES -->
 <section id="projets">
     <div class="sec-head rv">
         <h2 class="sec-title">Travaux Pratiques</h2>
@@ -688,7 +929,6 @@
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <div class="sec-head rv">
         <h2 class="sec-title">Me Contacter</h2>
@@ -717,7 +957,6 @@
 </footer>
 
 <script>
-// ── TYPEWRITER ──
 (function() {
     const phrases = [
         'Administration Systèmes & Réseaux',
@@ -739,7 +978,6 @@
     document.addEventListener('DOMContentLoaded', type);
 })();
 
-// ── MODALES ──
 function openProjModal()  { show('projModal');  }
 function closeProjModal() { hide('projModal');  }
 function openMonitModal() {
@@ -753,26 +991,35 @@ function closeCRModal() { hide('crModal'); }
 function show(id) { document.getElementById(id).classList.add('on');    document.body.style.overflow='hidden'; }
 function hide(id) { document.getElementById(id).classList.remove('on'); document.body.style.overflow='';       }
 
-// ── PARTIES ──
 var subtitles = {
     p1: 'Recensement & Configuration — Datacenter',
     p2: 'Câblage',
-    p3: 'Déploiement de la supervision via EcoStruxure IT Expert'
+    p3: 'Déploiement de la supervision via EcoStruxure IT Expert',
+    p4: 'Modélisation 3D du datacenter'
 };
+
+function showPartsGrid() {
+    document.getElementById('overview').style.display = 'none';
+    document.getElementById('pgrid').style.display = 'grid';
+    document.getElementById('msub').textContent = 'Sélectionnez la partie à consulter';
+}
+
 function showPart(id) {
+    document.getElementById('overview').style.display = 'none';
     document.getElementById('pgrid').style.display = 'none';
-    ['p1','p2','p3'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    ['p1','p2','p3','p4'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
     document.getElementById(id).classList.add('on');
     document.getElementById('msub').textContent = subtitles[id];
     document.querySelector('#monitModal .mbox').scrollTop = 0;
 }
+
 function backParts() {
-    document.getElementById('pgrid').style.display = 'grid';
-    ['p1','p2','p3'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
-    document.getElementById('msub').textContent = 'Sélectionnez la partie à consulter';
+    document.getElementById('overview').style.display = 'block';
+    document.getElementById('pgrid').style.display = 'none';
+    ['p1','p2','p3','p4'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    document.getElementById('msub').textContent = 'Vue d\'ensemble du projet';
 }
 
-// ── FERMER AU CLIC EXTÉRIEUR / ESCAPE ──
 document.addEventListener('click', function(e) {
     if (e.target.id === 'projModal')  closeProjModal();
     if (e.target.id === 'monitModal') closeMonitModal();
@@ -782,7 +1029,6 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') { closeProjModal(); closeMonitModal(); closeCRModal(); }
 });
 
-// ── REVEAL AU SCROLL ──
 function reveal() {
     document.querySelectorAll('.rv').forEach(function(el) {
         if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('show');
