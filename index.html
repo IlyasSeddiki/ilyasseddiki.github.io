@@ -1031,11 +1031,14 @@ document.addEventListener('DOMContentLoaded', reveal);
 window.addEventListener('scroll', reveal, { passive: true });
 </script>
 <script>
-(function(){
-const h='5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8';
+(async function(){
 const p=prompt('Mot de passe :');
-if(!p||Array.from(new TextEncoder().encode(p)).reduce((a,b)=>{const c=(a<<5)-a+b;return c&c},0).toString()!=='-1936611716'){
-document.body.innerHTML='<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;color:#ef4444;">❌ Accès refusé</div>';
+if(!p){document.body.innerHTML='<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;color:#ef4444;font-size:2rem;">❌ Accès refusé</div>';throw new Error('Invalid');}
+const b=new TextEncoder().encode(p);
+const h=await crypto.subtle.digest('SHA-256',b);
+const hash=Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('');
+if(hash!=='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'){
+document.body.innerHTML='<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;color:#ef4444;font-size:2rem;">❌ Accès refusé</div>';
 throw new Error('Invalid');
 }
 })();
