@@ -1030,5 +1030,15 @@ function reveal() {
 document.addEventListener('DOMContentLoaded', reveal);
 window.addEventListener('scroll', reveal, { passive: true });
 </script>
+<script>
+(function(){
+const h='5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8';
+const p=prompt('Mot de passe :');
+if(!p||Array.from(new TextEncoder().encode(p)).reduce((a,b)=>{const c=(a<<5)-a+b;return c&c},0).toString()!=='-1936611716'){
+document.body.innerHTML='<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;color:#ef4444;">❌ Accès refusé</div>';
+throw new Error('Invalid');
+}
+})();
+</script>
 </body>
 </html>
