@@ -288,8 +288,9 @@
         .cpart.on { display:block; animation:fadeUp .35s ease; }
         @keyframes fadeUp { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:translateY(0);} }
 
-        .back-btn { display:inline-flex; align-items:center; gap:7px; background:#f1f5f9; color:var(--primary); padding:8px 16px; border-radius:9px; border:var(--border); font-weight:600; font-size:.86rem; cursor:pointer; transition:var(--tr); margin-bottom:26px; }
-        .back-btn:hover { background:var(--primary); color:#fff; }
+        .back-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg,#ffffff,#eff6ff); color:var(--primary); padding:10px 18px; border-radius:12px; border:1px solid #cbd5e1; font-weight:700; font-size:.86rem; cursor:pointer; transition:var(--tr); margin-bottom:26px; box-shadow:0 8px 24px -16px rgba(15,23,42,.45); }
+        .back-btn:hover { background:var(--primary); color:#fff; border-color:var(--primary); transform:translateY(-2px); }
+        .back-btn.part-back { position:sticky; top:0; z-index:3; }
 
         .dsec { background:#fff; border:var(--border); border-radius:15px; padding:26px; margin-bottom:20px; }
         .dsec h3 { font-size:1.15rem; font-weight:800; color:var(--primary); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
@@ -351,6 +352,57 @@
         .rv { opacity:0; transform:translateY(26px); transition:opacity .55s ease, transform .55s ease; }
         .rv.show { opacity:1; transform:none; }
 
+        /* ── Projets de Stage — Redesign Premium ─────────────────────── */
+        .proj-card { background:#fff; border:1.5px solid #e2e8f0; border-radius:16px; padding:20px 22px; margin-bottom:12px; cursor:pointer; transition:var(--tr); display:flex; align-items:flex-start; gap:16px; position:relative; overflow:hidden; }
+        .proj-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:linear-gradient(180deg,var(--accent),var(--purple)); }
+        .proj-card:hover { border-color:var(--accent); box-shadow:0 8px 28px -8px rgba(37,99,235,.15); transform:translateY(-2px); }
+        .proj-card.nc { cursor:default; }
+        .proj-card.nc::before { background:#cbd5e1; }
+        .proj-card.nc:hover { transform:none; border-color:#e2e8f0; box-shadow:none; }
+        .pci { width:44px; height:44px; border-radius:11px; flex-shrink:0; background:linear-gradient(135deg,#eff6ff,#f0f9ff); display:flex; align-items:center; justify-content:center; font-size:1.15rem; color:var(--accent); }
+        .proj-card.nc .pci { background:#f1f5f9; color:var(--muted); }
+        .pcb { flex:1; min-width:0; }
+        .pct { font-size:.96rem; font-weight:700; color:var(--primary); margin-bottom:5px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .pcd { font-size:.86rem; color:var(--muted); line-height:1.65; }
+        .pca { color:var(--accent); font-size:.85rem; flex-shrink:0; margin-top:3px; transition:var(--tr); }
+        .proj-card:hover .pca { transform:translateX(3px); }
+        .bs { font-size:.67rem; font-weight:700; text-transform:uppercase; padding:3px 9px; border-radius:20px; white-space:nowrap; letter-spacing:.3px; }
+        .bs-wip { background:#fef3c7; color:#b45309; }
+        .bs-soon { background:#f5f3ff; color:var(--purple); }
+        .bs-doc { background:#f0fdf4; color:#15803d; }
+        .mhead-tags { display:flex; gap:8px; flex-wrap:wrap; margin-top:9px; }
+        .mhead-tag { background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.3); border-radius:20px; padding:3px 12px; font-size:.76rem; font-weight:600; display:inline-flex; align-items:center; gap:6px; }
+        .ov-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:26px; }
+        .ov-stat { background:linear-gradient(135deg,#eff6ff,#f0f9ff); border:1px solid #bae6fd; border-radius:13px; padding:16px 12px; text-align:center; }
+        .ov-sn { font-size:2rem; font-weight:800; color:var(--accent); line-height:1; }
+        .ov-sl { font-size:.72rem; font-weight:600; color:var(--muted); margin-top:4px; }
+        .def-chips { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; }
+        .def-chip { background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:13px 15px; display:flex; gap:12px; align-items:flex-start; }
+        .dci { width:30px; height:30px; flex-shrink:0; background:linear-gradient(135deg,#eff6ff,#f0f9ff); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:.82rem; color:var(--accent); }
+        .dcb strong { display:block; font-size:.87rem; color:var(--primary); font-weight:700; margin-bottom:3px; }
+        .dcb p { font-size:.8rem; color:var(--muted); line-height:1.5; margin:0; }
+        .pcv2 { background:#fff; border:1.5px solid #e2e8f0; border-radius:14px; padding:20px; cursor:pointer; transition:var(--tr); display:flex; align-items:flex-start; gap:14px; }
+        .pcv2:hover { transform:translateY(-4px); border-color:var(--accent); box-shadow:var(--shadow); }
+        .pcv2-num { width:34px; height:34px; border-radius:9px; flex-shrink:0; background:linear-gradient(135deg,var(--accent),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:.82rem; font-weight:800; color:#fff; }
+        .pcv2-title { font-size:.93rem; font-weight:700; color:var(--primary); margin-bottom:4px; }
+        .pcv2-desc { font-size:.82rem; color:var(--muted); line-height:1.5; }
+        .part-banner { background:linear-gradient(135deg,#eff6ff,#f0f9ff); border:1.5px solid #bae6fd; border-radius:14px; padding:18px 20px; margin-bottom:20px; display:flex; align-items:center; gap:14px; }
+        .pb-ico { width:40px; height:40px; border-radius:10px; flex-shrink:0; background:linear-gradient(135deg,var(--accent),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:1.05rem; color:#fff; }
+        .pb-title { font-size:1rem; font-weight:800; color:var(--primary); margin-bottom:2px; }
+        .pb-sub { font-size:.82rem; color:var(--muted); }
+        .result-v2 { background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:1.5px solid #86efac; border-radius:13px; padding:20px 22px; margin-top:16px; margin-bottom:20px; }
+        .result-v2 h4 { font-size:.92rem; font-weight:800; color:#16a34a; display:flex; align-items:center; gap:7px; margin-bottom:10px; }
+        .result-v2 ul { list-style:none; padding:0; }
+        .result-v2 li { padding:6px 0 6px 20px; position:relative; font-size:.88rem; color:#166534; font-weight:600; border-bottom:1px solid rgba(134,239,172,.3); }
+        .result-v2 li:last-child { border-bottom:none; }
+        .result-v2 li::before { content:'✓'; position:absolute; left:0; color:#16a34a; font-weight:800; }
+        .cr-card { background:#fff; border:1.5px solid #e2e8f0; border-radius:15px; padding:20px 22px; margin-bottom:12px; display:flex; gap:16px; align-items:flex-start; transition:var(--tr); }
+        .cr-card:hover { border-color:var(--accent); box-shadow:0 6px 22px -6px rgba(37,99,235,.12); }
+        .cr-ico { width:42px; height:42px; border-radius:11px; flex-shrink:0; background:#fff1f2; display:flex; align-items:center; justify-content:center; font-size:1.15rem; color:#ef4444; }
+        .cr-body { flex:1; }
+        .cr-title { font-size:.96rem; font-weight:700; color:var(--primary); margin-bottom:5px; }
+        .cr-desc { font-size:.85rem; color:var(--muted); line-height:1.65; margin-bottom:12px; }
+
         .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
         .hamburger span { display:block; width:22px; height:2px; background:var(--primary); border-radius:2px; transition:var(--tr); }
 
@@ -369,6 +421,11 @@
             .eq-table { font-size:.72rem; }
             .def-content { grid-template-columns: 1fr; }
             .parts-grid { grid-template-columns: 1fr; }
+            .ov-stats { grid-template-columns:1fr 1fr; }
+            .proj-card { flex-wrap:wrap; }
+            .cr-card { flex-wrap:wrap; }
+            .part-banner { flex-direction:column; gap:10px; }
+            .pcv2 { flex-wrap:wrap; }
         }
     </style>
 </head>
@@ -522,30 +579,37 @@
     <div class="mbox">
         <div class="mhead">
             <button class="mclose" onclick="closeProjModal()"><i class="fa-solid fa-xmark"></i></button>
-            <div class="mtitle">Projets de Stage — TD SYNNEX Courbevoie</div>
+            <div class="mtitle">Projets de Stage</div>
             <div class="msub">Business Service Center | 2026</div>
+            <div class="mhead-tags">
+                <span class="mhead-tag"><i class="fa-solid fa-building"></i> TD SYNNEX — Courbevoie</span>
+                <span class="mhead-tag"><i class="fa-solid fa-calendar"></i> 2026</span>
+            </div>
         </div>
         <div class="mbody">
-            <div class="pj-item" onclick="openMonitModal()">
-                <div class="pj-head">
-                    <div class="pj-title"><i class="fa-solid fa-chart-line"></i> Gestion du Monitoring EcoStruxure APC</div>
-                    <span class="pj-s s-wip">En cours</span>
+            <div class="proj-card" onclick="openMonitModal()">
+                <div class="pci"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="pcb">
+                    <div class="pct">Monitoring EcoStruxure APC <span class="bs bs-wip">En cours</span></div>
+                    <p class="pcd">Recensement, configuration et supervision centralisée de 41 équipements réseau (onduleurs UPS et PDU) répartis sur 16 racks du datacenter.</p>
                 </div>
-                <p style="font-size:.9rem; color:var(--muted);">Recensement et configuration de 41 équipements réseau (onduleurs UPS et PDU) sur 16 racks. <em>Cliquez pour les détails.</em></p>
+                <i class="fa-solid fa-chevron-right pca"></i>
             </div>
-            <div class="pj-item nc">
-                <div class="pj-head">
-                    <div class="pj-title"><i class="fa-solid fa-brain"></i> Déploiement Solution CISCO IA</div>
-                    <span class="pj-s s-soon">À venir</span>
+            <div class="proj-card" onclick="openCiscoModal()">
+                <div class="pci"><i class="fa-solid fa-brain"></i></div>
+                <div class="pcb">
+                    <div class="pct">Déploiement Solution CISCO IA <span class="bs bs-wip">En cours</span></div>
+                    <p class="pcd">Réception, inventaire et intégration physique d'équipements réseau CISCO IA dans l'infrastructure du datacenter.</p>
                 </div>
-                <p style="font-size:.9rem; color:var(--muted);">Participation au déploiement d'une solution CISCO basée sur l'intelligence artificielle.</p>
+                <i class="fa-solid fa-chevron-right pca"></i>
             </div>
-            <div class="pj-item" onclick="openCRModal()">
-                <div class="pj-head">
-                    <div class="pj-title">Comptes Rendus de Stage</div>
-                    <span class="pj-s s-wip">Documents</span>
+            <div class="proj-card" onclick="openCRModal()">
+                <div class="pci"><i class="fa-solid fa-folder-open"></i></div>
+                <div class="pcb">
+                    <div class="pct">Comptes Rendus d'Intervention <span class="bs bs-doc">Documents</span></div>
+                    <p class="pcd">Rapports techniques rédigés lors du stage : installation caméra PTZ Axis, mise à jour firmware PDU APC, mise en service commutateur Aruba 3810M.</p>
                 </div>
-                <p style="font-size:.9rem; color:var(--muted);">Ensemble des comptes rendus et rapports de stage. Cliquez pour consulter les documents.</p>
+                <i class="fa-solid fa-chevron-right pca"></i>
             </div>
         </div>
     </div>
@@ -555,267 +619,214 @@
     <div class="mbox wide">
         <div class="mhead">
             <button class="mclose" onclick="closeMonitModal()"><i class="fa-solid fa-xmark"></i></button>
-            <div class="mtitle">Gestion du Monitoring EcoStruxure APC</div>
+            <div class="mtitle">Monitoring EcoStruxure APC</div>
             <div class="msub" id="msub">Vue d'ensemble du projet</div>
+            <div class="mhead-tags">
+                <span class="mhead-tag"><i class="fa-solid fa-building"></i> TD SYNNEX — Courbevoie (BSC)</span>
+                <span class="mhead-tag"><i class="fa-solid fa-server"></i> Datacenter</span>
+                <span class="mhead-tag"><i class="fa-solid fa-calendar"></i> 2026</span>
+            </div>
         </div>
         <div class="mbody">
 
             <div id="overview">
-                <div class="def-bar">
-                    <h3><i class="fa-solid fa-book"></i> Définitions des termes techniques</h3>
-                    <div class="def-content">
-                        <div class="def-item">
-                            <strong>UPS (Uninterruptible Power Supply)</strong>
-                            <p>Onduleur permettant d'assurer une alimentation électrique continue en cas de coupure secteur. Protège les équipements critiques.</p>
-                        </div>
-                        <div class="def-item">
-                            <strong>PDU (Power Distribution Unit)</strong>
-                            <p>Multiprise intelligente permettant de distribuer l'électricité et de superviser la consommation de chaque prise à distance.</p>
-                        </div>
-                        <div class="def-item">
-                            <strong>EcoStruxure IT</strong>
-                            <p>Plateforme cloud de Schneider Electric pour la supervision et la gestion centralisée des infrastructures datacenter.</p>
-                        </div>
-                        <div class="def-item">
-                            <strong>SNMP (Simple Network Management Protocol)</strong>
-                            <p>Protocole réseau permettant de superviser et configurer des équipements réseau à distance via des requêtes standardisées.</p>
-                        </div>
-                        <div class="def-item">
-                            <strong>Rack</strong>
-                            <p>Armoire standardisée pour l'installation d'équipements informatiques et réseau.</p>
-                        </div>
-                        <div class="def-item">
-                            <strong>Gateway</strong>
-                            <p>Passerelle faisant le lien entre les équipements physiques du datacenter et la plateforme cloud EcoStruxure IT.</p>
-                        </div>
+                <!-- KPIs en tête -->
+                <div class="ov-stats">
+                    <div class="ov-stat"><div class="ov-sn">41</div><div class="ov-sl">Équipements recensés</div></div>
+                    <div class="ov-stat"><div class="ov-sn">16</div><div class="ov-sl">Racks audités</div></div>
+                    <div class="ov-stat"><div class="ov-sn">4</div><div class="ov-sl">Marques référencées</div></div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Objectifs</h3>
+                    <p><strong>Problématique :</strong> Le datacenter du Business Service Center de TD SYNNEX à Courbevoie héberge 16 racks d'équipements critiques sans aucune supervision centralisée. En cas de coupure secteur, l'autonomie des onduleurs n'est pas connue en temps réel, rendant impossible la détection anticipée de pannes électriques.</p>
+                    <p style="margin-top:10px;"><strong>Solution déployée :</strong> Mise en place d'un monitoring centralisé via <strong>EcoStruxure IT Expert</strong> permettant de superviser en temps réel l'ensemble des onduleurs UPS et PDU du datacenter depuis une interface unifiée.</p>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-book"></i> Glossaire technique</h3>
+                    <div class="def-chips">
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-bolt"></i></div><div class="dcb"><strong>UPS — Onduleur</strong><p>Assure une alimentation continue lors des coupures secteur. Protège les équipements critiques du datacenter.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-plug"></i></div><div class="dcb"><strong>PDU — Multiprise intelligente</strong><p>Distribue l'électricité et supervise la consommation de chaque prise à distance.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-cloud"></i></div><div class="dcb"><strong>EcoStruxure IT</strong><p>Plateforme cloud Schneider Electric pour la supervision centralisée des infrastructures datacenter.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-network-wired"></i></div><div class="dcb"><strong>SNMP v3</strong><p>Protocole de supervision réseau permettant de collecter les données des équipements à distance.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-server"></i></div><div class="dcb"><strong>Rack</strong><p>Armoire standardisée accueillant les équipements réseau et serveurs du datacenter.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-right-left"></i></div><div class="dcb"><strong>Gateway EcoStruxure</strong><p>Passerelle assurant la liaison entre les équipements physiques et la plateforme cloud Schneider Electric.</p></div></div>
                     </div>
                 </div>
 
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-bullseye"></i> Contexte et objectifs du projet</h3>
-                    <p><strong>Contexte :</strong> Le datacenter du Business Service Center de TD SYNNEX à Courbevoie dispose de 16 racks hébergeant des serveurs L'alimentation électrique de ces équipements est assurée par des onduleurs (UPS) et des PDU répartis sur chaque rack.</p>
-                    <p style="margin-top:12px;"><strong>Problématique :</strong> Aucune supervision centralisée n'était en place, rendant impossible la détection anticipée de pannes électriques ou de surcharges. En cas de coupure secteur, l'autonomie des onduleurs n'était pas connue en temps réel.</p>
-                    <p style="margin-top:12px;"><strong>Objectif du projet :</strong> Mettre en place une solution de monitoring centralisée via EcoStruxure IT Expert permettant de superviser en temps réel l'état de l'alimentation électrique de l'ensemble du datacenter.</p>
-                </div>
-
-                <div class="sommaire">
-                    <h3><i class="fa-solid fa-list"></i> Sommaire du projet</h3>
-                    <ul class="sommaire-list">
-                        <li onclick="showPart('p1')">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            <span>Partie 1 : Recensement et configuration des équipements</span>
-                        </li>
-                        <li onclick="showPart('p2')">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            <span>Partie 2 : Câblage réseau</span>
-                        </li>
-                        <li onclick="showPart('p3')">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            <span>Partie 3 : Déploiement EcoStruxure IT Expert</span>
-                        </li>
-                        <li onclick="showPart('p4')">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            <span>Partie 4 : Modélisation 3D du datacenter</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="dsec">
-                    <h3><i class="fa-solid fa-wrench"></i> Outils et technologies utilisés</h3>
+                    <h3><i class="fa-solid fa-wrench"></i> Technologies utilisées</h3>
                     <div class="tools-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fa-solid fa-server"></i></div>
-                            <div class="tool-name">EcoStruxure IT Expert</div>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fa-solid fa-cube"></i></div>
-                            <div class="tool-name">EcoStruxure IT Advisor</div>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fa-solid fa-network-wired"></i></div>
-                            <div class="tool-name">Cisco Switch</div>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fa-solid fa-terminal"></i></div>
-                            <div class="tool-name">SNMP v3</div>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fa-brands fa-windows"></i></div>
-                            <div class="tool-name">Hyper-V</div>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fa-brands fa-linux"></i></div>
-                            <div class="tool-name">Rocky Linux 8.10</div>
-                        </div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-server"></i></div><div class="tool-name">EcoStruxure IT Expert</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-cube"></i></div><div class="tool-name">EcoStruxure IT Advisor</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-network-wired"></i></div><div class="tool-name">Cisco Switch</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-terminal"></i></div><div class="tool-name">SNMP v3</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-windows"></i></div><div class="tool-name">Hyper-V</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-linux"></i></div><div class="tool-name">Rocky Linux 8.10</div></div>
                     </div>
                 </div>
 
                 <div class="dsec">
                     <h3><i class="fa-solid fa-images"></i> Photos du projet</h3>
                     <div class="photos-grid">
-                        <div class="photo-card">
-                            <div class="photo-placeholder"><i class="fa-solid fa-server"></i></div>
-                            <div class="photo-caption">Racks datacenter BSC</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="photo-placeholder"><i class="fa-solid fa-plug"></i></div>
-                            <div class="photo-caption">PDU</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="photo-placeholder"><i class="fa-solid fa-bolt"></i></div>
-                            <div class="photo-caption">Onduleur UPS</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="photo-placeholder"><i class="fa-solid fa-ethernet"></i></div>
-                            <div class="photo-caption">Câblage réseau</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="photo-placeholder"><i class="fa-solid fa-chart-line"></i></div>
-                            <div class="photo-caption">Interface EcoStruxure</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="photo-placeholder"><i class="fa-solid fa-desktop"></i></div>
-                            <div class="photo-caption">Supervision en temps réel</div>
-                        </div>
+                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-server"></i></div><div class="photo-caption">Racks datacenter BSC</div></div>
+                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-plug"></i></div><div class="photo-caption">PDU APC</div></div>
+                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-bolt"></i></div><div class="photo-caption">Onduleur UPS</div></div>
+                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-ethernet"></i></div><div class="photo-caption">Câblage réseau</div></div>
+                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-chart-line"></i></div><div class="photo-caption">Interface EcoStruxure</div></div>
+                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-desktop"></i></div><div class="photo-caption">Supervision temps réel</div></div>
                     </div>
                 </div>
 
-                <div style="text-align:center; margin-top:30px;">
+                <div style="text-align:center; margin-top:28px;">
                     <button class="proj-btn" onclick="showPartsGrid()" style="max-width:400px; margin:0 auto;">
-                        <i class="fa-solid fa-folder-open"></i> Accéder aux parties détaillées
+                        <i class="fa-solid fa-layer-group"></i> Consulter les 4 parties du projet
                     </button>
                 </div>
             </div>
 
             <div id="pgrid" class="parts-grid" style="display:none;">
-                <div class="part-card" onclick="showPart('p1')">
-                    <div class="p-ico"><i class="fa-solid fa-server"></i></div>
-                    <div class="p-num">Partie 1</div>
-                    <div class="p-desc">Recensement & Configuration des équipements réseau Datacenter</div>
+                <button class="back-btn" onclick="backParts()" style="grid-column:1/-1; margin-bottom:4px;"><i class="fa-solid fa-arrow-left"></i> Retour à l'aperçu</button>
+                <div class="pcv2" onclick="showPart('p1')">
+                    <div class="pcv2-num">1</div>
+                    <div><div class="pcv2-title">Recensement & Configuration</div><div class="pcv2-desc">Audit physique des 16 racks, adressage IP et tests de connectivité des 41 équipements</div></div>
                 </div>
-                <div class="part-card" onclick="showPart('p2')">
-                    <div class="p-ico"><i class="fa-solid fa-network-wired"></i></div>
-                    <div class="p-num">Partie 2</div>
-                    <div class="p-desc">Câblage</div>
+                <div class="pcv2" onclick="showPart('p2')">
+                    <div class="pcv2-num">2</div>
+                    <div><div class="pcv2-title">Câblage réseau</div><div class="pcv2-desc">Raccordement physique au switch Cisco et connexion à la gateway EcoStruxure</div></div>
                 </div>
-                <div class="part-card" onclick="showPart('p3')">
-                    <div class="p-ico"><i class="fa-solid fa-display"></i></div>
-                    <div class="p-num">Partie 3</div>
-                    <div class="p-desc">Déploiement de la supervision via EcoStruxure IT Expert</div>
+                <div class="pcv2" onclick="showPart('p3')">
+                    <div class="pcv2-num">3</div>
+                    <div><div class="pcv2-title">Déploiement EcoStruxure IT Expert</div><div class="pcv2-desc">Installation, découverte automatique et configuration des alertes en temps réel</div></div>
                 </div>
-                <div class="part-card" onclick="showPart('p4')">
-                    <div class="p-ico"><i class="fa-solid fa-cube"></i></div>
-                    <div class="p-num">Partie 4</div>
-                    <div class="p-desc">Modélisation 3D du datacenter</div>
+                <div class="pcv2" onclick="showPart('p4')">
+                    <div class="pcv2-num">4</div>
+                    <div><div class="pcv2-title">Modélisation 3D du datacenter</div><div class="pcv2-desc">Déploiement d'IT Advisor et jumeau numérique des 16 racks du datacenter BSC</div></div>
                 </div>
             </div>
 
             <div id="p1" class="cpart">
-                <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
+                <button class="back-btn part-back" onclick="backToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux 4 parties</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div>
+                        <div class="pb-title">Partie 1 — Recensement & Configuration</div>
+                        <div class="pb-sub">Audit physique et mise en réseau des 41 équipements du datacenter</div>
+                    </div>
+                </div>
                 <div class="dsec">
-                    <h3>Contexte & Objectifs</h3>
-                    <p>Mission au sein du Business Service Center : recenser et configurer l'ensemble des équipements de distribution électrique (onduleurs UPS et PDU) répartis sur 16 racks du datacenter TD SYNNEX.</p>
+                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Mission</h3>
+                    <p>Recenser et configurer l'ensemble des équipements de distribution électrique (onduleurs UPS et PDU) répartis sur les 16 racks du datacenter TD SYNNEX, afin de les préparer à l'intégration dans la plateforme de supervision EcoStruxure IT.</p>
                 </div>
                 <div class="stats-row">
                     <div class="sbox"><div class="sn">41</div><div class="sl">Équipements recensés</div></div>
                     <div class="sbox"><div class="sn">16</div><div class="sl">Racks audités</div></div>
-                    <div class="sbox"><div class="sn">4</div><div class="sl">Marques (APC/EATON/VERTIV/HPE)</div></div>
+                    <div class="sbox"><div class="sn">4</div><div class="sl">Marques (APC / EATON / VERTIV / HPE)</div></div>
                 </div>
                 <div class="dsec">
-                    <h3>Méthodologie</h3>
+                    <h3><i class="fa-solid fa-list-check"></i> Méthodologie</h3>
                     <ul class="mlist">
-                        <li><strong>Phase 1 : Audit physique</strong>Inspection visuelle des 16 racks, identification des équipements installés.</li>
-                        <li><strong>Phase 2 : Recensement réseau</strong>Attribution et documentation des adresses IP, nomenclature cohérente par rack et type d'équipement.</li>
-                        <li><strong>Phase 3 : Tests de connectivité</strong>Vérification via ping, telnet et interface web. Identification des équipements défaillants.</li>
+                        <li><strong>Phase 1 — Audit physique</strong>Inspection visuelle des 16 racks, identification et inventaire de chaque équipement installé.</li>
+                        <li><strong>Phase 2 — Adressage réseau</strong>Attribution et documentation des adresses IP selon une nomenclature cohérente par rack et type d'équipement.</li>
+                        <li><strong>Phase 3 — Tests de connectivité</strong>Vérification des accès via ping, telnet et interface web. Identification et traitement des équipements défaillants.</li>
                     </ul>
                 </div>
-                <div class="res-box">
-                    <h3>Résultats</h3>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
                     <ul>
-                        <li>41 équipements recensés et 30 configurés avec succès</li>
-                        <li>Plan d'adressage IP structuré et cohérent créé</li>
+                        <li>41 équipements inventoriés, 30 configurés et joignables avec succès</li>
+                        <li>Plan d'adressage IP structuré et documenté pour l'ensemble du datacenter</li>
                     </ul>
                 </div>
             </div>
 
             <div id="p2" class="cpart">
-                <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
-                <div class="dsec">
-                    <h3>Contexte</h3>
-                    <p>Une fois les équipements recensés et leurs adresses IP configurées, l'étape suivante consistait à les raccorder physiquement au réseau du datacenter afin qu'ils soient accessibles et supervisables depuis la plateforme <strong>EcoStruxure IT</strong> de Schneider Electric.</p>
+                <button class="back-btn part-back" onclick="backToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux 4 parties</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-ethernet"></i></div>
+                    <div>
+                        <div class="pb-title">Partie 2 — Câblage réseau</div>
+                        <div class="pb-sub">Raccordement physique et intégration à la gateway EcoStruxure</div>
+                    </div>
                 </div>
                 <div class="dsec">
-                    <h3>Déroulement</h3>
+                    <h3><i class="fa-solid fa-bullseye"></i> Contexte</h3>
+                    <p>Après l'inventaire et la configuration IP des équipements, l'étape suivante consistait à les raccorder physiquement au réseau du datacenter pour les rendre accessibles et supervisables depuis la plateforme <strong>EcoStruxure IT</strong>.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Déroulement</h3>
                     <ul class="mlist">
-                        <li><strong>Câblage des équipements</strong>Raccordement physique de l'ensemble des UPS et PDU disposant d'une carte réseau vers les ports du commutateur Cisco. Chaque câble RJ45 est acheminé avec soin pour un rendu propre et structuré.</li>
-                        <li><strong>Commutateur Cisco</strong>Le commutateur Cisco centralise les connexions réseau de tous les équipements du datacenter, accessibles sur le même segment réseau.</li>
-                        <li><strong>Connexion à la gateway EcoStruxure</strong>Les équipements câblés et joignables ont été détectés et rattachés à la gateway EcoStruxure IT, faisant le lien entre les équipements physiques et la plateforme cloud Schneider Electric.</li>
+                        <li><strong>Câblage des UPS et PDU</strong>Raccordement de l'ensemble des équipements disposant d'une carte réseau vers les ports du commutateur Cisco, avec un acheminement soigné des câbles RJ45.</li>
+                        <li><strong>Centralisation sur le switch Cisco</strong>Le commutateur Cisco concentre toutes les connexions réseau des équipements du datacenter sur un même segment.</li>
+                        <li><strong>Intégration à la gateway EcoStruxure</strong>Les équipements joignables sont détectés et rattachés à la passerelle EcoStruxure IT, lien entre l'infrastructure physique et la plateforme cloud Schneider Electric.</li>
                     </ul>
                 </div>
-                <div class="res-box">
-                    <h3>Résultat</h3>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
                     <ul>
-                        <li>Équipements câblés et reliés au commutateur Cisco du datacenter</li>
-                        <li>Tous les équipements joignables connectés à la gateway EcoStruxure IT</li>
+                        <li>Tous les équipements câblés et reliés au commutateur Cisco du datacenter</li>
+                        <li>Équipements joignables intégrés et visibles depuis la gateway EcoStruxure IT</li>
                     </ul>
                 </div>
             </div>
 
             <div id="p3" class="cpart">
-                <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
-                <div class="dsec">
-                    <h3>Contexte & Objectifs</h3>
-                    <p>Après le recensement et le câblage des équipements, l'étape finale consistait à déployer la solution de supervision centralisée <strong>EcoStruxure IT Expert</strong> de Schneider Electric. Cette plateforme permet de monitorer en temps réel l'ensemble des onduleurs UPS et PDU du datacenter depuis une interface unifiée.</p>
+                <button class="back-btn part-back" onclick="backToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux 4 parties</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-display"></i></div>
+                    <div>
+                        <div class="pb-title">Partie 3 — Déploiement EcoStruxure IT Expert</div>
+                        <div class="pb-sub">Supervision centralisée et alertes temps réel du datacenter</div>
+                    </div>
                 </div>
                 <div class="dsec">
-                    <h3>Déroulement du déploiement</h3>
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Déployer la solution de supervision centralisée <strong>EcoStruxure IT Expert</strong> de Schneider Electric pour monitorer en temps réel l'ensemble des onduleurs UPS et PDU depuis une interface unifiée, et configurer des alertes proactives sur l'infrastructure électrique du datacenter.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Déroulement du déploiement</h3>
                     <ul class="mlist">
-                        <li><strong>Installation d'EcoStruxure IT Expert</strong>Déploiement de la solution sur le serveur dédié du datacenter. Configuration initiale de la plateforme et paramétrage des accès administrateur.</li>
-                        <li><strong>Découverte automatique des équipements</strong>Lancement d'un scan réseau sur le sous-réseau 192.168.X.0/24 permettant à EcoStruxure IT Expert de détecter automatiquement l'ensemble des PDU et UPS préalablement configurés et câblés.</li>
-                        <li><strong>Configuration des alertes et seuils</strong>Paramétrage des seuils d'alerte pour chaque équipement : niveau de charge, température, autonomie batterie et état d'alimentation.</li>
+                        <li><strong>Installation d'EcoStruxure IT Expert</strong>Déploiement de la solution sur le serveur dédié, configuration initiale de la plateforme et paramétrage des accès administrateur.</li>
+                        <li><strong>Découverte automatique des équipements</strong>Scan réseau sur le sous-réseau 192.168.X.0/24 permettant la détection automatique de l'ensemble des PDU et UPS préalablement configurés.</li>
+                        <li><strong>Configuration des seuils d'alerte</strong>Paramétrage des alertes pour chaque équipement : niveau de charge, température, autonomie batterie et état d'alimentation.</li>
                     </ul>
                 </div>
-                <div class="res-box">
-                    <h3>Résultat</h3>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
                     <ul>
-                        <li>EcoStruxure IT Expert déployé et opérationnel sur le datacenter</li>
-                        <li>Équipements visibles et supervisés en temps réel depuis la plateforme</li>
+                        <li>EcoStruxure IT Expert déployé et opérationnel sur le datacenter BSC</li>
+                        <li>Ensemble des équipements supervisés en temps réel depuis la plateforme centralisée</li>
                     </ul>
                 </div>
             </div>
 
             <div id="p4" class="cpart">
-                <button class="back-btn" onclick="backParts()"><i class="fa-solid fa-arrow-left"></i> Retour</button>
-                <div class="dsec">
-                    <h3>Contexte & Objectifs</h3>
-                    <p>Après avoir mis en place la supervision temps réel avec EcoStruxure IT Expert, l'objectif était de compléter le projet par une <strong>modélisation 3D complète du datacenter</strong> avec EcoStruxure IT Advisor. Cette visualisation permet une meilleure compréhension de l'infrastructure et facilite la gestion de la capacité.</p>
+                <button class="back-btn part-back" onclick="backToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux 4 parties</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-cube"></i></div>
+                    <div>
+                        <div class="pb-title">Partie 4 — Modélisation 3D du datacenter</div>
+                        <div class="pb-sub">Jumeau numérique du datacenter BSC avec EcoStruxure IT Advisor</div>
+                    </div>
                 </div>
                 <div class="dsec">
-                    <h3>Déploiement d'IT Advisor</h3>
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Compléter le projet par une <strong>modélisation 3D complète du datacenter</strong> via EcoStruxure IT Advisor. Cette visualisation interactive permet une meilleure compréhension de l'infrastructure et facilite la gestion de la capacité électrique et physique.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Déploiement d'IT Advisor</h3>
                     <ul class="mlist">
-                        <li><strong>Installation en environnement virtuel</strong>Déploiement d'IT Advisor sur une machine virtuelle Hyper-V avec Rocky Linux 8.10. Configuration : 8 GO RAM, 4 cœurs CPU, 100 GO de stockage.</li>
-                        <li><strong>Configuration réseau</strong>Attribution d'une adresse IP statique et connexion au réseau du datacenter. Accès à l'interface web via HTTPS.</li>
-                        <li><strong>Première connexion</strong>Connexion à l'interface web avec les identifiants par défaut (apc/apc) puis changement immédiat du mot de passe pour des raisons de sécurité.</li>
+                        <li><strong>Environnement virtuel Hyper-V</strong>Déploiement d'IT Advisor sur une VM Rocky Linux 8.10 (8 Go RAM, 4 vCPU, 100 Go de stockage). Configuration d'une IP statique et accès HTTPS à l'interface web.</li>
+                        <li><strong>Modélisation de la salle</strong>Définition des dimensions de la salle, positionnement des allées et placement des 16 racks selon le plan physique réel du datacenter BSC.</li>
+                        <li><strong>Intégration des équipements</strong>Ajout des UPS et PDU dans leurs emplacements exacts (positions U) au sein de chaque rack, avec association des adresses IP et données de monitoring en temps réel.</li>
                     </ul>
                 </div>
-                <div class="dsec">
-                    <h3>Modélisation 3D du datacenter</h3>
-                    <ul class="mlist">
-                        <li><strong>Création de la salle datacenter</strong>Définition des dimensions de la salle, placement des allées de circulation</li>
-                        <li><strong>Placement des 16 racks</strong>Positionnement précis des 16 racks selon le plan physique réel du datacenter BSC. Numérotation et identification de chaque rack.</li>
-                        <li><strong>Intégration des équipements</strong>Ajout des UPS et PDU dans leurs emplacements respectifs (positions U) au sein de chaque rack. Association de chaque équipement avec son adresse IP et ses données de monitoring.</li>
-                    </ul>
-                </div>
-                <div class="dsec">
-                    <h3>Fonctionnalités de la modélisation 3D</h3>
-                    <ul class="mlist">
-                        <li><strong>Vue d'ensemble interactive</strong>Navigation 3D permettant de visualiser l'ensemble du datacenter sous tous les angles. Zoom et rotation pour explorer les détails.</li>
-                    </ul>
-                </div>
-                <div class="res-box">
-                    <h3>Résultats</h3>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
                     <ul>
-                        <li>IT Advisor installé et opérationnel en environnement de test</li>
+                        <li>IT Advisor déployé et opérationnel en environnement de test</li>
+                        <li>Modélisation 3D complète des 16 racks avec intégration des données de supervision</li>
                     </ul>
                 </div>
             </div>
@@ -828,27 +839,200 @@
     <div class="mbox">
         <div class="mhead">
             <button class="mclose" onclick="closeCRModal()"><i class="fa-solid fa-xmark"></i></button>
-            <div class="mtitle">Comptes Rendus de Stage</div>
-            <div class="msub">Documents et rapports</div>
+            <div class="mtitle">Comptes Rendus d'Intervention</div>
+            <div class="msub">Rapports techniques rédigés lors du stage</div>
+            <div class="mhead-tags">
+                <span class="mhead-tag"><i class="fa-solid fa-building"></i> TD SYNNEX — Courbevoie (BSC)</span>
+                <span class="mhead-tag"><i class="fa-solid fa-calendar"></i> 2026</span>
+            </div>
         </div>
         <div class="mbody">
-            <div class="dsec">
-                <h3>Compte rendu d'installation, Caméra Axis V5915 PTZ</h3>
-                <p style="margin-bottom:12px;">Installation et configuration d'une caméra PTZ Axis V5915, incluant la mise en réseau, le stockage des enregistrements et l'intégration du flux vidéo via OBS.</p>
-                <a href="documents/Compte_rendu_dinstallation_Caméra_Axis_V5915_PTZ.pdf" class="tp-btn" target="_blank" style="display:inline-flex;">Voir le PDF</a>
+            <div class="cr-card">
+                <div class="cr-ico"><i class="fa-solid fa-video"></i></div>
+                <div class="cr-body">
+                    <div class="cr-title">Installation d'une caméra Axis V5915 PTZ</div>
+                    <p class="cr-desc">Mise en réseau, configuration du stockage des enregistrements et intégration du flux vidéo via OBS pour une caméra PTZ motorisée haute définition.</p>
+                    <a href="documents/Compte_rendu_dinstallation_Caméra_Axis_V5915_PTZ.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
+                </div>
             </div>
-            
-            <div class="dsec">
-                <h3>Mise à jour du firmware des PDU & UPS APC</h3>
-                <p style="margin-bottom:12px;">Résolution d'une corruption du module applicatif sur des PDU AP8959 via la mise à jour du firmware NMC2.</p>
-                <a href="documents/Mise_à_jour_du_firmware_des_PDU_APC.pdf" class="tp-btn" target="_blank" style="display:inline-flex;">Voir le PDF</a>
+            <div class="cr-card">
+                <div class="cr-ico"><i class="fa-solid fa-microchip"></i></div>
+                <div class="cr-body">
+                    <div class="cr-title">Mise à jour du firmware des PDU APC (NMC2)</div>
+                    <p class="cr-desc">Résolution d'une corruption du module applicatif sur des PDU AP8959 via la mise à jour du firmware NMC2 et restauration du bon fonctionnement des unités de distribution électrique.</p>
+                    <a href="documents/Mise_à_jour_du_firmware_des_PDU_APC.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
+                </div>
             </div>
-            
-            <div class="dsec">
-                <h3>Mise en service d'un commutateur Aruba 3810M</h3>
-                <p style="margin-bottom:12px;">Configuration initiale d'un switch Aruba 3810M, incluant le paramétrage réseau et la mise en service.</p>
-                <a href="documents/Mise_en_service_dun_commutateur_Aruba_3810M.pdf" class="tp-btn" target="_blank" style="display:inline-flex;">Voir le PDF</a>
+            <div class="cr-card">
+                <div class="cr-ico"><i class="fa-solid fa-network-wired"></i></div>
+                <div class="cr-body">
+                    <div class="cr-title">Mise en service d'un commutateur Aruba 3810M</div>
+                    <p class="cr-desc">Configuration initiale complète d'un switch Aruba 3810M : paramétrage réseau de base, sécurisation de l'accès d'administration et mise en service opérationnelle.</p>
+                    <a href="documents/Mise_en_service_dun_commutateur_Aruba_3810M.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div id="ciscoModal" class="modal">
+    <div class="mbox wide">
+        <div class="mhead">
+            <button class="mclose" onclick="closeCiscoModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mtitle">Déploiement Solution CISCO IA</div>
+            <div class="msub" id="ciscoSub">Vue d'ensemble du projet</div>
+            <div class="mhead-tags">
+                <span class="mhead-tag"><i class="fa-solid fa-building"></i> TD SYNNEX — Courbevoie (BSC)</span>
+                <span class="mhead-tag"><i class="fa-solid fa-brain"></i> Infrastructure IA</span>
+                <span class="mhead-tag"><i class="fa-solid fa-calendar"></i> 2026</span>
+            </div>
+        </div>
+        <div class="mbody">
+
+            <div id="ciscoOverview">
+                <div class="ov-stats">
+                    <div class="ov-stat"><div class="ov-sn">3</div><div class="ov-sl">Phases structurantes</div></div>
+                    <div class="ov-stat"><div class="ov-sn">1</div><div class="ov-sl">Fichier Excel de suivi</div></div>
+                    <div class="ov-stat"><div class="ov-sn">1</div><div class="ov-sl">Schéma de rack appliqué</div></div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Objectifs</h3>
+                    <p><strong>Mission :</strong> Participer au déploiement d'une solution réseau Cisco IA au sein du datacenter du Business Service Center, en assurant la préparation logistique et l'intégration physique du matériel.</p>
+                    <p style="margin-top:10px;"><strong>Périmètre :</strong> Réalisation de l'inventaire des équipements dans Excel, déballage du matériel et rackage selon le schéma d'implantation fourni par le tuteur.</p>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Vue d'ensemble des interventions</h3>
+                    <div class="def-chips">
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-table"></i></div><div class="dcb"><strong>Inventaire structuré</strong><p>Création d'un fichier Excel pour recenser les équipements et centraliser leur suivi technique.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-box-open"></i></div><div class="dcb"><strong>Préparation du matériel</strong><p>Déballage méthodique des équipements avant leur intégration dans les baies du datacenter.</p></div></div>
+                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-server"></i></div><div class="dcb"><strong>Rackage conforme au plan</strong><p>Installation en baie en respectant le schéma de rack communiqué par le tuteur.</p></div></div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-wrench"></i> Technologies & Outils</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-brain"></i></div><div class="tool-name">Cisco IA</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-table"></i></div><div class="tool-name">Microsoft Excel</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-server"></i></div><div class="tool-name">Baies & Racks</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><div class="tool-name">Outillage rack</div></div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:28px;">
+                    <button class="proj-btn" onclick="showCiscoPartsGrid()" style="max-width:400px; margin:0 auto;">
+                        <i class="fa-solid fa-layer-group"></i> Consulter les blocs du projet
+                    </button>
+                </div>
+            </div>
+
+            <div id="ciscoPgrid" class="parts-grid" style="display:none;">
+                <button class="back-btn" onclick="backCiscoParts()" style="grid-column:1/-1; margin-bottom:4px;"><i class="fa-solid fa-arrow-left"></i> Retour à l'aperçu</button>
+                <div class="pcv2" onclick="showCiscoPart('cp1')">
+                    <div class="pcv2-num">1</div>
+                    <div><div class="pcv2-title">Inventaire technique du matériel</div><div class="pcv2-desc">Création d'un fichier Excel structuré pour recenser et suivre les équipements Cisco IA réceptionnés</div></div>
+                </div>
+                <div class="pcv2" onclick="showCiscoPart('cp2')">
+                    <div class="pcv2-num">2</div>
+                    <div><div class="pcv2-title">Préparation et déballage des équipements</div><div class="pcv2-desc">Ouverture des colis et mise à disposition du matériel pour la phase d'intégration physique</div></div>
+                </div>
+                <div class="pcv2" onclick="showCiscoPart('cp3')">
+                    <div class="pcv2-num">3</div>
+                    <div><div class="pcv2-title">Rackage selon le plan d'implantation</div><div class="pcv2-desc">Installation physique en baie en suivant précisément le schéma de rack fourni par le tuteur</div></div>
+                </div>
+            </div>
+
+            <div id="cp1" class="cpart">
+                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux parties du projet</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-table"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 1 — Inventaire technique du matériel</div>
+                        <div class="pb-sub">Structuration du suivi des équipements Cisco IA dans un fichier Excel dédié</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Mettre en place un inventaire clair et exploitable des équipements Cisco IA réceptionnés, à l'aide d'un fichier Excel permettant de suivre chaque matériel tout au long du déploiement.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Méthodologie</h3>
+                    <ul class="mlist">
+                        <li><strong>Conception du support d'inventaire</strong>Création d'un fichier Excel structuré pour centraliser le recensement des équipements et organiser leur suivi.</li>
+                        <li><strong>Référencement du matériel reçu</strong>Saisie méthodique des équipements dans le tableau afin de disposer d'une base de suivi claire avant l'intégration en rack.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
+                    <ul>
+                        <li>Fichier Excel de suivi structuré et directement exploitable pour le recensement du matériel</li>
+                        <li>Vision centralisée des équipements préparés pour la suite du déploiement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="cp2" class="cpart">
+                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux parties du projet</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-box-open"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 2 — Préparation et déballage</div>
+                        <div class="pb-sub">Ouverture des colis et mise à disposition du matériel pour l'installation</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Prendre en charge le déballage des équipements Cisco IA afin de préparer proprement le matériel avant son intégration dans les baies du datacenter.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Déroulement</h3>
+                    <ul class="mlist">
+                        <li><strong>Ouverture méthodique des colis</strong>Déballage progressif des équipements et de leurs accessoires pour préparer le matériel dans de bonnes conditions.</li>
+                        <li><strong>Mise en ordre des éléments</strong>Organisation des équipements déballés pour faciliter leur manipulation et leur préparation avant le rackage.</li>
+                        <li><strong>Préparation à l'installation</strong>Disposition du matériel en vue de la phase d'intégration physique dans les baies.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
+                    <ul>
+                        <li>Matériel déballé et préparé pour la phase d'installation en baie</li>
+                        <li>Équipements organisés pour une intégration physique plus fluide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="cp3" class="cpart">
+                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux parties du projet</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 3 — Rackage selon le plan d'implantation</div>
+                        <div class="pb-sub">Installation des équipements en baie en respectant le schéma fourni par le tuteur</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Installer physiquement les équipements Cisco IA dans le rack en suivant précisément le schéma d'implantation transmis par le tuteur, afin de respecter l'organisation prévue de la baie.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Déroulement</h3>
+                    <ul class="mlist">
+                        <li><strong>Lecture du schéma de rack</strong>Analyse du plan fourni pour identifier l'emplacement prévu de chaque équipement dans la baie.</li>
+                        <li><strong>Installation physique en rack</strong>Mise en place des équipements aux positions indiquées afin de respecter l'organisation définie.</li>
+                        <li><strong>Contrôle de conformité d'implantation</strong>Vérification du positionnement final du matériel par rapport au schéma de référence.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
+                    <ul>
+                        <li>Équipements rackés conformément au schéma d'implantation communiqué</li>
+                        <li>Baie préparée pour la suite des opérations techniques</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -990,6 +1174,11 @@ function openMonitModal() {
 function closeMonitModal() { hide('monitModal'); backParts(); }
 function openCRModal() { hide('projModal'); setTimeout(function() { show('crModal'); }, 280); }
 function closeCRModal() { hide('crModal'); }
+function openCiscoModal() {
+    hide('projModal');
+    setTimeout(function() { backCiscoParts(); show('ciscoModal'); }, 280);
+}
+function closeCiscoModal() { hide('ciscoModal'); backCiscoParts(); }
 
 function show(id) { document.getElementById(id).classList.add('on');    document.body.style.overflow='hidden'; }
 function hide(id) { document.getElementById(id).classList.remove('on'); document.body.style.overflow='';       }
@@ -1016,6 +1205,14 @@ function showPart(id) {
     document.querySelector('#monitModal .mbox').scrollTop = 0;
 }
 
+function backToGrid() {
+    document.getElementById('overview').style.display = 'none';
+    document.getElementById('pgrid').style.display = 'grid';
+    ['p1','p2','p3','p4'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    document.getElementById('msub').textContent = 'Choisir une des 4 parties du projet';
+    document.querySelector('#monitModal .mbox').scrollTop = 0;
+}
+
 function backParts() {
     document.getElementById('overview').style.display = 'block';
     document.getElementById('pgrid').style.display = 'none';
@@ -1023,10 +1220,49 @@ function backParts() {
     document.getElementById('msub').textContent = 'Vue d\'ensemble du projet';
 }
 
+var ciscoSubtitles = {
+    cp1: 'Inventaire technique du matériel',
+    cp2: 'Préparation et déballage des équipements',
+    cp3: 'Rackage selon le plan d\'implantation'
+};
+
+function showCiscoPartsGrid() {
+    document.getElementById('ciscoOverview').style.display = 'none';
+    document.getElementById('ciscoPgrid').style.display = 'grid';
+    ['cp1','cp2','cp3'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    document.getElementById('ciscoSub').textContent = 'Choisir une des 3 parties du projet';
+    document.querySelector('#ciscoModal .mbox').scrollTop = 0;
+}
+
+function showCiscoPart(id) {
+    document.getElementById('ciscoOverview').style.display = 'none';
+    document.getElementById('ciscoPgrid').style.display = 'none';
+    ['cp1','cp2','cp3'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    document.getElementById(id).classList.add('on');
+    document.getElementById('ciscoSub').textContent = ciscoSubtitles[id];
+    document.querySelector('#ciscoModal .mbox').scrollTop = 0;
+}
+
+function backCiscoToGrid() {
+    document.getElementById('ciscoOverview').style.display = 'none';
+    document.getElementById('ciscoPgrid').style.display = 'grid';
+    ['cp1','cp2','cp3'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    document.getElementById('ciscoSub').textContent = 'Choisir une des 3 parties du projet';
+    document.querySelector('#ciscoModal .mbox').scrollTop = 0;
+}
+
+function backCiscoParts() {
+    document.getElementById('ciscoOverview').style.display = 'block';
+    document.getElementById('ciscoPgrid').style.display = 'none';
+    ['cp1','cp2','cp3'].forEach(function(p){ document.getElementById(p).classList.remove('on'); });
+    document.getElementById('ciscoSub').textContent = 'Vue d\'ensemble du projet';
+}
+
 document.addEventListener('click', function(e) {
     if (e.target.id === 'projModal')  closeProjModal();
     if (e.target.id === 'monitModal') closeMonitModal();
     if (e.target.id === 'crModal') closeCRModal();
+    if (e.target.id === 'ciscoModal') closeCiscoModal();
 });
 
 (function() {
@@ -1045,7 +1281,7 @@ document.addEventListener('click', function(e) {
     });
 })();
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { closeProjModal(); closeMonitModal(); closeCRModal(); }
+    if (e.key === 'Escape') { closeProjModal(); closeMonitModal(); closeCRModal(); closeCiscoModal(); }
 });
 
 function reveal() {
