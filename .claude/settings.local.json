@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --version)",
+      "Bash(where python3:*)",
+      "Bash(where node:*)",
+      "Bash(where npx:*)",
+      "Bash(where python:*)",
+      "Bash(where py:*)"
+    ]
+  }
+}

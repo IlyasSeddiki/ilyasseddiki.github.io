@@ -351,8 +351,15 @@
         .rv { opacity:0; transform:translateY(26px); transition:opacity .55s ease, transform .55s ease; }
         .rv.show { opacity:1; transform:none; }
 
+        .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+        .hamburger span { display:block; width:22px; height:2px; background:var(--primary); border-radius:2px; transition:var(--tr); }
+
         @media (max-width:768px) {
-            nav ul { display:none; }
+            .hamburger { display:flex; }
+            nav { position:fixed; }
+            nav ul { display:none; flex-direction:column; gap:0; position:absolute; top:calc(100% + 10px); left:0; right:0; background:#fff; border:var(--border); border-radius:16px; padding:8px; box-shadow:var(--shadow); }
+            nav ul.open { display:flex; }
+            nav ul a { padding:10px 16px; display:block; border-radius:10px; }
             h1 { font-size:2rem; letter-spacing:-.5px; }
             .timeline::before { left:18px; }
             .tl-item, .tl-item.r { width:100%; padding-left:44px; padding-right:0; margin-left:0; justify-content:flex-start; }
@@ -370,12 +377,15 @@
 
 <nav>
     <div class="logo">Ilyas <span>Seddiki</span></div>
-    <ul>
+    <ul id="navMenu">
         <li><a href="#parcours">Parcours</a></li>
         <li><a href="#competences">Compétences</a></li>
         <li><a href="#projets">Projets</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
     <div class="nav-btns">
         <a href="cv_seddiki_ilyas.pdf" class="btn btn-dark" download><i class="fa-solid fa-download"></i> CV</a>
         <a href="#contact" class="btn btn-white">Me contacter</a>
@@ -907,12 +917,12 @@
         <div class="tp-card rv">
             <div class="tp-title">Configuration d'un firewall pfSense</div>
             <p class="tp-desc">Mise en œuvre de règles de filtrage, NAT et tests de connectivité sur un firewall pfSense.</p>
-            <a href="TP/Pfsense.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
+            <a href="TP/pfsense.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
         </div>
         <div class="tp-card rv">
             <div class="tp-title">Mise en place d'un VPN (site à site et nomade)</div>
             <p class="tp-desc">Configuration de tunnels VPN sécurisés pour interconnecter des réseaux distants et des clients nomades.</p>
-            <a href="TP/VPN.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
+            <a href="TP/VPN%20.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
         </div>
         <div class="tp-card rv">
             <div class="tp-title">Déploiement d'une solution VoIP avec Asterisk</div>
@@ -1018,6 +1028,22 @@ document.addEventListener('click', function(e) {
     if (e.target.id === 'monitModal') closeMonitModal();
     if (e.target.id === 'crModal') closeCRModal();
 });
+
+(function() {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('navMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            menu.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+})();
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') { closeProjModal(); closeMonitModal(); closeCRModal(); }
 });
