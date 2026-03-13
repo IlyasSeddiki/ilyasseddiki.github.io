@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ilyas Seddiki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<nav>
+    <a href="index.html" class="logo">Ilyas <span>Seddiki</span></a>
+    <ul id="navMenu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="nav-btns">
+        <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+        <a href="cv_seddiki_ilyas.pdf" class="btn btn-dark" download><i class="fa-solid fa-download"></i> CV</a>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1 class="rv">Me Contacter</h1>
+    <p class="rv">N'hésitez pas à me contacter pour toute question ou opportunité.</p>
+</div>
+
+<section>
+    <div class="cbox rv">
+        <form action="https://formspree.io/f/mpwzyygd" method="POST">
+            <input type="text" name="name" placeholder="Votre Nom" required>
+            <input type="email" name="email" placeholder="Votre Email" required>
+            <textarea name="message" rows="5" placeholder="Votre Message..." required></textarea>
+            <button type="submit" class="submit-btn">Envoyer <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+        <p style="text-align:center; margin-top:13px; font-size:.88rem;">
+            Email direct : <a href="mailto:ilyasseddiki014@gmail.com" style="color:var(--accent); font-weight:700;">ilyasseddiki014@gmail.com</a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div class="f-logo">ILYAS<span style="color:var(--accent);">.</span></div>
+    <p>&copy; 2026 Ilyas Seddiki — Portfolio BTS SIO SISR</p>
+    <div class="f-socials">
+        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:ilyasseddiki014@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

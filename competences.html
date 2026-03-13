@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétences | Ilyas Seddiki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<nav>
+    <a href="index.html" class="logo">Ilyas <span>Seddiki</span></a>
+    <ul id="navMenu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="nav-btns">
+        <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+        <a href="cv_seddiki_ilyas.pdf" class="btn btn-dark" download><i class="fa-solid fa-download"></i> CV</a>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1 class="rv">Compétences Techniques</h1>
+    <p class="rv">Maîtrise des environnements systèmes et réseaux.</p>
+</div>
+
+<section>
+    <div class="sk-grid">
+        <div class="sk-card rv">
+            <div class="sk-ico i-sys"><i class="fa-brands fa-windows"></i></div>
+            <div class="sk-title">Administration Système</div>
+            <ul class="sk-list">
+                <li><i class="fa-solid fa-check"></i> Windows Server 2019/2022</li>
+                <li><i class="fa-solid fa-check"></i> Active Directory, DNS, DHCP</li>
+                <li><i class="fa-solid fa-check"></i> Linux (Debian, Ubuntu)</li>
+                <li><i class="fa-solid fa-check"></i> Virtualisation</li>
+            </ul>
+            <div class="tags"><span class="tag">GPO</span><span class="tag">PowerShell</span></div>
+        </div>
+        <div class="sk-card rv">
+            <div class="sk-ico i-net"><i class="fa-solid fa-network-wired"></i></div>
+            <div class="sk-title">Infrastructure Réseau</div>
+            <ul class="sk-list">
+                <li><i class="fa-solid fa-check"></i> Cisco</li>
+                <li><i class="fa-solid fa-check"></i> VLAN, Trunking</li>
+                <li><i class="fa-solid fa-check"></i> Wireshark & Packet Tracer</li>
+            </ul>
+            <div class="tags"><span class="tag">CCNA</span><span class="tag">TCP/IP</span></div>
+        </div>
+        <div class="sk-card rv">
+            <div class="sk-ico i-sec"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="sk-title">Cyber & Outils</div>
+            <ul class="sk-list">
+                <li><i class="fa-solid fa-check"></i> Pare-feu (PfSense, Stormshield)</li>
+                <li><i class="fa-solid fa-check"></i> Supervision (GLPI)</li>
+                <li><i class="fa-solid fa-check"></i> VPN IPsec</li>
+            </ul>
+            <div class="tags"><span class="tag">ITIL</span><span class="tag">RGPD</span></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="f-logo">ILYAS<span style="color:var(--accent);">.</span></div>
+    <p>&copy; 2026 Ilyas Seddiki — Portfolio BTS SIO SISR</p>
+    <div class="f-socials">
+        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:ilyasseddiki014@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
