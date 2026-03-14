@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique | Ilyas Seddiki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<nav>
+    <a href="index.html" class="logo">Ilyas <span>Seddiki</span></a>
+    <ul id="navMenu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="veille.html">Veille</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="nav-btns">
+        <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+        <a href="cv_seddiki_ilyas.pdf" class="btn btn-dark" download><i class="fa-solid fa-download"></i> CV</a>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1 class="rv">Veille Technologique</h1>
+    <p class="rv">Suivi des tendances et innovations en cybersécurité et infrastructure IT.</p>
+</div>
+
+<section>
+    <!-- ── Sujet + KPIs ─────────────────────── -->
+    <div class="veille-hero-grid rv">
+        <div class="veille-topic-card">
+            <div class="veille-topic-badge"><i class="fa-solid fa-shield-halved"></i> Sujet de veille</div>
+            <h2>Le modèle Zero Trust : vers la fin de la confiance implicite en cybersécurité</h2>
+            <p>Le <strong>Zero Trust</strong> (ou "confiance zéro") est une approche de sécurité informatique qui repose sur un principe simple : <strong>ne jamais faire confiance, toujours vérifier</strong>. Contrairement aux architectures traditionnelles qui accordent un accès libre une fois à l'intérieur du réseau, le Zero Trust exige une authentification et une autorisation continues pour chaque utilisateur, appareil et flux de données, qu'ils soient internes ou externes au réseau de l'entreprise.</p>
+            <p style="margin-top:12px;">Cette veille suit l'évolution des solutions, standards et bonnes pratiques liés au Zero Trust, ainsi que leur adoption croissante dans les entreprises et administrations.</p>
+        </div>
+        <div class="veille-kpi-grid">
+            <div class="veille-kpi"><div class="veille-kpi-num">73%</div><div class="veille-kpi-label">des entreprises adoptent le Zero Trust d'ici 2026</div></div>
+            <div class="veille-kpi"><div class="veille-kpi-num">5</div><div class="veille-kpi-label">flux RSS surveillés en continu</div></div>
+            <div class="veille-kpi"><div class="veille-kpi-num">3</div><div class="veille-kpi-label">piliers : identité, appareil, réseau</div></div>
+        </div>
+    </div>
+
+    <!-- ── Pourquoi c'est important ─────────────────────── -->
+    <div class="sec-head rv" style="margin-bottom:30px;">
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-lightbulb" style="color:var(--accent);"></i> Pourquoi le Zero Trust ?</h2>
+    </div>
+    <div class="veille-why-grid rv">
+        <div class="veille-why-card">
+            <div class="veille-why-ico ico-shield"><i class="fa-solid fa-user-shield"></i></div>
+            <h4>Explosion des cyberattaques</h4>
+            <p>Ransomwares, phishing ciblé, attaques supply chain : les menaces se multiplient et les pare-feu classiques ne suffisent plus à protéger les systèmes d'information.</p>
+        </div>
+        <div class="veille-why-card">
+            <div class="veille-why-ico ico-server"><i class="fa-solid fa-cloud"></i></div>
+            <h4>Migration vers le cloud</h4>
+            <p>Avec le cloud et le travail hybride, le périmètre réseau traditionnel disparaît. Le Zero Trust sécurise les accès indépendamment de la localisation de l'utilisateur.</p>
+        </div>
+        <div class="veille-why-card">
+            <div class="veille-why-ico ico-lock"><i class="fa-solid fa-gavel"></i></div>
+            <h4>Conformité réglementaire</h4>
+            <p>NIS2, RGPD, directives ANSSI : les cadres réglementaires imposent des contrôles d'accès stricts que le Zero Trust permet de mettre en oeuvre nativement.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <!-- ── Exemples concrets ─────────────────────── -->
+    <div class="sec-head rv" style="margin-bottom:30px;">
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-building" style="color:var(--accent);"></i> Exemples concrets d'adoption</h2>
+    </div>
+    <div class="rv">
+        <div class="veille-example">
+            <div class="veille-example-ico ex-google"><i class="fa-brands fa-google"></i></div>
+            <div class="veille-example-body">
+                <h4>Google — BeyondCorp</h4>
+                <p>Google a été pionnier du Zero Trust avec BeyondCorp, qui supprime le VPN traditionnel et authentifie chaque requête individuellement. Tous les employés accèdent aux ressources internes via un proxy d'identité, sans distinction entre réseau interne et externe.</p>
+            </div>
+        </div>
+        <div class="veille-example">
+            <div class="veille-example-ico ex-ms"><i class="fa-brands fa-microsoft"></i></div>
+            <div class="veille-example-body">
+                <h4>Microsoft — Azure AD Conditional Access</h4>
+                <p>Microsoft intègre le Zero Trust dans Azure avec des politiques d'accès conditionnel basées sur l'identité, l'appareil, la localisation et le niveau de risque. Chaque connexion est évaluée en temps réel avant d'accorder l'accès.</p>
+            </div>
+        </div>
+        <div class="veille-example">
+            <div class="veille-example-ico ex-cloud"><i class="fa-solid fa-landmark"></i></div>
+            <div class="veille-example-body">
+                <h4>Gouvernement américain — Executive Order</h4>
+                <p>En 2021, un décret exécutif impose à toutes les agences fédérales américaines d'adopter une architecture Zero Trust. Ce mouvement a accéléré l'adoption mondiale du modèle dans le secteur public et privé.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <!-- ── Actualités RSS ─────────────────────── -->
+    <div class="sec-head rv" style="margin-bottom:30px;">
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Actualités récentes</h2>
+        <p class="sec-sub">Flux RSS mis à jour automatiquement depuis des sources fiables.</p>
+    </div>
+    <div id="rssContainer" class="rss-grid rv">
+        <div class="rss-loading" style="grid-column:1/-1;">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Chargement des actualités...
+        </div>
+    </div>
+</section>
+
+<section>
+    <!-- ── Méthodologie ─────────────────────── -->
+    <div class="sec-head rv" style="margin-bottom:30px;">
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-compass" style="color:var(--accent);"></i> Méthodologie de veille</h2>
+    </div>
+    <div class="veille-method-steps rv">
+        <div class="veille-method-step">
+            <div class="veille-method-num">1</div>
+            <h4>Collecte</h4>
+            <p>Agrégation automatique via flux RSS depuis 5 sources spécialisées en cybersécurité</p>
+        </div>
+        <div class="veille-method-step">
+            <div class="veille-method-num">2</div>
+            <h4>Filtrage</h4>
+            <p>Sélection des articles pertinents liés au Zero Trust, IAM et sécurité réseau</p>
+        </div>
+        <div class="veille-method-step">
+            <div class="veille-method-num">3</div>
+            <h4>Analyse</h4>
+            <p>Lecture et synthèse des tendances, technologies et bonnes pratiques identifiées</p>
+        </div>
+        <div class="veille-method-step">
+            <div class="veille-method-num">4</div>
+            <h4>Diffusion</h4>
+            <p>Publication sur cette page avec actualisation continue des contenus</p>
+        </div>
+    </div>
+
+    <!-- ── Sources ─────────────────────── -->
+    <div class="sec-head rv" style="margin-top:60px; margin-bottom:20px;">
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-bookmark" style="color:var(--accent);"></i> Sources & outils de veille</h2>
+    </div>
+    <div class="dsec rv" style="margin-bottom:20px;">
+        <h3><i class="fa-solid fa-rss"></i> Flux RSS surveillés</h3>
+        <div class="veille-src-grid">
+            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-shield-halved"></i></div>
+                <div><div class="veille-src-name">CERT-FR (ANSSI)</div><div class="veille-src-desc">Alertes de sécurité nationales</div></div>
+            </a>
+            <a href="https://thehackernews.com/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-newspaper"></i></div>
+                <div><div class="veille-src-name">The Hacker News</div><div class="veille-src-desc">Actualités cybersécurité</div></div>
+            </a>
+            <a href="https://www.bleepingcomputer.com/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-bug"></i></div>
+                <div><div class="veille-src-name">BleepingComputer</div><div class="veille-src-desc">Sécurité & vulnérabilités</div></div>
+            </a>
+            <a href="https://www.zdnet.fr/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-globe"></i></div>
+                <div><div class="veille-src-name">ZDNet France</div><div class="veille-src-desc">IT & cybersécurité (FR)</div></div>
+            </a>
+            <a href="https://feeds.feedburner.com/TheHackersNews" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-square-rss"></i></div>
+                <div><div class="veille-src-name">Flux RSS direct</div><div class="veille-src-desc">Feed Hacker News (XML)</div></div>
+            </a>
+        </div>
+    </div>
+    <div class="dsec rv">
+        <h3><i class="fa-solid fa-wrench"></i> Outils utilisés</h3>
+        <div class="tools-grid">
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-rss"></i></div><div class="tool-name">Feedly</div></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-google"></i></div><div class="tool-name">Google Alerts</div></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-twitter"></i></div><div class="tool-name">X (Twitter)</div></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-bookmark"></i></div><div class="tool-name">Pocket</div></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="f-logo">ILYAS<span style="color:var(--accent);">.</span></div>
+    <p>&copy; 2026 Ilyas Seddiki — Portfolio BTS SIO SISR</p>
+    <div class="f-socials">
+        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:ilyasseddiki014@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function() {
+    var RSS_FEEDS = [
+        'https://feeds.feedburner.com/TheHackersNews',
+        'https://www.bleepingcomputer.com/feed/',
+        'https://www.cert.ssi.gouv.fr/alerte/feed/',
+        'https://www.zdnet.fr/feeds/rss/actualites/informatique/',
+        'https://cyberscoop.com/feed/'
+    ];
+
+    var API_URL = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    var container = document.getElementById('rssContainer');
+    var allItems = [];
+    var loaded = 0;
+
+    function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    function stripHtml(html) {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || '';
+    }
+
+    function truncate(str, max) {
+        str = stripHtml(str).trim();
+        return str.length > max ? str.slice(0, max) + '...' : str;
+    }
+
+    function formatDate(dateStr) {
+        try {
+            var d = new Date(dateStr);
+            if (isNaN(d.getTime())) return '';
+            return d.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+        } catch(e) { return ''; }
+    }
+
+    function extractSource(url) {
+        try {
+            var h = new URL(url).hostname.replace('www.','').replace('feeds.feedburner.com','thehackernews.com');
+            return h.split('.')[0].charAt(0).toUpperCase() + h.split('.')[0].slice(1);
+        } catch(e) { return 'Source'; }
+    }
+
+    function renderItems() {
+        allItems.sort(function(a,b) { return new Date(b.pubDate) - new Date(a.pubDate); });
+        var top = allItems.slice(0, 8);
+        if (top.length === 0) {
+            container.innerHTML = '<div class="rss-loading" style="grid-column:1/-1;"><i class="fa-solid fa-triangle-exclamation"></i> Impossible de charger les actualités. Consultez directement les sources ci-dessous.</div>';
+            return;
+        }
+        var html = '';
+        top.forEach(function(item) {
+            var source = extractSource(item.link || item.feedUrl || '');
+            var title = escapeHtml(item.title || 'Sans titre');
+            var desc = truncate(item.description || item.content || '', 140);
+            var date = formatDate(item.pubDate);
+            var link = item.link || '#';
+            html += '<div class="rss-card">';
+            html += '<div class="rss-card-source">' + escapeHtml(source) + '</div>';
+            html += '<h4><a href="' + escapeHtml(link) + '" target="_blank" rel="noopener">' + title + '</a></h4>';
+            html += '<p>' + escapeHtml(desc) + '</p>';
+            if (date) html += '<div class="rss-card-date"><i class="fa-regular fa-clock"></i> ' + escapeHtml(date) + '</div>';
+            html += '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    function fetchFeed(url) {
+        fetch(API_URL + encodeURIComponent(url))
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.status === 'ok' && data.items) {
+                    data.items.forEach(function(item) {
+                        item.feedUrl = url;
+                        allItems.push(item);
+                    });
+                }
+            })
+            .catch(function() {})
+            .finally(function() {
+                loaded++;
+                if (loaded >= RSS_FEEDS.length) renderItems();
+            });
+    }
+
+    RSS_FEEDS.forEach(fetchFeed);
+})();
+</script>
+</body>
+</html>
