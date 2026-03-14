@@ -71,10 +71,19 @@ function initTyping() {
     type();
 }
 
-/* ── Scroll Reveal ─────────────────────── */
+/* ── Scroll Reveal (IntersectionObserver) ─────────────────────── */
+var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
 function reveal() {
-    document.querySelectorAll('.rv').forEach(function(el) {
-        if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('show');
+    document.querySelectorAll('.rv:not(.show)').forEach(function(el) {
+        revealObserver.observe(el);
     });
 }
 
@@ -191,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
     reveal();
 });
 
-window.addEventListener('scroll', reveal, { passive: true });
 
 document.addEventListener('click', function(e) {
     if (e.target.id === 'projModal') closeProjModal();
