@@ -9,7 +9,16 @@
       "Bash(where python:*)",
       "Bash(where py:*)",
       "WebFetch(domain:archanight.github.io)",
-      "WebFetch(domain:ahouari-idriss.github.io)"
+      "WebFetch(domain:ahouari-idriss.github.io)",
+      "Bash(py -c \":*)",
+      "Bash(pip install:*)",
+      "Bash(py -m pip install openpyxl -q)",
+      "Bash(py -m pip install pdfplumber reportlab -q)",
+      "Bash(py generate_lenovo_cr.py)",
+      "Bash(py -m pip install pypdf -q)",
+      "Bash(py -m pip install python-docx pillow -q)",
+      "Bash(py:*)",
+      "Bash(dir \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\\\\images\" /b)"
     ]
   }
 }

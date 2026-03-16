@@ -43,28 +43,56 @@
         <p class="sec-sub">TD SYNNEX — Business Service Center, Courbevoie (2026)</p>
     </div>
 
+    <!-- Bannière stats globales -->
+    <div class="stage-stats rv">
+        <div class="stage-stat"><div class="ss-num">4</div><div class="ss-label">Projets menés</div></div>
+        <div class="stage-stat"><div class="ss-num">41</div><div class="ss-label">Équipements supervisés</div></div>
+        <div class="stage-stat"><div class="ss-num">5</div><div class="ss-label">Comptes rendus</div></div>
+        <div class="stage-stat"><div class="ss-num">1</div><div class="ss-label">Salon professionnel</div></div>
+    </div>
+
     <div class="stage-cards">
         <div class="stage-card rv" onclick="openMonitModal()">
             <div class="pci"><i class="fa-solid fa-chart-line"></i></div>
             <div class="pcb">
-                <div class="pct">Monitoring EcoStruxure APC <span class="bs bs-wip">En cours</span></div>
+                <div class="pct">Monitoring EcoStruxure APC <span class="bs bs-done">Terminé</span></div>
                 <p class="pcd">Recensement, configuration et supervision centralisée de 41 équipements réseau (onduleurs UPS et PDU) répartis sur 16 racks du datacenter.</p>
+                <div class="card-techs">
+                    <span class="ct">EcoStruxure IT</span><span class="ct">SNMP v3</span><span class="ct">APC / EATON</span><span class="ct">Hyper-V</span>
+                </div>
             </div>
             <i class="fa-solid fa-chevron-right pca"></i>
         </div>
         <div class="stage-card rv" onclick="openCiscoModal()">
             <div class="pci"><i class="fa-solid fa-brain"></i></div>
             <div class="pcb">
-                <div class="pct">Déploiement Solution CISCO IA <span class="bs bs-wip">En cours</span></div>
+                <div class="pct">Déploiement Solution CISCO IA <span class="bs bs-done">Terminé</span></div>
                 <p class="pcd">Réception, inventaire et intégration physique d'équipements réseau CISCO IA dans l'infrastructure du datacenter.</p>
+                <div class="card-techs">
+                    <span class="ct">Cisco Nexus 9300</span><span class="ct">UCS C220 M8</span><span class="ct">Excel</span><span class="ct">Rackage 42U</span>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-right pca"></i>
+        </div>
+        <div class="stage-card rv" onclick="openLenovoModal()">
+            <div class="pci"><i class="fa-solid fa-server"></i></div>
+            <div class="pcb">
+                <div class="pct">Infrastructure AD — Serveur Lenovo SR645 <span class="bs bs-done">Terminé</span></div>
+                <p class="pcd">Déploiement d'un environnement virtualisé sous Hyper-V hébergeant deux serveurs Windows Server 2025 avec une infrastructure Active Directory complète.</p>
+                <div class="card-techs">
+                    <span class="ct">Hyper-V</span><span class="ct">AD DS</span><span class="ct">DHCP</span><span class="ct">AD CS</span><span class="ct">GPO</span>
+                </div>
             </div>
             <i class="fa-solid fa-chevron-right pca"></i>
         </div>
         <div class="stage-card rv" onclick="openCRModal()">
             <div class="pci"><i class="fa-solid fa-folder-open"></i></div>
             <div class="pcb">
-                <div class="pct">Comptes Rendus d'Intervention <span class="bs bs-doc">Documents</span></div>
-                <p class="pcd">Rapports techniques rédigés lors du stage : installation caméra PTZ Axis, mise à jour firmware PDU APC, mise en service commutateur Aruba 3810M.</p>
+                <div class="pct">Documents & Événements de Stage <span class="bs bs-doc">5 docs · 1 salon</span></div>
+                <p class="pcd">Comptes rendus d'intervention, sortie au salon IT Expert à La Défense Arena et documents techniques rédigés durant le stage.</p>
+                <div class="card-techs">
+                    <span class="ct">IT Expert</span><span class="ct">La Défense Arena</span><span class="ct">5 CRs</span>
+                </div>
             </div>
             <i class="fa-solid fa-chevron-right pca"></i>
         </div>
@@ -172,6 +200,14 @@
                         <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-ethernet"></i></div><div class="photo-caption">Câblage réseau</div></div>
                         <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-chart-line"></i></div><div class="photo-caption">Interface EcoStruxure</div></div>
                         <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-desktop"></i></div><div class="photo-caption">Supervision temps réel</div></div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <div class="see-also-box">
+                        <i class="fa-solid fa-link"></i>
+                        <p>Projet lié</p>
+                        <button class="see-also-btn" onclick="closeMonitModal(); setTimeout(openCiscoModal, 320)"><i class="fa-solid fa-arrow-right"></i> Déploiement Solution CISCO IA</button>
                     </div>
                 </div>
 
@@ -332,17 +368,50 @@
 </div>
 
 <div id="crModal" class="modal">
-    <div class="mbox">
+    <div class="mbox wide">
         <div class="mhead">
             <button class="mclose" onclick="closeCRModal()"><i class="fa-solid fa-xmark"></i></button>
-            <div class="mtitle">Comptes Rendus d'Intervention</div>
-            <div class="msub">Rapports techniques rédigés lors du stage</div>
+            <div class="mtitle">Documents & Événements de Stage</div>
+            <div class="msub">Comptes rendus techniques et sorties professionnelles</div>
             <div class="mhead-tags">
                 <span class="mhead-tag"><i class="fa-solid fa-building"></i> TD SYNNEX — Courbevoie (BSC)</span>
                 <span class="mhead-tag"><i class="fa-solid fa-calendar"></i> 2026</span>
             </div>
         </div>
         <div class="mbody">
+
+            <!-- ── Salon IT Expert ─────────────────────── -->
+            <div class="dsec">
+                <h3><i class="fa-solid fa-calendar-check"></i> Salon IT Expert — La Défense Arena</h3>
+                <p>Dans le cadre de mon stage, j'ai participé au salon <strong>IT Expert</strong> à La Défense Arena, un événement majeur dédié aux professionnels de l'infrastructure IT, du cloud et de la cybersécurité. Ce salon rassemble les principaux acteurs du secteur (éditeurs, intégrateurs, constructeurs) et propose des conférences, démonstrations et retours d'expérience sur les technologies émergentes.</p>
+                <p style="margin-top:10px;">J'ai pu y découvrir les dernières solutions en matière de supervision d'infrastructure, de sécurité réseau et de gestion de datacenter — en lien direct avec mes missions de stage chez TD SYNNEX.</p>
+            </div>
+
+            <div class="itexpert-gallery">
+                <div class="itexpert-photo" onclick="openLightbox('images/badge.png','Badge d\'entrée — Salon IT Expert')">
+                    <img src="images/badge.png" alt="Badge — Salon IT Expert">
+                </div>
+                <div class="itexpert-photo" onclick="openLightbox('images/salon1.jpg','Salon IT Expert — La Défense Arena')">
+                    <img src="images/salon1.jpg" alt="Salon IT Expert — La Défense Arena">
+                </div>
+                <div class="itexpert-photo" onclick="openLightbox('images/salon2.jpg','Salon IT Expert — Stands exposants')">
+                    <img src="images/salon2.jpg" alt="Salon IT Expert — Stands exposants">
+                </div>
+            </div>
+
+            <!-- ── Comptes Rendus d'Intervention ─────────────────────── -->
+            <div class="dsec" style="margin-top:36px;">
+                <h3><i class="fa-solid fa-file-lines"></i> Comptes Rendus d'Intervention</h3>
+            </div>
+
+            <div class="cr-card">
+                <div class="cr-ico"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="cr-body">
+                    <div class="cr-title">Installation d'IT Advisor</div>
+                    <p class="cr-desc">Déploiement et configuration de la plateforme EcoStruxure IT Advisor pour la supervision avancée et le capacity planning du datacenter.</p>
+                    <a href="documents/Installation_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
+                </div>
+            </div>
             <div class="cr-card">
                 <div class="cr-ico"><i class="fa-solid fa-video"></i></div>
                 <div class="cr-body">
@@ -371,6 +440,270 @@
     </div>
 </div>
 
+<!-- ── Lenovo SR645 Modal ─────────────────────── -->
+<div id="lenovoModal" class="modal">
+    <div class="mbox wide">
+        <div class="mhead">
+            <button class="mclose" onclick="closeLenovoModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mtitle">Infrastructure AD — Serveur Lenovo SR645</div>
+            <div class="msub" id="lenovoSub">Vue d'ensemble du projet</div>
+            <div class="mhead-tags">
+                <span class="mhead-tag"><i class="fa-solid fa-building"></i> TD SYNNEX — Courbevoie (BSC)</span>
+                <span class="mhead-tag"><i class="fa-brands fa-windows"></i> Windows Server 2025</span>
+                <span class="mhead-tag"><i class="fa-solid fa-calendar"></i> 2026</span>
+            </div>
+        </div>
+        <div class="mbody">
+
+            <div id="lenovoOverview">
+                <div class="ov-stats">
+                    <div class="ov-stat"><div class="ov-sn">2</div><div class="ov-sl">VMs déployées</div></div>
+                    <div class="ov-stat"><div class="ov-sn">6</div><div class="ov-sl">Rôles Windows Server</div></div>
+                    <div class="ov-stat"><div class="ov-sn">100%</div><div class="ov-sl">Opérationnel</div></div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>Déployer un environnement virtualisé sous <strong>Hyper-V</strong> sur un serveur Lenovo ThinkSystem SR645, hébergeant deux serveurs Windows Server 2025 : <strong>SRV-INFRA</strong> (contrôleur de domaine, DNS, DHCP, AD CS, fichiers) et <strong>SRV-AUTO</strong> (client du domaine), avec une infrastructure Active Directory complète et fonctionnelle.</p>
+                </div>
+
+                <!-- Workflow visuel -->
+                <div class="cisco-flow">
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#3b82f6,#2563eb);"><i class="fa-brands fa-windows"></i></div>
+                        <div class="cisco-flow-label">Hyper-V</div>
+                        <div class="cisco-flow-sub">2 VMs créées</div>
+                    </div>
+                    <div class="cisco-flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);"><i class="fa-solid fa-sitemap"></i></div>
+                        <div class="cisco-flow-label">AD DS</div>
+                        <div class="cisco-flow-sub">bsc-lab.local</div>
+                    </div>
+                    <div class="cisco-flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#f59e0b,#d97706);"><i class="fa-solid fa-network-wired"></i></div>
+                        <div class="cisco-flow-label">DHCP / AD CS</div>
+                        <div class="cisco-flow-sub">192.168.60.x /24</div>
+                    </div>
+                    <div class="cisco-flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#10b981,#059669);"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="cisco-flow-label">GPO & Tests</div>
+                        <div class="cisco-flow-sub">Lecteur Z: monté</div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-wrench"></i> Technologies utilisées</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-windows"></i></div><div class="tool-name">Hyper-V</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-sitemap"></i></div><div class="tool-name">AD DS</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-server"></i></div><div class="tool-name">DNS / DHCP</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-certificate"></i></div><div class="tool-name">AD CS (PKI)</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="tool-name">GPO</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="tool-name">Compte rendu</div></div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <div class="see-also-box">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <p>Le compte rendu complet de ce projet est disponible avec toutes les captures d'écran documentant chaque étape de déploiement.</p>
+                        <a href="documents/Compte_rendu_Serveur_Lenovo_SR645_AD.pdf" class="see-also-btn" target="_blank"><i class="fa-solid fa-download"></i> Voir le PDF</a>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:28px;">
+                    <button class="proj-btn" onclick="showLenovoPartsGrid()" style="max-width:400px; margin:0 auto;">
+                        <i class="fa-solid fa-layer-group"></i> Voir le détail des 5 phases
+                    </button>
+                </div>
+            </div>
+
+            <div id="lenovoPgrid" class="parts-grid" style="display:none;">
+                <button class="back-btn" onclick="backLenovoParts()" style="grid-column:1/-1; margin-bottom:4px;"><i class="fa-solid fa-arrow-left"></i> Retour à l'aperçu</button>
+                <div class="pcv2" onclick="showLenovoPart('lp1')">
+                    <div class="pcv2-num">1</div>
+                    <div><div class="pcv2-title">Virtualisation Hyper-V & VMs</div><div class="pcv2-desc">Installation du rôle Hyper-V, création du commutateur virtuel et des deux VMs SRV-INFRA et SRV-AUTO</div></div>
+                </div>
+                <div class="pcv2" onclick="showLenovoPart('lp2')">
+                    <div class="pcv2-num">2</div>
+                    <div><div class="pcv2-title">Active Directory (AD DS)</div><div class="pcv2-desc">Promotion en contrôleur de domaine, création de la forêt bsc-lab.local et vérification du domaine</div></div>
+                </div>
+                <div class="pcv2" onclick="showLenovoPart('lp3')">
+                    <div class="pcv2-num">3</div>
+                    <div><div class="pcv2-title">DHCP & Autorité de certification</div><div class="pcv2-desc">Configuration d'une étendue DHCP et déploiement d'une PKI d'entreprise via AD CS</div></div>
+                </div>
+                <div class="pcv2" onclick="showLenovoPart('lp4')">
+                    <div class="pcv2-num">4</div>
+                    <div><div class="pcv2-title">GPO & Gestion des utilisateurs</div><div class="pcv2-desc">Création des OUs, utilisateurs, groupes et stratégie de groupe pour le lecteur réseau partagé</div></div>
+                </div>
+                <div class="pcv2" onclick="showLenovoPart('lp5')">
+                    <div class="pcv2-num">5</div>
+                    <div><div class="pcv2-title">Tests & Vérifications</div><div class="pcv2-desc">Jonction au domaine, ping, nslookup et validation du lecteur réseau Z: monté par GPO</div></div>
+                </div>
+            </div>
+
+            <!-- Phase 1 -->
+            <div id="lp1" class="cpart">
+                <button class="back-btn part-back" onclick="backLenovoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-brands fa-windows"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 1 — Virtualisation Hyper-V & VMs</div>
+                        <div class="pb-sub">Configuration de l'hôte de virtualisation et création des machines virtuelles</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Transformer le serveur physique Lenovo SR645 en hôte Hyper-V et y déployer deux VMs Windows Server 2025 : <strong>SRV-INFRA</strong> (futur contrôleur de domaine) et <strong>SRV-AUTO</strong> (client du domaine).</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Actions réalisées</h3>
+                    <ul class="mlist">
+                        <li><strong>Installation du rôle Hyper-V</strong>Ajout via le Gestionnaire de serveur sur SRV-ILYAS (le serveur physique).</li>
+                        <li><strong>Création du commutateur virtuel externe</strong>Commutateur de type Externe lié à la carte réseau physique pour accès réseau depuis les VMs.</li>
+                        <li><strong>Création des VMs</strong>SRV-INFRA : 127 Go VHDX dynamique — SRV-AUTO : 127 Go VHDX dynamique. Les deux sont connectées au vSwitch-External.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
+                    <ul>
+                        <li>Hyper-V opérationnel, SRV-ILYAS enregistré comme hôte de virtualisation</li>
+                        <li>2 VMs créées et démarrées, accès réseau fonctionnel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div id="lp2" class="cpart">
+                <button class="back-btn part-back" onclick="backLenovoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-sitemap"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 2 — Active Directory (AD DS)</div>
+                        <div class="pb-sub">Création du domaine bsc-lab.local et promotion de SRV-INFRA en contrôleur de domaine</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Déployer les <strong>Services de domaine Active Directory</strong> sur SRV-INFRA et créer la forêt <strong>bsc-lab.local</strong> avec DNS intégré.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Actions réalisées</h3>
+                    <ul class="mlist">
+                        <li><strong>Installation du rôle AD DS</strong>Via l'assistant d'ajout de rôles, avec intégration DNS automatique.</li>
+                        <li><strong>Configuration de déploiement</strong>Nouvelle forêt bsc-lab.local, niveau fonctionnel Windows Server 2025, catalogue global activé.</li>
+                        <li><strong>Promotion et vérification</strong>SRV-INFRA promu contrôleur de domaine principal. Vérification via <code>Get-ADDomain</code>.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
+                    <ul>
+                        <li>Domaine bsc-lab.local créé, SRV-INFRA est PDCEmulator et RID Master</li>
+                        <li>DNS intégré opérationnel sur 192.168.60.10</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div id="lp3" class="cpart">
+                <button class="back-btn part-back" onclick="backLenovoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-network-wired"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 3 — DHCP & Autorité de certification</div>
+                        <div class="pb-sub">Attribution automatique des IPs et déploiement d'une PKI d'entreprise</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Mettre en place le service <strong>DHCP</strong> pour distribuer les adresses IP du réseau et déployer une <strong>autorité de certification d'entreprise (AD CS)</strong> pour émettre des certificats au sein du domaine.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Actions réalisées</h3>
+                    <ul class="mlist">
+                        <li><strong>Configuration DHCP</strong>Étendue LAN-BSC-LAB créée : plage 192.168.60.100–192.168.60.200 /24. Serveur autorisé dans l'AD.</li>
+                        <li><strong>Déploiement AD CS</strong>AC racine d'entreprise <em>bsc-lab-SRV-INFRA-CA</em>, algorithme SHA256, clé RSA 2048 bits, validité 5 ans.</li>
+                        <li><strong>Synchronisation NTP</strong>Vérification via <code>w32tm /query /status</code> — serveur synchronisé correctement.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
+                    <ul>
+                        <li>Étendue DHCP active, adresses IP distribuées automatiquement</li>
+                        <li>AC d'entreprise opérationnelle, certificats émissibles sur le domaine</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div id="lp4" class="cpart">
+                <button class="back-btn part-back" onclick="backLenovoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 4 — GPO & Gestion des utilisateurs</div>
+                        <div class="pb-sub">Stratégie de groupe, OUs, comptes utilisateurs et groupes de sécurité</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Structurer l'Active Directory avec des <strong>unités d'organisation</strong>, créer des comptes utilisateurs et des groupes de sécurité, puis déployer une <strong>GPO</strong> pour monter automatiquement un lecteur réseau partagé à chaque connexion.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Actions réalisées</h3>
+                    <ul class="mlist">
+                        <li><strong>Création des OUs</strong>Serveurs, Utilisateurs_BSC, Groupes_BSC dans le domaine bsc-lab.local.</li>
+                        <li><strong>Comptes & groupes</strong>Utilisateur <em>Ilyas Seddiki (iseddiki@bsc-lab.local)</em> dans Utilisateurs_BSC. Groupe de sécurité global <em>Techniciens_Datacenter</em> dans Groupes_BSC.</li>
+                        <li><strong>GPO gpo_lecteur_reseau</strong>Mappage du lecteur Z: vers \\SRV-INFRA\partage avec reconnexion automatique, déployé sur le domaine.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
+                    <ul>
+                        <li>Structure OU cohérente et conforme aux bonnes pratiques AD</li>
+                        <li>GPO appliquée et lecteur réseau monté automatiquement à la connexion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div id="lp5" class="cpart">
+                <button class="back-btn part-back" onclick="backLenovoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
+                <div class="part-banner">
+                    <div class="pb-ico"><i class="fa-solid fa-circle-check"></i></div>
+                    <div>
+                        <div class="pb-title">Phase 5 — Tests & Vérifications</div>
+                        <div class="pb-sub">Validation complète de l'infrastructure déployée</div>
+                    </div>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
+                    <p>Valider le bon fonctionnement de l'ensemble de l'infrastructure en effectuant des tests de connectivité, de résolution DNS, de jonction au domaine et de montage du lecteur réseau par GPO.</p>
+                </div>
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-list-check"></i> Tests effectués</h3>
+                    <ul class="mlist">
+                        <li><strong>Jonction au domaine</strong>SRV-AUTO rejoint bsc-lab.local via les Propriétés système — confirme DNS, AD DS et DHCP fonctionnels ensemble.</li>
+                        <li><strong>Ping & nslookup</strong>Depuis SRV-AUTO : <code>ping bsc-lab.local</code> → 192.168.60.10, 0% perte. <code>nslookup bsc-lab.local</code> → résolution correcte.</li>
+                        <li><strong>Lecteur réseau Z:</strong>Lecteur \\SRV-INFRA\partage (106 Go) monté automatiquement par GPO dans l'Explorateur Windows de SRV-AUTO.</li>
+                    </ul>
+                </div>
+                <div class="result-v2">
+                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
+                    <ul>
+                        <li>Infrastructure Active Directory complète et 100% opérationnelle</li>
+                        <li>Tous les services (DNS, DHCP, AD CS, GPO) validés avec succès</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div id="ciscoModal" class="modal">
     <div class="mbox wide">
         <div class="mhead">
@@ -387,39 +720,121 @@
 
             <div id="ciscoOverview">
                 <div class="ov-stats">
-                    <div class="ov-stat"><div class="ov-sn">3</div><div class="ov-sl">Phases structurantes</div></div>
-                    <div class="ov-stat"><div class="ov-sn">1</div><div class="ov-sl">Fichier Excel de suivi</div></div>
-                    <div class="ov-stat"><div class="ov-sn">1</div><div class="ov-sl">Schéma de rack appliqué</div></div>
+                    <div class="ov-stat"><div class="ov-sn">3</div><div class="ov-sl">Phases du déploiement</div></div>
+                    <div class="ov-stat"><div class="ov-sn">1</div><div class="ov-sl">Baie équipée</div></div>
+                    <div class="ov-stat"><div class="ov-sn">100%</div><div class="ov-sl">Conformité au plan</div></div>
                 </div>
 
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-bullseye"></i> Contexte & Objectifs</h3>
-                    <p><strong>Mission :</strong> Participer au déploiement d'une solution réseau Cisco IA au sein du datacenter du Business Service Center, en assurant la préparation logistique et l'intégration physique du matériel.</p>
-                    <p style="margin-top:10px;"><strong>Périmètre :</strong> Réalisation de l'inventaire des équipements dans Excel, déballage du matériel et rackage selon le schéma d'implantation fourni par le tuteur.</p>
+                    <h3><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>Déployer une solution réseau <strong>Cisco IA</strong> dans le datacenter TD SYNNEX : de la réception du matériel jusqu'à son installation en baie, en passant par l'inventaire et la préparation.</p>
                 </div>
 
-                <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Vue d'ensemble des interventions</h3>
-                    <div class="def-chips">
-                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-table"></i></div><div class="dcb"><strong>Inventaire structuré</strong><p>Création d'un fichier Excel pour recenser les équipements et centraliser leur suivi technique.</p></div></div>
-                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-box-open"></i></div><div class="dcb"><strong>Préparation du matériel</strong><p>Déballage méthodique des équipements avant leur intégration dans les baies du datacenter.</p></div></div>
-                        <div class="def-chip"><div class="dci"><i class="fa-solid fa-server"></i></div><div class="dcb"><strong>Rackage conforme au plan</strong><p>Installation en baie en respectant le schéma de rack communiqué par le tuteur.</p></div></div>
+                <!-- Workflow visuel -->
+                <div class="cisco-flow">
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#3b82f6,#2563eb);"><i class="fa-solid fa-clipboard-list"></i></div>
+                        <div class="cisco-flow-label">Inventaire</div>
+                        <div class="cisco-flow-sub">Excel structuré</div>
+                    </div>
+                    <div class="cisco-flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);"><i class="fa-solid fa-box-open"></i></div>
+                        <div class="cisco-flow-label">Préparation</div>
+                        <div class="cisco-flow-sub">Déballage & tri</div>
+                    </div>
+                    <div class="cisco-flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="cisco-flow-step">
+                        <div class="cisco-flow-ico" style="background:linear-gradient(135deg,#10b981,#059669);"><i class="fa-solid fa-server"></i></div>
+                        <div class="cisco-flow-label">Rackage</div>
+                        <div class="cisco-flow-sub">Installation en baie</div>
                     </div>
                 </div>
 
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-wrench"></i> Technologies & Outils</h3>
+                    <h3><i class="fa-solid fa-table"></i> Inventaire technique</h3>
+                    <div class="excel-preview">
+                        <div class="excel-header">
+                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                            <div class="excel-meta">
+                                <div class="excel-filename">inventaire_cisco_ia.xlsx</div>
+                                <div class="excel-filedesc">Inventaire matériel — Déploiement Cisco IA</div>
+                            </div>
+                            <a href="inventaire_cisco_ia.xlsx" class="excel-dl" download><i class="fa-solid fa-download"></i> Télécharger</a>
+                        </div>
+                        <div class="excel-table-wrap">
+                            <table class="excel-table">
+                                <thead>
+                                    <tr><th>Type</th><th>Référence modèle</th><th>Description</th><th>N° de série</th><th>Qté</th><th>Rack</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Switch</td>
+                                        <td>N9324C-SE1U</td>
+                                        <td>Cisco Nexus 9300-FX3 — 24 ports 100G</td>
+                                        <td><span class="excel-serial">FDO29310LKD<br>FDO29310LGZ</span></td>
+                                        <td>2</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Serveur</td>
+                                        <td>UCSC-C220-M8S</td>
+                                        <td>Cisco UCS C220 M8 — Serveur rack 8ème gén.</td>
+                                        <td><span class="excel-serial">WZP29320Z8Z<br>WZP29320Z8W<br>WZP29320Z7B</span></td>
+                                        <td>3</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Câblage</td>
+                                        <td>CAB-9K10A-EU</td>
+                                        <td>Cordon alimentation 250V / 10A — prise EU</td>
+                                        <td><span class="excel-serial">—</span></td>
+                                        <td>6</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Câblage</td>
+                                        <td>CB-M12-M12-MMF-15M</td>
+                                        <td>Câble fibre optique MPO-12 multimode 15m</td>
+                                        <td><span class="excel-serial">GFT28470865</span></td>
+                                        <td>4</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Optique</td>
+                                        <td>QSFP-100G-SL4</td>
+                                        <td>Transceiver 100G QSFP28 fibre multimode</td>
+                                        <td><span class="excel-serial">INP29060015</span></td>
+                                        <td>4</td>
+                                        <td>15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <h3><i class="fa-solid fa-wrench"></i> Outils</h3>
                     <div class="tools-grid">
                         <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-brain"></i></div><div class="tool-name">Cisco IA</div></div>
-                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-table"></i></div><div class="tool-name">Microsoft Excel</div></div>
-                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-server"></i></div><div class="tool-name">Baies & Racks</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-table"></i></div><div class="tool-name">Excel</div></div>
+                        <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-server"></i></div><div class="tool-name">Baies 42U</div></div>
                         <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><div class="tool-name">Outillage rack</div></div>
+                    </div>
+                </div>
+
+                <div class="dsec">
+                    <div class="see-also-box">
+                        <i class="fa-solid fa-link"></i>
+                        <p>Projet lié</p>
+                        <button class="see-also-btn" onclick="closeCiscoModal(); setTimeout(openMonitModal, 320)"><i class="fa-solid fa-arrow-right"></i> Monitoring EcoStruxure APC</button>
                     </div>
                 </div>
 
                 <div style="text-align:center; margin-top:28px;">
                     <button class="proj-btn" onclick="showCiscoPartsGrid()" style="max-width:400px; margin:0 auto;">
-                        <i class="fa-solid fa-layer-group"></i> Consulter les blocs du projet
+                        <i class="fa-solid fa-layer-group"></i> Voir le détail des 3 phases
                     </button>
                 </div>
             </div>
@@ -441,90 +856,89 @@
             </div>
 
             <div id="cp1" class="cpart">
-                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux parties du projet</button>
+                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
                 <div class="part-banner">
-                    <div class="pb-ico"><i class="fa-solid fa-table"></i></div>
+                    <div class="pb-ico"><i class="fa-solid fa-clipboard-list"></i></div>
                     <div>
-                        <div class="pb-title">Phase 1 — Inventaire technique du matériel</div>
-                        <div class="pb-sub">Structuration du suivi des équipements Cisco IA dans un fichier Excel dédié</div>
+                        <div class="pb-title">Phase 1 — Inventaire technique</div>
+                        <div class="pb-sub">Fichier Excel de suivi des equipements Cisco IA</div>
                     </div>
                 </div>
                 <div class="dsec">
                     <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
-                    <p>Mettre en place un inventaire clair et exploitable des équipements Cisco IA réceptionnés, à l'aide d'un fichier Excel permettant de suivre chaque matériel tout au long du déploiement.</p>
+                    <p>Creer un inventaire structure de tous les equipements Cisco IA receptionnes pour assurer leur tracabilite tout au long du deploiement.</p>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Méthodologie</h3>
+                    <h3><i class="fa-solid fa-list-check"></i> Actions</h3>
                     <ul class="mlist">
-                        <li><strong>Conception du support d'inventaire</strong>Création d'un fichier Excel structuré pour centraliser le recensement des équipements et organiser leur suivi.</li>
-                        <li><strong>Référencement du matériel reçu</strong>Saisie méthodique des équipements dans le tableau afin de disposer d'une base de suivi claire avant l'intégration en rack.</li>
+                        <li><strong>Conception du fichier Excel</strong>Colonnes : reference, modele, numero de serie, emplacement prevu, statut.</li>
+                        <li><strong>Saisie du materiel recu</strong>Referencement systematique de chaque equipement a la reception des colis.</li>
                     </ul>
                 </div>
                 <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
+                    <h4><i class="fa-solid fa-circle-check"></i> Resultats</h4>
                     <ul>
-                        <li>Fichier Excel de suivi structuré et directement exploitable pour le recensement du matériel</li>
-                        <li>Vision centralisée des équipements préparés pour la suite du déploiement</li>
+                        <li>Inventaire complet et exploitable avant le debut du rackage</li>
+                        <li>Tracabilite assuree pour chaque equipement</li>
                     </ul>
                 </div>
             </div>
 
             <div id="cp2" class="cpart">
-                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux parties du projet</button>
+                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
                 <div class="part-banner">
                     <div class="pb-ico"><i class="fa-solid fa-box-open"></i></div>
                     <div>
-                        <div class="pb-title">Phase 2 — Préparation et déballage</div>
-                        <div class="pb-sub">Ouverture des colis et mise à disposition du matériel pour l'installation</div>
+                        <div class="pb-title">Phase 2 — Deballage & preparation</div>
+                        <div class="pb-sub">Mise a disposition du materiel pour l'integration en baie</div>
                     </div>
                 </div>
                 <div class="dsec">
                     <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
-                    <p>Prendre en charge le déballage des équipements Cisco IA afin de préparer proprement le matériel avant son intégration dans les baies du datacenter.</p>
+                    <p>Deballer et organiser les equipements Cisco IA pour faciliter leur installation en rack.</p>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Déroulement</h3>
+                    <h3><i class="fa-solid fa-list-check"></i> Actions</h3>
                     <ul class="mlist">
-                        <li><strong>Ouverture méthodique des colis</strong>Déballage progressif des équipements et de leurs accessoires pour préparer le matériel dans de bonnes conditions.</li>
-                        <li><strong>Mise en ordre des éléments</strong>Organisation des équipements déballés pour faciliter leur manipulation et leur préparation avant le rackage.</li>
-                        <li><strong>Préparation à l'installation</strong>Disposition du matériel en vue de la phase d'intégration physique dans les baies.</li>
+                        <li><strong>Ouverture des colis</strong>Deballage methodique, verification des contenus par rapport a l'inventaire.</li>
+                        <li><strong>Tri et organisation</strong>Classement des equipements et accessoires par type pour un rackage efficace.</li>
                     </ul>
                 </div>
                 <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
+                    <h4><i class="fa-solid fa-circle-check"></i> Resultats</h4>
                     <ul>
-                        <li>Matériel déballé et préparé pour la phase d'installation en baie</li>
-                        <li>Équipements organisés pour une intégration physique plus fluide</li>
+                        <li>Materiel verifie, trie et pret pour le rackage</li>
+                        <li>Aucun materiel manquant ou endommage</li>
                     </ul>
                 </div>
             </div>
 
             <div id="cp3" class="cpart">
-                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux parties du projet</button>
+                <button class="back-btn part-back" onclick="backCiscoToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux phases</button>
                 <div class="part-banner">
                     <div class="pb-ico"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <div>
-                        <div class="pb-title">Phase 3 — Rackage selon le plan d'implantation</div>
-                        <div class="pb-sub">Installation des équipements en baie en respectant le schéma fourni par le tuteur</div>
+                        <div class="pb-title">Phase 3 — Rackage</div>
+                        <div class="pb-sub">Installation en baie selon le schema d'implantation</div>
                     </div>
                 </div>
                 <div class="dsec">
                     <h3><i class="fa-solid fa-bullseye"></i> Objectif</h3>
-                    <p>Installer physiquement les équipements Cisco IA dans le rack en suivant précisément le schéma d'implantation transmis par le tuteur, afin de respecter l'organisation prévue de la baie.</p>
+                    <p>Installer les equipements dans la baie en respectant le plan de rack fourni par le tuteur.</p>
                 </div>
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-list-check"></i> Déroulement</h3>
+                    <h3><i class="fa-solid fa-list-check"></i> Actions</h3>
                     <ul class="mlist">
-                        <li><strong>Lecture du schéma de rack</strong>Analyse du plan fourni pour identifier l'emplacement prévu de chaque équipement dans la baie.</li>
-                        <li><strong>Installation physique en rack</strong>Mise en place des équipements aux positions indiquées afin de respecter l'organisation définie.</li>
-                        <li><strong>Contrôle de conformité d'implantation</strong>Vérification du positionnement final du matériel par rapport au schéma de référence.</li>
+                        <li><strong>Lecture du schema de rack</strong>Identification de l'emplacement (position U) prevu pour chaque equipement.</li>
+                        <li><strong>Installation physique</strong>Fixation des equipements aux positions indiquees avec l'outillage adapte.</li>
+                        <li><strong>Controle de conformite</strong>Verification finale : chaque equipement est a la bonne position selon le plan.</li>
                     </ul>
                 </div>
                 <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
+                    <h4><i class="fa-solid fa-circle-check"></i> Resultats</h4>
                     <ul>
-                        <li>Équipements rackés conformément au schéma d'implantation communiqué</li>
-                        <li>Baie préparée pour la suite des opérations techniques</li>
+                        <li>Baie conforme a 100% au schema d'implantation</li>
+                        <li>Infrastructure prete pour la mise en service</li>
                     </ul>
                 </div>
             </div>
@@ -542,6 +956,13 @@
         <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
     </div>
 </footer>
+
+<!-- ── Lightbox ─────────────────────── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <script src="script.js"></script>
 </body>

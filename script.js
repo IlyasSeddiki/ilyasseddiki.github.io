@@ -139,6 +139,53 @@ function backParts() {
     document.getElementById('msub').textContent = 'Vue d\'ensemble du projet';
 }
 
+/* ── Lenovo SR645 Modal ─────────────────────── */
+function openLenovoModal() {
+    if (document.getElementById('projModal')) hide('projModal');
+    setTimeout(function() { backLenovoParts(); show('lenovoModal'); }, 280);
+}
+function closeLenovoModal() { hide('lenovoModal'); backLenovoParts(); }
+
+var lenovoSubtitles = {
+    lp1: 'Phase 1 — Virtualisation Hyper-V & VMs',
+    lp2: 'Phase 2 — Active Directory (AD DS)',
+    lp3: 'Phase 3 — DHCP & Autorité de certification',
+    lp4: 'Phase 4 — GPO & Gestion des utilisateurs',
+    lp5: 'Phase 5 — Tests & Vérifications'
+};
+
+function showLenovoPartsGrid() {
+    document.getElementById('lenovoOverview').style.display = 'none';
+    document.getElementById('lenovoPgrid').style.display = 'grid';
+    ['lp1','lp2','lp3','lp4','lp5'].forEach(function(p) { document.getElementById(p).classList.remove('on'); });
+    document.getElementById('lenovoSub').textContent = 'Choisir une des 5 phases du projet';
+    document.querySelector('#lenovoModal .mbox').scrollTop = 0;
+}
+
+function showLenovoPart(id) {
+    document.getElementById('lenovoOverview').style.display = 'none';
+    document.getElementById('lenovoPgrid').style.display = 'none';
+    ['lp1','lp2','lp3','lp4','lp5'].forEach(function(p) { document.getElementById(p).classList.remove('on'); });
+    document.getElementById(id).classList.add('on');
+    document.getElementById('lenovoSub').textContent = lenovoSubtitles[id];
+    document.querySelector('#lenovoModal .mbox').scrollTop = 0;
+}
+
+function backLenovoToGrid() {
+    document.getElementById('lenovoOverview').style.display = 'none';
+    document.getElementById('lenovoPgrid').style.display = 'grid';
+    ['lp1','lp2','lp3','lp4','lp5'].forEach(function(p) { document.getElementById(p).classList.remove('on'); });
+    document.getElementById('lenovoSub').textContent = 'Choisir une des 5 phases du projet';
+    document.querySelector('#lenovoModal .mbox').scrollTop = 0;
+}
+
+function backLenovoParts() {
+    document.getElementById('lenovoOverview').style.display = 'block';
+    document.getElementById('lenovoPgrid').style.display = 'none';
+    ['lp1','lp2','lp3','lp4','lp5'].forEach(function(p) { document.getElementById(p).classList.remove('on'); });
+    document.getElementById('lenovoSub').textContent = 'Vue d\'ensemble du projet';
+}
+
 /* ── CR Modal ─────────────────────── */
 function openCRModal() {
     if (document.getElementById('projModal')) hide('projModal');
@@ -202,10 +249,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('click', function(e) {
-    if (e.target.id === 'projModal') closeProjModal();
-    if (e.target.id === 'monitModal') closeMonitModal();
-    if (e.target.id === 'crModal') closeCRModal();
-    if (e.target.id === 'ciscoModal') closeCiscoModal();
+    if (e.target.id === 'projModal')   closeProjModal();
+    if (e.target.id === 'monitModal')  closeMonitModal();
+    if (e.target.id === 'crModal')     closeCRModal();
+    if (e.target.id === 'ciscoModal')  closeCiscoModal();
+    if (e.target.id === 'lenovoModal') closeLenovoModal();
 });
 
 document.addEventListener('keydown', function(e) {
@@ -214,5 +262,31 @@ document.addEventListener('keydown', function(e) {
         closeMonitModal();
         closeCRModal();
         closeCiscoModal();
+        closeLenovoModal();
+        closeLightbox();
     }
 });
+
+/* ── Lightbox ─────────────────────── */
+function openLightbox(src, caption) {
+    var lb  = document.getElementById('lightbox');
+    var img = document.getElementById('lightboxImg');
+    var cap = document.getElementById('lightboxCaption');
+    img.src = src;
+    img.alt = caption || '';
+    cap.textContent = caption || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox') &&
+        !e.target.closest('.lightbox-close')) return;
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+        document.getElementById('lightboxImg').src = '';
+    }, 300);
+}

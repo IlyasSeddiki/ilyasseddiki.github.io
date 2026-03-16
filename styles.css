@@ -391,10 +391,12 @@ footer { text-align:center; padding:38px 20px; border-top:var(--border); margin-
 .bs { font-size:.67rem; font-weight:700; text-transform:uppercase; padding:3px 9px; border-radius:20px; white-space:nowrap; letter-spacing:.3px; }
 .bs-wip { background:#fef3c7; color:#b45309; }
 .bs-soon { background:#f5f3ff; color:var(--purple); }
-.bs-doc { background:#f0fdf4; color:#15803d; }
-[data-theme="dark"] .bs-wip { background:rgba(180,131,9,.15); }
+.bs-doc  { background:#f0fdf4; color:#15803d; }
+.bs-done { background:#dbeafe; color:#1d4ed8; }
+[data-theme="dark"] .bs-wip  { background:rgba(180,131,9,.15); }
 [data-theme="dark"] .bs-soon { background:rgba(124,58,237,.15); }
-[data-theme="dark"] .bs-doc { background:rgba(21,128,61,.15); }
+[data-theme="dark"] .bs-doc  { background:rgba(21,128,61,.15); }
+[data-theme="dark"] .bs-done { background:rgba(29,78,216,.15); color:#93c5fd; }
 .mhead-tags { display:flex; gap:8px; flex-wrap:wrap; margin-top:9px; }
 .mhead-tag { background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.3); border-radius:20px; padding:3px 12px; font-size:.76rem; font-weight:600; display:inline-flex; align-items:center; gap:6px; }
 
@@ -440,8 +442,27 @@ footer { text-align:center; padding:38px 20px; border-top:var(--border); margin-
 .cr-title { font-size:.96rem; font-weight:700; color:var(--primary); margin-bottom:5px; }
 .cr-desc { font-size:.85rem; color:var(--muted); line-height:1.65; margin-bottom:12px; }
 
+/* ── Stage Stats Banner ──────────────────────────────── */
+.stage-stats { display:flex; align-items:center; justify-content:center; gap:0; background:var(--card); border:1.5px solid var(--border-color); border-radius:16px; padding:20px 32px; margin-bottom:24px; flex-wrap:wrap; }
+.stage-stat { flex:1; min-width:120px; text-align:center; padding:8px 20px; position:relative; }
+.stage-stat + .stage-stat::before { content:''; position:absolute; left:0; top:20%; height:60%; width:1.5px; background:var(--border-color); }
+.ss-num { font-size:2rem; font-weight:800; color:var(--accent); line-height:1; }
+.ss-label { font-size:.78rem; color:var(--muted); margin-top:4px; font-weight:500; }
+
+/* ── Card Tech Chips ─────────────────────────────────── */
+.card-techs { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+.ct { font-size:.7rem; font-weight:600; background:rgba(37,99,235,.08); color:var(--accent); border:1px solid rgba(37,99,235,.18); border-radius:20px; padding:2px 9px; white-space:nowrap; }
+[data-theme="dark"] .ct { background:rgba(99,152,255,.1); border-color:rgba(99,152,255,.25); }
+
+/* ── See-Also cross-reference ───────────────────────── */
+.see-also-box { display:flex; align-items:center; gap:14px; background:rgba(37,99,235,.05); border:1.5px solid rgba(37,99,235,.15); border-radius:12px; padding:14px 18px; margin-top:4px; }
+.see-also-box i { color:var(--accent); font-size:1.1rem; flex-shrink:0; }
+.see-also-box p { flex:1; font-size:.86rem; color:var(--muted); margin:0; line-height:1.5; }
+.see-also-btn { font-size:.8rem; font-weight:700; color:var(--accent); background:none; border:1.5px solid var(--accent); border-radius:8px; padding:5px 12px; cursor:pointer; white-space:nowrap; transition:var(--tr); }
+.see-also-btn:hover { background:var(--accent); color:#fff; }
+
 /* ── Stage Cards (projets page) ─────────────────────── */
-.stage-cards { display:grid; gap:16px; margin-bottom:50px; }
+.stage-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:50px; }
 .stage-card { background:var(--card); border:1.5px solid var(--border-color); border-radius:16px; padding:24px; cursor:pointer; transition:var(--tr); display:flex; align-items:flex-start; gap:18px; position:relative; overflow:hidden; }
 .stage-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:linear-gradient(180deg,var(--accent),var(--purple)); }
 .stage-card:hover { border-color:var(--accent); box-shadow:0 8px 28px -8px rgba(37,99,235,.15); transform:translateY(-3px); }
@@ -539,7 +560,11 @@ footer { text-align:center; padding:38px 20px; border-top:var(--border); margin-
     .cr-card { flex-wrap:wrap; }
     .part-banner { flex-direction:column; gap:10px; }
     .pcv2 { flex-wrap:wrap; }
+    .stage-cards { grid-template-columns:1fr; }
     .stage-card { flex-wrap:wrap; }
+    .stage-stats { gap:8px; padding:16px; }
+    .stage-stat { min-width:100px; padding:6px 12px; }
+    .stage-stat + .stage-stat::before { display:none; }
     .nav-btns .btn-white { display:none; }
     .page-header { padding:120px 5% 40px; }
     .page-header h1 { font-size:1.8rem; }
@@ -552,4 +577,55 @@ footer { text-align:center; padding:38px 20px; border-top:var(--border); margin-
     .veille-src-grid { grid-template-columns:1fr; }
     .veille-method-steps { flex-direction:column; }
     .veille-method-step { min-width:0; }
+    .cisco-flow { flex-direction:column; align-items:center; }
+    .cisco-flow-arrow { transform:rotate(90deg); }
+    .cisco-flow-step { min-width:0; width:100%; }
+    .itexpert-gallery { grid-template-columns:1fr; }
 }
+
+/* ── Cisco Flow (workflow visuel) ─────────────────────── */
+.cisco-flow { display:flex; align-items:center; justify-content:center; gap:12px; margin:28px 0; padding:24px; background:var(--card); border:var(--border); border-radius:16px; }
+.cisco-flow-step { text-align:center; flex:1; min-width:120px; }
+.cisco-flow-ico { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:1.4rem; color:#fff; box-shadow:0 8px 24px -8px rgba(0,0,0,.2); }
+.cisco-flow-label { font-size:.9rem; font-weight:700; color:var(--primary); }
+.cisco-flow-sub { font-size:.76rem; color:var(--muted); margin-top:2px; }
+.cisco-flow-arrow { color:var(--accent); font-size:1.1rem; opacity:.5; flex-shrink:0; }
+
+/* ── Excel Preview ─────────────────────── */
+.excel-preview { border-radius:14px; overflow:hidden; border:var(--border); background:var(--card); }
+.excel-header { display:flex; align-items:center; gap:14px; padding:16px 20px; background:linear-gradient(135deg,#1d6f42,#217346); color:#fff; }
+.excel-icon { font-size:2rem; flex-shrink:0; }
+.excel-meta { flex:1; }
+.excel-filename { font-weight:700; font-size:.95rem; }
+.excel-filedesc { font-size:.78rem; opacity:.8; margin-top:2px; }
+.excel-dl { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.2); color:#fff; border:1px solid rgba(255,255,255,.35); border-radius:8px; padding:7px 14px; font-size:.82rem; font-weight:600; text-decoration:none; white-space:nowrap; transition:background .2s; }
+.excel-dl:hover { background:rgba(255,255,255,.32); }
+.excel-table-wrap { overflow-x:auto; }
+.excel-table { width:100%; border-collapse:collapse; font-size:.82rem; }
+.excel-table thead tr { background:#217346; color:#fff; }
+.excel-table thead th { padding:9px 14px; text-align:left; font-weight:600; white-space:nowrap; }
+.excel-table tbody tr { border-bottom:1px solid var(--border-color, rgba(0,0,0,.07)); }
+.excel-table tbody tr:nth-child(even) { background:rgba(33,115,70,.05); }
+.excel-table td { padding:8px 14px; color:var(--muted); white-space:nowrap; }
+.excel-table td:first-child { color:var(--primary); font-weight:600; }
+.excel-badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:.72rem; font-weight:700; }
+.excel-badge.ok { background:rgba(16,185,129,.15); color:#059669; }
+.excel-more td { text-align:center; color:var(--muted); font-style:italic; padding:12px; font-size:.8rem; }
+.excel-serial { font-size:.72rem; color:var(--muted); font-family:monospace; line-height:1.6; }
+
+/* ── IT Expert Gallery ─────────────────────── */
+.itexpert-gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:24px 0; }
+.itexpert-photo { border-radius:14px; overflow:hidden; background:var(--card); border:var(--border); aspect-ratio:4/3; cursor:zoom-in; position:relative; }
+.itexpert-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease, opacity .2s; }
+.itexpert-photo:hover img { transform:scale(1.05); opacity:.9; }
+.itexpert-photo::after { content:'\f00e'; font-family:'Font Awesome 6 Free'; font-weight:900; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:1.6rem; color:#fff; background:rgba(0,0,0,.0); transition:background .25s; pointer-events:none; }
+.itexpert-photo:hover::after { background:rgba(0,0,0,.28); }
+
+/* ── Lightbox ─────────────────────── */
+.lightbox { position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.88); display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; pointer-events:none; transition:opacity .25s ease; }
+.lightbox.open { opacity:1; pointer-events:all; }
+.lightbox-img { max-width:92vw; max-height:88vh; border-radius:12px; object-fit:contain; box-shadow:0 32px 80px rgba(0,0,0,.6); transform:scale(.92); transition:transform .3s ease; }
+.lightbox.open .lightbox-img { transform:scale(1); }
+.lightbox-close { position:fixed; top:20px; right:24px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; width:44px; height:44px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; backdrop-filter:blur(6px); }
+.lightbox-close:hover { background:rgba(255,255,255,.28); }
+.lightbox-caption { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.8); font-size:.9rem; background:rgba(0,0,0,.5); padding:8px 18px; border-radius:20px; backdrop-filter:blur(8px); white-space:nowrap; }
