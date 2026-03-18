@@ -271,6 +271,10 @@
                         <li>Plan d'adressage IP structuré et documenté pour l'ensemble du datacenter</li>
                     </ul>
                 </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-file-excel"></i> Document associé</h3>
+                    <a href="documents/nomenclature_equipements.xlsx" class="tp-btn" target="_blank"><i class="fa-solid fa-table"></i> Nomenclature des équipements (numéros de série masqués)</a>
+                </div>
             </div>
 
             <div id="p2" class="cpart">
@@ -301,6 +305,11 @@
                         <li>Équipements joignables intégrés et visibles depuis la gateway EcoStruxure IT</li>
                     </ul>
                 </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <div style="text-align:center;">
+                        <img src="images/cablage.png" alt="Câblage réseau datacenter" style="max-width:100%; border-radius:10px; border:1px solid var(--border);">
+                    </div>
+                </div>
             </div>
 
             <div id="p3" class="cpart">
@@ -319,7 +328,7 @@
                 <div class="dsec">
                     <h3><i class="fa-solid fa-list-check"></i> Déroulement du déploiement</h3>
                     <ul class="mlist">
-                        <li><strong>Installation d'EcoStruxure IT Expert</strong>Déploiement de la solution sur le serveur dédié, configuration initiale de la plateforme et paramétrage des accès administrateur.</li>
+                        <li><strong>Configuration d'EcoStruxure IT Expert</strong>Plateforme <strong>cloud</strong> Schneider Electric accessible via navigateur. Création du compte, association de la gateway et paramétrage des accès administrateur.</li>
                         <li><strong>Découverte automatique des équipements</strong>Scan réseau sur le sous-réseau 192.168.X.0/24 permettant la détection automatique de l'ensemble des PDU et UPS préalablement configurés.</li>
                         <li><strong>Configuration des seuils d'alerte</strong>Paramétrage des alertes pour chaque équipement : niveau de charge, température, autonomie batterie et état d'alimentation.</li>
                     </ul>
@@ -327,9 +336,16 @@
                 <div class="result-v2">
                     <h4><i class="fa-solid fa-circle-check"></i> Résultats obtenus</h4>
                     <ul>
-                        <li>EcoStruxure IT Expert déployé et opérationnel sur le datacenter BSC</li>
-                        <li>Ensemble des équipements supervisés en temps réel depuis la plateforme centralisée</li>
+                        <li>EcoStruxure IT Expert configuré et opérationnel sur le datacenter BSC</li>
+                        <li>Ensemble des équipements supervisés en temps réel depuis la plateforme cloud centralisée</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-file-pdf"></i> Guides techniques</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                        <a href="documents/Ajout_equipements_gateway_SNMP_v3.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-plug"></i> Ajouter des équipements PDU/UPS via SNMP v3</a>
+                        <a href="documents/Configurer_alarme_IT_Expert.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-bell"></i> Configurer une alarme sur IT Expert</a>
+                    </div>
                 </div>
             </div>
 
@@ -360,6 +376,13 @@
                         <li>IT Advisor déployé et opérationnel en environnement de test</li>
                         <li>Modélisation 3D complète des 16 racks avec intégration des données de supervision</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-file-pdf"></i> Documents associés</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                        <a href="documents/Installation_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Installation d'IT Advisor</a>
+                        <a href="documents/Creation_3D_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-cube"></i> Créer la 3D du datacenter</a>
+                    </div>
                 </div>
             </div>
 
@@ -404,14 +427,6 @@
                 <h3><i class="fa-solid fa-file-lines"></i> Comptes Rendus d'Intervention</h3>
             </div>
 
-            <div class="cr-card">
-                <div class="cr-ico"><i class="fa-solid fa-chart-line"></i></div>
-                <div class="cr-body">
-                    <div class="cr-title">Installation d'IT Advisor</div>
-                    <p class="cr-desc">Déploiement et configuration de la plateforme EcoStruxure IT Advisor pour la supervision avancée et le capacity planning du datacenter.</p>
-                    <a href="documents/Installation_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le PDF</a>
-                </div>
-            </div>
             <div class="cr-card">
                 <div class="cr-ico"><i class="fa-solid fa-video"></i></div>
                 <div class="cr-body">
@@ -760,69 +775,6 @@
                 </div>
 
                 <div class="dsec">
-                    <h3><i class="fa-solid fa-table"></i> Inventaire technique</h3>
-                    <div class="excel-preview">
-                        <div class="excel-header">
-                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
-                            <div class="excel-meta">
-                                <div class="excel-filename">inventaire_cisco_ia.xlsx</div>
-                                <div class="excel-filedesc">Inventaire matériel — Déploiement Cisco IA</div>
-                            </div>
-                            <a href="inventaire_cisco_ia.xlsx" class="excel-dl" download><i class="fa-solid fa-download"></i> Télécharger</a>
-                        </div>
-                        <div class="excel-table-wrap">
-                            <table class="excel-table">
-                                <thead>
-                                    <tr><th>Type</th><th>Référence modèle</th><th>Description</th><th>N° de série</th><th>Qté</th><th>Rack</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Switch</td>
-                                        <td>N9324C-SE1U</td>
-                                        <td>Cisco Nexus 9300-FX3 — 24 ports 100G</td>
-                                        <td><span class="excel-serial">FDO29310LKD<br>FDO29310LGZ</span></td>
-                                        <td>2</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Serveur</td>
-                                        <td>UCSC-C220-M8S</td>
-                                        <td>Cisco UCS C220 M8 — Serveur rack 8ème gén.</td>
-                                        <td><span class="excel-serial">WZP29320Z8Z<br>WZP29320Z8W<br>WZP29320Z7B</span></td>
-                                        <td>3</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Câblage</td>
-                                        <td>CAB-9K10A-EU</td>
-                                        <td>Cordon alimentation 250V / 10A — prise EU</td>
-                                        <td><span class="excel-serial">—</span></td>
-                                        <td>6</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Câblage</td>
-                                        <td>CB-M12-M12-MMF-15M</td>
-                                        <td>Câble fibre optique MPO-12 multimode 15m</td>
-                                        <td><span class="excel-serial">GFT28470865</span></td>
-                                        <td>4</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Optique</td>
-                                        <td>QSFP-100G-SL4</td>
-                                        <td>Transceiver 100G QSFP28 fibre multimode</td>
-                                        <td><span class="excel-serial">INP29060015</span></td>
-                                        <td>4</td>
-                                        <td>15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dsec">
                     <h3><i class="fa-solid fa-wrench"></i> Outils</h3>
                     <div class="tools-grid">
                         <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-brain"></i></div><div class="tool-name">Cisco IA</div></div>
@@ -890,6 +842,68 @@
                         <li>Tracabilite assuree pour chaque equipement</li>
                     </ul>
                 </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-table"></i> Fichier inventaire</h3>
+                    <div class="excel-preview" style="cursor:pointer;" onclick="window.open('inventaire_cisco_ia.xlsx')">
+                        <div class="excel-header">
+                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                            <div class="excel-meta">
+                                <div class="excel-filename">inventaire_cisco_ia.xlsx</div>
+                                <div class="excel-filedesc">Inventaire matériel — Déploiement Cisco IA</div>
+                            </div>
+                            <a href="inventaire_cisco_ia.xlsx" class="excel-dl" download onclick="event.stopPropagation()"><i class="fa-solid fa-download"></i> Télécharger</a>
+                        </div>
+                        <div class="excel-table-wrap">
+                            <table class="excel-table">
+                                <thead>
+                                    <tr><th>Type</th><th>Référence modèle</th><th>Description</th><th>N° de série</th><th>Qté</th><th>Rack</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Switch</td>
+                                        <td>N9324C-SE1U</td>
+                                        <td>Cisco Nexus 9300-FX3 — 24 ports 100G</td>
+                                        <td><span class="excel-serial">FDO29310LKD<br>FDO29310LGZ</span></td>
+                                        <td>2</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Serveur</td>
+                                        <td>UCSC-C220-M8S</td>
+                                        <td>Cisco UCS C220 M8 — Serveur rack 8ème gén.</td>
+                                        <td><span class="excel-serial">WZP29320Z8Z<br>WZP29320Z8W<br>WZP29320Z7B</span></td>
+                                        <td>3</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Câblage</td>
+                                        <td>CAB-9K10A-EU</td>
+                                        <td>Cordon alimentation 250V / 10A — prise EU</td>
+                                        <td><span class="excel-serial">—</span></td>
+                                        <td>6</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Câblage</td>
+                                        <td>CB-M12-M12-MMF-15M</td>
+                                        <td>Câble fibre optique MPO-12 multimode 15m</td>
+                                        <td><span class="excel-serial">GFT28470865</span></td>
+                                        <td>4</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Optique</td>
+                                        <td>QSFP-100G-SL4</td>
+                                        <td>Transceiver 100G QSFP28 fibre multimode</td>
+                                        <td><span class="excel-serial">INP29060015</span></td>
+                                        <td>4</td>
+                                        <td>15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div id="cp2" class="cpart">
@@ -918,6 +932,11 @@
                         <li>Materiel verifie, trie et pret pour le rackage</li>
                         <li>Aucun materiel manquant ou endommage</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <div style="text-align:center;" onclick="openLightbox('images/deballage_carton_cisco.jpg','Déballage des équipements Cisco IA')">
+                        <img src="images/deballage_carton_cisco.jpg" alt="Déballage des équipements Cisco IA" style="max-width:100%; border-radius:10px; border:1px solid var(--border); cursor:zoom-in;">
+                    </div>
                 </div>
             </div>
 
@@ -948,6 +967,22 @@
                         <li>Baie conforme a 100% au schema d'implantation</li>
                         <li>Infrastructure prete pour la mise en service</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-table"></i> Plan d'implantation</h3>
+                    <div class="excel-preview">
+                        <div class="excel-header">
+                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                            <div class="excel-meta">
+                                <div class="excel-filename">plan_implantation_rack.xlsx</div>
+                                <div class="excel-filedesc">Schéma d'implantation — Baie Cisco IA</div>
+                            </div>
+                        </div>
+                        <div style="padding:32px; text-align:center; color:var(--muted); font-size:0.9rem;">
+                            <i class="fa-solid fa-file-circle-plus" style="font-size:2rem; margin-bottom:8px; display:block;"></i>
+                            Document à venir
+                        </div>
+                    </div>
                 </div>
             </div>
 
