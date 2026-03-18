@@ -252,11 +252,16 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Audit physique</strong> — Inspection des 16 racks, identification de chaque équipement.</li>
-                        <li><strong>Adressage réseau</strong> — Attribution des IPs par rack et type d'équipement.</li>
-                        <li><strong>Tests de connectivité</strong> — Ping, telnet, interface web. Traitement des équipements défaillants.</li>
+                        <li><strong>Audit physique</strong> Inspection des 16 racks pour identifier chaque équipement.</li>
+                        <li><strong>Adressage réseau</strong> Attribution d'une IP à chaque équipement selon son rack.</li>
+                        <li><strong>Tests de connectivité</strong> Vérification de l'accès réseau et traitement des équipements défaillants.</li>
                     </ul>
                 </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-file-excel"></i> Document associé</h3>
+                    <a href="documents/nomenclature_equipements.xlsx" class="tp-btn" target="_blank"><i class="fa-solid fa-table"></i> Nomenclature des équipements (numéros de série masqués)</a>
+                </div>
+            </div>
 
             <div id="p2" class="cpart">
                 <button class="back-btn part-back" onclick="backToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux 4 parties</button>
@@ -269,10 +274,15 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Câblage des UPS et PDU</strong> — Raccordement RJ45 vers les ports du switch Cisco.</li>
-                        <li><strong>Centralisation switch Cisco</strong> — Tous les équipements sur un même segment réseau.</li>
-                        <li><strong>Intégration gateway EcoStruxure</strong> — Détection et rattachement à la passerelle cloud Schneider.</li>
+                        <li><strong>Câblage des UPS et PDU</strong> Raccordement RJ45 de chaque équipement vers le switch Cisco.</li>
+                        <li><strong>Centralisation switch Cisco</strong> Tous les équipements regroupés sur un même segment réseau.</li>
+                        <li><strong>Intégration gateway EcoStruxure</strong> Rattachement de la baie à la passerelle cloud Schneider.</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <div style="text-align:center;">
+                        <img src="images/cablage.png" alt="Câblage réseau datacenter" style="max-width:100%; border-radius:10px; border:1px solid var(--border);">
+                    </div>
                 </div>
             </div>
 
@@ -287,10 +297,17 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Configuration IT Expert (cloud)</strong> — Création du compte, association de la gateway, accès admin.</li>
-                        <li><strong>Découverte automatique</strong> — Scan 192.168.X.0/24, détection de tous les PDU/UPS configurés.</li>
-                        <li><strong>Seuils d'alerte</strong> — Charge, température, autonomie batterie, état alimentation.</li>
+                        <li><strong>Configuration IT Expert</strong> Création du compte cloud et association de la gateway au site.</li>
+                        <li><strong>Découverte automatique</strong> Scan réseau pour détecter automatiquement tous les PDU et UPS.</li>
+                        <li><strong>Seuils d'alerte</strong> Configuration des alertes sur la charge, la température et l'autonomie des batteries.</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-file-pdf"></i> Guides techniques</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                        <a href="documents/Ajout_equipements_gateway_SNMP_v3.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-plug"></i> Ajouter des équipements PDU/UPS via SNMP v3</a>
+                        <a href="documents/Configurer_alarme_IT_Expert.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-bell"></i> Configurer une alarme sur IT Expert</a>
+                    </div>
                 </div>
             </div>
 
@@ -305,10 +322,17 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>VM Rocky Linux 8.10</strong> — IT Advisor sur Hyper-V (8 Go RAM, 4 vCPU, 100 Go). IP statique + accès HTTPS.</li>
-                        <li><strong>Modélisation de la salle</strong> — Dimensions, allées, placement des 16 racks selon le plan physique BSC.</li>
-                        <li><strong>Intégration équipements</strong> — UPS/PDU placés aux positions U exactes, IPs et données monitoring associées.</li>
+                        <li><strong>VM Rocky Linux 8.10</strong> Déploiement d'IT Advisor sous Hyper-V avec accès HTTPS sécurisé.</li>
+                        <li><strong>Modélisation de la salle</strong> Reproduction fidèle du datacenter avec les 16 racks à leurs emplacements réels.</li>
+                        <li><strong>Intégration équipements</strong> Chaque UPS et PDU positionné à l'unité exacte avec ses données de supervision.</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-file-pdf"></i> Documents associés</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                        <a href="documents/Installation_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Installation d'IT Advisor</a>
+                        <a href="documents/Creation_3D_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-cube"></i> Créer la 3D du datacenter</a>
+                    </div>
                 </div>
             </div>
 
@@ -506,11 +530,12 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Rôle Hyper-V</strong> — Installé via le Gestionnaire de serveur sur SRV-ILYAS.</li>
-                        <li><strong>vSwitch externe</strong> — Lié à la carte réseau physique pour accès réseau des VMs.</li>
-                        <li><strong>2 VMs créées</strong> — SRV-INFRA + SRV-AUTO, 127 Go VHDX dynamique chacune, sur vSwitch-External.</li>
+                        <li><strong>Rôle Hyper-V</strong> Installé sur SRV-ILYAS via le Gestionnaire de serveur.</li>
+                        <li><strong>vSwitch externe</strong> Commutateur virtuel lié à la carte réseau physique pour connecter les VMs.</li>
+                        <li><strong>2 VMs créées</strong> SRV-INFRA et SRV-AUTO déployées avec 127 Go de stockage dynamique chacune.</li>
                     </ul>
                 </div>
+            </div>
 
             <!-- Phase 2 -->
             <div id="lp2" class="cpart">
@@ -524,11 +549,12 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Rôle AD DS + DNS</strong> — Installation via assistant, DNS intégré automatiquement.</li>
-                        <li><strong>Forêt bsc-lab.local</strong> — Niveau fonctionnel WS2025, catalogue global activé.</li>
-                        <li><strong>Promotion SRV-INFRA</strong> — Contrôleur de domaine principal. Vérification via <code>Get-ADDomain</code>.</li>
+                        <li><strong>Rôle AD DS + DNS</strong> Installé via l'assistant Windows, DNS intégré automatiquement au domaine.</li>
+                        <li><strong>Forêt bsc-lab.local</strong> Créée en niveau fonctionnel Windows Server 2025 avec catalogue global.</li>
+                        <li><strong>Promotion SRV-INFRA</strong> Promu contrôleur de domaine principal et vérifié via <code>Get-ADDomain</code>.</li>
                     </ul>
                 </div>
+            </div>
 
             <!-- Phase 3 -->
             <div id="lp3" class="cpart">
@@ -542,11 +568,12 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>DHCP</strong> — Étendue LAN-BSC-LAB : 192.168.60.100–200 /24, autorisé dans l'AD.</li>
-                        <li><strong>AD CS (PKI)</strong> — AC racine <em>bsc-lab-SRV-INFRA-CA</em>, SHA256, RSA 2048, validité 5 ans.</li>
-                        <li><strong>NTP</strong> — Synchronisation vérifiée via <code>w32tm /query /status</code>.</li>
+                        <li><strong>DHCP</strong> Étendue 192.168.60.100–200 configurée et autorisée dans l'Active Directory.</li>
+                        <li><strong>AD CS (PKI)</strong> Autorité de certification interne déployée avec une validité de 5 ans.</li>
+                        <li><strong>NTP</strong> Synchronisation horaire vérifiée entre les VMs du domaine.</li>
                     </ul>
                 </div>
+            </div>
 
             <!-- Phase 4 -->
             <div id="lp4" class="cpart">
@@ -560,11 +587,12 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>OUs</strong> — Serveurs, Utilisateurs_BSC, Groupes_BSC créées dans bsc-lab.local.</li>
-                        <li><strong>Comptes & groupes</strong> — Utilisateur <em>iseddiki@bsc-lab.local</em> + groupe <em>Techniciens_Datacenter</em>.</li>
-                        <li><strong>GPO gpo_lecteur_reseau</strong> — Lecteur Z: → \\SRV-INFRA\partage, reconnexion automatique.</li>
+                        <li><strong>OUs</strong> Unités organisationnelles créées pour structurer les objets du domaine.</li>
+                        <li><strong>Comptes & groupes</strong> Compte utilisateur et groupe de sécurité créés dans le domaine.</li>
+                        <li><strong>GPO gpo_lecteur_reseau</strong> Stratégie de groupe pour monter automatiquement le lecteur réseau Z:.</li>
                     </ul>
                 </div>
+            </div>
 
             <!-- Phase 5 -->
             <div id="lp5" class="cpart">
@@ -578,9 +606,9 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Jonction domaine</strong> — SRV-AUTO rejoint bsc-lab.local (valide DNS + AD DS + DHCP).</li>
-                        <li><strong>Ping & nslookup</strong> — <code>ping bsc-lab.local</code> → 192.168.60.10, 0% perte.</li>
-                        <li><strong>Lecteur Z:</strong> — \\SRV-INFRA\partage (106 Go) monté automatiquement par GPO.</li>
+                        <li><strong>Jonction domaine</strong> SRV-AUTO rejoint bsc-lab.local et valide le bon fonctionnement du DNS et du DHCP.</li>
+                        <li><strong>Ping & nslookup</strong> Résolution DNS et connectivité confirmées sans perte de paquets.</li>
+                        <li><strong>Lecteur Z:</strong> Lecteur réseau partagé monté automatiquement au démarrage par la GPO.</li>
                     </ul>
                 </div>
 
@@ -682,15 +710,24 @@
                     <div class="pb-ico"><i class="fa-solid fa-clipboard-list"></i></div>
                     <div>
                         <div class="pb-title">Phase 1 — Inventaire technique</div>
-                        <div class="pb-sub">Fichier Excel de suivi des equipements Cisco IA</div>
+                        <div class="pb-sub">Fichier Excel de suivi des équipements Cisco IA</div>
                     </div>
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Fichier Excel structuré</strong> — Colonnes : référence, modèle, n° de série, emplacement, statut.</li>
-                        <li><strong>Saisie à la réception</strong> — Référencement de chaque équipement dès ouverture des colis.</li>
+                        <li><strong>Fichier Excel structuré</strong> Suivi de chaque équipement avec sa référence, son modèle, son numéro de série et son emplacement.</li>
+                        <li><strong>Saisie à la réception</strong> Chaque équipement enregistré dès ouverture des colis.</li>
                     </ul>
                 </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-table"></i> Fichier inventaire</h3>
+                    <div class="excel-preview" style="cursor:pointer;" onclick="window.open('inventaire_cisco_ia.xlsx')">
+                        <div class="excel-header">
+                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                            <div class="excel-meta">
+                                <div class="excel-filename">inventaire_cisco_ia.xlsx</div>
+                                <div class="excel-filedesc">Inventaire matériel — Déploiement Cisco IA</div>
+                            </div>
                             <a href="inventaire_cisco_ia.xlsx" class="excel-dl" download onclick="event.stopPropagation()"><i class="fa-solid fa-download"></i> Télécharger</a>
                         </div>
                         <div class="excel-table-wrap">
@@ -751,15 +788,20 @@
                 <div class="part-banner">
                     <div class="pb-ico"><i class="fa-solid fa-box-open"></i></div>
                     <div>
-                        <div class="pb-title">Phase 2 — Deballage & preparation</div>
-                        <div class="pb-sub">Mise a disposition du materiel pour l'integration en baie</div>
+                        <div class="pb-title">Phase 2 — Déballage & préparation</div>
+                        <div class="pb-sub">Mise à disposition du matériel pour l'intégration en baie</div>
                     </div>
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Déballage méthodique</strong> — Vérification des contenus par rapport à l'inventaire.</li>
-                        <li><strong>Tri par type</strong> — Classement des équipements et accessoires pour un rackage efficace.</li>
+                        <li><strong>Déballage méthodique</strong> Vérification du contenu de chaque colis par rapport à l'inventaire.</li>
+                        <li><strong>Tri par type</strong> Classement des équipements et accessoires pour faciliter le rackage.</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <div style="text-align:center;" onclick="openLightbox('images/deballage_carton_cisco.jpg','Déballage des équipements Cisco IA')">
+                        <img src="images/deballage_carton_cisco.jpg" alt="Déballage des équipements Cisco IA" style="max-width:100%; border-radius:10px; border:1px solid var(--border); cursor:zoom-in;">
+                    </div>
                 </div>
             </div>
 
@@ -769,16 +811,25 @@
                     <div class="pb-ico"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <div>
                         <div class="pb-title">Phase 3 — Rackage</div>
-                        <div class="pb-sub">Installation en baie selon le schema d'implantation</div>
+                        <div class="pb-sub">Installation en baie selon le schéma d'implantation</div>
                     </div>
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Lecture du schéma de rack</strong> — Identification de la position U de chaque équipement.</li>
-                        <li><strong>Installation physique</strong> — Fixation aux positions indiquées avec outillage adapté.</li>
-                        <li><strong>Contrôle de conformité</strong> — Vérification finale : chaque équipement à la bonne position.</li>
+                        <li><strong>Lecture du schéma de rack</strong> Identification de la position exacte de chaque équipement avant installation.</li>
+                        <li><strong>Installation physique</strong> Fixation de chaque équipement à sa position U avec l'outillage adapté.</li>
+                        <li><strong>Contrôle de conformité</strong> Vérification finale que l'installation correspond au schéma fourni.</li>
                     </ul>
                 </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-table"></i> Plan d'implantation</h3>
+                    <div class="excel-preview">
+                        <div class="excel-header">
+                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                            <div class="excel-meta">
+                                <div class="excel-filename">plan_implantation_rack.xlsx</div>
+                                <div class="excel-filedesc">Schéma d'implantation — Baie Cisco IA</div>
+                            </div>
                         </div>
                         <div style="padding:32px; text-align:center; color:var(--muted); font-size:0.9rem;">
                             <i class="fa-solid fa-file-circle-plus" style="font-size:2rem; margin-bottom:8px; display:block;"></i>
