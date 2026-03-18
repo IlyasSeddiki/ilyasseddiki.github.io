@@ -18,7 +18,8 @@
       "Bash(py -m pip install pypdf -q)",
       "Bash(py -m pip install python-docx pillow -q)",
       "Bash(py:*)",
-      "Bash(dir \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\\\\images\" /b)"
+      "Bash(dir \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\\\\images\" /b)",
+      "Bash(grep -v '^imgs_temp$')"
     ]
   }
 }
