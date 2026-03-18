@@ -18,7 +18,28 @@
       "Bash(py -m pip install pypdf -q)",
       "Bash(py -m pip install python-docx pillow -q)",
       "Bash(py:*)",
-      "Bash(dir \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\\\\images\" /b)"
+      "Bash(dir \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\\\\images\" /b)",
+      "Bash(xargs ls:*)",
+      "Read(//c/Users/seddi/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/71ed0e9a-ff4b-4636-850c-1fbe6c9d861a/5eb70936-8eea-4f17-a8a2-3fedbeb4d015/skills/xlsx/**)",
+      "Bash(python -c \":*)",
+      "Bash(python3 -c \"import pandas; print\\(''pandas ok''\\)\")",
+      "Bash(python3 -c \"import openpyxl; print\\(''openpyxl ok''\\)\")",
+      "Bash(python3 -c \"import odf; print\\(''odf ok''\\)\")",
+      "Bash(ls /c/Python*/python.exe)",
+      "Read(//c/Users/seddi/AppData/Local/Programs/**)",
+      "Read(//c/ProgramData/anaconda3/**)",
+      "Read(//c/Users/seddi/anaconda3/**)",
+      "Read(//c/Users/seddi/miniconda3/**)",
+      "Bash(\"/c/Users/seddi/AppData/Local/Microsoft/WindowsApps/python.exe\" --version)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"/c/Users/seddi/AppData/Local/Programs/Python/Python312:/c/Users/seddi/AppData/Local/Programs/Python/Python312/Scripts:$PATH\")",
+      "Bash(python -X utf8 -c \":*)",
+      "Bash(python -X:*)",
+      "Bash(find /c/Users/seddi/Documents -type f \\\\\\(-name *.md -o -name *.txt -o -name *.pdf -o -name *.docx -o -name *.xlsx \\\\\\))",
+      "Bash(xargs wc:*)",
+      "Bash(find /c/Users/seddi/Documents -type f \\\\\\(-name *stage* -o -name *projet* -o -name *rapport* \\\\\\))",
+      "Bash(find /c/Users/seddi -type f -name *Projet* -o -name *Déploiement*)",
+      "Bash(ls -lh /c/Users/seddi/Desktop/*.docx)"
     ]
   }
 }
