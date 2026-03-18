@@ -257,18 +257,6 @@
                         <li><strong>Tests de connectivité</strong> — Ping, telnet, interface web. Traitement des équipements défaillants.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>30/41 équipements configurés et joignables</li>
-                        <li>Plan d'adressage IP documenté pour le datacenter</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <h3><i class="fa-solid fa-file-excel"></i> Document associé</h3>
-                    <a href="documents/nomenclature_equipements.xlsx" class="tp-btn" target="_blank"><i class="fa-solid fa-table"></i> Nomenclature des équipements (numéros de série masqués)</a>
-                </div>
-            </div>
 
             <div id="p2" class="cpart">
                 <button class="back-btn part-back" onclick="backToGrid()"><i class="fa-solid fa-arrow-left"></i> Retour aux 4 parties</button>
@@ -285,17 +273,6 @@
                         <li><strong>Centralisation switch Cisco</strong> — Tous les équipements sur un même segment réseau.</li>
                         <li><strong>Intégration gateway EcoStruxure</strong> — Détection et rattachement à la passerelle cloud Schneider.</li>
                     </ul>
-                </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Équipements câblés et visibles depuis la gateway EcoStruxure IT</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <div style="text-align:center;">
-                        <img src="images/cablage.png" alt="Câblage réseau datacenter" style="max-width:100%; border-radius:10px; border:1px solid var(--border);">
-                    </div>
                 </div>
             </div>
 
@@ -315,19 +292,6 @@
                         <li><strong>Seuils d'alerte</strong> — Charge, température, autonomie batterie, état alimentation.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>IT Expert opérationnel — supervision temps réel des équipements depuis la plateforme cloud</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <h3><i class="fa-solid fa-file-pdf"></i> Guides techniques</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                        <a href="documents/Ajout_equipements_gateway_SNMP_v3.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-plug"></i> Ajouter des équipements PDU/UPS via SNMP v3</a>
-                        <a href="documents/Configurer_alarme_IT_Expert.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-bell"></i> Configurer une alarme sur IT Expert</a>
-                    </div>
-                </div>
             </div>
 
             <div id="p4" class="cpart">
@@ -345,19 +309,6 @@
                         <li><strong>Modélisation de la salle</strong> — Dimensions, allées, placement des 16 racks selon le plan physique BSC.</li>
                         <li><strong>Intégration équipements</strong> — UPS/PDU placés aux positions U exactes, IPs et données monitoring associées.</li>
                     </ul>
-                </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Jumeau numérique 3D des 16 racks, données de supervision intégrées en temps réel</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <h3><i class="fa-solid fa-file-pdf"></i> Documents associés</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                        <a href="documents/Installation_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Installation d'IT Advisor</a>
-                        <a href="documents/Creation_3D_IT_Advisor.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-cube"></i> Créer la 3D du datacenter</a>
-                    </div>
                 </div>
             </div>
 
@@ -560,13 +511,6 @@
                         <li><strong>2 VMs créées</strong> — SRV-INFRA + SRV-AUTO, 127 Go VHDX dynamique chacune, sur vSwitch-External.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Hyper-V opérationnel — 2 VMs démarrées avec accès réseau</li>
-                    </ul>
-                </div>
-            </div>
 
             <!-- Phase 2 -->
             <div id="lp2" class="cpart">
@@ -585,13 +529,6 @@
                         <li><strong>Promotion SRV-INFRA</strong> — Contrôleur de domaine principal. Vérification via <code>Get-ADDomain</code>.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>bsc-lab.local opérationnel — SRV-INFRA PDCEmulator, DNS sur 192.168.60.10</li>
-                    </ul>
-                </div>
-            </div>
 
             <!-- Phase 3 -->
             <div id="lp3" class="cpart">
@@ -610,13 +547,6 @@
                         <li><strong>NTP</strong> — Synchronisation vérifiée via <code>w32tm /query /status</code>.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>DHCP actif — IPs distribuées automatiquement. AC d'entreprise opérationnelle.</li>
-                    </ul>
-                </div>
-            </div>
 
             <!-- Phase 4 -->
             <div id="lp4" class="cpart">
@@ -635,13 +565,6 @@
                         <li><strong>GPO gpo_lecteur_reseau</strong> — Lecteur Z: → \\SRV-INFRA\partage, reconnexion automatique.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Structure AD conforme aux bonnes pratiques — GPO appliquée, lecteur Z: monté à la connexion</li>
-                    </ul>
-                </div>
-            </div>
 
             <!-- Phase 5 -->
             <div id="lp5" class="cpart">
@@ -660,13 +583,6 @@
                         <li><strong>Lecteur Z:</strong> — \\SRV-INFRA\partage (106 Go) monté automatiquement par GPO.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Infrastructure AD 100% opérationnelle — DNS, DHCP, AD CS, GPO validés</li>
-                    </ul>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -775,21 +691,6 @@
                         <li><strong>Saisie à la réception</strong> — Référencement de chaque équipement dès ouverture des colis.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Inventaire complet et exploitable avant le début du rackage</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <h3><i class="fa-solid fa-table"></i> Fichier inventaire</h3>
-                    <div class="excel-preview" style="cursor:pointer;" onclick="window.open('inventaire_cisco_ia.xlsx')">
-                        <div class="excel-header">
-                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
-                            <div class="excel-meta">
-                                <div class="excel-filename">inventaire_cisco_ia.xlsx</div>
-                                <div class="excel-filedesc">Inventaire matériel — Déploiement Cisco IA</div>
-                            </div>
                             <a href="inventaire_cisco_ia.xlsx" class="excel-dl" download onclick="event.stopPropagation()"><i class="fa-solid fa-download"></i> Télécharger</a>
                         </div>
                         <div class="excel-table-wrap">
@@ -860,17 +761,6 @@
                         <li><strong>Tri par type</strong> — Classement des équipements et accessoires pour un rackage efficace.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Matériel vérifié, trié et prêt — aucune pièce manquante ou endommagée</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <div style="text-align:center;" onclick="openLightbox('images/deballage_carton_cisco.jpg','Déballage des équipements Cisco IA')">
-                        <img src="images/deballage_carton_cisco.jpg" alt="Déballage des équipements Cisco IA" style="max-width:100%; border-radius:10px; border:1px solid var(--border); cursor:zoom-in;">
-                    </div>
-                </div>
             </div>
 
             <div id="cp3" class="cpart">
@@ -889,21 +779,6 @@
                         <li><strong>Contrôle de conformité</strong> — Vérification finale : chaque équipement à la bonne position.</li>
                     </ul>
                 </div>
-                <div class="result-v2">
-                    <h4><i class="fa-solid fa-circle-check"></i> Résultats</h4>
-                    <ul>
-                        <li>Baie conforme à 100% au schéma d'implantation</li>
-                    </ul>
-                </div>
-                <div class="dsec" style="margin-top:20px;">
-                    <h3><i class="fa-solid fa-table"></i> Plan d'implantation</h3>
-                    <div class="excel-preview">
-                        <div class="excel-header">
-                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
-                            <div class="excel-meta">
-                                <div class="excel-filename">plan_implantation_rack.xlsx</div>
-                                <div class="excel-filedesc">Schéma d'implantation — Baie Cisco IA</div>
-                            </div>
                         </div>
                         <div style="padding:32px; text-align:center; color:var(--muted); font-size:0.9rem;">
                             <i class="fa-solid fa-file-circle-plus" style="font-size:2rem; margin-bottom:8px; display:block;"></i>
