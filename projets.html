@@ -46,8 +46,8 @@
     <!-- Bannière stats globales -->
     <div class="stage-stats rv">
         <div class="stage-stat"><div class="ss-num">4</div><div class="ss-label">Projets menés</div></div>
-        <div class="stage-stat"><div class="ss-num">24/41</div><div class="ss-label">Équipements supervisés</div></div>
-        <div class="stage-stat"><div class="ss-num">5</div><div class="ss-label">Comptes rendus</div></div>
+        <div class="stage-stat"><div class="ss-num">24</div><div class="ss-label">Équipements supervisés</div></div>
+        <div class="stage-stat"><div class="ss-num">10</div><div class="ss-label">Comptes rendus</div></div>
         <div class="stage-stat"><div class="ss-num">1</div><div class="ss-label">Salon professionnel</div></div>
     </div>
 
@@ -88,10 +88,10 @@
         <div class="stage-card rv" onclick="openCRModal()">
             <div class="pci"><i class="fa-solid fa-folder-open"></i></div>
             <div class="pcb">
-                <div class="pct">Documents & Événements de Stage <span class="bs bs-doc">5 docs · 1 salon</span></div>
+                <div class="pct">Documents & Événements de Stage <span class="bs bs-doc">10 docs · 1 salon</span></div>
                 <p class="pcd">Comptes rendus d'intervention, sortie au salon IT Expert à La Défense Arena et documents techniques rédigés durant le stage.</p>
                 <div class="card-techs">
-                    <span class="ct">IT Expert</span><span class="ct">La Défense Arena</span><span class="ct">5 CRs</span>
+                    <span class="ct">IT Expert</span><span class="ct">La Défense Arena</span><span class="ct">10 CRs</span>
                 </div>
             </div>
             <i class="fa-solid fa-chevron-right pca"></i>
@@ -192,12 +192,26 @@
                 <div class="dsec">
                     <h3><i class="fa-solid fa-images"></i> Photos du projet</h3>
                     <div class="photos-grid">
-                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-server"></i></div><div class="photo-caption">Racks datacenter BSC</div></div>
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/rack_cisco.jpg','Racks datacenter BSC')">
+                                <img src="images/rack_cisco.jpg" alt="Racks datacenter BSC">
+                            </div>
+                            <div class="photo-caption">Racks datacenter BSC</div>
+                        </div>
                         <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-plug"></i></div><div class="photo-caption">PDU APC</div></div>
                         <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-bolt"></i></div><div class="photo-caption">Onduleur UPS</div></div>
-                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-ethernet"></i></div><div class="photo-caption">Câblage réseau</div></div>
-                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-chart-line"></i></div><div class="photo-caption">Interface EcoStruxure</div></div>
-                        <div class="photo-card"><div class="photo-placeholder"><i class="fa-solid fa-desktop"></i></div><div class="photo-caption">Supervision temps réel</div></div>
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/swithc.jpg','Câblage réseau')">
+                                <img src="images/swithc.jpg" alt="Câblage réseau">
+                            </div>
+                            <div class="photo-caption">Câblage réseau</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/interface_ecostruxure.png','Interface EcoStruxure')">
+                                <img src="images/interface_ecostruxure.png" alt="Interface EcoStruxure">
+                            </div>
+                            <div class="photo-caption">Interface EcoStruxure</div>
+                        </div>
                     </div>
                 </div>
 
@@ -706,7 +720,7 @@
                 </div>
                 <div class="dsec">
                     <ul class="mlist">
-                        <li><strong>Fichier Excel structuré</strong> Suivi de chaque équipement avec sa référence, son modèle, son numéro de série et son emplacement.</li>
+                        <li><strong>Fichier Excel structuré</strong> Suivi de chaque équipement avec sa référence, son modèle et son emplacement.</li>
                         <li><strong>Saisie à la réception</strong> Chaque équipement enregistré dès ouverture des colis.</li>
                     </ul>
                 </div>
@@ -724,14 +738,13 @@
                         <div class="excel-table-wrap">
                             <table class="excel-table">
                                 <thead>
-                                    <tr><th>Type</th><th>Référence modèle</th><th>Description</th><th>N° de série</th><th>Qté</th><th>Rack</th></tr>
+                                    <tr><th>Type</th><th>Référence modèle</th><th>Description</th><th>Qté</th><th>Rack</th></tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Switch</td>
                                         <td>N9324C-SE1U</td>
                                         <td>Cisco Nexus 9300-FX3 — 24 ports 100G</td>
-                                        <td><span class="excel-serial">FDO29310LKD<br>FDO29310LGZ</span></td>
                                         <td>2</td>
                                         <td>15</td>
                                     </tr>
@@ -739,7 +752,6 @@
                                         <td>Serveur</td>
                                         <td>UCSC-C220-M8S</td>
                                         <td>Cisco UCS C220 M8 — Serveur rack 8ème gén.</td>
-                                        <td><span class="excel-serial">WZP29320Z8Z<br>WZP29320Z8W<br>WZP29320Z7B</span></td>
                                         <td>3</td>
                                         <td>15</td>
                                     </tr>
@@ -747,7 +759,6 @@
                                         <td>Câblage</td>
                                         <td>CAB-9K10A-EU</td>
                                         <td>Cordon alimentation 250V / 10A — prise EU</td>
-                                        <td><span class="excel-serial">—</span></td>
                                         <td>6</td>
                                         <td>15</td>
                                     </tr>
@@ -755,7 +766,6 @@
                                         <td>Câblage</td>
                                         <td>CB-M12-M12-MMF-15M</td>
                                         <td>Câble fibre optique MPO-12 multimode 15m</td>
-                                        <td><span class="excel-serial">GFT28470865</span></td>
                                         <td>4</td>
                                         <td>15</td>
                                     </tr>
@@ -763,7 +773,6 @@
                                         <td>Optique</td>
                                         <td>QSFP-100G-SL4</td>
                                         <td>Transceiver 100G QSFP28 fibre multimode</td>
-                                        <td><span class="excel-serial">INP29060015</span></td>
                                         <td>4</td>
                                         <td>15</td>
                                     </tr>
@@ -809,7 +818,6 @@
                     <ul class="mlist">
                         <li><strong>Lecture du schéma de rack</strong> Identification de la position exacte de chaque équipement avant installation.</li>
                         <li><strong>Installation physique</strong> Fixation de chaque équipement à sa position U avec l'outillage adapté.</li>
-                        <li><strong>Contrôle de conformité</strong> Vérification finale que l'installation correspond au schéma fourni.</li>
                     </ul>
                 </div>
                 <div class="dsec" style="margin-top:20px;">
