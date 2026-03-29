@@ -122,13 +122,13 @@
         </div>
         <div class="tp-card rv">
             <div class="tp-title">Configuration d'un firewall pfSense</div>
-            <p class="tp-desc">Mise en oeuvre de règles de filtrage, NAT et tests de connectivité sur un firewall pfSense.</p>
+            <p class="tp-desc">Mise en œuvre de règles de filtrage, NAT et tests de connectivité sur un firewall pfSense.</p>
             <a href="TP/pfsense.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le compte rendu d'activité</a>
         </div>
         <div class="tp-card rv">
             <div class="tp-title">Mise en place d'un VPN (site à site et nomade)</div>
             <p class="tp-desc">Configuration de tunnels VPN sécurisés pour interconnecter des réseaux distants et des clients nomades.</p>
-            <a href="TP/VPN%20.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le compte rendu d'activité</a>
+            <a href="TP/VPN.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Voir le compte rendu d'activité</a>
         </div>
         <div class="tp-card rv">
             <div class="tp-title">Déploiement d'une solution VoIP avec Asterisk</div>
@@ -199,8 +199,8 @@
                             <div class="photo-caption">Racks datacenter BSC</div>
                         </div>
                         <div class="photo-card">
-                            <div class="itexpert-photo" onclick="openLightbox('images/swithc.jpg','Câblage réseau')">
-                                <img src="images/swithc.jpg" alt="Câblage réseau">
+                            <div class="itexpert-photo" onclick="openLightbox('images/switch.jpg','Câblage réseau')">
+                                <img src="images/switch.jpg" alt="Câblage réseau">
                             </div>
                             <div class="photo-caption">Câblage réseau</div>
                         </div>
@@ -289,7 +289,7 @@
                 </div>
                 <div class="dsec" style="margin-top:20px;">
                     <div style="text-align:center;">
-                        <img src="images/swithc.jpg" alt="Switch Cisco utilisé pour le câblage réseau du datacenter" style="max-width:100%; border-radius:10px; border:1px solid var(--border);">
+                        <img src="images/switch.jpg" alt="Switch Cisco utilisé pour le câblage réseau du datacenter" style="max-width:100%; border-radius:10px; border:1px solid var(--border);">
                     </div>
                 </div>
             </div>
@@ -829,19 +829,51 @@
                     </ul>
                 </div>
                 <div class="dsec" style="margin-top:20px;">
-                    <h3><i class="fa-solid fa-table"></i> Plan d'implantation</h3>
-                    <div class="excel-preview">
-                        <div class="excel-header">
-                            <div class="excel-icon"><i class="fa-solid fa-file-excel"></i></div>
-                            <div class="excel-meta">
-                                <div class="excel-filename">plan_implantation_rack.xlsx</div>
-                                <div class="excel-filedesc">Schéma d'implantation — Baie Cisco IA</div>
-                            </div>
-                        </div>
-                        <div style="padding:32px; text-align:center; color:var(--muted); font-size:0.9rem;">
-                            <i class="fa-solid fa-file-circle-plus" style="font-size:2rem; margin-bottom:8px; display:block;"></i>
-                            Document à venir
-                        </div>
+                    <h3><i class="fa-solid fa-server"></i> Plan d'implantation — Rack 15 (face avant)</h3>
+                    <div class="rack-diagram">
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U42</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U41</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U40</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U39</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U38</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-cisco"><span class="rack-pos">U37</span><span class="rack-label">CISCO — Nexus 9300-FX3 (N9324C-SE1U)</span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U36</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U35</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U34</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U33</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U32</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U31</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U30</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U29</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U28</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U27</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U26</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U25</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U24</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U23</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U22</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U21</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U20</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U19</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-cisco"><span class="rack-pos">U18</span><span class="rack-label">CISCO — Nexus 9300-FX3 (N9324C-SE1U)</span></div>
+                        <div class="rack-unit rack-cisco"><span class="rack-pos">U17</span><span class="rack-label">CISCO — UCS C220 M8 (UCSC-C220-M8S)</span></div>
+                        <div class="rack-unit rack-cisco"><span class="rack-pos">U16</span><span class="rack-label">CISCO — UCS C220 M8 (UCSC-C220-M8S)</span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U15</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U14</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U13</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U12</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U11</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U10</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-netapp"><span class="rack-pos">U09</span><span class="rack-label">NETAPP — AFF A30</span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U08</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U07</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U06</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U05</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U04</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U03</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-eaton"><span class="rack-pos">U02</span><span class="rack-label">EATON — 9SX 5000 (49,5 kg)</span></div>
+                        <div class="rack-unit rack-empty"><span class="rack-pos">U01</span><span class="rack-label"></span></div>
+                        <div class="rack-unit rack-tripplite"><span class="rack-pos">Rack</span><span class="rack-label">TRIPP-LITE (130 kg)</span></div>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,12 @@
       "Bash(py -m pip install python-docx pillow -q)",
       "Bash(py:*)",
       "Bash(dir \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\\\\images\" /b)",
-      "Bash(grep -v '^imgs_temp$')"
+      "Bash(grep -v '^imgs_temp$')",
+      "Bash(grep -n \"à venir\\\\|document à venir\\\\|placeholder\\\\|TODO\\\\|FIXME\" \"C:\\\\Users\\\\seddi\\\\Documents\\\\PORTFOLIO\\\\ilyasseddiki.github.io\"/*.html)",
+      "Bash(grep -i \"oeuvre\\\\|œuvre\" \"/c/Users/seddi/Documents/PORTFOLIO/ilyasseddiki.github.io\"/*.html)",
+      "Bash(grep \"2025\\\\|2026\" \"/c/Users/seddi/Documents/PORTFOLIO/ilyasseddiki.github.io\"/*.html)",
+      "Bash(grep -i \"todo\\\\|fixme\\\\|wip\\\\|coming soon\" \"/c/Users/seddi/Documents/PORTFOLIO/ilyasseddiki.github.io\"/*.html)",
+      "Bash(grep -E \"#[0-9a-f]{3,6}|rgb\\\\\\(\")"
     ]
   }
 }

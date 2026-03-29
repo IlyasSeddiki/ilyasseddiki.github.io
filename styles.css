@@ -614,6 +614,26 @@ footer { text-align:center; padding:38px 20px; border-top:var(--border); margin-
 .excel-more td { text-align:center; color:var(--muted); font-style:italic; padding:12px; font-size:.8rem; }
 .excel-serial { font-size:.72rem; color:var(--muted); font-family:monospace; line-height:1.6; }
 
+/* ── Rack Diagram ─────────────────────── */
+.rack-diagram { border-radius:14px; overflow:hidden; border:var(--border); background:#0a0a0a; }
+.rack-unit { display:flex; align-items:center; height:22px; border-bottom:1px solid #1a1a1a; font-size:.72rem; }
+.rack-pos { width:40px; text-align:center; font-weight:700; color:#888; font-family:monospace; flex-shrink:0; background:rgba(255,255,255,.04); border-right:1px solid #1a1a1a; height:100%; display:flex; align-items:center; justify-content:center; }
+.rack-label { flex:1; padding:0 10px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.rack-empty { background:#111; }
+.rack-empty .rack-label { color:transparent; }
+.rack-cisco { background:linear-gradient(90deg,#c8a800,#e6c300); }
+.rack-cisco .rack-label { color:#1a1a00; }
+.rack-cisco .rack-pos { color:#1a1a00; background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.15); }
+.rack-netapp { background:linear-gradient(90deg,#d97706,#f59e0b); }
+.rack-netapp .rack-label { color:#1a0a00; }
+.rack-netapp .rack-pos { color:#1a0a00; background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.15); }
+.rack-eaton { background:linear-gradient(90deg,#c8a800,#e6c300); }
+.rack-eaton .rack-label { color:#1a1a00; }
+.rack-eaton .rack-pos { color:#1a1a00; background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.15); }
+.rack-tripplite { background:linear-gradient(90deg,#c8a800,#e6c300); height:26px; }
+.rack-tripplite .rack-label { color:#1a1a00; }
+.rack-tripplite .rack-pos { color:#1a1a00; background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.15); font-size:.65rem; }
+
 /* ── IT Expert Gallery ─────────────────────── */
 .itexpert-gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:24px 0; }
 .itexpert-photo { border-radius:14px; overflow:hidden; background:var(--card); border:var(--border); aspect-ratio:4/3; cursor:zoom-in; position:relative; }
