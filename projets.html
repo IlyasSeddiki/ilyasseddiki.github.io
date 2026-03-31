@@ -47,7 +47,7 @@
     <div class="stage-stats rv">
         <div class="stage-stat"><div class="ss-num">4</div><div class="ss-label">Projets menés</div></div>
         <div class="stage-stat"><div class="ss-num">24</div><div class="ss-label">Équipements supervisés</div></div>
-        <div class="stage-stat"><div class="ss-num">10</div><div class="ss-label">Comptes rendus</div></div>
+        <div class="stage-stat"><div class="ss-num">4</div><div class="ss-label">Comptes rendus</div></div>
         <div class="stage-stat"><div class="ss-num">1</div><div class="ss-label">Salon professionnel</div></div>
     </div>
 
@@ -88,10 +88,10 @@
         <div class="stage-card rv" onclick="openCRModal()">
             <div class="pci"><i class="fa-solid fa-folder-open"></i></div>
             <div class="pcb">
-                <div class="pct">Documents & Événements de Stage <span class="bs bs-doc">10 docs · 1 salon</span></div>
+                <div class="pct">Documents & Événements de Stage <span class="bs bs-doc">4 docs · 1 salon</span></div>
                 <p class="pcd">Comptes rendus d'intervention, sortie au salon IT Expert à La Défense Arena et documents techniques rédigés durant le stage.</p>
                 <div class="card-techs">
-                    <span class="ct">IT Expert</span><span class="ct">La Défense Arena</span><span class="ct">10 CRs</span>
+                    <span class="ct">IT Expert</span><span class="ct">La Défense Arena</span><span class="ct">4 CRs</span>
                 </div>
             </div>
             <i class="fa-solid fa-chevron-right pca"></i>
@@ -193,22 +193,22 @@
                     <h3><i class="fa-solid fa-images"></i> Photos du projet</h3>
                     <div class="photos-grid">
                         <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/interface_ecostruxure1.png','Interface EcoStruxure IT Expert')">
+                                <img src="images/interface_ecostruxure1.png" alt="Interface EcoStruxure IT Expert">
+                            </div>
+                            <div class="photo-caption">Interface EcoStruxure IT Expert</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/apres_cablage.jpg','Câblage terminé')">
+                                <img src="images/apres_cablage.jpg" alt="Câblage terminé">
+                            </div>
+                            <div class="photo-caption">Câblage terminé</div>
+                        </div>
+                        <div class="photo-card">
                             <div class="itexpert-photo" onclick="openLightbox('images/rack_cisco.jpg','Racks datacenter BSC')">
                                 <img src="images/rack_cisco.jpg" alt="Racks datacenter BSC">
                             </div>
                             <div class="photo-caption">Racks datacenter BSC</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="itexpert-photo" onclick="openLightbox('images/switch.jpg','Câblage réseau')">
-                                <img src="images/switch.jpg" alt="Câblage réseau">
-                            </div>
-                            <div class="photo-caption">Câblage réseau</div>
-                        </div>
-                        <div class="photo-card">
-                            <div class="itexpert-photo" onclick="openLightbox('images/interface_ecostruxure.png','Interface EcoStruxure')">
-                                <img src="images/interface_ecostruxure.png" alt="Interface EcoStruxure">
-                            </div>
-                            <div class="photo-caption">Interface EcoStruxure</div>
                         </div>
                     </div>
                 </div>
@@ -288,8 +288,20 @@
                     </ul>
                 </div>
                 <div class="dsec" style="margin-top:20px;">
-                    <div style="text-align:center;">
-                        <img src="images/switch.jpg" alt="Switch Cisco utilisé pour le câblage réseau du datacenter" style="max-width:100%; border-radius:10px; border:1px solid var(--border);">
+                    <h3><i class="fa-solid fa-images"></i> Avant / Après</h3>
+                    <div class="photos-grid" style="grid-template-columns:repeat(2,1fr);">
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/switch.jpg','Avant câblage — Switch Cisco')">
+                                <img src="images/switch.jpg" alt="Avant câblage">
+                            </div>
+                            <div class="photo-caption">Avant câblage</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/apres_cablage.jpg','Après câblage — Réseau opérationnel')">
+                                <img src="images/apres_cablage.jpg" alt="Après câblage">
+                            </div>
+                            <div class="photo-caption">Après câblage</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,10 +326,8 @@
                     <h3><i class="fa-solid fa-file-pdf"></i> Guides techniques</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:10px;">
                         <a href="documents/Mise_en_%C5%93uvre-ITE.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-gears"></i> Mise en Oeuvre - IT Expert</a>
-                        <a href="documents/Gateway-ITE.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-network-wired"></i> Mise en place de la gateway</a>
                         <a href="documents/equipement_gateway_itexperts.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-plug"></i> Connexion Gateway & découverte des équipements</a>
                         <a href="documents/alarmes_it_experts.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-bell"></i> Configurer une alarme sur IT Expert</a>
-                        <a href="documents/Floor_layout-ITE.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-map"></i> Floor layout</a>
                         <a href="documents/FloorLayout_ITE_DataRoom_BSC.pdf" class="tp-btn" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Floor Layout — Data Room BSC (IT Expert)</a>
                     </div>
                 </div>
@@ -338,6 +348,23 @@
                         <li><strong>Modélisation de la salle</strong> Reproduction fidèle du datacenter avec les 16 racks à leurs emplacements réels.</li>
                         <li><strong>Intégration équipements</strong> Chaque UPS et PDU positionné à l'unité exacte avec ses données de supervision.</li>
                     </ul>
+                </div>
+                <div class="dsec" style="margin-top:20px;">
+                    <h3><i class="fa-solid fa-images"></i> Aperçus</h3>
+                    <div class="photos-grid" style="grid-template-columns:repeat(2,1fr);">
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/apercu_2D.png','Aperçu 2D du datacenter')">
+                                <img src="images/apercu_2D.png" alt="Aperçu 2D du datacenter">
+                            </div>
+                            <div class="photo-caption">Aperçu 2D</div>
+                        </div>
+                        <div class="photo-card">
+                            <div class="itexpert-photo" onclick="openLightbox('images/apercu_3D.png','Aperçu 3D du datacenter')">
+                                <img src="images/apercu_3D.png" alt="Aperçu 3D du datacenter">
+                            </div>
+                            <div class="photo-caption">Aperçu 3D</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="dsec" style="margin-top:20px;">
                     <h3><i class="fa-solid fa-file-pdf"></i> Documents associés</h3>
@@ -364,6 +391,22 @@
             </div>
         </div>
         <div class="mbody">
+
+            <!-- ── Photos de stage ─────────────────────── -->
+            <div class="dsec">
+                <h3><i class="fa-solid fa-images"></i> Photos de stage</h3>
+                <div class="itexpert-gallery">
+                    <div class="itexpert-photo" onclick="openLightbox('images/accueil.jpg','Accueil TD SYNNEX — Courbevoie')">
+                        <img src="images/accueil.jpg" alt="Accueil TD SYNNEX">
+                    </div>
+                    <div class="itexpert-photo" onclick="openLightbox('images/reunion.jpg','Réunion d\'équipe')">
+                        <img src="images/reunion.jpg" alt="Réunion d'équipe">
+                    </div>
+                    <div class="itexpert-photo" onclick="openLightbox('images/interieur_datacenter.jpg','Intérieur du datacenter BSC')">
+                        <img src="images/interieur_datacenter.jpg" alt="Intérieur du datacenter BSC">
+                    </div>
+                </div>
+            </div>
 
             <!-- ── Salon IT Expert ─────────────────────── -->
             <div class="dsec">
