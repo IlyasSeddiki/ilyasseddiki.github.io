@@ -48,7 +48,7 @@
         </div>
         <div class="veille-kpi-grid">
             <div class="veille-kpi"><div class="veille-kpi-num">73%</div><div class="veille-kpi-label">des entreprises adoptent le Zero Trust d'ici 2026</div></div>
-            <div class="veille-kpi"><div class="veille-kpi-num">5</div><div class="veille-kpi-label">flux RSS surveillés en continu</div></div>
+            <div class="veille-kpi"><div class="veille-kpi-num">4</div><div class="veille-kpi-label">dossiers de veille sur Inoreader</div></div>
             <div class="veille-kpi"><div class="veille-kpi-num">3</div><div class="veille-kpi-label">piliers : identité, appareil, réseau</div></div>
         </div>
     </div>
@@ -107,15 +107,48 @@
 </section>
 
 <section>
-    <!-- ── Actualités RSS ─────────────────────── -->
-    <div class="sec-head rv" style="margin-bottom:30px;">
-        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Actualités récentes</h2>
-        <p class="sec-sub">Flux RSS mis à jour automatiquement depuis des sources fiables.</p>
+    <!-- ── PDF mise en place ─────────────────────── -->
+    <div class="see-also-box rv" style="margin-bottom:32px;">
+        <i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i>
+        <p>Document de mise en place — création des flux RSS, abonnement aux sources et organisation sur Inoreader.</p>
+        <a href="documents/mise_en_place_veille_inoreader.pdf" class="see-also-btn" target="_blank">
+            <i class="fa-solid fa-download"></i> Voir le document de mise en place
+        </a>
     </div>
-    <div id="rssContainer" class="rss-grid rv">
-        <div class="rss-loading" style="grid-column:1/-1;">
-            <i class="fa-solid fa-spinner fa-spin"></i>
-            Chargement des actualités...
+
+    <!-- ── Flux Inoreader ─────────────────────── -->
+    <div class="sec-head rv" style="margin-bottom:24px;">
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Flux en direct</h2>
+        <p class="sec-sub">Agrégation automatique via Inoreader — mis à jour en temps réel.</p>
+    </div>
+
+    <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; justify-content:space-between; margin-bottom:12px;" class="rv">
+        <div class="inoreader-tabs" style="margin-bottom:0;">
+            <button class="ino-tab active" onclick="switchTab(this,'tab-secu')"><i class="fa-solid fa-shield-halved"></i> Sécurité</button>
+            <button class="ino-tab" onclick="switchTab(this,'tab-reseau')"><i class="fa-solid fa-network-wired"></i> Réseau</button>
+            <button class="ino-tab" onclick="switchTab(this,'tab-sys')"><i class="fa-brands fa-windows"></i> Systèmes</button>
+            <button class="ino-tab" onclick="switchTab(this,'tab-actu')"><i class="fa-solid fa-newspaper"></i> Actualité IT</button>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a href="https://www.inoreader.com/stream/user/1003524522/tag/S%C3%A9curit%C3%A9%20%26%20Cybers%C3%A9curit%C3%A9/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-shield-halved"></i> Sécurité</a>
+            <a href="https://www.inoreader.com/stream/user/1003524522/tag/R%C3%A9seau%20%26%20Infrastructure/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-network-wired"></i> Réseau</a>
+            <a href="https://www.inoreader.com/stream/user/1003524522/tag/Syst%C3%A8mes%20%26%20Virtualisation/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-brands fa-windows"></i> Systèmes</a>
+            <a href="https://www.inoreader.com/stream/user/1003524522/tag/Actualit%C3%A9%20IT/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-newspaper"></i> Actualité IT</a>
+        </div>
+    </div>
+
+    <div class="ino-frame-wrap rv">
+        <div id="tab-secu" class="ino-frame active">
+            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/S%C3%A9curit%C3%A9%20%26%20Cybers%C3%A9curit%C3%A9/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
+        </div>
+        <div id="tab-reseau" class="ino-frame">
+            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/R%C3%A9seau%20%26%20Infrastructure/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
+        </div>
+        <div id="tab-sys" class="ino-frame">
+            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/Syst%C3%A8mes%20%26%20Virtualisation/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
+        </div>
+        <div id="tab-actu" class="ino-frame">
+            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/Actualit%C3%A9%20IT/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
         </div>
     </div>
 </section>
@@ -153,37 +186,46 @@
         <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-bookmark" style="color:var(--accent);"></i> Sources & outils de veille</h2>
     </div>
     <div class="dsec rv" style="margin-bottom:20px;">
-        <h3><i class="fa-solid fa-rss"></i> Flux RSS surveillés</h3>
+        <h3><i class="fa-solid fa-rss"></i> Sources suivies</h3>
         <div class="veille-src-grid">
             <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="veille-src">
                 <div class="veille-src-ico"><i class="fa-solid fa-shield-halved"></i></div>
-                <div><div class="veille-src-name">CERT-FR (ANSSI)</div><div class="veille-src-desc">Alertes de sécurité nationales</div></div>
+                <div><div class="veille-src-name">CERT-FR (ANSSI)</div><div class="veille-src-desc">Sécurité & Cybersécurité</div></div>
             </a>
-            <a href="https://thehackernews.com/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-newspaper"></i></div>
-                <div><div class="veille-src-name">The Hacker News</div><div class="veille-src-desc">Actualités cybersécurité</div></div>
-            </a>
-            <a href="https://www.bleepingcomputer.com/" target="_blank" class="veille-src">
+            <a href="https://www.eset.com/fr/blog/" target="_blank" class="veille-src">
                 <div class="veille-src-ico"><i class="fa-solid fa-bug"></i></div>
-                <div><div class="veille-src-name">BleepingComputer</div><div class="veille-src-desc">Sécurité & vulnérabilités</div></div>
+                <div><div class="veille-src-name">ESET Blog</div><div class="veille-src-desc">Sécurité & Cybersécurité</div></div>
             </a>
-            <a href="https://www.zdnet.fr/" target="_blank" class="veille-src">
+            <a href="https://www.zataz.com/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-user-secret"></i></div>
+                <div><div class="veille-src-name">ZATAZ</div><div class="veille-src-desc">Sécurité & Cybersécurité</div></div>
+            </a>
+            <a href="https://blog.cisco.com/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-network-wired"></i></div>
+                <div><div class="veille-src-name">Cisco Blog</div><div class="veille-src-desc">Réseau & Infrastructure</div></div>
+            </a>
+            <a href="https://www.datacenterknowledge.com/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-server"></i></div>
+                <div><div class="veille-src-name">Data Center Knowledge</div><div class="veille-src-desc">Réseau & Infrastructure</div></div>
+            </a>
+            <a href="https://blogs.vmware.com/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-cube"></i></div>
+                <div><div class="veille-src-name">VMware Blogs</div><div class="veille-src-desc">Systèmes & Virtualisation</div></div>
+            </a>
+            <a href="https://www.silicon.fr/" target="_blank" class="veille-src">
+                <div class="veille-src-ico"><i class="fa-solid fa-newspaper"></i></div>
+                <div><div class="veille-src-name">Silicon.fr</div><div class="veille-src-desc">Actualité IT</div></div>
+            </a>
+            <a href="https://www.journaldunet.com/" target="_blank" class="veille-src">
                 <div class="veille-src-ico"><i class="fa-solid fa-globe"></i></div>
-                <div><div class="veille-src-name">ZDNet France</div><div class="veille-src-desc">IT & cybersécurité (FR)</div></div>
-            </a>
-            <a href="https://feeds.feedburner.com/TheHackersNews" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-square-rss"></i></div>
-                <div><div class="veille-src-name">Flux RSS direct</div><div class="veille-src-desc">Feed Hacker News (XML)</div></div>
+                <div><div class="veille-src-name">Journal du Net</div><div class="veille-src-desc">Actualité IT</div></div>
             </a>
         </div>
     </div>
     <div class="dsec rv">
-        <h3><i class="fa-solid fa-wrench"></i> Outils utilisés</h3>
+        <h3><i class="fa-solid fa-wrench"></i> Outil utilisé</h3>
         <div class="tools-grid">
-            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-rss"></i></div><div class="tool-name">Feedly</div></div>
-            <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-google"></i></div><div class="tool-name">Google Alerts</div></div>
-            <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-twitter"></i></div><div class="tool-name">X (Twitter)</div></div>
-            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-bookmark"></i></div><div class="tool-name">Pocket</div></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-rss"></i></div><div class="tool-name">Inoreader</div></div>
         </div>
     </div>
 </section>
@@ -200,96 +242,12 @@
 
 <script src="script.js"></script>
 <script>
-(function() {
-    var RSS_FEEDS = [
-        'https://feeds.feedburner.com/TheHackersNews',
-        'https://www.bleepingcomputer.com/feed/',
-        'https://www.cert.ssi.gouv.fr/alerte/feed/',
-        'https://www.zdnet.fr/feeds/rss/actualites/informatique/',
-        'https://cyberscoop.com/feed/'
-    ];
-
-    var API_URL = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    var container = document.getElementById('rssContainer');
-    var allItems = [];
-    var loaded = 0;
-
-    function escapeHtml(str) {
-        var div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
-
-    function stripHtml(html) {
-        var tmp = document.createElement('div');
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || '';
-    }
-
-    function truncate(str, max) {
-        str = stripHtml(str).trim();
-        return str.length > max ? str.slice(0, max) + '...' : str;
-    }
-
-    function formatDate(dateStr) {
-        try {
-            var d = new Date(dateStr);
-            if (isNaN(d.getTime())) return '';
-            return d.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
-        } catch(e) { return ''; }
-    }
-
-    function extractSource(url) {
-        try {
-            var h = new URL(url).hostname.replace('www.','').replace('feeds.feedburner.com','thehackernews.com');
-            return h.split('.')[0].charAt(0).toUpperCase() + h.split('.')[0].slice(1);
-        } catch(e) { return 'Source'; }
-    }
-
-    function renderItems() {
-        allItems.sort(function(a,b) { return new Date(b.pubDate) - new Date(a.pubDate); });
-        var top = allItems.slice(0, 8);
-        if (top.length === 0) {
-            container.innerHTML = '<div class="rss-loading" style="grid-column:1/-1;"><i class="fa-solid fa-triangle-exclamation"></i> Impossible de charger les actualités. Consultez directement les sources ci-dessous.</div>';
-            return;
-        }
-        var html = '';
-        top.forEach(function(item) {
-            var source = extractSource(item.link || item.feedUrl || '');
-            var title = escapeHtml(item.title || 'Sans titre');
-            var desc = truncate(item.description || item.content || '', 140);
-            var date = formatDate(item.pubDate);
-            var link = item.link || '#';
-            html += '<div class="rss-card">';
-            html += '<div class="rss-card-source">' + escapeHtml(source) + '</div>';
-            html += '<h4><a href="' + escapeHtml(link) + '" target="_blank" rel="noopener">' + title + '</a></h4>';
-            html += '<p>' + escapeHtml(desc) + '</p>';
-            if (date) html += '<div class="rss-card-date"><i class="fa-regular fa-clock"></i> ' + escapeHtml(date) + '</div>';
-            html += '</div>';
-        });
-        container.innerHTML = html;
-    }
-
-    function fetchFeed(url) {
-        fetch(API_URL + encodeURIComponent(url))
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.status === 'ok' && data.items) {
-                    data.items.forEach(function(item) {
-                        item.feedUrl = url;
-                        allItems.push(item);
-                    });
-                }
-            })
-            .catch(function() {})
-            .finally(function() {
-                loaded++;
-                if (loaded >= RSS_FEEDS.length) renderItems();
-            });
-    }
-
-    RSS_FEEDS.forEach(fetchFeed);
-})();
+function switchTab(btn, tabId) {
+    document.querySelectorAll('.ino-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.ino-frame').forEach(function(f) { f.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+}
 </script>
 </body>
 </html>
