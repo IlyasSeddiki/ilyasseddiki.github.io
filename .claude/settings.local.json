@@ -24,7 +24,10 @@
       "Bash(grep -i \"oeuvre\\\\|œuvre\" \"/c/Users/seddi/Documents/PORTFOLIO/ilyasseddiki.github.io\"/*.html)",
       "Bash(grep \"2025\\\\|2026\" \"/c/Users/seddi/Documents/PORTFOLIO/ilyasseddiki.github.io\"/*.html)",
       "Bash(grep -i \"todo\\\\|fixme\\\\|wip\\\\|coming soon\" \"/c/Users/seddi/Documents/PORTFOLIO/ilyasseddiki.github.io\"/*.html)",
-      "Bash(grep -E \"#[0-9a-f]{3,6}|rgb\\\\\\(\")"
+      "Bash(grep -E \"#[0-9a-f]{3,6}|rgb\\\\\\(\")",
+      "Bash(sed -i 's|<div class=\"\"ss-num\"\">4</div><div class=\"\"ss-label\"\">Comptes rendus</div>|<div class=\"\"ss-num\"\">11</div><div class=\"\"ss-label\"\">Comptes rendus</div>|g' projets.html)",
+      "Bash(sed -i 's|4 docs · 1 salon|11 docs · 1 salon|g' projets.html)",
+      "Bash(sed -i 's|<span class=\"\"ct\"\">4 CRs</span>|<span class=\"\"ct\"\">11 docs</span>|g' projets.html)"
     ]
   }
 }
