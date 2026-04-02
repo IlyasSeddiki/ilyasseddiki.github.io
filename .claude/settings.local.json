@@ -35,7 +35,9 @@
       "WebFetch(domain:www.datacenterknowledge.com)",
       "WebFetch(domain:blogs.vmware.com)",
       "WebFetch(domain:www.silicon.fr)",
-      "WebFetch(domain:www.journaldunet.com)"
+      "WebFetch(domain:www.journaldunet.com)",
+      "WebFetch(domain:www.okta.com)",
+      "WebFetch(domain:www.whitehouse.gov)"
     ]
   }
 }
