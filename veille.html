@@ -107,49 +107,30 @@
 </section>
 
 <section>
-    <!-- ── PDF mise en place ─────────────────────── -->
-    <div class="see-also-box rv" style="margin-bottom:32px;">
+    <!-- ── PDFs veille ─────────────────────── -->
+    <div class="see-also-box rv" style="margin-bottom:16px;">
         <i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i>
         <p>Document de mise en place — création des flux RSS, abonnement aux sources et organisation sur Inoreader.</p>
         <a href="documents/Mise_en_place_de_mon_Flux_RSS.pdf" class="see-also-btn" target="_blank">
             <i class="fa-solid fa-file-pdf"></i> Voir le document de mise en place
         </a>
     </div>
+    <div class="see-also-box rv" style="margin-bottom:32px;">
+        <i class="fa-solid fa-file-lines" style="color:var(--accent);"></i>
+        <p>Compte rendu de veille technologique — synthèse des articles lus et analyse du sujet Zero Trust.</p>
+        <a href="documents/TODO_NOM_PDF.pdf" class="see-also-btn" target="_blank" id="cr-veille-btn">
+            <i class="fa-solid fa-file-pdf"></i> Voir le compte rendu de veille
+        </a>
+    </div>
 
     <!-- ── Flux Inoreader ─────────────────────── -->
     <div class="sec-head rv" style="margin-bottom:24px;">
-        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Flux en direct</h2>
-        <p class="sec-sub">Agrégation automatique via Inoreader — mis à jour en temps réel.</p>
-    </div>
-
-    <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; justify-content:space-between; margin-bottom:12px;" class="rv">
-        <div class="inoreader-tabs" style="margin-bottom:0;">
-            <button class="ino-tab active" onclick="switchTab(this,'tab-secu')"><i class="fa-solid fa-shield-halved"></i> Sécurité</button>
-            <button class="ino-tab" onclick="switchTab(this,'tab-reseau')"><i class="fa-solid fa-network-wired"></i> Réseau</button>
-            <button class="ino-tab" onclick="switchTab(this,'tab-sys')"><i class="fa-brands fa-windows"></i> Systèmes</button>
-            <button class="ino-tab" onclick="switchTab(this,'tab-actu')"><i class="fa-solid fa-newspaper"></i> Actualité IT</button>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <a href="https://www.inoreader.com/stream/user/1003524522/tag/S%C3%A9curit%C3%A9%20%26%20Cybers%C3%A9curit%C3%A9/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-shield-halved"></i> Sécurité</a>
-            <a href="https://www.inoreader.com/stream/user/1003524522/tag/R%C3%A9seau%20%26%20Infrastructure/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-network-wired"></i> Réseau</a>
-            <a href="https://www.inoreader.com/stream/user/1003524522/tag/Syst%C3%A8mes%20%26%20Virtualisation/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-brands fa-windows"></i> Systèmes</a>
-            <a href="https://www.inoreader.com/stream/user/1003524522/tag/Actualit%C3%A9%20IT/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-newspaper"></i> Actualité IT</a>
-        </div>
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Flux en direct — ZTNA</h2>
+        <p class="sec-sub">Alertes Google Alerts agrégées via Inoreader — mis à jour en temps réel.</p>
     </div>
 
     <div class="ino-frame-wrap rv">
-        <div id="tab-secu" class="ino-frame active">
-            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/S%C3%A9curit%C3%A9%20%26%20Cybers%C3%A9curit%C3%A9/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
-        </div>
-        <div id="tab-reseau" class="ino-frame">
-            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/R%C3%A9seau%20%26%20Infrastructure/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
-        </div>
-        <div id="tab-sys" class="ino-frame">
-            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/Syst%C3%A8mes%20%26%20Virtualisation/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
-        </div>
-        <div id="tab-actu" class="ino-frame">
-            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/Actualit%C3%A9%20IT/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
-        </div>
+        <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/ZTNA/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
     </div>
 </section>
 
@@ -185,43 +166,11 @@
     <div class="sec-head rv" style="margin-top:60px; margin-bottom:20px;">
         <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-bookmark" style="color:var(--accent);"></i> Sources & outils de veille</h2>
     </div>
-    <div class="dsec rv" style="margin-bottom:20px;">
-        <h3><i class="fa-solid fa-rss"></i> Sources suivies</h3>
-        <div class="veille-src-grid">
-            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-shield-halved"></i></div>
-                <div><div class="veille-src-name">CERT-FR (ANSSI)</div><div class="veille-src-desc">Sécurité & Cybersécurité</div></div>
-            </a>
-            <a href="https://www.eset.com/fr/blog/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-bug"></i></div>
-                <div><div class="veille-src-name">ESET Blog</div><div class="veille-src-desc">Sécurité & Cybersécurité</div></div>
-            </a>
-            <a href="https://www.zataz.com/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-user-secret"></i></div>
-                <div><div class="veille-src-name">ZATAZ</div><div class="veille-src-desc">Sécurité & Cybersécurité</div></div>
-            </a>
-            <a href="https://www.datacenterknowledge.com/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-server"></i></div>
-                <div><div class="veille-src-name">Data Center Knowledge</div><div class="veille-src-desc">Réseau & Infrastructure</div></div>
-            </a>
-            <a href="https://blogs.vmware.com/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-cube"></i></div>
-                <div><div class="veille-src-name">VMware Blogs</div><div class="veille-src-desc">Systèmes & Virtualisation</div></div>
-            </a>
-            <a href="https://www.silicon.fr/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-newspaper"></i></div>
-                <div><div class="veille-src-name">Silicon.fr</div><div class="veille-src-desc">Actualité IT</div></div>
-            </a>
-            <a href="https://www.journaldunet.com/" target="_blank" class="veille-src">
-                <div class="veille-src-ico"><i class="fa-solid fa-globe"></i></div>
-                <div><div class="veille-src-name">Journal du Net</div><div class="veille-src-desc">Actualité IT</div></div>
-            </a>
-        </div>
-    </div>
     <div class="dsec rv">
-        <h3><i class="fa-solid fa-wrench"></i> Outil utilisé</h3>
+        <h3><i class="fa-solid fa-wrench"></i> Outils utilisés</h3>
         <div class="tools-grid">
             <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-rss"></i></div><div class="tool-name">Inoreader</div></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-brands fa-google"></i></div><div class="tool-name">Google Alerts</div></div>
         </div>
     </div>
 </section>
