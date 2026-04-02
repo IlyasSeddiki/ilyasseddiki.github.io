@@ -37,7 +37,10 @@
       "WebFetch(domain:www.silicon.fr)",
       "WebFetch(domain:www.journaldunet.com)",
       "WebFetch(domain:www.okta.com)",
-      "WebFetch(domain:www.whitehouse.gov)"
+      "WebFetch(domain:www.whitehouse.gov)",
+      "WebFetch(domain:www.gartner.com)",
+      "WebFetch(domain:www.microsoft.com)",
+      "WebFetch(domain:query.prod.cms.rt.microsoft.com)"
     ]
   }
 }
