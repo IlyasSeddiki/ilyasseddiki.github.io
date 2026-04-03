@@ -120,12 +120,22 @@
 
     <!-- ── Flux Inoreader ─────────────────────── -->
     <div class="sec-head rv" style="margin-bottom:24px;">
-        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Flux en direct — ZTNA</h2>
-        <p class="sec-sub">Alertes Google Alerts agrégées via Inoreader — mis à jour en temps réel.</p>
+        <h2 class="sec-title" style="font-size:1.5rem;"><i class="fa-solid fa-rss" style="color:var(--accent);"></i> Flux en direct</h2>
+        <p class="sec-sub">Alertes agrégées via Inoreader — mis à jour en temps réel.</p>
+    </div>
+
+    <div class="inoreader-tabs rv">
+        <button class="ino-tab active" onclick="switchTab(this,'tab-ztna')"><i class="fa-solid fa-shield-halved"></i> Zero Trust (ZTNA)</button>
+        <button class="ino-tab" onclick="switchTab(this,'tab-certfr')"><i class="fa-solid fa-flag"></i> CERT-FR</button>
     </div>
 
     <div class="ino-frame-wrap rv">
-        <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/ZTNA/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
+        <div id="tab-ztna" class="ino-frame active">
+            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/ZTNA/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
+        </div>
+        <div id="tab-certfr" class="ino-frame">
+            <iframe src="https://www.inoreader.com/stream/user/1003524522/tag/Cert-FR/view/html?cs=m" width="100%" height="620" frameborder="0" tabindex="-1" loading="lazy"></iframe>
+        </div>
     </div>
 </section>
 
