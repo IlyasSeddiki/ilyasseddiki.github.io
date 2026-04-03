@@ -124,9 +124,14 @@
         <p class="sec-sub">Alertes agrégées via Inoreader — mis à jour en temps réel.</p>
     </div>
 
-    <div class="inoreader-tabs rv">
-        <button class="ino-tab active" onclick="switchTab(this,'tab-ztna')"><i class="fa-solid fa-shield-halved"></i> Zero Trust (ZTNA)</button>
-        <button class="ino-tab" onclick="switchTab(this,'tab-certfr')"><i class="fa-solid fa-flag"></i> CERT-FR</button>
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;" class="rv">
+        <div class="inoreader-tabs" style="margin-bottom:0;">
+            <button class="ino-tab active" onclick="switchTab(this,'tab-ztna')"><i class="fa-solid fa-shield-halved"></i> Zero Trust (ZTNA)</button>
+            <button class="ino-tab" onclick="switchTab(this,'tab-certfr')"><i class="fa-solid fa-flag"></i> CERT-FR</button>
+        </div>
+        <div style="display:flex; gap:8px;" id="flux-links">
+            <a id="link-ztna" href="https://www.inoreader.com/stream/user/1003524522/tag/ZTNA/view/html?cs=m" target="_blank" class="tp-btn" style="font-size:.8rem; padding:6px 12px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir le flux</a>
+        </div>
     </div>
 
     <div class="ino-frame-wrap rv">
@@ -192,11 +197,17 @@
 
 <script src="script.js"></script>
 <script>
+var fluxUrls = {
+    'tab-ztna': 'https://www.inoreader.com/stream/user/1003524522/tag/ZTNA/view/html?cs=m',
+    'tab-certfr': 'https://www.inoreader.com/stream/user/1003524522/tag/Cert-FR/view/html?cs=m'
+};
 function switchTab(btn, tabId) {
     document.querySelectorAll('.ino-tab').forEach(function(t) { t.classList.remove('active'); });
     document.querySelectorAll('.ino-frame').forEach(function(f) { f.classList.remove('active'); });
     btn.classList.add('active');
     document.getElementById(tabId).classList.add('active');
+    var link = document.getElementById('link-ztna');
+    if (link && fluxUrls[tabId]) link.href = fluxUrls[tabId];
 }
 </script>
 </body>
