@@ -54,10 +54,10 @@ function initTyping() {
     var el = document.getElementById('tw');
     if (!el) return;
     var phrases = [
-        'Administration Systèmes & Réseaux',
-        'Cybersécurité',
-        'Réseaux Cisco & Infrastructure',
-        'Technicien SISR'
+        'System & Network Administration',
+        'Cybersecurity',
+        'Cisco Networking & Infrastructure',
+        'SISR Technician'
     ];
     var pi = 0, ci = 0, del = false;
     function type() {
